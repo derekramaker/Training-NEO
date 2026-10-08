@@ -138,15 +138,84 @@ def make_reference_docx(path):
     d.save(str(path))
 
 
-def pandoc_docx(sources, out, ref, toc=False):
+def pandoc_docx(sources, out, ref):
     out.parent.mkdir(parents=True, exist_ok=True)
     # gfm enables tex_math_dollars; turn it off so dollar amounts ("$1,234 ... $56") stay text.
     cmd = ["pandoc", "-f", "gfm-tex_math_dollars", "-t", "docx", f"--reference-doc={ref}",
            f"--lua-filter={BUILD / 'links.lua'}", "-o", str(out)]
-    if toc:
-        cmd += ["--toc", "--toc-depth=2", "-M", "title=BSA Onboarding Handbook",
-                "-M", f"subtitle=Program start {PROGRAM_START:%a %b %d, %Y}"]
     subprocess.run(cmd + [str(s) for s in sources], check=True)
+
+
+def _text_width_twips(d):
+    sect = d.sections[0]
+    if None in (sect.page_width, sect.left_margin, sect.right_margin):
+        return 9360  # pandoc leaves page size unset: Word's default Letter with 1-inch margins, 6.5 in
+    return int((sect.page_width - sect.left_margin - sect.right_margin) / 635)  # EMU -> twips
+
+
+def _set_width(el, tag, twips, kind="dxa"):
+    w = el.find(qn(tag))
+    if w is None:
+        w = OxmlElement(tag)
+        el.append(w)
+    w.set(qn("w:w"), str(twips))
+    w.set(qn("w:type"), kind)
+
+
+def size_table_columns(path, page_breaks=False):
+    """Give each table column a width proportional to its content.
+
+    The gfm reader writes equal-width columns, so a 4-character "Week" column gets as much
+    room as a sentence-long one and narrow text columns wrap a word per line.
+    """
+    d = docx.Document(str(path))
+    total = _text_width_twips(d)
+    min_col, max_share = 900, 0.6  # twips (about 0.6 in); no column wider than 60% of the line
+    for table in d.tables:
+        rows = [[c.text for c in r.cells] for r in table.rows]
+        ncols = max((len(r) for r in rows), default=0)
+        if ncols < 2:
+            continue
+        weights = []
+        for c in range(ncols):
+            cells = [r[c] for r in rows if c < len(r)]
+            longest_word = max((len(w) for t in cells for w in t.split()), default=1)
+            lengths = [len(t) for t in cells] or [1]
+            mean_len = sum(lengths) / len(lengths)
+            weights.append(max(longest_word, (mean_len * min(max(lengths), 90)) ** 0.5, 3))
+        widths = [w / sum(weights) * total for w in weights]
+        widths = [min(max(w, min_col), total * max_share) for w in widths]
+        widths = [int(w * total / sum(widths)) for w in widths]
+        tbl = table._tbl
+        tbl_pr = tbl.tblPr
+        _set_width(tbl_pr, "w:tblW", total)
+        layout = tbl_pr.find(qn("w:tblLayout"))
+        if layout is None:
+            layout = OxmlElement("w:tblLayout")
+            tbl_pr.append(layout)
+        layout.set(qn("w:type"), "fixed")
+        grid = tbl.tblGrid
+        for gc in list(grid):
+            grid.remove(gc)
+        for w in widths:
+            gc = OxmlElement("w:gridCol")
+            gc.set(qn("w:w"), str(w))
+            grid.append(gc)
+        for row in table.rows:
+            for c, cell in enumerate(row.cells[:ncols]):
+                _set_width(cell._tc.get_or_add_tcPr(), "w:tcW", widths[c])
+    if page_breaks:
+        h1 = [p for p in d.paragraphs if p.style is not None and p.style.name == "Heading 1"]
+        for para in h1[1:]:
+            para.paragraph_format.page_break_before = True
+    d.save(str(path))
+
+
+def first_heading(md):
+    for line in md.read_text(encoding="utf-8").splitlines():
+        if line.startswith("# "):
+            return line[2:].strip()
+    return md.stem
 
 
 def build_docs():
@@ -159,10 +228,21 @@ def build_docs():
         for md in md_files:
             rel = md.relative_to(DOCS)
             out_dir = DIST / "trainer-only" if rel.as_posix() in TRAINER_ONLY else DIST / "docs" / rel.parent
-            pandoc_docx([md], out_dir / f"{md.stem}.docx", ref)
+            out = out_dir / f"{md.stem}.docx"
+            pandoc_docx([md], out, ref)
+            size_table_columns(out)
         handbook = [DOCS / name for name in HANDBOOK_ORDER if (DOCS / name).exists()]
         if handbook:
-            pandoc_docx(handbook, DIST / "BSA-Onboarding-Handbook.docx", ref, toc=True)
+            # A static contents list: a Word TOC field shows up empty in OneNote and Word Online.
+            cover = Path(tmp) / "cover.md"
+            cover.write_text(
+                "# BSA Onboarding Handbook\n\n"
+                f"Program start: {PROGRAM_START:%A, %B %-d, %Y}\n\n## Contents\n\n"
+                + "".join(f"{i}. {first_heading(md)}\n" for i, md in enumerate(handbook, 1)),
+                encoding="utf-8")
+            out = DIST / "BSA-Onboarding-Handbook.docx"
+            pandoc_docx([cover] + handbook, out, ref)
+            size_table_columns(out, page_breaks=True)
     print(f"docs: {len(md_files)} Word files + handbook")
 
 
