@@ -67,7 +67,7 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 
 | Release | Maker | Checker | Evidence link | Date |
 |---|---|---|---|---|
-| [Brief v1.0, model v1.2, CR, cost input file] | [ ] | [ ] | [Jira comment or sign-off block] | [ ] |
+| [Brief v1.0, model v1.1, CR, cost input file] | [ ] | [ ] | [Jira comment or sign-off block] | [ ] |
 
 ### 8. Documentation updated
 
@@ -118,7 +118,7 @@ Rules: talk about the process, not the person. Back each lesson with a fact. Mak
 
 Closeout for the hypothetical "Tariff action: Country X steel fasteners" epic (see the example in `docs/templates/bsa/01-intake-request.md`). Lead: Hire A, with Hire B. Checkers: Senior (brief), Manager (model). Business owner: [COMPANY: Pricing lead].
 
-**Summary.** The checked brief and the $ impact were both delivered before the pricing meeting. Of the 140 candidate items, 138 were confirmed in scope; the Senior's review moved 2 borderline items out of heading 7318, and their classification was corrected through change requests before the effective date. The $ summary arrived 40 minutes late because the volume forecast came in a day late. Three items remain open.
+**Summary.** The checked brief and the $ impact were both delivered before the pricing meeting. Of the 140 candidate items, 138 were confirmed in scope; the Senior's review moved 2 borderline items out of heading 7318, and their classification was corrected through change requests before the effective date. The $ summary arrived 40 minutes late because the volume forecast arrived 4 hours late (Wed 16:00 instead of 12:00). Three items remain open.
 
 | Objective | Measure | Target | Actual | Met? | Notes |
 |---|---|---|---|---|---|
@@ -130,20 +130,20 @@ Closeout for the hypothetical "Tariff action: Country X steel fasteners" epic (s
 | Deliverable | Location | New owner | Support arrangement | Accepted (name, date) |
 |---|---|---|---|---|
 | Tariff-Impact Brief v1.0 | [COMPANY: briefs folder] | Hire A | Updated if CBP issues further guidance | [COMPANY: Pricing lead], [date] |
-| Tariff-Impact Model v1.2 | [COMPANY: model folder] | Hire B | Feeds the next standard cost cycle | Manager, [date] |
+| Tariff-Impact Model v1.1 | [COMPANY: model folder] | Hire B | Feeds the next standard cost cycle | Manager, [date] |
 | Rate-table rows with effective dates | [COMPANY: name of std-cost tool] | Hire B | Normal tool support | Manager, [date] |
 
 | ID | Item | Owner | Due | Jira key | Risk if not done |
 |---|---|---|---|---|---|
 | OI-1 | Watch CBP CSMS for guidance on the in-transit terms | Hire A | Effective date + 10 working days | [key] | Wrong duty basis on in-transit goods |
 | OI-2 | Include the new duty in the next standard cost update (maker-checker) | Hire B | [COMPANY: next cycle date] | [key] | Standard cost understated; PPV inflated |
-| OI-3 | Check the last 90 days of entries for the 2 reclassified items | Hire A, with the Senior | [date] | [key] | Unflagged errors on past entries |
+| OI-3 | List every entry for the 2 reclassified items since their 7318 classification was set, with each entry's liquidation status; the Manager and [COMPANY: trade compliance lead] decide the correction route with the broker | Hire A, with the Senior | [date] | [key] | Unflagged errors on past entries; correction options narrow as entries liquidate |
 
 | Type | Lesson | Evidence | Action | Owner |
 |---|---|---|---|---|
 | Keep | Split WHAT and $ into linked stories on day 1 | Handoff took 15 minutes; no clarification rounds | Already in the intake routing rule; keep it | Both hires |
 | Stop | Matching items in Excel | Leading zeros lost; 3 items missed in the first pass | Saved SQL matching query in [COMPANY: code repository]; added to the Research SOP | Hire A |
-| Start | Ask for volume forecasts at intake, not on day 2 | Forecast arrived late; $ summary 40 minutes late | Add "volume forecast" to the Standard Cost SOP intake step; ask the Manager whether to add it to the intake template | Hire B |
+| Start | Agree a fallback volume basis at intake (for example the last 12 months' import quantity) in case the forecast is late | Forecast arrived 4 hours late; $ summary 40 minutes late | Add the fallback to the Standard Cost SOP intake step, and name it in the covering note when used; ask the Manager whether to add it to the intake template | Hire B |
 
 Documentation updated: Research SOP draft (in-transit step and SQL matching); 4 new Anki cards (Chapter 99 stacking basics, in-transit terms, reading an annex, HTS leading zeros); Tool Inventory unchanged.
 

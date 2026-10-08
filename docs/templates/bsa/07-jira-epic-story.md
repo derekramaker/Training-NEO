@@ -161,33 +161,38 @@ AC6 Given the checker review, when the story moves to Done, then the Senior's co
     records name, date, brief version and findings, all closed.
 Maker / Checker: Hire A / Senior
 Due: Thu [date] 12:00 because the duty applies from 12:01 a.m. ET [date] and pricing meets Fri.
-Deliverable location: [COMPANY: briefs folder] and the WHAT tab of the Tariff-Impact Model.
+Deliverable location: [COMPANY: briefs folder] and the WHAT inputs (Action tab) of the
+Tariff-Impact Model.
 Links: blocks [key] (Standard Cost).
 ```
 
 ## Example 2: standard cost story
 
 ```text
-STORY: Standard Cost: landed-cost and margin impact of the Country X fastener duty
+STORY: Standard Cost: duty and margin impact of the Country X fastener duty
 Component: Standard Cost. Labels: country-us, tariff-action-cx7318. Priority: P1.
-As the pricing team, I want the per-unit landed-cost and margin change for each in-scope
-item, so that we can decide price changes at Friday's meeting.
+As the pricing team, I want the per-unit duty change (which is the landed-cost change)
+and the margin change for each in-scope item, so that we can decide price changes at
+Friday's meeting.
 Context: brief v1.0 [link]; Tariff-Impact Model [link]; volume forecast from
 [COMPANY: Purchasing] due Wed 12:00.
-Scope in: items on the brief v1.0 item list; forecast volume for the next two quarters;
+Scope in: items on the brief v1.0 item list; forecast volume for the next 12 months;
 current standard cost from [COMPANY: Oracle cost type].
 Scope out: changing Oracle standard costs (separate story in the next cost cycle);
-customer price recommendations.
+customer price recommendations; fees, freight and other landed-cost components (the
+model computes duty only and holds them unchanged).
 Acceptance criteria:
-AC1 Given the brief v1.0 item list, when the model's $ tab is run, then every listed item
-    appears exactly once and no other item appears.
+AC1 Given the brief v1.0 item list, when the model is filled and recalculated, then
+    every listed item is in scope exactly once and no other item is in scope.
 AC2 Given entered value per unit from [COMPANY: source], when duty is calculated, then the
     additional duty for 3 sample items matches a hand calculation to $0.01.
-AC3 Given the forecast, when the summary is produced, then it shows per item the current
-    and new landed cost, change per unit, change in margin %, and $ impact per quarter,
-    with a total.
-AC4 Given an item has no forecast volume, when the summary is produced, then it is listed
-    under "no volume" and left out of the totals, not silently dropped.
+AC3 Given the forecast, when the summary is produced, then it shows per item the duty
+    per unit before and after, the change per unit, the estimated new standard cost, the
+    change in margin %, and the $ impact on the volume basis stated in the covering note
+    (the next 12 months' forecast), with a total.
+AC4 Given an in-scope item has no forecast volume, when the summary is produced, then
+    the model flags it, it adds nothing to the $ total, and the covering note lists it,
+    so it is not silently dropped.
 AC5 Given the boundary rule, when the model is reviewed, then scope, rates and dates come
     only from brief v1.0; any question goes to Research as a comment on [key].
 AC6 Given the checker review, when the story moves to Done, then the Manager's comment
@@ -224,7 +229,9 @@ AC3 Given the last production input, when old and new versions run, then only th
 AC4 Given the fix is live, when the post-implementation check is done, then the broker
     confirms receipt with no rejects.
 Fix: [key]-171-CR. Maker / Checker: Hire A / Manager.
-Follow-up: Research story [key] to check entries for the affected items over the last 90 days.
+Follow-up: Research story [key] to list every entry for the affected items since
+[first bad run date], with each entry's liquidation status. The Manager and
+[COMPANY: trade compliance lead] decide the correction route with the broker.
 ```
 
 ## A bad example, rewritten
@@ -274,9 +281,9 @@ EPIC: Onboarding: Hire A, Research track (2026-10-19 to 2027-01-15)
 Goal: Hire A meets the day-30, day-60 and day-90 criteria in docs/01-30-60-90-plan.md.
 Why now: start date Mon 2026-10-19; day-90 review Fri 2027-01-15.
 Child issues (one story per graded deliverable): Tool Inventory rows (W2, complete W4);
-small real analysis (W4); SOP draft from a shadowed process (W5); Tariff-Impact Brief
-for a real recent action (W7); tool doc for [COMPANY: tool closest to Research] (W9);
-e2open as-is document (W13); e2open data map (W13).
+small real analysis (W4); primary-process SOP v0.1 from the W2 shadow (due Mon 11/16);
+Tariff-Impact Brief for a real recent action (W7); tool doc for [COMPANY: tool closest
+to Research] (W9); e2open as-is document (W13); e2open data map (W13).
 Done when: the day-90 scorecard is complete and the days 91-180 plan is approved.
 ```
 

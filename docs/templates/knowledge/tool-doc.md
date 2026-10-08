@@ -3,7 +3,7 @@
 Last updated: 2026-10-08 · Owner: BSA Manager
 
 - **Purpose:** one page per custom tool (Python, Excel VBA, Access, Power Apps, Power Automate) so that someone other than its builder can run it, fix the common failures, change it safely and plan its future under e2open. Most of the team's 10+ tools have little or no documentation; these pages become the team's first tool library.
-- **Who uses it:** the assigned learner writes it (Hire A or Hire B, per the Tool Inventory tab in `dist/BSA-Onboarding-Trackers.xlsx`). The current knowledge holder checks it for accuracy. The Manager reviews and approves it (the Senior does not know these tools well, so the Manager is the checker). Anyone who runs or supports the tool reads it.
+- **Who uses it:** the assigned learner writes it (Hire A or Hire B, per the Tool Inventory tab of BSA-Onboarding-Trackers.xlsx in the onboarding folder). The current knowledge holder checks it for accuracy. The Manager reviews and approves it (the Senior does not know these tools well, so the Manager is the checker). Anyone who runs or supports the tool reads it.
 - **When:** Tool Inventory row in W2; candidate tool walkthrough in W4; doc for your owned tool started in W6 and complete by day 60 (A60-7, B60-7); second tool doc by day 90 (A90-7, B90-7). Update it with every change request (`docs/templates/bsa/06-change-request.md`) and re-verify it at least every [COMPANY: review interval]. Module M6.
 
 ## How to fill this in
@@ -12,11 +12,11 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 
 1. **Start from the Tool Inventory row.** Use the same Tool ID (T-01, T-02, ...) and copy what is already known.
 2. **Interview the current owner** for 45 to 60 minutes using the questions at the end of this page. Ask for a recent real run, not a demo.
-3. **Run it yourself** with the owner watching, or on a test copy. Write the steps while you do them and take the screenshots then. A step you did not perform yourself is marked "not yet verified".
+3. **Run it yourself:** in production only with the current knowledge holder supervising, otherwise on a test copy (test inputs, output to a test folder). Before the day-60 review you have no production write access (`docs/04-access-request-checklist.md`, rule 2), so you never run alone a step that writes data or sends output to a broker, Finance, Oracle or another system. Write the steps while you do them and take the screenshots then. A step you did not perform yourself is marked "not yet verified".
 4. **Read the code or the file.** List every input, output, hard-coded path, date, rate, email address and credential it uses (stack-specific tips below).
 5. **Write "how it breaks" from evidence:** emails, Jira issues, the owner's memory of real failures. Do not invent failure modes.
 6. **Review:** the owner checks facts, then the Manager reviews. Status moves Draft, then Reviewed, then Published. Only Reviewed and Published pages go to the shared OneNote section "04 Tool Docs".
-7. **Peer test:** the other hire runs the tool from your page alone. Every place they get stuck is a gap to fix.
+7. **Peer test:** the other hire follows your page on a test copy (test inputs, output to a test folder), or reads only your page while you and the knowledge holder run the real job. Before day 60 the peer never runs a step that writes data or sends output to a broker, Finance, Oracle or another system (`docs/04-access-request-checklist.md`, rule 2). Every place they get stuck is a gap to fix.
 8. **Never paste secrets.** No passwords, keys, connection strings with credentials, or personal data. Say where credentials are managed ([COMPANY: credential store or service account owner]).
 
 ## Template
@@ -33,9 +33,9 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 | Criticality | [High, Medium, Low] and what happens if it does not run for a day, and for a week | High: the broker files with stale classifications after 1 week |
 | Stack | [Python, Excel VBA, Access, Power Apps, Power Automate, other] and version | Python 3.11 script; pandas; pyodbc |
 | Location of code or file | [COMPANY: repository, shared drive path, SharePoint library or Power Platform environment] | [COMPANY: repository]/broker-file, branch main |
-| Owner and backup | [Name or role] / [Name or role] | Hire A / Manager |
+| Owner and backup | [Name or role] / [Name or role] | Hire A (first point of contact; production change rights from the day-60 review) / Manager |
 | e2open impact | [Replaced, Integrates, Unaffected, TBD] and why | TBD: depends on whether e2open sends classification data to brokers ([COMPANY: confirm]) |
-| Last verified | [Date, by whom, how] | 2026-12-09, Hire A, full production run with the owner |
+| Last verified | [Date, by whom, how] | 2026-12-09, Hire A, full production run supervised by the knowledge holder |
 
 ### 2. Trigger and schedule
 
@@ -173,10 +173,10 @@ Future
 
 - [ ] All 12 sections are filled or marked "not applicable" with a reason.
 - [ ] I ran the tool myself, or I marked the steps I could not verify.
-- [ ] The other hire ran the tool from this page alone, and I fixed what they got stuck on.
+- [ ] The other hire ran the tool from this page alone on a test copy, and I fixed what they got stuck on.
 - [ ] "How it breaks" is based on real failures, each with a date or Jira key.
 - [ ] Every hard-coded value I found is listed.
 - [ ] e2open impact is stated with a reason, and the business rules hidden in the code are listed.
 - [ ] No passwords, keys or personal data on the page.
-- [ ] The Tool Inventory row (documentation status, e2open impact, owner, backup, link) is updated.
+- [ ] The Tool Inventory row (documentation status, e2open impact, knowledge holder, backup, tool doc link) is updated.
 - [ ] The current owner has checked the facts; the Manager has reviewed the page.

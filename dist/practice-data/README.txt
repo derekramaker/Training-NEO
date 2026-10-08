@@ -1,9 +1,9 @@
 PRACTICE DATA: SYNTHETIC. Invented for training. Not real items, suppliers, brokers, entries, values, costs or rates.
 HTS codes look real (first 6 digits are real HS subheadings, last 4 are random). Synthetic: do not use for classification.
 Duty rates and tariff scenarios are invented. They are not the real rates or actions for these codes.
-Generator: data/analytics/generate_practice_data.py, version 1.0 (2026-10-08), seed 20261019. Same output on every run.
+Generator: the team's practice-data script (trainer-only), version 1.1 (2026-10-08), seed 20261019. Same output on every run.
 Entry and receipt dates: 2026-01-02 to 2026-09-30 (9 months). All money is USD.
-Exercises: docs/analytics/practice-exercises.md. Answers: docs/analytics/answer-key.md (Manager and Senior).
+Exercises: docs/analytics/practice-exercises.md (Analytics Practice Pack in OneNote). The answer key is trainer-only: the Senior reviews your results against it.
 
 TABLES (one row = ...; key)
 items: one item; item_id. hts10 and country_of_origin are the classification master. usmca_eligible_flag Y = USMCA certification on file. std_cost = US org standard cost per unit (includes duty and freight). list_price = sell price per unit.

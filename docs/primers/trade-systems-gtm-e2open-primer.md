@@ -11,7 +11,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | Session | When (see `docs/02-weeks-1-2-schedule.md`) | Sections | Focused time | Output |
 |---|---|---|---|---|
 | 1 | W1 Tue 10/20, 14:30 (after the landscape session) | 1 to 3: GTM functions, data objects, data flows | 1.5 h | Landscape diagram v1: system, data and owner on each box |
-| 2 | W1 Fri 10/23 (Hire A); W1 or W2 spare slot (Hire B) | 5: e2open | 0.5 h | 3 Anki cards |
+| 2 | W1 Fri 10/23 (Hire A); W2 Fri 10/30 13:00–13:45 (Hire B) | 5: e2open | 0.5 h | 3 Anki cards |
 | 3 | W2 Tue 10/27 (before and after the AS400 walkthrough) | 4, then Exercise 1 (Section 7) | 1.5 h | Data-flow v1 and a 5-row mini data map |
 | 4 | W3 | 3.3 and 3.4 (Oracle touchpoints, broker exchange) again; Section 8 questions | 0.75 h | Questions sent to the Manager, batched |
 | 5 | W4 to W5 | Finish Exercise 1; Section 9 self-check | 1 h | Day-30 evidence for A30-4 / B30-4: diagram and notes |
@@ -78,7 +78,7 @@ The system stores each item's export classification (ECCN or EAR99, Schedule B),
 
 ### 1.8 Special programs
 
-- **IMMEX (Mexico):** an automated inventory control system (Anexo 24) tracks each temporarily imported input from its pedimento to consumption, export, transfer or change of regime, with time limits per input. SAT's credit and guarantee account system (the SCCCyG, known as "Anexo 31") must reconcile with it.
+- **IMMEX (Mexico):** an automated inventory control system (Anexo 24) tracks each temporarily imported input from its pedimento to consumption, export, transfer or change of regime, with time limits per input. SAT's credit and guarantee account system (the SCCCyG: RGCE Anexo 30, formerly Anexo 31, a name the trade still uses) must reconcile with it.
 - **US duty drawback:** the system matches import entries (duty paid) to exports or destruction within the time limits and prepares claim data. Drawback stays with the Senior.
 - Whether e2open will handle either for us is a project scope question (Section 5.3).
 

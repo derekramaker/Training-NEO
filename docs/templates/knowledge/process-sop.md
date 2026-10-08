@@ -4,7 +4,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 - **Purpose:** a standard operating procedure (SOP) for one recurring process, written so that a trained BSA can run it the same way every time, with its controls, exceptions and records. It complements the process map (`docs/templates/bsa/03-process-map-as-is-to-be.md`): the map shows the flow and pain points; the SOP says exactly how to do each step.
 - **Who uses it:** the hire who is learning the process writes it (learn-by-documenting). The person who runs the process today validates it. The checker (Senior or Manager) reviews it. Anyone running or covering the process follows it.
-- **When:** draft SOP lines within 24 hours of any shadowing session. 1 SOP draft by day 30, 2 by day 60 (including your track's method SOP: Research method SOP v0.1 in W5), 3 by day 90 with your primary process SOP published as v1.0 in W13 (A90-4, B90-4). Exports and Reporting SOPs as those items transition (M7 from W6, M8 from W10).
+- **When:** draft SOP lines within 24 hours of any shadowing session. Day 30: your primary-process SOP v0.1 (Research or Standard Cost), written from your W2 shadow (Wed 10/28), drafted in W4 and due Mon 11/16 with the other day-30 evidence (A30-7, B30-7). Day 60: a second SOP, for exports, built from your exports backlog items (M7, from W6). Day 90: a third SOP, written as the last step of your ad-hoc investigation (Hire A, A60-3, W8 and W9) or PPV analysis (Hire B, B60-3, W7), and your primary-process SOP published as v1.0 in W13 (A90-4, B90-4). Reporting SOP lines as reporting items transition (M8, from W10).
 
 ## How to fill this in
 
@@ -14,7 +14,7 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 2. **One SOP per process.** If a step is a whole process of its own (for example "load pending costs"), give it its own SOP and link it.
 3. **Write steps as instructions.** Start with a verb, one action per step, name the system and screen, and say what the result should be. "Check the data" is not a step; "Compare the row count in the load log with the approved file; they must match" is.
 4. **Mark every control.** Each maker-checker point appears in the procedure as [CONTROL Cn] and in the controls table.
-5. **Test it.** The other hire, or the process owner, follows the SOP on a real or practice instance. Fix every place they hesitate.
+5. **Test it.** The other hire, or the process owner, follows the SOP on a real or practice instance. Fix every place they hesitate. Before day 60, a hire tests on a practice instance or a test copy, or reads along while the process owner does the real one; a hire never runs a step that writes to a production system or sends output to a broker, Finance or Oracle (`docs/04-access-request-checklist.md`, rule 2).
 6. **Status.** Draft, then Reviewed (checker has reviewed it), then Published (v1.0 or later, on the shared OneNote section "05 Process SOPs"). Drafts stay in your own OneNote section so nobody relies on unreviewed steps.
 7. **Keep it alive.** Update it when the process, a system, a regulation or a template changes, and at least every [COMPANY: review interval]. Every change gets a revision line.
 
@@ -93,7 +93,7 @@ Rule: every release of a tariff brief or model, and every standard cost update, 
 
 | Situation | What to do | Escalate to | Within |
 |---|---|---|---|
-| [Source unclear or conflicting] | [Log the question; rate confidence Low; ask the broker] | [Senior] | [Same day] |
+| [Source unclear or conflicting] | [Log the question; rate confidence Low; take it to the Senior, who decides whether to ask the broker or trade counsel. Before day 60 you never contact them yourself] | [Senior] | [Same day] |
 | [Deadline at risk] | [Tell the requester the new date and why] | [Manager] | [As soon as known] |
 | [Error found after release] | [Stop further use; correct; re-check; tell recipients] | [Manager] | [Same day] |
 
@@ -113,7 +113,7 @@ Examples. Research: share of new actions logged within 1 working day of publicat
 |---|---|---|---|
 | [Brief, model, checker sign-off, cost file, approvals, load logs] | [COMPANY: folder or system] | [COMPANY: records retention schedule] | [Role] |
 
-Customs-related records have legal minimum retention periods that the company schedule must meet. In general: US, 5 years from the date of entry (19 CFR 163.4), and drawback records until the third anniversary of payment of the claim; Canada, 6 years (CBSA Memorandum D17-1-21); Mexico, 5 years under the Código Fiscal de la Federación (article 30), longer where tax effects continue. Confirm with the Senior and [COMPANY: records retention policy owner] which records your process creates fall under these rules.
+Customs-related records have legal minimum retention periods that the company schedule must meet. In general: US, 5 years from the date of entry (19 CFR 163.4), and drawback records until 3 years after liquidation of the drawback claim (19 CFR 190.15; the Senior, who owns drawback, confirms); Canada, 6 years (CBSA Memorandum D17-1-21); Mexico, 5 years under the Código Fiscal de la Federación (article 30), longer where tax effects continue. Confirm with the Senior and [COMPANY: records retention policy owner] which records your process creates fall under these rules.
 
 ### 12. Revision history
 

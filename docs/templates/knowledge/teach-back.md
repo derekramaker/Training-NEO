@@ -30,7 +30,7 @@ The Manager confirms each topic by the Monday before. These follow the plan's we
 |---|---|---|
 | W2 | Our trade data flow: AS400, brokers, Oracle | US vs Canada vs Mexico: who files what |
 | W3 | The US duty base: what is in customs value and what is not | USMCA: tariff shift vs regional value content, with one of our items |
-| W4 | Landed cost of one of our items, component by component | IMMEX, Anexo 24 and Anexo 31 in plain words |
+| W4 | Landed cost of one of our items, component by component | IMMEX, Anexo 24 and Anexo 30 (formerly Anexo 31) in plain words |
 | W5 | How to read a new tariff notice in 30 minutes | The standard cost cycle, using `docs/templates/domain/standard-cost-update-checklist.md` |
 | W7 | The Tariff-Impact Brief for the real recent action | PPV for one closed period: the top 3 drivers |
 | W8 | The Tariff-Impact Model, tab by tab (the $ side) | Stacking: how two actions combine on one item (the WHAT side) |
@@ -85,4 +85,4 @@ Follow-up rule: an Accuracy score of 1 means the topic comes back as a 5-minute 
 - [ ] Every error found is corrected in notes, cards and SOP drafts within 1 working day.
 - [ ] New questions are in the question log.
 - [ ] At least 2 Anki cards written from the session (`docs/templates/knowledge/anki-card-writing-guide.md`).
-- [ ] Teach-back count updated in the trackers workbook.
+- [ ] Count checked: the number of complete record rows on my OneNote Teach-backs page is my teach-back count for the milestone targets (A30-7, B30-7 and later) and the Friday self-report. If the topic is a row on my Knowledge tab in the trackers workbook, its Status is set to "Teach-back done".

@@ -16,7 +16,7 @@ systems team (US / Canada / Mexico imports). Start date: **Monday, October 19, 2
 ## Manager: do these before Oct 19
 
 1. **Submit system access requests now.** Provisioning often takes 1 to 2 weeks. See `docs/04-access-request-checklist.md`.
-2. Read `docs/00-program-on-a-page.md`, then the full plan `docs/01-30-60-90-plan.md` and the day-by-day `docs/02-weeks-1-2-schedule.md`.
+2. Read the four-page summary `docs/00-program-at-a-glance.md`, then the full plan `docs/01-30-60-90-plan.md` and the day-by-day `docs/02-weeks-1-2-schedule.md`.
 3. Create the team **onboarding folder** on SharePoint/Teams and copy everything in `dist/` into it **except `dist/trainer-only/`**.
    The hires never read this repo; every hire-facing page refers to "the onboarding folder".
 4. Set up the OneNote notebook (structure below) and paste in the Word files from `dist/docs/`.
@@ -30,7 +30,7 @@ systems team (US / Canada / Mexico imports). Start date: **Monday, October 19, 2
 
 | File | What it is | How to use it |
 |---|---|---|
-| `BSA-Onboarding-Handbook.docx` | Program on a page, plan, weeks 1 and 2 schedule, check-ins, access checklist, time management in one file | Print or read end to end |
+| `BSA-Onboarding-Handbook.docx` | Program at a glance, plan, weeks 1 and 2 schedule, check-ins, access checklist, time management in one file | Print or read end to end |
 | `docs/*.docx` | One Word file per page (plan, schedule, primers, templates) | Open in Word, select all, paste into a OneNote page |
 | `BSA-Onboarding-Trackers.xlsx` | Skills tracker, knowledge tracker (one tab per hire), dashboard, tool inventory, glossary | Keep one shared copy; review in weekly 1:1s |
 | `BSA-Onboarding.apkg` | Anki deck in 3 sub-decks (customs/classification/USMCA; programs/exports/cost; BSA craft/data) | Anki: File > Import. 15 minutes a day |
@@ -43,7 +43,7 @@ systems team (US / Canada / Mexico imports). Start date: **Monday, October 19, 2
 
 | Section | Pages |
 |---|---|
-| 00 Start Here | Program on a page, 30/60/90 plan, weeks 1 and 2 schedule, link to the trackers workbook |
+| 00 Start Here | Program at a glance, 30/60/90 plan, weeks 1 and 2 schedule, link to the trackers workbook |
 | 01 Check-ins | 1:1 notes (one page per week per hire), milestone scorecards, Friday self-reports |
 | 02 Primers | Customs & trade compliance, trade systems/GTM/e2open, current tariff landscape |
 | 03 Templates | BSA project templates, Tariff-Impact Brief, standard cost checklist, knowledge templates |
@@ -77,7 +77,7 @@ pip install python-docx openpyxl genanki pandas
 python3 build/build.py
 ```
 
-Requires `pandoc`. Card IDs are stable, so re-importing an updated `.apkg` updates existing cards instead of duplicating them.
+Requires `pandoc`. Each card's ID comes from its deck and front text, so re-importing an updated `.apkg` updates cards whose front is unchanged and keeps their review history. Rewording a front creates a new card; suspend or delete the old one in Anki.
 
 ## Generic-only policy
 

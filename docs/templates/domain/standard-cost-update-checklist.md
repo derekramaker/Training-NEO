@@ -4,7 +4,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 - **Purpose:** run one periodic standard cost update for duty and landed-cost inputs, end to end, with the same steps and evidence every time: plan with Finance, collect inputs, calculate, validate, maker-checker review and Finance approval, load to Oracle, verify, communicate, archive. It is also the control record: a cycle without this completed checklist did not happen properly.
 - **Who uses it:** Hire B (Standard Cost) as maker. The Manager as checker (the Senior checks duty-rate and classification questions). [COMPANY: Finance cost accounting contact] plans the calendar and approves before any Oracle load. Hire A (Research) supplies tariff actions through checked Tariff-Impact Briefs.
-- **When:** every cost cycle ([COMPANY: cycle frequency]) and every interim tariff-driven update. Training use: walkthrough in W5, dry run on a copy for B60-2 (W7 to W8), a live cycle, full parallel run or interim update as maker for B90-1 (W12 to W13). Module M5C. Hire B: the cost data is the part to push hardest; the business context is a refresher for you.
+- **When:** every cost cycle ([COMPANY: cycle frequency]) and every interim tariff-driven update. Training use: walkthrough in W5, dry run on a copy for B60-2 (W7 to W8), and one cycle as maker for B90-1: a live cycle, a full parallel run or an interim update. A live cycle with T in W12 or W13 starts Phase 1 at T-30, which is in W6 or W7 (Mon 11/30 for T = Wed 1/13), so Hire B joins it from Phase 1 with the Manager as checker. A parallel run or interim update uses the compressed calendar below: pick the option provisionally in the W8 1:1 (Fri 12/11) so Finance can book holiday-week time, and confirm it at the day-60 review (Fri 12/18), as `docs/01-30-60-90-plan.md` says. Module M5C. Hire B: the cost data is the part to push hardest; the business context is a refresher for you.
 
 ## How to use this checklist
 
@@ -22,6 +22,8 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | Oracle product | [COMPANY: Oracle EBS or Fusion] |
 | Where pending costs are held before the update | [COMPANY: EBS pending cost type name, or Fusion cost scenario naming rule] |
 | Cost elements and sub-elements for landed cost | [COMPANY: for example material plus material overhead sub-elements for freight, duty, brokerage] |
+| Basis of each landed-cost sub-element | [COMPANY: per unit amount, or % of material value (EBS basis type Item, Lot or Total Value; Fusion equivalent)]. If duty is held as a % of material value, record how the rate is converted from the customs value: Oracle applies it to the material cost, not to the duty base |
+| How duty reaches item cost and variance | [COMPANY: on the receipt through Oracle Landed Cost Management estimated charges, so duty differences show in PPV; or absorbed as a material overhead sub-element at standard, with actual duty from broker invoices posted to [COMPANY: duty account], so differences show as absorption versus actual] |
 | Load method | [COMPANY: cost interface, file-based import, Web ADI, custom tool] |
 | Who loads, who runs the update | [COMPANY: roles; segregation of duties confirmed with Finance] |
 | Variance review thresholds | [COMPANY: % change per unit] and [COMPANY: $ annual impact per item] |
@@ -38,9 +40,9 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | Purchase price | Oracle PO or contract price | Price per Oracle primary unit of measure | Currency and FX date; price unit vs stocking unit |
 | International freight and insurance | [COMPANY: freight rate file or contracts] | Allocated by weight, volume or value ([COMPANY: rule]) | Allocation basis drives the result; keep it the same between cycles unless agreed |
 | Duty (base rate) | Rate by HTS, import country and origin from [COMPANY: duty rate table or tool] | Duty base x rate | US duty base is the customs value, which excludes international freight and insurance when identified separately. Mexico's valor en aduana includes freight and insurance to the point of entry. Canada uses value for duty. See `docs/primers/customs-trade-compliance-primer.md` |
-| Additional duties and surtaxes | Checked Tariff-Impact Briefs (`docs/templates/domain/tariff-impact-brief.md`) | Duty base x additional rate, stacked as the brief says | Only checked brief versions; effective dates vs the cost-effective date |
+| Additional duties and surtaxes | Checked Tariff-Impact Briefs (`docs/templates/domain/tariff-impact-brief.md`) | Duty base x additional rate, stacked as the brief says | Only checked brief versions; effective dates vs the cost-effective date. Include any duty the action switches off (brief 6.6) and any partial duty base, such as metal or non-US content (brief Part 7) |
 | Preference (USMCA) | Classification master plus certification on file | Preferential rate only where the claim is supported | A "qualifying" flag without a current certification is a data error |
-| Customs fees | US: MPF on formal entries (ad valorem with a per-entry minimum and maximum); HMF on ocean shipments. Other countries: [COMPANY: fees in use] | Allocated per unit using average entry size ([COMPANY: rule]) | Amounts change (the MPF minimum and maximum are adjusted each US fiscal year): use `docs/primers/current-tariff-landscape.md` and record the date |
+| Customs fees | US: MPF on formal entries (ad valorem with a per-entry minimum and maximum); HMF on ocean shipments. Other countries: [COMPANY: fees in use] | Allocated per unit using average entry size ([COMPANY: rule]) | Amounts change (the MPF minimum and maximum are adjusted each US fiscal year): use `docs/primers/current-tariff-landscape.md` and record the date. No MPF on USMCA-originating goods of Canada or Mexico when the preference is properly claimed on the entry (19 CFR 24.23(c)); on a mixed entry it applies to the non-originating goods only. Tie this to the same certification check as the Preference row |
 | Brokerage | Broker invoices ([COMPANY: source]) | Fee per entry divided by average units per entry | Extra lines for new Chapter 99 numbers can change fees |
 | Inland freight and other | [COMPANY: sources] | [COMPANY: rule] | [COMPANY: components in scope] |
 | Recoverable taxes | Canada GST and Mexico IVA on imports | Normally not a cost when recoverable | Confirm treatment with Finance; never add them by default |
@@ -58,6 +60,24 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | 7 Post-load verification | Hire B | Manager | T to T+1 | 100% tie-out |
 | 8 Communicate | Hire B drafts | Manager approves | T+1 to T+2 | Finance and business notes sent |
 | 9 Archive evidence | Hire B | Manager | By T+5 | Complete evidence folder; Jira closed |
+
+B90-1 with a live cycle: Phase 9 can finish after day 90 (T+5 is Wed 1/20 for T = Wed 1/13). The day-90 evidence needs Phases 1 to 7 done. The Phase 5 review then falls in W11 and W12, so name the checker and Finance cover before Phase 1 (rule 5).
+
+### Compressed calendar (interim tariff-driven update or parallel run; B90-1 option)
+
+Use it for an interim duty update after a tariff action (only the affected items change) or for a parallel run on the latest cycle's data. Same phases, same controls, shorter timings. Working days exclude [COMPANY: holiday calendar]; the example treats Thu 11/26, Fri 11/27, Fri 12/25 and Fri 1/1 as holidays. For B90-1, T can be no later than Mon 1/11, so that Phases 8 and 9 end before the day-90 review (Fri 1/15).
+
+| Phase | Timing | Example: T = Mon 2027-01-11 | Notes |
+|---|---|---|---|
+| 1 Plan with Finance | T-13 | Mon 12/21 | 30-minute call. Scope: items with the duty change (interim) or the latest cycle's items (parallel) |
+| 2 Collect inputs | T-13 to T-10 | Mon 12/21 to Thu 12/24 | Interim: the checked brief and model, plus the latest frozen input pack for everything else. Parallel: the latest frozen input pack |
+| 3 and 4 Calculate and validate | T-9 to T-7 | Mon 12/28 to Wed 12/30 | All Phase 4 checks, including the revaluation estimate |
+| 5 Review and approve | T-6 to T-3 | Thu 12/31 to Wed 1/6 | Manager as checker (about 1.5 h); Finance approval by T-3 |
+| 6 Load and update | T-2 to T | Thu 1/7 to Mon 1/11 | Interim: as in Phase 6. Parallel: no load; compare your file with the costs Finance loaded in the latest cycle |
+| 7 Verify | T to T+1 | Mon 1/11 to Tue 1/12 | Interim: 100% compare. Parallel: explain every difference from the live result |
+| 8 and 9 Communicate and archive | By T+3 | Thu 1/14 | Before the day-90 review |
+
+Phases 1 to 5 fall in W10 and W11, the reduced weeks: name the trainer and Finance cover before Phase 1 (rule 5). A parallel run never loads to Oracle production.
 
 ## Phase 1: Plan the cycle with Finance (T-30 to T-25)
 
@@ -90,7 +110,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 - [ ] Duty = duty base x (base rate + additional rates), combined exactly as each brief's stacking section says. Use the duty base rules for each import country.
 - [ ] Convert every component to the Oracle primary unit of measure.
 - [ ] Map each component to its Oracle cost element and sub-element ([COMPANY: mapping]).
-- [ ] For tariff-driven items, take the per-unit change from the checked Tariff-Impact Model (`docs/templates/domain/tariff-impact-model-guide.md`) and make sure the cost file gives the same answer.
+- [ ] For tariff-driven items, take the per-unit change from the checked Tariff-Impact Model (`docs/templates/domain/tariff-impact-model-guide.md`) and make sure the cost file gives the same answer. The model has one row per item and import country: map each organization row of the cost file to its model row, or use one model per organization (model guide, Items).
 - [ ] No typed-over formulas. Every manual override goes on an override log: item, old value, new value, reason, approver.
 - [ ] Save as v0.x; keep earlier versions.
 
@@ -99,6 +119,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 - [ ] Completeness: rows in the cost file = items in scope. No item in scope is missing; no item outside scope is included.
 - [ ] Zero and blank costs: none unless intended and explained. In EBS, an item with no pending cost defined is skipped by the update, and an item with a pending cost of zero is updated to zero.
 - [ ] Hand check: recompute 5 items from the source data, including one per import country.
+- [ ] Per item, new total cost = current total cost + the sum of the component changes. Any other difference is an exception.
 - [ ] Threshold review: every item over [COMPANY: % threshold] change per unit, or over [COMPANY: $ threshold] annual impact (change per unit x annual quantity), has a driver: purchase price, duty rate, tariff action, freight, FX, unit of measure, or data correction.
 - [ ] Top movers: the top 20 items by annual $ impact and the top 20 by % change are explained in one line each.
 - [ ] Reasonableness: duty as % of landed cost by origin and product category, compared with the last cycle. Investigate any group that moved more than [COMPANY: tolerance] without a known tariff action.
@@ -121,6 +142,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 Method: [COMPANY: load method]. Product: [COMPANY: Oracle EBS or Fusion]. Steps differ by product and release, so follow [COMPANY: Oracle cost update work instruction] where it differs.
 
+- [ ] The pending cost type (EBS) or cost scenario (Fusion) holds the complete new cost for every item in scope: every cost element and sub-element, not only the changed duty or landed-cost sub-elements. In EBS the update replaces the item's whole Frozen cost with its pending cost, so a duty-only file would wipe the other elements: copy the current Frozen costs into the pending cost type first ([COMPANY: copy method]), then apply the changes. Confirm with Finance how items with no pending cost are treated (the cost type's default cost type).
 - [ ] Load the approved file into [COMPANY: pending cost type (EBS) or cost scenario (Fusion)], never straight into the live standard.
 - [ ] Check the load log: rows loaded = rows in the approved file; rejects are zero or fixed and re-checked.
 - [ ] Simulate before updating. EBS: run Report Pending Adjustments, which produces the inventory, intransit and WIP standard cost adjustment reports without posting. Fusion: compare the scenario's standard costs with the current published costs (and the inventory impact view, where your release has it).
@@ -136,13 +158,13 @@ Method: [COMPANY: load method]. Product: [COMPANY: Oracle EBS or Fusion]. Steps 
 - [ ] The posted adjustment total equals the simulated total, or the difference is explained.
 - [ ] Spot-check 5 items on the Oracle cost screens, including the top mover.
 - [ ] Rate tables in [COMPANY: name of std-cost tool] carry the new rates with the right effective dates; old rows end-dated.
-- [ ] Watch the first receipts after T (T+5 to T+10): PPV on the top movers should be close to zero unless the price, duty or freight on the receipt differs from the new standard. Explain any surprises.
+- [ ] Watch the first receipts and broker invoices after T (T+5 to T+10): the duty and freight variance on the top movers should be close to zero unless the price, duty or freight actually paid differs from the new standard. Where it shows depends on the setting "How duty reaches item cost and variance": PPV at receipt when duty comes in through landed cost charges, or absorption versus actual duty ([COMPANY: duty account]) when duty is a material overhead absorbed at standard. Explain any surprises.
 
 ## Phase 8: Communicate (T+1 to T+2)
 
 - [ ] Finance: revaluation by organization, adjustment report reference, exceptions, anything deferred to the next cycle.
 - [ ] Pricing and Purchasing: top movers, tariff-driven changes with margin effect (from the Tariff-Impact Model), effective date, known limits.
-- [ ] Note that PPV is now measured against the new standards, and which items will show variance for known reasons (for example in-transit goods still entering at the old duty rate).
+- [ ] Note that variances (PPV, or duty absorption versus actual, per the company setting) are now measured against the new standards, and which items will show variance for known reasons (for example in-transit goods still entering at the old duty rate).
 - [ ] The Manager approves any message to the business before it is sent.
 - [ ] Team: SOP updates, new Anki cards (`docs/templates/knowledge/anki-card-writing-guide.md`), lessons learned.
 
@@ -185,6 +207,9 @@ R = does the work, A = accountable (one per row), C = consulted, I = informed. A
 | USMCA rate without a current certification | Duty too low; compliance exposure | Join preference claims to certification expiry dates |
 | Freight allocation basis changed silently | All items on a lane move with no rate change | Compare allocation basis with last cycle's input pack |
 | Zero or blank pending cost | Item updated to zero, or skipped and left at the old cost | Zero and blank check in Phase 4; load log row count |
+| Pending cost type holds only the changed duty sub-element | The item's standard drops to the duty amount at the update | Complete-cost check in Phase 6; simulation reviewed for large negative revaluations |
+| Duty variance looked for in the wrong place | Variance explanation points at PPV when duty is absorbed as overhead, or the reverse | Company setting "How duty reaches item cost and variance"; Phase 7 |
+| MPF added to USMCA-claimed entries | Landed cost too high on qualifying Canada and Mexico items | Same certification check as the Preference row |
 | Late input change after the freeze | File no longer matches what the checker reviewed | Read-only approved file; version in the file name; post-load 100% compare |
 | Update run mid-period or in the wrong organization or cost type | Unexpected revaluation; costs on the wrong items | Simulation reviewed and Finance-approved before the update; run only in the agreed window |
 | Recoverable taxes (GST, IVA) added to cost | Landed cost too high for Canada or Mexico items | Component list reviewed with Finance once a year |

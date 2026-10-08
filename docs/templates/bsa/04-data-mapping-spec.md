@@ -4,7 +4,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 - **Purpose:** a field-by-field specification of how data moves from a source to a target: transformation rules, data quality rules, cleansing decisions, reconciliation and data-owner sign-off. Built for the AS400 trade system to e2open migration, and for Oracle and broker interfaces.
 - **Who uses it:** both hires as makers (day-90 criteria A90-3 for Research data and B90-3 for Standard Cost data); the Senior as checker (data quality, SQL, compliance meaning of fields); the data owner, who signs; the e2open project data or integration lead, who builds loads from it; UAT testers, who reuse the reconciliation.
-- **When:** first use W2 (5-row mini data map, Tue 10/27). Taught in M4 in W7. Drafted in W10 and W11, finished by W13, then kept current through the e2open build, test loads and cutover (M10).
+- **When:** first used in W7, when it is taught in M4 (in W2 the hires map system-level data flows with the table in `docs/primers/trade-systems-gtm-e2open-primer.md` Section 7.3 instead). Drafted in W10 and W11, finished by W13, then kept current through the e2open build, test loads and cutover (M10).
 
 ## How to fill this in
 
@@ -239,7 +239,7 @@ Value map VM-02 shows why a single Y/N flag cannot move as is: the same claim is
 |---|---|---|---|---|
 | VM-02 | Y | US: SPI "S", or "S+" where the HTSUS gives different treatment by partner country | USMCA claim on the US entry | HTSUS General Note 3(c)(i); the broker enters it |
 | VM-02 | Y | CA: tariff treatment code 10 (UST) or 11 (MXT) | CUSMA claim on the Canadian accounting declaration | UST or MXT depends on the CUSMA Tariff Preference Regulations |
-| VM-02 | Y | MX: [COMPANY: confirm the pedimento coding with the agente aduanal] | T-MEC claim on the pedimento | Not confirmed here |
+| VM-02 | Y | MX: [COMPANY: pedimento coding, confirmed with the agente aduanal by the Senior] | T-MEC claim on the pedimento | Not confirmed here. Before day 60, the hire asks the Senior, not the agente aduanal |
 | VM-02 | N or blank | No preference | Pay the non-preferential rate | Blank needs a source fix |
 
 Cleansing log

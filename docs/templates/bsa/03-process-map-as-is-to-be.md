@@ -14,7 +14,7 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 2. Interview the person who does the work, and separately the person who checks it (45 to 60 minutes each). Use Part 3. Walk through the last real instance, not the theory.
 3. Write the as-is step table within 24 hours of the interview, while your notes still make sense.
 4. Play it back to the interviewee (15 minutes) and correct it. Only then write their name under "Validated by".
-5. Give each control an ID (C1, C2) and each pain point an ID (P1, P2) as you go. Detail them in the registers in Parts 5 and 6.
+5. Give each control an ID (C1, C2) and each pain point an ID (PP1, PP2) as you go. Detail them in the registers in Parts 5 and 6. Pain points use PP so they never get confused with the P1, P2 and P3 priorities.
 6. Draw the swimlane from the validated table (Part 8). Table first, picture second.
 7. Write the to-be only after the as-is is validated. Every to-be change must link to a pain point, a requirement or a control gap.
 8. Record what really happens, not what an SOP says should happen. A difference between the two is a finding: note it in the pain point log.
@@ -54,6 +54,7 @@ Fill the Process column first (5 to 7 high-level steps), then Outputs, Customers
 - Book 45 to 60 minutes. Ask them to bring the last real example: the email, the file, the screen, the output.
 - Read any SOP, tool doc or Jira history first. Bring your SIPOC draft.
 - Plan two interviews per process: the doer and the checker. You see the control from both sides.
+- Interview people inside the company only. Before your day-60 review you do not contact the customs broker, agente aduanal or trade counsel; send questions about their steps through the Senior (or the Manager). After day 60, with the Senior's agreement, you may email the broker with the Senior copied.
 
 ### Opening (2 minutes)
 
@@ -96,11 +97,11 @@ Writing rules:
 - One role per step. If two roles do something together, split it into two steps.
 - System: name the system or file, or write "manual" or "email".
 - Output: a noun (a file, a list, a decision, an email).
-- Last column: "C1" for a control, "P1" for a pain point, with a few words. Full detail goes in Parts 5 and 6.
+- Last column: "C1" for a control, "PP1" for a pain point, with a few words. Full detail goes in Parts 5 and 6.
 
-| Step | Lane/Role | Action | System | Output | Pain point / Control |
+| Step | Lane/Role | Action | System | Output | Pain point (PPn) / Control (Cn) |
 |---|---|---|---|---|---|
-| 1 | [Role] | [Verb + object] | [System or file] | [Output] | [C or P ID and short note] |
+| 1 | [Role] | [Verb + object] | [System or file] | [Output] | [C or PP ID and short note] |
 | 2 | [ ] | [ ] | [ ] | [ ] | [ ] |
 | D1 | [ ] | [Question]? Yes: step [n]. No: step [n]. | [ ] | [Decision] | [ ] |
 
@@ -124,7 +125,7 @@ How to describe a control well:
 
 | Pain ID | Step | Pain point | Evidence (frequency, time, errors) | Root cause | Idea or requirement |
 |---|---|---|---|---|---|
-| P1 | [Step] | [What goes wrong or is slow] | [Numbers] | [Why it happens] | [Idea, or FR ID in the requirements document] |
+| PP1 | [Step] | [What goes wrong or is slow] | [Numbers] | [Why it happens] | [Idea, or FR ID in the requirements document] |
 
 Common types to look for: rework, waiting, re-keying between systems, missing or untrusted data, unclear ownership, missing control, knowledge held by one person, a personal workaround tool.
 
@@ -132,13 +133,13 @@ Common types to look for: rework, waiting, re-keying between systems, missing or
 
 Use the same columns as the as-is. In the last column, show the control that remains or is added, and the pain point the change resolves.
 
-| Step | Lane/Role | Action | System | Output | Pain point / Control |
+| Step | Lane/Role | Action | System | Output | Pain point (PPn) / Control (Cn) |
 |---|---|---|---|---|---|
-| 1 | [ ] | [ ] | [ ] | [ ] | [Resolves P1; keeps C1] |
+| 1 | [ ] | [ ] | [ ] | [ ] | [Resolves PP1; keeps C1] |
 
 | Gap ID | As-is step | To-be step | Change type | Pain or requirement ID | e2open fit |
 |---|---|---|---|---|---|
-| G1 | [n] | [n] | [Process, system, data, role, control] | [P1, FR-03] | [Standard, configuration, gap, unknown] |
+| G1 | [n] | [n] | [Process, system, data, role, control] | [PP1, FR-03] | [Standard, configuration, gap, unknown] |
 
 ## Part 8: Drawing the swimlane
 
@@ -147,7 +148,7 @@ Use the same columns as the as-is. In the last column, show the control that rem
 - One lane per role, not per person. Order lanes by when they first appear. Put outside parties (broker, Finance, government source) in the top or bottom lane.
 - Flow left to right. Number each shape to match the step table.
 - Shapes: rounded rectangle for start and end; rectangle for a step; diamond for a decision, with "Yes" and "No" on the arrows; document shape for a file, report or email; cylinder for a system or database.
-- Mark controls with a small labelled box ("C1") in one color and pain points ("P1") in another. Add a legend.
+- Mark controls with a small labelled box ("C1") in one color and pain points ("PP1") in another. Add a legend.
 - Keep to 15 to 20 shapes per page. Split a long process into sub-processes joined by labelled off-page connectors.
 - Write the system under each step, or add a "Systems" lane at the bottom.
 - Put the title, "as-is" or "to-be", version and date on every page.
@@ -203,17 +204,17 @@ Research process: respond to a new US tariff action, as-is. This shows the metho
 
 ### As-is steps
 
-| Step | Lane/Role | Action | System | Output | Pain point / Control |
+| Step | Lane/Role | Action | System | Output | Pain point (PPn) / Control (Cn) |
 |---|---|---|---|---|---|
-| 1 | Research BSA | Find the notice in the daily source check, or from a forwarded email | Federal Register, CSMS, email | Notice link | P1: no single watch list; some actions found days late |
-| 2 | Research BSA | Log in Jira, score, and tell the Manager within 30 minutes | Jira | P1 issue | C1: Manager confirms priority |
-| 3 | Research BSA | Read the notice and annexes; list HTS numbers, countries, rate, effective date, exclusions, in-transit terms | Federal Register, HTSUS | WHAT notes | P2: annex HTS lists are PDFs, re-typed by hand |
-| 4 | Research BSA | Pull active items whose HTS number and origin match | AS400 extract, Excel | Candidate item list | P3: 8-digit annex vs 10-digit item HTS matched in Excel; leading zeros lost |
+| 1 | Research BSA | Find the notice in the daily source check, or from a forwarded email | Federal Register, CSMS, email | Notice link | PP1: no single watch list; some actions found days late |
+| 2 | Research BSA | Log in Jira, score, and tell the Manager within 30 minutes | Jira | Jira issue with its priority | C1: Manager confirms priority |
+| 3 | Research BSA | Read the notice and annexes; list HTS numbers, countries, rate, effective date, exclusions, in-transit terms | Federal Register, HTSUS | WHAT notes | PP2: annex HTS lists are PDFs, re-typed by hand |
+| 4 | Research BSA | Pull active items whose HTS number and origin match | AS400 extract, Excel | Candidate item list | PP3: 8-digit annex vs 10-digit item HTS matched in Excel; leading zeros lost |
 | D1 | Research BSA | Any item whose description doesn't clearly fit the annex? Yes: step 5. No: step 6. | Item specs | Borderline list | |
 | 5 | Senior | Advise on borderline items | Teams | Classification notes | |
-| 6 | Research BSA | Write the brief; fill the WHAT tab of the model | Word, Excel model | Brief v0.x | |
+| 6 | Research BSA | Write the brief; fill the model's WHAT inputs (Action tab) | Word, Excel model | Brief v0.x | |
 | 7 | Senior (checker) | Check the brief against the sources, line by line; record findings | Jira | Brief v1.0 | C2: maker-checker before release |
-| 8 | Research BSA | Hand off to Standard Cost | Email attachment | Handoff | P4: model emailed; versions diverge |
+| 8 | Research BSA | Hand off to Standard Cost | Email attachment | Handoff | PP4: model emailed; versions diverge |
 | 9 | Manager | Approve and send the business communication | Email | Communication | C3: Manager approves release |
 
 ### Controls register
@@ -228,15 +229,17 @@ Research process: respond to a new US tariff action, as-is. This shows the metho
 
 | Pain ID | Step | Pain point | Evidence (frequency, time, errors) | Root cause | Idea or requirement |
 |---|---|---|---|---|---|
-| P3 | 4 | HTS matching loses leading zeros for chapters 01 to 09 | 2 of the last 5 actions had missed items | HTS stored or opened as a number | Match on text in SQL; keep HTS as text |
-| P4 | 8 | Two versions of the model in circulation | 1 rework round per action | Email attachments | Link one model file on the Jira story |
+| PP1 | 1 | No single watch list; actions found late | 2 of the last 5 actions logged 2 or more working days after publication | Sources checked when someone has time; no named daily check | Named daily source check (Federal Register, CSMS, [COMPANY: CA and MX sources]) as a Research SOP step |
+| PP2 | 3 | Annex HTS lists re-typed by hand from PDFs | About 1 hour per action; 1 typo caught by the checker in the last 5 actions | Annexes read as PDFs | Copy lists from the Federal Register text or XML version; checker compares the count with the annex |
+| PP3 | 4 | HTS matching loses leading zeros for chapters 01 to 09 | 2 of the last 5 actions had missed items | HTS stored or opened as a number | Match on text in SQL; keep HTS as text |
+| PP4 | 8 | Two versions of the model in circulation | 1 rework round per action | Email attachments | Link one model file on the Jira story |
 
 ### Gap summary (to-be for e2open)
 
 | Gap ID | As-is step | To-be step | Change type | Pain or requirement ID | e2open fit |
 |---|---|---|---|---|---|
-| G1 | 3 | 3 | System | P2 | Unknown: depends on whether the e2open scope includes trade content ([COMPANY: confirm]) |
-| G2 | 4 | 4 | Data | P3 | Configuration: classification held as text per country in e2open |
+| G1 | 3 | 3 | System | PP2 | Unknown: depends on whether the e2open scope includes trade content ([COMPANY: confirm]) |
+| G2 | 4 | 4 | Data | PP3 | Configuration: classification held as text per country in e2open |
 
 ## Quality checklist before you send
 

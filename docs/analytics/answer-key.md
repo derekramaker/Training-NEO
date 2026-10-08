@@ -3,13 +3,13 @@
 Last updated: 2026-10-08 · Owner: BSA Manager
 
 - **Purpose:** exact answers, reference T-SQL and DAX, and what good looks like for the eight exercises in `docs/analytics/practice-exercises.md`. Also lists the planted data problems and the "fingerprint" numbers that show which mistake a learner made.
-- **Who uses it:** the Senior, to review Exercises 1 to 7; the Manager, to review the Exercise 8 memo and the day-30 evidence (A30-5 and B30-5). Hires see one exercise's section only after they have posted that exercise.
-- **When:** Thu 10/29 (Exercises 1-3), W3 (Exercises 4-6), W4 (Exercises 7-8). Keep this page out of the hires' OneNote sections (`docs/02-weeks-1-2-schedule.md`).
+- **Who uses it:** trainer-only. The Senior, to review Exercises 1 to 7; the Manager, to review the Exercise 8 memo and the day-30 evidence (A30-5 and B30-5). The hires never get this key or `data/analytics/generate_practice_data.py` before the day-30 review. When you review a posted exercise, tell the hire which results differ from the key, not the right numbers; the hire finds and explains each cause.
+- **When:** Thu 10/29 (Exercises 1-3), W3 (Exercises 4-6), W4 (Exercises 7-8). The build writes this page to `dist/trainer-only/answer-key.docx`. Keep it in [COMPANY: trainer-only location], never in the hires' OneNote sections or the onboarding folder (`docs/02-weeks-1-2-schedule.md`, Manager prep). After the day-30 review the Manager decides whether to share it.
 
 ## How to use this key
 
-- The numbers are for the data built by `data/analytics/generate_practice_data.py`, version 1.0, seed 20261019. The generator is deterministic: rerunning it gives identical files. If anyone changes the generator, recompute this key; the generator stops with an error if a planted count changes.
-- How the numbers were verified: computed with pandas from `dist/practice-data/*.csv`, then reproduced to the cent by running the T-SQL on this page on SQL Server 2022 (Developer edition) loaded with `dist/practice-data/load_practice_data.sql`. The Excel formula routes for Exercises 3 and 6 (SUMIFS with date criteria; SUMIFS with wildcards) were recalculated in LibreOffice with plain cell ranges and match; the structured-reference form shown in the exercises is the same formula. The DAX in Exercise 7 has not been run in Power BI; check it in W4.
+- The numbers are for the data built by `data/analytics/generate_practice_data.py`, version 1.1, seed 20261019 (the data rows are the same as version 1.0). The generator is deterministic: rerunning it gives byte-identical CSV, SQL, README and xlsx files. If anyone changes the generator, recompute this key; the generator stops with an error if a planted count changes.
+- How the numbers were verified: recomputed on 2026-10-08 with fresh pandas code from `dist/practice-data/*.csv`, after the last generator change. The T-SQL on this page reproduced them to the cent on SQL Server 2022 (Developer edition) loaded with `dist/practice-data/load_practice_data.sql`. The later T-SQL edits (NULLIF in denominators, `12.0 / 9`, qty in `v_scenario_lines`, the copy check in Exercise 1) do not change any result but have not been rerun on SQL Server: rerun them once when you load the data. The Excel formula routes for Exercises 3 and 6 (SUMIFS with date criteria; SUMIFS with wildcards) were recalculated in LibreOffice with plain cell ranges and match; the structured-reference form shown in the exercises is the same formula. The DAX in Exercise 7 has not been run in Power BI; check it in W4.
 - Tolerance: SQL and pandas agree to the cent. Excel sums of decimals may differ by 0.01 on large totals. Anything bigger is a mistake to explain.
 - Money is USD. Percentages are rounded to 2 decimals unless stated.
 - Review the method, not only the number: row counts recorded, control totals tied, NULLs and orphans reported.
@@ -47,7 +47,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | tariff_scenario | 11 | none |
 
 - The NULLs in program_claimed are **expected**: they mean no preference was claimed. The 6 NULL hts10 values are **errors**.
-- Duplicates: 24 keys appear twice, so 24 extra rows, all in 4 US entries with 6 lines each: US26-00110, US26-00114, US26-00163, US26-00177. The copies are exact (all columns identical) and sit at the end of the file. They add $246,133.28 of entered value and $15,286.85 of duty.
+- Duplicates: 24 keys appear twice, so 24 extra rows, all in 4 US entries with 6 lines each: US26-00110, US26-00114, US26-00163, US26-00177. The copies are exact (all columns identical: `SELECT DISTINCT *` gives 1,942 rows, the same as the distinct keys) and sit at the end of the file. They add $246,133.28 of entered value and $15,286.85 of duty.
 - Totals: raw entered value $16,851,370.12 and duty $871,664.92; clean entered value **$16,605,236.84** and duty **$856,378.07** (the control total for every later exercise). Clean lines by import country: US 1,138, CA 444, MX 360.
 - Orphans: 4 clean lines, $25,480.37 entered value, $993.73 duty.
 
@@ -115,6 +115,7 @@ ORDER BY entry_no, line_no;
 
 SELECT COUNT(*) AS raw_rows,
        (SELECT COUNT(*) FROM (SELECT DISTINCT entry_no, line_no FROM practice.entry_lines) AS k) AS distinct_keys,
+       (SELECT COUNT(*) FROM (SELECT DISTINCT * FROM practice.entry_lines) AS d) AS distinct_full_rows,   -- = distinct_keys: copies are exact
        SUM(entered_value) AS raw_entered_value,
        SUM(duty_amount) AS raw_duty
 FROM practice.entry_lines;
@@ -282,7 +283,7 @@ ORDER BY CASE WHEN hts_chapter IS NULL AND country_of_origin IS NULL THEN 0
          duty_paid DESC;
 
 SELECT e.import_country, COUNT(*) AS lines, SUM(el.entered_value) AS entered_value, SUM(el.duty_amount) AS duty_paid,
-       CAST(100.0 * SUM(el.duty_amount) / SUM(el.entered_value) AS DECIMAL(9, 2)) AS effective_rate_pct
+       CAST(100.0 * SUM(el.duty_amount) / NULLIF(SUM(el.entered_value), 0) AS DECIMAL(9, 2)) AS effective_rate_pct
 FROM practice.v_entry_lines_clean AS el
 JOIN practice.entries AS e ON e.entry_no = el.entry_no
 GROUP BY e.import_country
@@ -580,7 +581,7 @@ The biggest driver: CN-origin chapter 73 and 76 items after the fictional US rat
 | Before 2026-06-01 | 67 | 369,817.50 | 517.40 | 0.14% |
 | On or after 2026-06-01 | 58 | 290,255.61 | 37,051.96 | 12.77% |
 
-- Those 58 receipts are 65% of the net PPV ($37,051.96 of $56,899.24). All other receipts: 1,363 receipts, $19,329.88, 0.30%.
+- Those 58 receipts are 65% of the net PPV ($37,051.96 of $56,899.24). Receipts outside CN chapters 73 and 76 (before or after the change): 1,363 receipts, $19,329.88, 0.30%. All receipts except the 58: 1,430 receipts, $19,847.28, 0.29%.
 - PPV % by month (excluding outliers) is between -0.03% and 0.36% from January to May, then 1.75% in June, 1.80% in July, 0.80% in August and 1.68% in September.
 - The other top movers are supplier price changes, up or down, during the year (for example SYN-1095 and SYN-1070 up, SYN-1100 and SYN-1121 down). A good answer says "price change" as a hypothesis to confirm with Purchasing, not as a fact.
 - Stretch (Hire B): duty-driven estimate for the 58 receipts = receipt qty x average 2026 US customs value per unit x 15 points of rate increase = **$35,505.88**, which explains about 96% of their $37,051.96 PPV. The rest is price and freight noise. Expected recommendation: a standard cost update for the CN chapter 73 and 76 items with the current rate, through the checklist with maker-checker review.
@@ -609,12 +610,12 @@ SELECT CASE WHEN GROUPING(is_outlier) = 1 THEN 'All receipts'
        COUNT(*) AS receipts,
        SUM(std_value_usd) AS std_value_usd,
        CAST(SUM(ppv_usd) AS DECIMAL(18, 2)) AS ppv_usd,
-       CAST(100.0 * SUM(ppv_usd) / SUM(std_value_usd) AS DECIMAL(9, 2)) AS ppv_pct
+       CAST(100.0 * SUM(ppv_usd) / NULLIF(SUM(std_value_usd), 0) AS DECIMAL(9, 2)) AS ppv_pct
 FROM practice.v_ppv
 GROUP BY ROLLUP (is_outlier);
 
 SELECT receipt_id, item_id, receipt_date, qty, std_cost, actual_landed_unit_cost,
-       CAST(actual_landed_unit_cost / std_cost AS DECIMAL(9, 2)) AS actual_to_std,
+       CAST(actual_landed_unit_cost / NULLIF(std_cost, 0) AS DECIMAL(9, 2)) AS actual_to_std,
        CAST(ppv_usd AS DECIMAL(18, 2)) AS ppv_usd
 FROM practice.v_ppv
 WHERE is_outlier = 1
@@ -622,7 +623,7 @@ ORDER BY receipt_id;
 
 SELECT TOP (10) item_id, description, country_of_origin, hts_chapter, COUNT(*) AS receipts,
        CAST(SUM(ppv_usd) AS DECIMAL(18, 2)) AS ppv_usd,
-       CAST(100.0 * SUM(ppv_usd) / SUM(std_value_usd) AS DECIMAL(9, 1)) AS ppv_pct
+       CAST(100.0 * SUM(ppv_usd) / NULLIF(SUM(std_value_usd), 0) AS DECIMAL(9, 1)) AS ppv_pct
 FROM practice.v_ppv
 WHERE is_outlier = 0
 GROUP BY item_id, description, country_of_origin, hts_chapter
@@ -631,7 +632,7 @@ ORDER BY ABS(SUM(ppv_usd)) DESC;
 SELECT country_of_origin, COUNT(*) AS receipts,
        CAST(SUM(std_value_usd) AS DECIMAL(18, 2)) AS std_value_usd,
        CAST(SUM(ppv_usd) AS DECIMAL(18, 2)) AS ppv_usd,
-       CAST(100.0 * SUM(ppv_usd) / SUM(std_value_usd) AS DECIMAL(9, 2)) AS ppv_pct
+       CAST(100.0 * SUM(ppv_usd) / NULLIF(SUM(std_value_usd), 0) AS DECIMAL(9, 2)) AS ppv_pct
 FROM practice.v_ppv
 WHERE is_outlier = 0
 GROUP BY country_of_origin
@@ -639,7 +640,7 @@ ORDER BY ppv_usd DESC;
 
 SELECT DATEFROMPARTS(YEAR(receipt_date), MONTH(receipt_date), 1) AS month_start, COUNT(*) AS receipts,
        CAST(SUM(ppv_usd) AS DECIMAL(18, 2)) AS ppv_usd,
-       CAST(100.0 * SUM(ppv_usd) / SUM(std_value_usd) AS DECIMAL(9, 2)) AS ppv_pct
+       CAST(100.0 * SUM(ppv_usd) / NULLIF(SUM(std_value_usd), 0) AS DECIMAL(9, 2)) AS ppv_pct
 FROM practice.v_ppv
 WHERE is_outlier = 0
 GROUP BY DATEFROMPARTS(YEAR(receipt_date), MONTH(receipt_date), 1)
@@ -649,14 +650,14 @@ SELECT CASE WHEN receipt_date < '2026-06-01' THEN 'Before 2026-06-01' ELSE 'On o
        COUNT(*) AS receipts,
        CAST(SUM(std_value_usd) AS DECIMAL(18, 2)) AS std_value_usd,
        CAST(SUM(ppv_usd) AS DECIMAL(18, 2)) AS ppv_usd,
-       CAST(100.0 * SUM(ppv_usd) / SUM(std_value_usd) AS DECIMAL(9, 2)) AS ppv_pct
+       CAST(100.0 * SUM(ppv_usd) / NULLIF(SUM(std_value_usd), 0) AS DECIMAL(9, 2)) AS ppv_pct
 FROM practice.v_ppv
 WHERE is_outlier = 0 AND country_of_origin = 'CN' AND hts_chapter IN ('73', '76')
 GROUP BY CASE WHEN receipt_date < '2026-06-01' THEN 'Before 2026-06-01' ELSE 'On or after 2026-06-01' END;
 
 -- Stretch: duty-driven part of the CN chapter 73/76 PPV after the change (15 points of rate)
 WITH ucv AS (
-    SELECT el.item_id, SUM(el.entered_value) / SUM(el.qty) AS unit_customs_value
+    SELECT el.item_id, SUM(el.entered_value) / NULLIF(SUM(el.qty), 0) AS unit_customs_value
     FROM practice.v_entry_lines_clean AS el
     JOIN practice.entries AS e ON e.entry_no = el.entry_no
     WHERE e.import_country = 'US'
@@ -696,11 +697,11 @@ Top 5 items by annualized impact:
 | SCN-02 | SYN-1044 Battery charger, 12 V | US | 8504 | 24,963.00 |
 | SCN-03 | SYN-1149 Wall switch, 15 A | MX | 8536 | 24,729.26 |
 
-- Overlap: the prefix join gives 206 rows for 186 line and scenario pairs; 20 SCN-01 lines (CN, 731815) match both 7318 and 731815. Counting both adds $50,738.10 (total $447,013.43). The longest prefix (25%) applies.
+- Overlap: at step 2 (before the exemption) the prefix join gives 271 rows for 251 line and scenario pairs, because 20 SCN-01 lines (CN, 731815) match both 7318 and 731815. 65 SCN-03 pairs are exempt, which leaves 186 pairs (206 rows if both prefixes are kept). Counting both prefixes on non-exempt lines adds $50,738.10 (total $447,013.43). The longest prefix (25%) applies.
 - USMCA exemption: 65 SCN-03 lines ($750,029.39 YTD value) are exempt; the exemption is worth **$250,009.80** a year. The only SCN-03 impact comes from the two MX items with no certification: SYN-1149 $24,729.26 and SYN-1132 $7,836.22. Getting their certifications in place, if they qualify, removes the whole SCN-03 impact.
 - Not evaluable: 43 lines ($506,582.85 YTD value) of 5 HTS-missing items have an import country and origin that match a scenario: SYN-1034 CN, 7 lines, $48,378.19; SYN-1051 CN, 9, $76,387.88; SYN-1100 VN, 4, $95,360.58; SYN-1105 VN, 12, $156,814.11; SYN-1120 CN, 11, $129,642.09. From the descriptions, SYN-1100 (hex bolt) and SYN-1105 (hex nut) from VN look like heading 7318 and could add about **$33,623.29** a year under SCN-01 (10%). Research confirms the classification first; the others (cable clip, shelving, fan) do not look like SCN-01 goods.
 - Stretch (a), from the effective date to 2026-12-31: SCN-01 (from 12/1, 31 days) $19,278.46; SCN-02 (from 11/15, 47 days) $17,605.23; SCN-03 (from 2027-01-01) $0.
-- Stretch (c): the Tariff-Impact Model for SCN-02 should show an annual impact equal to $136,721.49 (within a few dollars if the unit customs value was rounded).
+- Stretch (c): of the 18 US-origin items with Canadian entry lines, the model should put 7 in scope (45 lines, 38,470 units YTD) and show an impact of $136,721.49 for the 12-month quantity (within a few dollars if the unit customs value was rounded). $136,713.28 means the quantity was truncated by integer division (`SUM(qty) * 12 / 9` on an INT). Zero usually means the Action tab still holds the template's sample action. Check that Hire B did not edit the Action tab: Research (Hire A or the Senior) fills it.
 - Fingerprints: $297,206.50 means `* (12 / 9)` integer division in T-SQL (the YTD impact); $646,285.13 means the exemption was ignored; $447,013.43 means no longest-prefix rule; $400,707.20 (188 lines) means duplicates were not removed.
 
 ### Reference T-SQL
@@ -710,7 +711,7 @@ Top 5 items by annualized impact:
 GO
 CREATE OR ALTER VIEW practice.v_scenario_lines AS
 WITH base AS (
-    SELECT el.entry_no, el.line_no, el.item_id, el.entered_value,
+    SELECT el.entry_no, el.line_no, el.item_id, el.qty, el.entered_value,
            e.import_country, e.entry_date, i.hts10, i.country_of_origin, i.usmca_eligible_flag
     FROM practice.v_entry_lines_clean AS el
     JOIN practice.entries AS e ON e.entry_no = el.entry_no
@@ -727,7 +728,7 @@ matches AS (
      AND s.country_of_origin = b.country_of_origin
      AND b.hts10 LIKE s.hts_prefix + '%'
 )
-SELECT entry_no, line_no, item_id, entered_value, import_country, entry_date, hts10,
+SELECT entry_no, line_no, item_id, qty, entered_value, import_country, entry_date, hts10,
        LEFT(hts10, 2) AS hts_chapter, country_of_origin, usmca_eligible_flag,
        scenario_id, hts_prefix, additional_rate,
        CASE WHEN usmca_exempt = 'Y' AND usmca_eligible_flag = 'Y' THEN 1 ELSE 0 END AS is_exempt,
@@ -735,44 +736,45 @@ SELECT entry_no, line_no, item_id, entered_value, import_country, entry_date, ht
 FROM matches
 WHERE prefix_rank = 1;
 GO
--- Annualize as SUM(x) * 12 / 9. SUM(x) * (12 / 9) multiplies by 1.
+-- Annualize as SUM(x) * 12.0 / 9: it also works on INT columns such as qty. SUM(x) * (12 / 9) multiplies by 1.
 SELECT scenario_id, COUNT(*) AS lines, SUM(entered_value) AS ytd_value_usd,
-       CAST(SUM(entered_value) * 12 / 9 AS DECIMAL(18, 2)) AS annualized_value_usd,
-       CAST(SUM(impact_ytd_usd) * 12 / 9 AS DECIMAL(18, 2)) AS annualized_impact_usd
+       CAST(SUM(entered_value) * 12.0 / 9 AS DECIMAL(18, 2)) AS annualized_value_usd,
+       CAST(SUM(impact_ytd_usd) * 12.0 / 9 AS DECIMAL(18, 2)) AS annualized_impact_usd
 FROM practice.v_scenario_lines
 WHERE is_exempt = 0
 GROUP BY ROLLUP (scenario_id)
 ORDER BY GROUPING(scenario_id), scenario_id;
 
 SELECT scenario_id, country_of_origin, hts_chapter, COUNT(*) AS lines,
-       CAST(SUM(impact_ytd_usd) * 12 / 9 AS DECIMAL(18, 2)) AS annualized_impact_usd
+       CAST(SUM(impact_ytd_usd) * 12.0 / 9 AS DECIMAL(18, 2)) AS annualized_impact_usd
 FROM practice.v_scenario_lines
 WHERE is_exempt = 0
 GROUP BY scenario_id, country_of_origin, hts_chapter
 ORDER BY scenario_id, annualized_impact_usd DESC;
 
 SELECT scenario_id, hts_prefix, country_of_origin, COUNT(*) AS lines,
-       CAST(SUM(impact_ytd_usd) * 12 / 9 AS DECIMAL(18, 2)) AS annualized_impact_usd
+       CAST(SUM(impact_ytd_usd) * 12.0 / 9 AS DECIMAL(18, 2)) AS annualized_impact_usd
 FROM practice.v_scenario_lines
 WHERE is_exempt = 0
 GROUP BY scenario_id, hts_prefix, country_of_origin
 ORDER BY scenario_id, hts_prefix, country_of_origin;
 
 SELECT COUNT(*) AS exempt_lines, SUM(entered_value) AS exempt_ytd_value,
-       CAST(SUM(impact_ytd_usd) * 12 / 9 AS DECIMAL(18, 2)) AS annualized_impact_avoided_usd
+       CAST(SUM(impact_ytd_usd) * 12.0 / 9 AS DECIMAL(18, 2)) AS annualized_impact_avoided_usd
 FROM practice.v_scenario_lines
 WHERE is_exempt = 1;
 
 SELECT TOP (5) scenario_id, item_id, country_of_origin, hts_prefix,
-       CAST(SUM(impact_ytd_usd) * 12 / 9 AS DECIMAL(18, 2)) AS annualized_impact_usd
+       CAST(SUM(impact_ytd_usd) * 12.0 / 9 AS DECIMAL(18, 2)) AS annualized_impact_usd
 FROM practice.v_scenario_lines
 WHERE is_exempt = 0
 GROUP BY scenario_id, item_id, country_of_origin, hts_prefix
 ORDER BY SUM(impact_ytd_usd) DESC;
 
--- The overlap trap: every matching prefix counted (expect 206 rows, 447,013.43)
+-- The overlap trap: every matching prefix counted, exempt lines removed (expect 206 rows, 447,013.43).
+-- Without the WHERE line this is the step-2 count: 271 rows for 251 line and scenario pairs.
 SELECT COUNT(*) AS matched_rows_all_prefixes,
-       CAST(SUM(el.entered_value * s.additional_rate) * 12 / 9 AS DECIMAL(18, 2)) AS double_counted_impact_usd
+       CAST(SUM(el.entered_value * s.additional_rate) * 12.0 / 9 AS DECIMAL(18, 2)) AS double_counted_impact_usd
 FROM practice.v_entry_lines_clean AS el
 JOIN practice.entries AS e ON e.entry_no = el.entry_no
 JOIN practice.items AS i ON i.item_id = el.item_id
@@ -836,6 +838,8 @@ ADDCOLUMNS (
     CALENDAR ( DATE ( 2026, 1, 1 ), DATE ( 2026, 12, 31 ) ),
     "Month", DATE ( YEAR ( [Date] ), MONTH ( [Date] ), 1 )
 )
+-- Power BI only: Excel's Data Model cannot create calculated tables.
+-- In Excel use Power Pivot > Design > Date Table > New.
 
 Total Entered Value = SUM ( EntryLines[entered_value] )
 
@@ -874,11 +878,11 @@ Why these choices (ask the learner to explain them):
 - Effective Duty Rate and PPV % are measures, not columns: they must be a ratio of sums in whatever filter context the visual creates.
 - is_outlier is a column: it is a fixed attribute of each receipt that you filter by.
 - CALCULATE adds the filter `is_outlier = 0` to the current filter context; slicers still apply on top of it.
-- DIVIDE returns blank instead of an error when a slicer leaves no value.
+- DIVIDE returns BLANK (or the alternate result) when the denominator is zero or blank. The / operator would return Infinity or NaN instead, which shows on a card.
 
 ### Layout check
 
-Pass if: four cards on top that tie out; slicers that each change the expected cards; chapter bar and chapter-by-origin matrix match Exercise 2; the PPV % by month line shows the June step (1.75% after 0.16% in May); the scenario table matches Exercise 6; a visible "synthetic practice data" label; the .pbix not published to a shared workspace.
+Pass if: four cards on top that tie out; slicers that each change the expected cards; chapter bar and chapter-by-origin matrix match Exercise 2, including the UNK chapter row of 98 lines (hts_chapter and origin built on EntryLines, not taken from Items); the PPV % by month line shows the June step (1.75% after 0.16% in May); the scenario table matches Exercise 6; a visible "synthetic practice data" label; the .pbix not published to a shared workspace.
 
 ## Exercise 8: What a good memo says
 
@@ -896,14 +900,14 @@ Pass if: four cards on top that tie out; slicers that each change the expected c
 
 1. Rate audit: 1,198 lines audited, 49 mismatches (7 over, 42 under). Patterns: old rate after the change (18, -$23.8K), 0% applied (10, -$11.2K), additional duty missed (7, -$5.0K), new rate before the change (5, +$9.1K), other rates (9). High confidence: each line ties to the reference table.
 2. USMCA: SYN-1016 and SYN-1143 cause 30 invalid lines across all brokers ($20.6K); 7 lines on items with no certification; 8 one-off broker claims. 12 eligible lines paid $4.8K without claiming.
-3. PPV: $56.9K unfavorable (0.81%) after setting aside 12 unit-of-measure outliers ($322.1K). CN chapter 73/76 receipts since June carry $37.1K (12.8%); the duty increase explains about $35.5K. Their standards still carry the old rate.
+3. PPV: $56.9K unfavorable (0.81%) after setting aside 12 outlier receipts ($322.1K: 9 unit-of-measure errors, 3 decimal shifts). CN chapter 73/76 receipts since June carry $37.1K (12.8%); the duty increase explains about $35.5K. Their standards still carry the old rate.
 4. Data quality: 24 duplicate lines (4 entries loaded twice; $15.3K duty double counted if kept), 4 lines on items missing from the master, 6 items with no HTS (94 lines, $1.05M) that cannot be audited or modeled. Two of them (VN hex bolt and nut) may fall under SCN-01: about $33.6K a year.
 
 **Recommended actions**
 
 - Correct the USMCA flag on SYN-1016 and SYN-1143 (Hire A maker, Senior checker, by 11/20). Senior decides the correction route for the 45 lines.
 - Send the 49 mismatches to the Senior for broker follow-up, starting with BRK-US2's 14 stale-rate lines (by 11/18).
-- Hire B to scope a standard cost update for CN chapter 73/76 items with Finance, with maker-checker review (by 12/4).
+- Hire B to prepare a standard cost update with Finance for the CN chapter 73/76 items, using the rate and item scope Research confirms, with maker-checker review (by 12/4).
 - Research to classify the 6 items with no HTS (by 11/25).
 - Senior to decide on post-importation claims for the 12 missed lines; the earliest US line's one-year window ends 2027-01-30.
 
@@ -933,7 +937,7 @@ Pass if: four cards on top that tie out; slicers that each change the expected c
 | USMCA rule on the flag only | 15 invalid lines | 45 | 4 |
 | Outliers left in PPV | 5.35% | 0.81% | 5, 7 |
 | Supplier country used as origin | CN duty $363,406.72 | $579,514.22 | 2 |
-| No longest-prefix rule | 206 rows, $447,013.43 | 186, $396,275.33 | 6 |
+| No longest-prefix rule | 271 rows at step 2 (206 after the exemption), $447,013.43 | 251 pairs at step 2 (186 after the exemption), $396,275.33 | 6 |
 | USMCA exemption ignored | $646,285.13 | $396,275.33 | 6 |
 | `* (12 / 9)` in T-SQL | $297,206.50 | $396,275.33 | 6 |
 

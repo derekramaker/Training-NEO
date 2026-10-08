@@ -4,7 +4,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 - **Purpose:** control every change to a custom tool (Python, Excel VBA, Access, Power Apps, Power Automate), a report, or a system configuration. Each change is described, assessed, tested, reviewed by a second person, reversible and communicated.
 - **Who uses it:** the maker (the BSA making the change; from day 60, the hire who owns the tool); the checker (the Manager for tool changes; the Senior for data and report items in their area); the approver (the Manager, plus the system owner for configuration of a system the team does not own); the users, who are told before and after.
-- **When:** before any change to a tool, a configuration or production data, whatever its size. First real use in W8 (first tool change, M6). Before day 60 the hires prepare and test changes but do not deploy to production (`docs/04-access-request-checklist.md`, rule 2). After day 60, write access covers only the tool the hire owns, and only through this template.
+- **When:** before any change to a tool, a configuration or production data, whatever its size. First real use in W8 (first tool change, M6). Before day 60 the hires prepare and test changes in a test copy but do not deploy to production (`docs/04-access-request-checklist.md`, rule 2). From the day-60 review, if the Manager grants production change rights, write access covers only the tool the hire owns, and only through this template (rule 3).
 
 ## How to fill this in
 
@@ -197,13 +197,15 @@ Rules: the maker is never the checker. The checker's findings and decision go on
 
 ## Filled example (illustrative)
 
+This example is set after Hire A's day-60 review, when the Manager granted production change rights for this owned tool. Before that review, the same CR stops after testing on the test copy, and the Manager implements it.
+
 | Field | Entry |
 |---|---|
 | CR ID and Jira key | [COMPANY: project key]-171-CR |
 | Title | [COMPANY: tool closest to Research]: keep HTS numbers as 10-digit text in the broker export |
 | Technology | Python |
-| Change type | Normal, expedited (P1). Not Emergency: the Manager's corrected list to the broker contained the problem, so there was time to test fully before the next scheduled run |
-| Maker / Checker / Approver | Hire A (tool owner) / Manager / Manager |
+| Change type | Normal, expedited (P1). Not Emergency: the Manager had already sent the broker a corrected list (the workaround), which stopped further wrong data, so there was time to test fully before the next scheduled run |
+| Maker / Checker / Approver | Hire A (tool owner) / Manager / Manager; data owner approval: [COMPANY: trade compliance lead] |
 
 - **Before:** the script reads the AS400 extract with default column types, so the HTS column becomes a number. HTS numbers starting with 0 (chapters 01 to 09) are written to the broker file with 9 digits.
 - **After:** the HTS column is read as text (in pandas, dtype=str for that column). Each HTS number is checked for exactly 10 digits; any other value goes to an error file and a warning in the run log.
@@ -212,18 +214,18 @@ Rules: the maker is never the checker. The checker's findings and decision go on
 | Area | Affected? | Details, and who confirmed |
 |---|---|---|
 | Interfaces and schedules | Yes | The US broker file for [COMPANY: broker]; layout unchanged; only the affected rows change |
-| Compliance | Yes | The broker may have received 312 truncated numbers. Research checks entries for those items over the last 90 days; the Manager decides on contacting the broker |
+| Compliance | Yes | The broker may have received 312 truncated numbers since [first bad run date]. Research lists every entry for those items from that date, with each entry's liquidation status. The Manager and [COMPANY: trade compliance lead] decide the correction route with the broker |
 | Financial | No (unless entries used a wrong number) | Depends on the compliance check above |
 | Documentation | Yes | Tool doc: input handling and error file; new Anki card on leading zeros |
 
-Risk: Likelihood 2 x Impact 3 = 6, **High**. Required: regression on the full last production input, a broker test file, rollback rehearsal, maker on standby for the first run.
+Risk: Likelihood 2 x Impact 3 = 6, **High**. Required: regression on the full last production input; users and the broker told in advance (the broker email goes with the Senior's agreement and the Senior copied); approval from the classification data owner ([COMPANY: trade compliance lead]); a broker test file; rollback rehearsal; a scheduled window outside any cost cycle and not within [COMPANY: n] working days of a tariff effective date; maker on standby for the first run.
 
 | Test ID | What is tested | Input data | Expected | Actual | Result |
 |---|---|---|---|---|---|
 | T1 | Leading zero kept | Last production input (13,750 US rows) | 312 rows now have 10 digits starting with 0 | 312 | Pass |
 | T2 | Regression: old vs new | Same input | Only those 312 rows differ, and only in the HTS column | 312 rows, HTS only | Pass |
 | T3 | Invalid lengths rejected | Test file with 9- and 11-digit values | Rows in the error file; warning in the log; rest of the file written | As expected | Pass |
-| T4 | Broker accepts the file | Test file to [COMPANY: broker test mailbox] | Accepted, no rejects | Accepted | Pass |
+| T4 | Broker accepts the file | Test file to [COMPANY: broker test mailbox], Senior copied | Accepted, no rejects | Accepted | Pass |
 
 **Rollback:** trigger is a broker reject or an output row count that differs from the input minus the error rows. Restore the previous release tag (v1.4) and re-run; about 10 minutes. Rehearsed in test.
 

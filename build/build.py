@@ -49,7 +49,7 @@ HIRES = [("Hire A", "Research", "M5R"), ("Hire B", "Standard Cost", "M5C")]
 
 # Core program docs, in reading order, for the combined handbook.
 HANDBOOK_ORDER = [
-    "00-program-on-a-page.md",
+    "00-program-at-a-glance.md",
     "01-30-60-90-plan.md",
     "02-weeks-1-2-schedule.md",
     "03-check-ins-and-scorecards.md",

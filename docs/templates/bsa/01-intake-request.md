@@ -76,7 +76,7 @@ Check the rules in order. The first one that matches is the route.
 
 | Order | If this is true | Route | What you create |
 |---|---|---|---|
-| 1 | It is out of the team's scope or someone else's job: a legal opinion (trade counsel, through the Manager); a filing or correction the broker makes (the broker files, we supply data, the Manager decides on contacting the broker); IT access or hardware (service desk); FTZ (not in scope). Or it duplicates an open issue. Or Value 1, Risk 1 and no date | Decline (redirect, link the duplicate, or park in the backlog) | No new issue, or a parked issue with [COMPANY: parked label]. Manager confirms in days 1 to 60 |
+| 1 | It is out of the team's scope or someone else's job: a legal opinion (trade counsel, through the Senior or the Manager); a filing or correction the broker makes (the broker files, we supply data, the Manager decides on contacting the broker); IT access or hardware (service desk); FTZ (not in scope). Or it duplicates an open issue. Or Value 1, Risk 1 and no date | Decline (redirect, link the duplicate, or park in the backlog) | No new issue, or a parked issue with [COMPANY: parked label]. Manager confirms in days 1 to 60 |
 | 2 | Under 15 minutes, nothing is produced, no data or system changes, no review needed, and the answer is already documented or readable in a system you have access to | Quick answer | Reply directly; one line in your daily notes. If it grows past 15 minutes, log a story |
 | 3 | More than 5 working days; or more than one deliverable or track (for example WHAT and $); or two or more stakeholder groups must sign off; or a production tool or system change with data migration or an interface (broker feed, Oracle load) | Epic | Jira epic with child stories (`docs/templates/bsa/07-jira-epic-story.md`). New capability: add requirements (`docs/templates/bsa/02-requirements.md`) |
 | 4 | Anything else | Story (Bug if something is broken) | Jira story or bug with Given/When/Then acceptance criteria (`docs/templates/bsa/07-jira-epic-story.md`) |
@@ -120,6 +120,7 @@ Rules for every reply:
 
 - In days 1 to 60, never commit a P1 or P2 date, and never decline, without the Manager's confirmation.
 - Never give a legal interpretation as a quick answer. Interpretation goes through a Research story with a checker.
+- Before your day-60 review, never contact the customs broker, agente aduanal or trade counsel yourself, even to clarify a request. The question goes to the Senior (or the Manager). After day 60, with the Senior's agreement, you may email the broker with the Senior copied.
 - Respect the boundary: Research replies do not state $ impacts; Standard Cost replies do not reinterpret legal scope.
 
 ## Filled example
@@ -143,7 +144,7 @@ On a Tuesday at 09:40, [COMPANY: Purchasing category manager] emails: "Saw news 
 Epic: "Tariff action: Country X steel fasteners (hypothetical)". Child stories:
 
 1. Research: Tariff-Impact Brief (legal scope, in-scope HTS and items, rate, effective date, stacking with other duties, sources). Maker Hire A, checker Senior. Due Thursday 12:00.
-2. Standard Cost: landed-cost and margin impact for in-scope items in the shared Tariff-Impact Model. Maker Hire B, checker Manager. Blocked by story 1. Due Friday 08:00.
+2. Standard Cost: duty and margin impact for in-scope items in the shared Tariff-Impact Model (the model computes the duty change only; fees and freight are assumed unchanged). Maker Hire B, checker Manager. Blocked by story 1. Due Friday 08:00.
 3. Research: confirm the classification of 6 borderline items (heading 7318 vs other headings). Maker Hire A, checker Senior. Any classification change gets its own change request because it changes broker data.
 
 ### D2 reply as sent (10:20)
@@ -154,7 +155,7 @@ Epic: "Tariff action: Country X steel fasteners (hypothetical)". Child stories:
 >
 > You will get: the checked item list with the legal basis by Thursday 12:00 (Hire A, reviewed by the Senior) and the cost and margin impact by Friday 08:00 (Hire B, reviewed by the Manager).
 >
-> I need from you: the volume forecast for the next two quarters by Wednesday 12:00.
+> I need from you: the item volume forecast for the next 12 months by Wednesday 12:00.
 >
 > Priority: P1 because the duty takes effect in 8 working days. Next update: Wednesday 16:00.
 

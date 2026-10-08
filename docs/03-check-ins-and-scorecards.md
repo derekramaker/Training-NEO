@@ -12,17 +12,20 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 | Touchpoint | Who | When | Length | Output |
 |---|---|---|---|---|
-| Manager 1:1 | Manager and one hire | Weekly fixed slot, ideally the first working day after the Friday self-report (W1: Fri 10/23) | 45 min (30 min in W5, W6, W9, W10, W11, W13) | Updated trackers, agreed top 3 for the week, 1:1 notes |
-| Senior structured session | Senior and both hires | Two fixed slots a week, [COMPANY: e.g. Tue and Thu] (one slot in W6, W10, W11) | 90 min | Session notes in OneNote, Anki cards, homework |
+| Monday confirm | Manager and both hires | Mon 08:15 | 15 min | Week plan confirmed or changed (`docs/05-time-management.md`) |
+| Stand-up | Both hires, no trainer | Tue-Fri 08:15 (W1-W2: as scheduled) | 10 min | Top-3 and blockers; blockers to the Manager in Teams |
+| Manager 1:1 | Manager and one hire | Friday afternoon, after the self-report: 13:00 Hire A, 13:45 Hire B (W1: Fri 10/23) | 45 min (30 min in W5, W6, W9, W10, W11, W13) | Updated trackers, agreed top 3 for the week, 1:1 notes |
+| Senior structured session | Senior and both hires | Two fixed slots a week from W3: Tue 09:00 and Thu 13:00 (only the Tuesday slot in W6, W10, W11). W1-W2 slots are in `docs/02-weeks-1-2-schedule.md` | 90 min | Session notes in OneNote, Anki cards, homework |
+| Senior office hours | Senior and both hires | Once a week from W3: Wed 15:00, questions in by 12:00 (none in W6, W10, W11) | 30 min | Answers in the question log |
 | Shadowing | Senior, Manager or [COMPANY: Finance cost accounting contact], and one hire | As real work happens, booked in the trainer's review time | 30–60 min | Shadowing note, SOP lines, Anki cards |
-| Friday teach-back | Both hires present; Manager attends | Friday, 30 min (last working day in W10; none in W6 and W11; inside the review in W9 and W13) | 15 min per hire | Teach-back record (`docs/templates/knowledge/teach-back.md`) |
-| Friday self-report | Hire to Manager, copy to Senior | By 3 pm Friday (last working day in holiday weeks) | 15 min to write | Email or Teams message using Section 5 |
+| Friday teach-back | Both hires present; Manager attends | Friday 10:00, 30 min (last working day in W10; none in W6 and W11; inside the review in W9 and W13) | 15 min per hire | Teach-back record (`docs/templates/knowledge/teach-back.md`) |
+| Friday self-report | Hire to Manager, copy to Senior | By 11:30 Friday (last working day in holiday weeks) | 15 min to write | OneNote page using Section 5; link sent to the Manager |
 | Question log | Each hire | Continuous | none | OneNote page (Section 2) |
 | Milestone review | Manager and one hire; Senior gives written input | W5 Wed 11/18, W9 Fri 12/18, W13 Fri 1/15 | 60 min per hire | Scorecard and decision (Section 6) |
 
 ## 2. Question log
 
-Each hire keeps a running "Question Log" page in their own OneNote section, one row per question. If `dist/BSA-Onboarding-Trackers.xlsx` gets a question-log tab later, move the log there.
+Each hire keeps a running "Question Log" page in their own OneNote section, one row per question. If the trackers workbook gets a question-log tab later, move the log there.
 
 | Date | Question | Module | Where I looked first | Answer and source | Turned into |
 |---|-------------|---|---------|-------------|---------|
@@ -35,13 +38,14 @@ Rules:
 - **Non-blocking questions:** batch them and bring them to the next Senior session or 1:1.
 - **Reusable answers:** an answer that someone else will need again becomes an Anki card, a glossary entry or an SOP line within 2 working days. Record which one in the "Turned into" column.
 - **Unanswered questions:** any question unanswered after 2 working days is flagged in the Friday self-report.
+- **Brokers and counsel:** before the day-60 review, never ask a customs broker, agente aduanal or trade counsel yourself. The question goes to the Senior (or the Manager). After day 60, with the Senior's agreement, you may email the broker with the Senior copied.
 
 ## 3. Weekly Manager 1:1 (45 minutes, per hire)
 
 ### Before the 1:1
 
 - [ ] Hire: Friday self-report sent (Section 5).
-- [ ] Hire: Skills, Knowledge Topics and Tool Inventory tabs updated in their copy of `dist/BSA-Onboarding-Trackers.xlsx`, with an evidence link for any rating change.
+- [ ] Hire: Skills, Knowledge Topics and Tool Inventory tabs updated in the trackers workbook (BSA-Onboarding-Trackers.xlsx in the onboarding folder), with an evidence link for any rating change.
 - [ ] Hire: question log current.
 - [ ] Manager (5 min, inside the 1:1 budget): read the self-report, scan the hire's Jira board, read the question log rows added this week.
 
@@ -101,7 +105,7 @@ W10–W13 (ownership and e2open):
 
 ## 4. Senior structured session (90 minutes, both hires)
 
-The Senior runs two sessions a week for both hires together. Topics come from the roadmap (`docs/01-30-60-90-plan.md` Sections 3 and 5). The template keeps prep under 15 minutes and makes sure every session produces something.
+The Senior runs two sessions a week for both hires together, in the standard-week slots. Topics come from the roadmap (`docs/01-30-60-90-plan.md` Sections 3 and 5). The template keeps prep under 15 minutes and makes sure every session produces something.
 
 ### Template
 
@@ -143,7 +147,7 @@ Scribe duty rotates between the hires each session.
 - **Teach (25 min):** The Senior opens a recent Federal Register notice and the matching CBP CSMS message. The Senior thinks aloud through the effective-date language, the annex of HTS codes, the Chapter 99 heading the broker reports, and any exclusions.
 - **Hands-on (35 min):** Hire A lists in-scope HTS codes, countries, rate and effective date with a source for each. Hire B marks which fields the Tariff-Impact Model needs and what $ questions they raise (items, volumes, current duty).
 - **Check for understanding:** "Find the error" on a sample brief line with a wrong effective date, then "Teach the boundary".
-- **Homework:** Hire A drafts a Tariff-Impact Brief outline for the action. Hire B lists which of our items might be in scope, using a query on [COMPANY: item master or warehouse table].
+- **Homework:** Hire A drafts a Tariff-Impact Brief outline for the action, including the candidate items in scope. Hire B lists the cost inputs the model's Items tab needs for Hire A's candidate items (customs value, annual volume, current duty rate, current standard cost, sell price) and where each comes from in [COMPANY: warehouse cost tables or Oracle extract]. Hire B does not decide which items are in scope.
 
 ### Shadowing guidelines
 
@@ -178,9 +182,9 @@ Shadowing note format:
 
 ## 5. Friday self-report (5 prompts, about 15 minutes)
 
-Send by 3 pm Friday (last working day in holiday weeks) to the Manager, copy to the Senior. Use short bullets with links. Don't polish it.
+This is the only self-report format; `docs/05-time-management.md` points here. Post it by 11:30 Friday (last working day in holiday weeks) on your OneNote page "Weekly plans and self-reports" and send the link to the Manager, copy to the Senior. It feeds the Friday afternoon 1:1. Use short bullets with links. Don't polish it.
 
-1. **Done this week, with links:** Jira items, docs, queries, cards written (count), teach-back topic. Add a rough split of your hours: guided, self-study, shadowing, real work, documentation.
+1. **Done this week, with links:** your top-3 outcomes (done or not, and why), Jira items, docs, queries, cards written (count), teach-back topic. Add a rough split of your hours: guided, self-study, shadowing, real work, documentation, and the learning/doing total against your phase target.
 2. **One thing I learned that I could teach:** explain one concept in 2–3 sentences in your own words, and name the source.
 3. **Stuck or blocked:** access, data, unclear scope, questions open more than 2 working days. Say what you already tried.
 4. **Confidence check:** rate the 2–3 skills you focused on this week on the 0–4 proficiency scale, with one piece of evidence each. Say where you feel less confident than the rating suggests.
@@ -214,7 +218,7 @@ A "material error" is defined in `docs/01-30-60-90-plan.md` Section 4. It means 
 |---|---|-------------------|
 | 0–5 | Frame | Restate the criteria and the decision rules |
 | 5–15 | Self-assessment | Hire summarizes their strongest and weakest criteria with evidence |
-| 15–40 | Evidence and demo | Day 30: oral questions (bank below) and the hire draws the trade data flow (A30-4, B30-4). Day 60: owned-tool demo, 15 min (counts as a teach-back). Day 90: walk through the end-to-end cycle evidence and the as-is doc. |
+| 15–40 | Evidence and demo | Day 30: oral questions (bank below) and the hire draws the trade data flow (A30-4, B30-4). Day 60: owned-tool demo, 15 min (counts as a teach-back). Day 90: walk through the end-to-end cycle evidence and the as-is doc, including a 10-minute teach-back of the SOP v1.0 (counts as a teach-back). |
 | 40–50 | Ratings | Agree a rating for every criterion; record gaps |
 | 50–57 | Decision and next 30 days | Apply the decision rules; agree 3 goals and their evidence items |
 | 57–60 | Feedback both ways | One thing to keep, one to change, for the hire and for the trainers |
@@ -226,14 +230,14 @@ Day-30 oral question bank (ask 3; for A30-1 and B30-1):
 - "What replaced the B3 in Canada, and under which CBSA system?"
 - "What is a pedimento, and who prepares it?"
 - "We buy a part made in Mexico. What has to be true for it to enter the US duty-free under USMCA, and what must we keep on file?"
-- "What is IMMEX for, and what do Anexo 24 and Anexo 31 control?"
+- "What is IMMEX for, and what do Anexo 24 and Anexo 30 (formerly Anexo 31) control?"
 
 ### Decision outcome rules
 
 These match `docs/01-30-60-90-plan.md` Section 8.
 
-- **On track:** every Must criterion rated 3 or 4, and no criterion rated 1.
-- **Adjust:** no Must criterion rated 1, but one or two Must criteria rated 2, or any Stretch rated 1. Write up to 3 recovery actions with an owner and a due date within 2 weeks.
+- **On track:** every Must criterion rated 3 or 4. Stretch ratings are recorded but do not change the outcome.
+- **Adjust:** no Must criterion rated 1, but one or two Must criteria rated 2. Write up to 3 recovery actions with an owner and a due date within 2 weeks.
 - **Extend:** any Must criterion rated 1, or three or more Must criteria rated 2. Re-check only the unmet Must criteria on the re-check date and apply "What gives first".
 
 Re-check dates if extended: day 30 on Wed 2026-12-02, day 60 in the W12 1:1 (Fri 2027-01-08), day 90 on Fri 2027-02-12.
@@ -244,11 +248,11 @@ Re-check dates if extended: day 30 on Wed 2026-12-02, day 60 in the W12 1:1 (Fri
 |--------------|-----------|---|---------|
 | A30-1 (Must) Customs fundamentals: 80% or more on the knowledge check; explains the US entry life cycle (release, entry summary, duty payment, liquidation, protest window), the roles of importer, broker and CBP, and the Canada and Mexico equivalents without notes | Marked knowledge check; oral Q&A notes | | |
 | A30-2 (Must) Classification: 10 items to 6-digit HS with GRI reasoning plus national lines in HTSUS, the Canada Customs Tariff and TIGIE; 8 or more of 10 correct at 6 digits | Worksheet with the Senior's marks | | |
-| A30-3 (Must) Origin and programs: USMCA at proficiency 2; IMMEX, Anexo 24 and Anexo 31 at proficiency 1 | Skills tab; teach-back or Q&A | | |
+| A30-3 (Must) Origin and programs: USMCA at proficiency 2; IMMEX, Anexo 24 and Anexo 30 (formerly Anexo 31) at proficiency 1 | Skills tab; teach-back or Q&A | | |
 | A30-4 (Must) Trade data flow: draws the AS400, Oracle, broker, warehouse and reports flow from memory; names 3 or more data-quality break points; maps AS400 functions to e2open GTM concepts | Diagram in OneNote; drawn in the review | | |
-| A30-5 (Must) Analytics: practice pack exercises 1–6 checked against the answer key; one small real analysis (e.g. items in scope of a recent tariff action) with no material errors | SQL and 1-page summary; Senior note | | |
+| A30-5 (Must) Analytics: practice pack Exercises 1–6 checked against the answer key with the Senior (trainer-only key); one small real analysis (e.g. items in scope of a recent tariff action) with no material errors | SQL and 1-page summary; Senior note | | |
 | A30-6 (Must) Research track start: shadowed 1 or more research items; found the primary sources for a recent action in 60 minutes or less; Tariff-Impact Brief outline with HTS codes, countries, rate and effective date | Outline and source list | | |
-| A30-7 (Must) Learn-by-documenting: 20 or more cards (spot check: zero errors), 5 or more Tool Inventory rows, 1 SOP draft, 3 teach-backs | Trackers workbook, OneNote, Anki | | |
+| A30-7 (Must) Learn-by-documenting: 20 or more cards written (spot check: zero errors), 5 or more Tool Inventory rows, 1 SOP draft, 3 teach-backs | Trackers workbook, OneNote, Anki | | |
 | A30-8 (Must) Ways of working: Jira current (updated at least twice a week), weekly self-reports, question log in use, access complete or blockers escalated | Jira, self-reports, question log | | |
 | A30-9 (Must) Business orientation: met all stakeholder groups in [COMPANY: stakeholder list]; 1-page stakeholder map | Stakeholder map | | |
 | A30-10 (Stretch) Candidate tool run with the Manager; first tool-doc sections drafted | Draft tool doc | | |
@@ -259,8 +263,8 @@ Decision:
 - [ ] Adjust
 - [ ] Extend (re-check Wed 2026-12-02)
 - Recovery actions (owner, due date):
-- Tool to own by day 60 confirmed: [COMPANY: tool closest to Research]
-- Exports item for W6 confirmed:
+- Tool to own by day 60 confirmed: [COMPANY: tool closest to Research]; test copy requested (AR-12, AR-13 or AR-15)
+- Exports item for W6, A60-1 action and A60-3 investigation confirmed:
 - Senior input received (date):
 - Manager signature and date:
 - Hire signature and date:
@@ -273,9 +277,9 @@ Decision:
 | B30-2 (Must) Classification: same standard as A30-2 | Worksheet with the Senior's marks | | |
 | B30-3 (Must) Origin and programs: USMCA and IMMEX at proficiency 1; explains how a USMCA claim, or its denial, changes the duty in landed cost | Skills tab; oral Q&A | | |
 | B30-4 (Must) Trade data flow: same as A30-4, plus shows where duty, freight and fees enter Oracle cost data | Diagram in OneNote; drawn in the review | | |
-| B30-5 (Must) Analytics: practice pack exercises 1–6 checked; one small real analysis (e.g. duty as a percent of landed cost, or PPV by category) delivered by Fri 11/13 with no material errors | SQL and 1-page summary; Senior note | | |
+| B30-5 (Must) Analytics: practice pack Exercises 1–6 checked with the Senior; one small real analysis (e.g. duty as a percent of landed cost, or PPV by category) delivered by Fri 11/13 with no material errors | SQL and 1-page summary; Senior note | | |
 | B30-6 (Must) Standard Cost track start: explains each landed-cost component and its Oracle cost element; rebuilds landed cost for 5 items within [COMPANY: tolerance] or explains each difference; shadowed 1 cost work item with Finance | Landed-cost worksheet; shadowing note | | |
-| B30-7 (Must) Learn-by-documenting: 20 or more cards (spot check: zero errors), 5 or more Tool Inventory rows, 1 SOP draft, 3 teach-backs | Trackers workbook, OneNote, Anki | | |
+| B30-7 (Must) Learn-by-documenting: 20 or more cards written (spot check: zero errors), 5 or more Tool Inventory rows, 1 SOP draft, 3 teach-backs | Trackers workbook, OneNote, Anki | | |
 | B30-8 (Must) Ways of working: same standard as A30-8 | Jira, self-reports, question log | | |
 | B30-9 (Must) Oracle cost data: queries item standard cost and cost elements without help; explains the cost-update calendar | Saved queries; explained in the review | | |
 | B30-10 (Stretch) Candidate tool run with the Manager; first tool-doc sections drafted | Draft tool doc | | |
@@ -286,7 +290,7 @@ Decision:
 - [ ] Adjust
 - [ ] Extend (re-check Wed 2026-12-02)
 - Recovery actions (owner, due date):
-- Tool to own by day 60 confirmed: [COMPANY: name of std-cost tool]
+- Tool to own by day 60 confirmed: [COMPANY: name of std-cost tool]; test copy requested (AR-12, AR-13 or AR-15)
 - Exports item for W6 confirmed:
 - Data-depth stretch (B60-8) realistic? Yes / No
 - Finance contact time agreed (hours per week):
@@ -313,7 +317,8 @@ Decision:
 - [ ] Adjust
 - [ ] Extend (re-check in the W12 1:1, Fri 2027-01-08)
 - Recovery actions (owner, due date):
-- Day-90 evidence: which live tariff action, or the rule for picking the next one:
+- Day-90 evidence: which live tariff action, or the rule for picking the next one, and the fallback if none lands (plan Section 7):
+- Production change rights for the owned tool granted? Yes / No
 - Reporting items start in W10, or slip?
 - Senior input received (date):
 - Manager signature and date:
@@ -339,6 +344,7 @@ Decision:
 - [ ] Extend (re-check in the W12 1:1, Fri 2027-01-08)
 - Recovery actions (owner, due date):
 - Day-90 cycle option: live cycle (date) / parallel run / tariff-driven interim update
+- Production change rights for the owned tool granted? Yes / No
 - Reporting items start in W10, or slip?
 - Senior input received (date):
 - Manager signature and date:
@@ -348,7 +354,7 @@ Decision:
 
 | Criterion | Evidence | Rating (1–4) | Notes |
 |--------------|-----------|---|---------|
-| A90-1 (Must) Runs the Research cycle end to end as maker on 1 or more live tariff actions (intake, brief, model WHAT inputs, handoff, business communication); checker sign-off before release; no material errors after release | Jira trail; brief; model version; sign-off | | |
+| A90-1 (Must) Runs the Research cycle end to end as maker on 1 or more live tariff actions, or the plan's Section 7 fallback (intake, brief, model WHAT inputs, handoff, business communication); checker sign-off before release; no material errors after release | Jira trail; brief; model version; sign-off | | |
 | A90-2 (Must) e2open as-is process doc for Research complete; reviewed by the Manager | As-is doc | | |
 | A90-3 (Must) e2open data map for Research data with a data-quality log and cleansing candidates; reviewed by the Manager and Senior | Data map; data-quality log | | |
 | A90-4 (Must) Research SOP v1.0 published after checker review | Published SOP | | |
@@ -360,7 +366,7 @@ Decision:
 
 Decision:
 
-- [ ] On track: ownership starts Mon 2027-01-18 (default Jira assignee for Research; checker continues)
+- [ ] On track: ownership starts on the first working day after the review (default Jira assignee for Research; checker continues). Mon 1/18 is Martin Luther King Jr. Day: [COMPANY: confirm holiday calendar]
 - [ ] Adjust: ownership starts with a named co-maker for 30 days
 - [ ] Extend: trainer stays maker for production work, hire co-makes, re-check Fri 2027-02-12
 - Checker for Research from day 91:
@@ -385,7 +391,7 @@ Decision:
 
 Decision:
 
-- [ ] On track: ownership starts Mon 2027-01-18 (default Jira assignee for Standard Cost inputs; Finance and checker sign-off continue)
+- [ ] On track: ownership starts on the first working day after the review (default Jira assignee for Standard Cost inputs; Finance and checker sign-off continue). Mon 1/18 is Martin Luther King Jr. Day: [COMPANY: confirm holiday calendar]
 - [ ] Adjust: ownership starts with a named co-maker for 30 days
 - [ ] Extend: trainer stays maker for production cycles, hire co-makes, re-check Fri 2027-02-12
 - Checker for Standard Cost from day 91:
@@ -425,7 +431,7 @@ Give feedback in three parts, then agree the next step:
 | Red flag | What it may mean | Response |
 |-------------|-------------|------------------|
 | Self-report missing or vague 2 weeks in a row | Overloaded, disengaged, or unsure what counts as progress | A 15-minute conversation the same day. Rebuild the week together with time blocks (`docs/05-time-management.md`). |
-| Question log empty for a week | Not asking, or not recording | Ask "What did you look up this week?" Set a norm of at least 3 logged questions per day in W1–W5. |
+| Question log empty for a week | Not asking, or not recording | Ask "What did you look up this week?" Set a norm of at least 1 logged question per day in W1–W5. |
 | Many questions open more than 2 days | Trainers are the bottleneck | Triage in the 1:1. Route answers to primers or the glossary. Use one Senior session's recap block for the backlog. |
 | Anki reviews skipped 3 or more days, or a large overdue backlog | Time management, or the deck feels irrelevant | Fix a daily 20-minute block. Check that the hire writes their own company cards. Suspend low-value cards rather than giving up. |
 | Teach-back reads slides and can't answer "why" | Surface learning | Repeat the topic next week with a real example. Ask "why" questions in the next Senior session. |
@@ -440,7 +446,7 @@ Give feedback in three parts, then agree the next step:
 
 ## 9. How to adjust the plan
 
-Use the cheapest lever that works. Never fix a problem by going over trainer capacity (Manager 8 h, Senior 4–5 h a week).
+Use the cheapest lever that works. Never fix a problem by going over trainer capacity (Manager 8 h, Senior 4.5 h a week).
 
 1. **Re-sequence within the week:** move a topic earlier or later, e.g. if access is late, swap in shadowing.
 2. **Change the learning method:** add a worked example, use a different primer section, or replace reading with a hands-on exercise.
@@ -460,9 +466,9 @@ Rules for any change:
 - `docs/01-30-60-90-plan.md`: goals, roadmap, exit criteria, trainer load, risks, decision rules
 - `docs/02-weeks-1-2-schedule.md`: day-by-day W1–W2 schedule
 - `docs/05-time-management.md`: weekly planning for the hires
-- `dist/BSA-Onboarding-Trackers.xlsx`: Skills, Knowledge Topics, Glossary and Tool Inventory tabs
+- BSA-Onboarding-Trackers.xlsx in the onboarding folder ([COMPANY: team onboarding folder on SharePoint/Teams]): Skills, Knowledge Topics, Glossary and Tool Inventory tabs
 - `docs/templates/knowledge/teach-back.md`, `docs/templates/knowledge/process-sop.md`, `docs/templates/knowledge/tool-doc.md`, `docs/templates/knowledge/anki-card-writing-guide.md`
 - `docs/templates/domain/tariff-impact-brief.md`, `docs/templates/domain/standard-cost-update-checklist.md`, `docs/templates/domain/tariff-impact-model-guide.md`
 - `docs/templates/bsa/03-process-map-as-is-to-be.md`, `docs/templates/bsa/04-data-mapping-spec.md`, `docs/templates/bsa/06-change-request.md`
 - `docs/primers/customs-trade-compliance-primer.md`, `docs/primers/trade-systems-gtm-e2open-primer.md`, `docs/primers/current-tariff-landscape.md`
-- `docs/analytics/practice-exercises.md`, `docs/analytics/answer-key.md`
+- `docs/analytics/practice-exercises.md`; the answer key is trainer-only ([COMPANY: trainer-only location], never in the hires' OneNote sections)

@@ -17,13 +17,13 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | 5 | W2 Wed 10/28, 08:30 | 8 in full, then Exercise 1 | 1.25 h | 5-item classification worksheet |
 | 6 | W3 | 9 and 10 in full, then Exercise 2 (BOM) | 1.5 h | Valuation rebuild and BOM qualification worksheet |
 | 7 | W4 | 7, 11.2 and 13: auditing broker filings, drawback, penalties and corrections | 0.75 h | Broker-audit notes for the Senior's W5 hands-on session |
-| 8 | W5 (before the knowledge check on Mon 11/16) | 12 (exports), 14 to 16 (what a BSA touches, self-check) | 0.75 h | Self-check answers; 10 Anki cards; questions for the Senior's exports overview |
+| 8 | W4, by Fri 11/13 (before the knowledge check on Mon 11/16) | 12 (exports), 14 to 16 (what a BSA touches, self-check) | 0.75 h | Self-check answers; 10 Anki cards; questions for the Senior's exports overview |
 
 The schedule slots are longer than the focused time above because they include notes, Anki cards and the question log.
 
 Tailoring:
 
-- **Hire A (Research):** parts of Section 10 (USMCA) may be review. If you pass the W2 USMCA test-out quiz, skim 10.2 to 10.5 and spend the saved time on 10.6 (sets and kits), 10.9 (supplier solicitation) and the sources in `docs/primers/current-tariff-landscape.md`.
+- **Hire A (Research):** parts of Section 10 (USMCA) may be review. If you pass the 15-minute oral USMCA test-out with the Senior (Wed 10/28: self-check questions 14 to 18 in Section 16, without notes; 4 of 5 is a pass), skim 10.2 to 10.5 and spend the saved time on 10.6 (sets and kits), 10.9 (supplier solicitation) and the sources in `docs/primers/current-tariff-landscape.md`.
 - **Hire B (Standard Cost):** Sections 4.3, 5.3, 6.3 (duties and taxes) and 9 (valuation) are the inputs to landed cost. Rebuild the worked examples in Excel and keep the file for M5C.
 
 Rules for using this primer:
@@ -32,6 +32,7 @@ Rules for using this primer:
 2. **Never quote a rate, threshold or the status of a tariff action from memory or from this primer.** Those change. Use `docs/primers/current-tariff-landscape.md` and record the date you checked.
 3. **[COMPANY: ...] marks a company fact** that the Manager or Senior must confirm. Do not guess one.
 4. **Log every question** in your question log (`docs/05-time-management.md`) after 15 minutes of looking. Definitions are in `data/trackers/glossary.csv`.
+5. **Broker and counsel questions go through the Senior.** Before the day-60 review you never contact a customs broker, agente aduanal or trade counsel directly; send the question to the Senior (or the Manager). After day 60, with the Senior's agreement, you may email the broker with the Senior copied. Wherever this primer says "confirm with [COMPANY: broker or counsel]", that is how.
 
 ## 1. Why trade compliance matters to a BSA
 
@@ -43,7 +44,7 @@ Every customs declaration is built from data: the tariff classification, the val
 |---|---|---|---|
 | United States | A CBP-licensed customs broker, using our data | The importer of record (IOR). It must use **reasonable care** to enter, classify and value goods (19 U.S.C. 1484). Duties are the importer's personal debt to the US (19 CFR 141.1) | Relying blindly on the broker is not reasonable care. We must be able to show how each classification, value and origin was decided |
 | Canada | A CBSA-licensed customs broker, using our data | The importer. If it has "reason to believe" an origin, classification or value-for-duty declaration is wrong, it must correct it and pay any duties owed within 90 days (Customs Act s. 32.2) | Errors we find start a legal clock. Escalate the same day |
-| Mexico | An agente aduanal (or agencia aduanal), using our data | The importer remains responsible for classification and taxes even when it uses a broker. The 2026 Ley Aduanera reform (DOF 19 Nov 2025, in force 1 Jan 2026) also tightened the brokers' own obligations | The broker's tighter checks are not a substitute for our controls. Confirm with [COMPANY: Mexico broker or counsel] how the reform changed our process |
+| Mexico | An agente aduanal (or agencia aduanal), using our data | The importer remains responsible for classification and taxes even when it uses a broker. The 2026 Ley Aduanera reform (DOF 19 Nov 2025, in force 1 Jan 2026) also tightened the brokers' own obligations | The broker's tighter checks are not a substitute for our controls. The Senior confirms with [COMPANY: Mexico broker or counsel] how the reform changed our process |
 
 ### What reasonable care looks like in our team
 
@@ -72,10 +73,10 @@ Both tracks depend on this. Research (Hire A) decides the WHAT of a tariff actio
 
 | Role | United States | Canada | Mexico | Responsible for |
 |---|---|---|---|---|
-| Customs authority | U.S. Customs and Border Protection (CBP), part of DHS | Canada Border Services Agency (CBSA) | Agencia Nacional de Aduanas de México (ANAM) since 2022 for customs; SAT stays the tax authority (RFC, e.firma, padrón de importadores) | Release goods, assess and collect duties and taxes, verify and audit, penalize |
+| Customs authority | U.S. Customs and Border Protection (CBP), part of DHS | Canada Border Services Agency (CBSA) | Agencia Nacional de Aduanas de México (ANAM) since 2022 for customs; SAT stays the tax authority (RFC, the Registro Federal de Contribuyentes tax ID; e.firma; padrón de importadores) | Release goods, assess and collect duties and taxes, verify and audit, penalize |
 | Importer | Importer of record (IOR) | Importer, identified by its Business Number and import-export (RM) account | Importer registered in the padrón de importadores with an active RFC | Accurate declarations, payment, records, corrections |
 | Customs broker | Licensed customs broker (19 CFR Part 111) | Licensed customs broker | Agente aduanal holding a patente, or an agencia aduanal | Prepares and transmits declarations on our behalf, using our data |
-| Other agencies | Partner Government Agencies (PGAs), for example FDA, USDA, EPA, CPSC | Other government departments, for example CFIA, Health Canada, Global Affairs Canada (permits) | Secretaría de Economía (permits, quotas), COFEPRIS, SENASICA; product labeling under NOMs | Product admissibility, permits, labeling |
+| Other agencies | Partner Government Agencies (PGAs), for example FDA, USDA, EPA, CPSC | Other government departments, for example CFIA, Health Canada, Global Affairs Canada (permits) | Secretaría de Economía (permits, quotas), COFEPRIS, SENASICA; product labeling under NOMs (Normas Oficiales Mexicanas) | Product admissibility, permits, labeling |
 | Carrier or forwarder | Manifest data; ocean carriers file part of the ISF | eManifest advance data | Transport documents and manifest data | Getting the goods and the advance data to the border |
 | Supplier or producer | Commercial invoice, packing list | Commercial invoice | Commercial invoice, data for the value declaration | Price, description, origin information, USMCA certifications |
 | Our team | Data owner and auditor [COMPANY: confirm scope] | Same | Same | Classification, origin and qualification data; tariff research; landed cost; audits of broker filings |
@@ -89,10 +90,10 @@ Use these tables as a quick reference. Sections 4 to 6 explain each country.
 | Topic | United States | Canada | Mexico |
 |---|---|---|---|
 | Customs agency | CBP | CBSA | ANAM (customs operations) with SAT (tax administration) |
-| Who files | Licensed broker through ABI (or an importer that self-files) | Licensed broker (or the importer itself) through CBSA's electronic channels and CARM | Generally an agente aduanal or agencia aduanal |
-| Importer registration | IOR number (IRS EIN or CBP-assigned number, set up on CBP Form 5106) | 9-digit Business Number plus an RM program account (BN15), registered in the CARM Client Portal | RFC, active registration in the padrón de importadores (plus a padrón sectorial for listed goods), e.firma, and an electronic authorization naming the agente aduanal (encargo conferido) |
-| Financial guarantee | Customs bond: single transaction or continuous | Financial security the importer posts in CARM to use release prior to payment (RPP) | No general bond; guarantees apply in specific situations (verify which apply to us with [COMPANY: Mexico broker]) |
-| Importer's portal | ACE Portal (account management, reports on our own entries) | CARM Client Portal (account, broker delegation, statements, declarations) | VUCEM single window for permits and digitized documents; a decree of 4 May 2026 created a successor window run by the ATDT, so confirm the current name and URL. SAT portal for padrón matters |
+| Who files | Licensed broker through ABI, the Automated Broker Interface (or an importer that self-files) | Licensed broker (or the importer itself) through CBSA's electronic channels and CARM (CBSA Assessment and Revenue Management) | Generally an agente aduanal or agencia aduanal |
+| Importer registration | IOR number (IRS EIN or CBP-assigned number, set up on CBP Form 5106) | 9-digit Business Number plus an import-export (RM) program account (BN15), both issued by the Canada Revenue Agency (CRA); the importer then registers in the CARM Client Portal | RFC, active registration in the padrón de importadores (plus a padrón sectorial for listed goods), e.firma, and an electronic authorization naming the agente aduanal (encargo conferido) |
+| Financial guarantee | Customs bond: single transaction or continuous | Financial security the importer posts in CARM to use release prior to payment (RPP) | No general bond; guarantees apply in specific situations (the Senior confirms which apply to us with [COMPANY: Mexico broker]) |
+| Importer's portal | ACE (Automated Commercial Environment) Portal: account management, reports on our own entries | CARM Client Portal (account, broker delegation, statements, declarations) | The foreign-trade single window for permits and digitized documents: the Ventanilla Única de Trámites de Comercio Exterior (VUTCE), run by the ATDT under a decree of 4 May 2026. It replaced the SAT-run VUCEM (Ventanilla Única de Comercio Exterior Mexicana), a name the trade still uses. SAT portal for padrón matters |
 | Where the rules live | 19 CFR, CBP Informed Compliance Publications, CSMS messages | Customs Act, regulations, D-Memoranda, Customs Notices | Ley Aduanera and its Reglamento, the annual Reglas Generales de Comercio Exterior (RGCE) and their annexes, published in the DOF |
 
 ### 3.2 Declarations and tariff schedules
@@ -101,9 +102,9 @@ Use these tables as a quick reference. Sections 4 to 6 explain each country.
 |---|---|---|---|
 | Release filing | Entry (CBP Form 3461 data) | Release request on minimum documentation (for RPP importers), or a CAD paid at release | The pedimento, paid before release, then the automated selection ("semáforo") |
 | Accounting declaration | Entry summary (CBP Form 7501 data), due within 10 working days of release | Commercial Accounting Declaration (CAD). For RPP releases, due within 5 business days of release | The pedimento itself: one declaration with classification, value, origin, regime and taxes |
-| Tariff schedule | Harmonized Tariff Schedule of the United States (HTSUS), published by the USITC | Customs Tariff schedule; CBSA publishes a departmental consolidation, updated each 1 January and on amendments | TIGIE, inside the LIGIE; changes are published in the DOF |
+| Tariff schedule | Harmonized Tariff Schedule of the United States (HTSUS), published by the USITC | Customs Tariff schedule; CBSA publishes a departmental consolidation, updated each 1 January and on amendments | TIGIE, the tariff inside the LIGIE (Ley de los Impuestos Generales de Importación y de Exportación); changes are published in the DOF (Diario Oficial de la Federación) |
 | Code length | 10 digits: 8-digit tariff line (sets the rate) + 2-digit statistical suffix | 10 digits: 8-digit tariff item (sets the rate) + 2-digit statistical suffix | 10 digits: 8-digit fracción arancelaria (sets the rate) + 2-digit NICO |
-| Rates and preferences | Column 1 General (normal trade relations), Column 1 Special (program codes such as USMCA), Column 2 | Tariff treatments, for example MFN and the CUSMA treatments | IGI rate per fracción; T-MEC preference where claimed |
+| Rates and preferences | Column 1 General (normal trade relations), Column 1 Special (program codes such as USMCA), Column 2 | Tariff treatments, for example MFN (most-favoured-nation) and the CUSMA treatments | IGI (Impuesto General de Importación) rate per fracción; T-MEC preference where claimed |
 | Additional duties | HTSUS Chapter 99 measures, antidumping and countervailing duties (AD/CVD) | Surtax orders; AD/CVD under the Special Import Measures Act (SIMA) | Cuotas compensatorias (Mexico's AD/CVD) and other measures by decree |
 
 Additional duties are the most time-sensitive part of any tariff. Their current status is in `docs/primers/current-tariff-landscape.md`.
@@ -113,8 +114,8 @@ Additional duties are the most time-sensitive part of any tariff. Their current 
 | Topic | United States | Canada | Mexico |
 |---|---|---|---|
 | Duty base | Transaction value; international freight and insurance are excluded when identified separately (FOB-like) | Value for duty; transport and insurance after the place of direct shipment to Canada are excluded (FOB-like) | Valor en aduana; includes freight, insurance and related charges until the goods arrive in Mexico (CIF-like) (Ley Aduanera arts. 64, 65 and 56) |
-| Import taxes | No federal VAT or GST on imports | GST (5% federal rate at the time of writing) on value for duty plus duties, collected by CBSA; registrants may have to self-assess the provincial part of HST; registrants generally recover GST as an input tax credit | IVA (16% general rate at the time of writing) on valor en aduana plus IGI and other import charges (Ley del IVA art. 27); generally creditable. IEPS on specific goods |
-| Customs fees | Merchandise Processing Fee (MPF) on formal entries, with a per-entry minimum and maximum; Harbor Maintenance Fee (HMF) on vessel cargo only. USMCA-originating goods properly claimed are exempt from MPF | No US-style merchandise processing fee (verify); excise duties, excise taxes or surtaxes are added only for goods subject to them | Derecho de Trámite Aduanero (DTA) and other charges on the pedimento |
+| Import taxes | No federal VAT or GST on imports | GST (5% federal rate at the time of writing) on value for duty plus duties, collected by CBSA; registrants may have to self-assess the provincial part of HST; registrants generally recover GST as an input tax credit | IVA (16% general rate at the time of writing) on valor en aduana plus IGI and other import charges (Ley del IVA art. 27); generally creditable. IEPS (Impuesto Especial sobre Producción y Servicios, an excise tax) on specific goods |
+| Customs fees | Merchandise Processing Fee (MPF): ad valorem on formal entries, with a per-entry minimum and maximum; a small flat fee on informal entries. Harbor Maintenance Fee (HMF) on imported vessel cargo only. USMCA-originating goods properly claimed are exempt from MPF | No US-style merchandise processing fee (verify); excise duties, excise taxes or surtaxes are added only for goods subject to them | Derecho de Trámite Aduanero (DTA) and other charges on the pedimento |
 | Currency conversion | Rate certified by the Federal Reserve Bank of New York (or CBP's quarterly rate) for the date of exportation (19 CFR 159.32 and 152.1(c)) | Bank of Canada rate on the date of direct shipment to Canada (Memorandum D13-2-3) | Peso-dollar rate in force on the date of entry (art. 56) or the payment date in the cases of art. 83, declared on the pedimento (RGCE Anexo 22) |
 | When duties are paid | With the entry summary, or monthly through the Periodic Monthly Statement (PMS) | Monthly statement of account in CARM for RPP importers; at release otherwise | When the pedimento is paid, before the goods are presented |
 
@@ -128,7 +129,7 @@ Fee amounts and tax rates change. Take them from `docs/primers/current-tariff-la
 | USMCA origin records | At least 5 years after importation (USMCA Art. 5.8); national law can require longer | Same, but Canada's 6-year rule is longer | Same |
 | Binding advice | CBP rulings under 19 CFR Part 177, searchable in CROSS | Advance rulings on classification (D11-11-3); origin advance rulings under FTAs (D11-4-16); National Customs Rulings for non-preferential origin, value and marking (D11-11-1) | Classification consultation before the operation (Ley Aduanera art. 47); Consejo de Clasificación Arancelaria opinions published as criteria (RGCE Anexo 6); T-MEC origin rulings |
 | Correcting before final | Post Summary Correction (PSC): within 300 days of entry and at least 15 days before scheduled liquidation | Correct within 90 days of "reason to believe" (s. 32.2); corrections and adjustments are new versions of the CAD | Rectificación of the pedimento (Ley Aduanera art. 89); some cases need prior authorization |
-| Challenging a decision | Protest within 180 days of liquidation (19 U.S.C. 1514) | Request a re-determination with CBSA, then appeal to the Canadian International Trade Tribunal (verify current time limits) | Administrative appeal (recurso de revocación) or a lawsuit before the federal administrative court (TFJA) |
+| Challenging a decision | Protest within 180 days of liquidation (19 U.S.C. 1514) | Request a re-determination with CBSA, then appeal to the Canadian International Trade Tribunal (verify current time limits) | Administrative appeal (recurso de revocación) or a lawsuit before the federal administrative court, the Tribunal Federal de Justicia Administrativa (TFJA) |
 | Penalty regime | 19 U.S.C. 1592 (negligence, gross negligence, fraud); prior disclosure reduces penalties | Administrative Monetary Penalty System (AMPS); seizures in serious cases | Infractions and fines in the Ley Aduanera, plus omitted taxes with inflation updates (actualización) and surcharges (recargos) |
 
 ## 4. United States imports
@@ -157,13 +158,13 @@ Fee amounts and tax rates change. Take them from `docs/primers/current-tariff-la
 
 - **Duty types:** ad valorem (percent of value), specific (amount per unit, such as per kg) and compound (both). Specific duties need the right quantity and unit of measure.
 - **Rate columns:** Column 1 General is the normal-trade-relations rate. Column 1 Special lists preference rates with program codes; "S" marks USMCA. Column 2 applies to the few countries without normal trade relations.
-- **Preference claim:** the entry summary line carries an SPI, for example "S" (or "S+") for USMCA. A wrong or missing SPI changes the duty paid.
+- **Preference claim:** the entry summary line carries an SPI, for example "S" for USMCA ("S+" is used only for certain agricultural goods and textile goods under tariff preference levels; see the CBP USMCA FAQs). A wrong or missing SPI changes the duty paid.
 - **HTSUS Chapter 98:** special provisions, such as US goods returned or assembled abroad, that can reduce duty when their conditions are met.
 - **HTSUS Chapter 99:** temporary and additional duties (for example Section 232 and Section 301 measures). A Chapter 99 number is reported **in addition to** the Chapter 1 to 97 classification, never instead of it. Which actions are in force, and how they stack, is a Research question: see `docs/primers/current-tariff-landscape.md`.
 - **AD/CVD:** antidumping and countervailing duties on specific products from specific countries, often by manufacturer. Scope is decided by the written scope of the order, not by the HTS number, which is listed for convenience.
-- **MPF and HMF:** MPF is charged ad valorem on formal entries with a per-entry minimum and maximum that change each fiscal year; originating goods properly claimed under USMCA are exempt. HMF applies to cargo moving through covered seaports, not to air, truck or rail. Current amounts: `docs/primers/current-tariff-landscape.md`.
+- **MPF and HMF:** MPF is charged ad valorem on formal entries with a per-entry minimum and maximum that change each fiscal year; informal entries pay a small flat MPF instead (19 CFR 24.23). Originating goods properly claimed under USMCA are exempt. HMF applies to imported cargo unloaded from vessels at covered seaports, not to air, truck or rail, and not to exports (the Supreme Court struck it down for exports in United States v. United States Shoe Corp., 1998). Current amounts: `docs/primers/current-tariff-landscape.md`.
 - **No federal VAT:** the US has no federal VAT or GST at import. State sales and use taxes are not collected at the border.
-- **Informal and low-value entries:** informal entry is generally available for shipments of US$2,500 or less (19 CFR 143.21), with exceptions. The low-value "de minimis" treatment (Section 321) changed repeatedly in 2025; its status is time-sensitive (see the landscape doc).
+- **Informal and low-value entries:** informal entry is generally available for shipments of US$2,500 or less (19 CFR 143.21), with exceptions. One exception matters for tariff modeling: articles valued over US$250 that are classified in HTSUS Chapter 99, Subchapters III and IV, where additional duties such as Sections 232 and 301 are reported, cannot use informal entry (19 CFR 143.21(a)). CBP confirmed in March 2025 that this covers goods reported under heading 9903, so most tariffed shipments over US$250 need a formal entry. The low-value "de minimis" treatment (Section 321) changed repeatedly in 2025; its status is time-sensitive (see the landscape doc).
 
 Worked example (hypothetical rates, for the method only). One entry line, entered value US$10,000.
 
@@ -184,7 +185,7 @@ A CBP Form 28 (Request for Information) asks for documents or explanations about
 ### 5.1 Players and registrations
 
 - **CBSA** releases goods, assesses and collects duties and taxes, and verifies compliance.
-- **Importer:** identified by its BN15 (9-digit Business Number plus the RM import-export account), registered in the CARM Client Portal. [COMPANY: Canadian importer entity and BN15 owner].
+- **Importer:** identified by its BN15 (the 9-digit Business Number plus the import-export (RM) program account, both issued by the Canada Revenue Agency), and registered in the CARM Client Portal. [COMPANY: Canadian importer entity and BN15 owner].
 - **Customs broker:** acts for the importer once the importer delegates access in the CARM Client Portal. [COMPANY: Canada broker(s)].
 - **CARM** (CBSA Assessment and Revenue Management) has been the system of record for assessing and collecting duties and taxes on commercial imports since 21 October 2024. The Commercial Accounting Declaration (CAD) replaced the B3.
 - **Release prior to payment (RPP):** importers that enrol and post their own financial security get goods released before paying, and pay through a monthly statement. Since the end of the CARM transition period in May 2025, importers cannot rely on their broker's security.
@@ -207,11 +208,11 @@ A CBP Form 28 (Request for Information) asks for documents or explanations about
 - **GST** is charged on the value for duty plus duties and other taxes (except GST). CBSA collects the federal GST at the border; for commercial goods brought into a participating province, a registrant may have to self-assess the provincial part of the HST on its GST/HST return. Registrants generally recover GST as an input tax credit, so it is usually not part of item cost [COMPANY: confirm the treatment with Finance].
 - **Value for duty** includes transport and insurance up to the place of direct shipment to Canada and excludes them after that point.
 
-Worked example (hypothetical rate). Value for duty CAD 11,000; duty rate 6.5%.
+Worked example (hypothetical rate), continuing Section 9.7. Value for duty US$11,000 equivalent; duty rate 6.5%. Amounts are kept in US$ to match Section 9.7; in real life everything is in CAD.
 
-| Item | Amount (CAD) | Note |
+| Item | Amount (US$ equivalent) | Note |
 |---|---|---|
-| Value for duty | 11,000.00 | Converted at the Bank of Canada rate for the date of direct shipment |
+| Value for duty | 11,000.00 | From Section 9.7; the broker converts to CAD at the Bank of Canada rate for the date of direct shipment (D13-2-3) |
 | Duty at 6.5% | 715.00 | 11,000 x 6.5% |
 | Value for GST | 11,715.00 | Value for duty + duty |
 | GST at 5% | 585.75 | Usually recoverable; check with Finance |
@@ -240,7 +241,7 @@ Worked example (hypothetical rate). Value for duty CAD 11,000; duty rate 6.5%.
 | 1. Pre-arrival | Documents are gathered: commercial invoice, transport documents, the value declaration (manifestación de valor), permits and NOM evidence, the T-MEC certification if preference will be claimed. Supporting documents are digitized in the single window | Supplier, broker, importer | Item data, fracción and NICO, value elements, origin | Before the goods reach customs |
 | 2. Pedimento and payment | The broker classifies (fracción + NICO), computes the valor en aduana, IGI, DTA, IVA and any IEPS or cuotas compensatorias, validates the pedimento and pays the contributions. Each pedimento has a key: A1 is a definitive import; IMMEX temporary imports use other keys (RGCE Anexo 22) | Broker | Everything in Section 7.1; IMMEX status | Before presenting the goods |
 | 3. Automated selection | The goods and pedimento are presented and the automated selection mechanism decides: release, or a physical inspection (reconocimiento aduanero) | ANAM | Make sure documents match the goods | At the customs office |
-| 4. Release | Goods are released. Irregularities found at inspection can start an administrative proceeding (PAMA) | ANAM | [COMPANY: who is told when a shipment is held] | At the customs office |
+| 4. Release | Goods are released. Irregularities found at inspection can start an administrative proceeding (PAMA, Procedimiento Administrativo en Materia Aduanera) | ANAM | [COMPANY: who is told when a shipment is held] | At the customs office |
 | 5. Corrections | The pedimento can be corrected (rectificación, Ley Aduanera art. 89) as often as needed before the selection mechanism is activated; after that it is still possible except in cases that need SAT authorization (for example a correction that creates an undue payment or changes the customs regime). Complementary pedimentos settle differences | Broker, importer | Find errors early | Before the authority starts an audit, where possible |
 | 6. Post-clearance review and audit | Pedimentos are reviewed after clearance (glosa) and the authorities can audit the importer. IMMEX companies are also checked against their inventory control (Anexo 24) | ANAM, SAT | Electronic file per pedimento; IMMEX records | Ongoing |
 | 7. Records | The importer keeps an electronic file for each pedimento with its annexes and acknowledgments (art. 59) | Importer | [COMPANY: where pedimento files are stored] | 5 years (CFF art. 30) |
@@ -264,8 +265,8 @@ Worked example (hypothetical rates; DTA left out for clarity). Valor en aduana U
 
 ### 6.4 Changes to watch in 2026
 
-- **Ley Aduanera reform:** published in the DOF on 19 Nov 2025 and generally in force from 1 Jan 2026, with a reform of its Reglamento in force from 24 Feb 2026. Commentators report stricter obligations for agentes aduanales, a fuller electronic file for importers (including evidence of the resources used to pay for the operation), and higher fines. Ask [COMPANY: Mexico broker or counsel] what changed in our document flow.
-- **Single window:** a decree published 4 May 2026 created a new foreign-trade single window run by the Agencia de Transformación Digital y Telecomunicaciones (ATDT), replacing the SAT-run VUCEM. Confirm the current name and transition rules.
+- **Ley Aduanera reform:** published in the DOF on 19 Nov 2025 and generally in force from 1 Jan 2026, with a reform of its Reglamento in force from 24 Feb 2026. Commentators report stricter obligations for agentes aduanales, a fuller electronic file for importers (including evidence of the resources used to pay for the operation), and higher fines. Ask the Senior to confirm with [COMPANY: Mexico broker or counsel] what changed in our document flow.
+- **Single window:** a decree published in the DOF on 4 May 2026 enabled the Ventanilla Única de Trámites de Comercio Exterior (VUTCE), run by the Agencia de Transformación Digital y Telecomunicaciones (ATDT) instead of SAT, as the single channel for foreign-trade procedures with the Secretaría de Economía, SAT, ANAM and other agencies. It replaced the SAT-run VUCEM; the trade still often says "VUCEM". The e.firma is still used to sign. Check the transition rules for pending procedures before mapping this data.
 - **Tariff changes** to the TIGIE: time-sensitive; see `docs/primers/current-tariff-landscape.md`.
 
 ## 7. What we send brokers and how we audit what they file
@@ -336,7 +337,7 @@ Points that matter for data:
 - **The legal text** is the headings plus the section and chapter notes. Section and chapter titles are for reference only. The WCO Explanatory Notes are not legally binding in the US but CBP and courts treat them as persuasive.
 - **Digits 7 to 10 differ by country.** A US HTS number does not carry over to Canada or Mexico. Each country's code must be classified and maintained separately, and the first 6 digits should normally agree. A mismatch at 6 digits is a data-quality flag that needs a documented reason.
 - **National special chapters:** HTSUS Chapter 98 (special provisions) and Chapter 99 (temporary and additional duties); Canada's Chapter 99 holds special classification provisions; Mexico's Chapter 98 covers special operations.
-- **Editions:** the HS is amended about every five years. HS 2022 is current; **HS 2028 takes effect on 1 January 2028**, and every item's classification in every country will need remapping. That falls inside the life of the e2open system, so the data model must keep classification history with effective dates.
+- **Editions:** the HS is amended about every five years. HS 2022 is current; **HS 2028 takes effect on 1 January 2028**. Every item's classification in every country must be checked against the HS 2022 to HS 2028 correlation tables, and items in amended subheadings must be remapped; most headings do not change. That falls inside the life of the e2open system, so the data model must keep classification history with effective dates.
 
 ### 8.2 The General Rules of Interpretation (GRIs)
 
@@ -384,7 +385,7 @@ If the kit qualifies, it is classified as one article by the component that give
 |---|---|---|---|
 | United States | CBP rulings (19 CFR Part 177), searchable in CROSS at rulings.cbp.gov | A ruling binds CBP for the transaction it describes, while the facts stay the same. A ruling issued to another importer is guidance only (19 CFR 177.9) | Search CROSS for the same or similar goods and cite rulings in the rationale. For high-value or uncertain items, ask the Senior about requesting our own ruling |
 | Canada | Advance rulings on tariff classification (Memorandum D11-11-3); origin advance rulings under free trade agreements (D11-4-16); National Customs Rulings for non-preferential origin, valuation and marking (D11-11-1) | An advance ruling applies to the same goods while the facts and law stay the same | Apply well before importing. A ruling does not replace a CUSMA certification of origin |
-| Mexico | Classification consultation before the operation (Ley Aduanera art. 47), with opinions from the Consejo de Clasificación Arancelaria published as classification criteria (RGCE Anexo 6) | The resolution applies to operations after it is notified | Ask the agente aduanal whether a published criterion covers the item |
+| Mexico | Classification consultation before the operation (Ley Aduanera art. 47), with opinions from the Consejo de Clasificación Arancelaria published as classification criteria (RGCE Anexo 6) | The resolution applies to operations after it is notified | Ask the Senior to check with the agente aduanal whether a published criterion covers the item |
 | USMCA origin | Each USMCA country issues advance rulings on origin (USMCA Chapter 5) | A ruling by one country does not bind the others | For high-volume items where qualification is uncertain |
 
 ### 8.6 How classification errors show up
@@ -405,7 +406,7 @@ Use the five sanitized practice items from the Senior [COMPANY: practice item li
 
 - [ ] For each item, follow Section 8.4 and record the US 10-digit HTSUS number (hts.usitc.gov) and the GRI you relied on.
 - [ ] Find at least one CROSS ruling for each item, or record that none was close.
-- [ ] Find the Canadian tariff item (CBSA Customs Tariff) and the Mexican fracción and NICO (the SNICE / SIAVI tariff tool) and confirm the first 6 digits agree.
+- [ ] Find the Canadian tariff item (CBSA Customs Tariff) and the Mexican fracción and NICO (the Secretaría de Economía tariff lookup, SIAVI; ask the Senior for the current link) and confirm the first 6 digits agree.
 - [ ] Compare your answers with our master data. Do not change the master data; log differences for the Senior's review on Thursday.
 
 ## 9. Valuation basics
@@ -503,7 +504,7 @@ The Canada and Mexico examples in Sections 5.3 and 6.3 continue from these numbe
 | Additional duties tied to a country | Non-preferential origin, usually "substantial transformation" (a new article with a new name, character or use), unless the action's legal text says otherwise | Is this item "of China" for an additional duty? |
 | Statistics and AD/CVD scope | Non-preferential origin and the order's scope | Which country goes in the trade statistics? |
 
-The classic trap: an item assembled in Mexico from Chinese parts may be a product of Mexico for marking and for a China-specific additional duty (if the assembly is a substantial transformation, or meets the Part 102 tariff shift), yet fail the USMCA product-specific rule. Never use one answer for another purpose.
+The classic trap: an item assembled in Mexico from Chinese parts may be a product of Mexico for marking (if it meets the Part 102 tariff shift) and, separately, for a China-specific additional duty (if the assembly is a substantial transformation, or meets whatever origin rule the action's text sets), yet still fail the USMCA product-specific rule. Each answer comes from a different test. Never use one answer for another purpose.
 
 Marking basics (US): every article of foreign origin, or its container, must be marked legibly, conspicuously and permanently with the English name of the country of origin, unless an exception applies (19 CFR Part 134). Canada has its own marking rules for specified goods (Memorandum D11-3-1); Mexico regulates labeling through NOMs.
 
@@ -548,19 +549,19 @@ Things to know:
 
 - **De minimis (Art. 4.12):** a good still qualifies under a tariff-shift rule even if some non-originating materials fail the required shift, provided the value of all those failing materials is no more than 10 percent of the good's transaction value or total cost. Exceptions exist, and textiles use weight. Our reading of the text is that materials allowed in under de minimis still count as non-originating in any RVC calculation; confirm with the Senior.
 - **Accumulation (Art. 4.11):** originating materials and production in any USMCA country count toward the good's origin. A component made in Canada that originates counts as originating for a good assembled in Mexico.
-- **Other Chapter 4 provisions to know exist:** intermediate (self-produced) materials, indirect materials, fungible goods and materials, accessories and spare parts delivered with a good, packaging for retail sale, packing materials for shipment (disregarded), sets of goods (10.6), transshipment (the good must not be processed outside the region after qualifying), and operations that do not confer origin (such as simple dilution or packaging).
+- **Other Chapter 4 provisions to know exist:** intermediate (self-produced) materials, indirect materials, fungible goods and materials, accessories and spare parts delivered with a good, packaging for retail sale, packing materials for shipment (disregarded), sets of goods (10.6), transshipment (Art. 4.18: the good must not be processed outside the region after qualifying), and non-qualifying operations (Art. 4.19: mere dilution with water or another substance, or a production or pricing practice designed to circumvent the chapter). Do not confuse the Art. 4.19 list with the 19 CFR 102.17 list (simple packing, repacking, retail packaging), which applies to US marking origin, not to USMCA preference.
 
 Do not confuse USMCA de minimis with the US low-value "de minimis" import treatment (Section 321). They are unrelated. The second is a time-sensitive topic in `docs/primers/current-tariff-landscape.md`.
 
 ### 10.6 Kits and sets under USMCA
 
-USMCA has a specific article on sets of goods (Art. 4.15). As we read it, a kit classified as a set under GRI 3 is originating only if every good in the set is originating; alternatively, the set is originating if the value of all the non-originating goods in it is no more than 10 percent of the set's value. **Verify the exact wording in Chapter 4 with the Senior before using this in real work.** Practical points:
+USMCA has a specific article on sets of goods (Art. 4.17). Except where Annex 4-B provides otherwise, a set classified under GRI 3 is originating only if every good in the set is originating; alternatively, the set is originating if the value of all the non-originating goods in it does not exceed 10 percent of the value of the set. Both the set and its goods must meet the other Chapter 4 requirements. Practical points:
 
 - The sets article applies only when the kit is classified as a set (Section 8.3). If each item is classified separately, each item is qualified separately under its own product-specific rule.
 - A GRI 3 set is not run through a product-specific rule as if it were one manufactured good. The goods in the set are tested.
 - For our kits, the data needed is like a BOM: each good's classification, origin and value [COMPANY: where kit structures live: Oracle BOM, AS400, spreadsheet?].
 
-Mini-example (fictional, and dependent on our reading above). Retail tool kit KT-200, classified as a set under GRI 3(b), value US$50.00: a drill (originating, US$35.00), a case (originating, US$8.00), a manual (originating, US$3.00) and a bit set (made in China, non-originating, US$4.00).
+Mini-example (fictional). Retail tool kit KT-200, classified as a set under GRI 3(b), value US$50.00: a drill (originating, US$35.00), a case (originating, US$8.00), a manual (originating, US$3.00) and a bit set (made in China, non-originating, US$4.00).
 
 - Not every good is originating, so test the alternative: 4.00 / 50.00 = 8 percent, no more than 10 percent. The set would be originating.
 - If the bit set cost US$7.00 (set value US$53.00): 7 / 53 = 13.2 percent. The set would not be originating unless the bit set itself originates.
@@ -586,8 +587,8 @@ Mini-example (fictional, and dependent on our reading above). Retail tool kit KT
 
 Claiming and keeping a claim valid:
 
-- **At entry:** the US claim is made with SPI "S" (or "S+") on the entry summary line; Canada and Mexico claim the preference on the CAD or pedimento. The importer must hold the certification when it makes the claim.
-- **After entry:** in the US, a post-importation claim can be made within one year of importation (19 U.S.C. 1520(d)); MPF already paid is not refunded. Canada and Mexico have their own procedures (verify time limits with the Senior).
+- **At entry:** the US claim is made with SPI "S" on the entry summary line ("S+" only for certain agricultural and textile goods, Section 4.3); Canada and Mexico claim the preference on the CAD or pedimento. The importer must hold the certification when it makes the claim.
+- **After entry:** in the US, a post-importation claim can be made within one year of importation (19 U.S.C. 1520(d); 19 CFR 182.31 to 182.33). An approved claim refunds the excess duty and the MPF paid on the originating goods: the Consolidated Appropriations Act, 2021 (Pub. L. 116-260) authorized MPF refunds on these claims, back-dated to 1 July 2020. CBP's earlier (July 2020) no-refund position is superseded, so ignore older guidance that says otherwise. Canada and Mexico have their own procedures (verify time limits with the Senior).
 - **When a claim turns out wrong:** the importer must correct the declaration and pay the duties owed. In Canada, the 90-day "reason to believe" clock applies (Section 5.2). Escalate the same day.
 
 ### 10.8 Exercise 2: BOM-based qualification (fictional)
@@ -662,27 +663,29 @@ Useful measures: percent of in-scope import value covered by a valid certificati
 ### 11.1 Mexico IMMEX
 
 - **What it is:** IMMEX (Industria Manufacturera, Maquiladora y de Servicios de Exportación), set up by the IMMEX Decree of 1 November 2006. Authorized companies import inputs, components, packaging and machinery temporarily to manufacture, transform or repair goods for export, without paying the general import duty (IGI) at import. Companies that also hold SAT's IVA/IEPS certification cover the IVA and IEPS on those temporary imports with a tax credit instead of paying them in cash.
-- **Time limits:** temporary imports must be exported, transferred or changed to a definitive import within set periods: generally up to 18 months for raw materials, parts and components (Ley Aduanera art. 108); machinery and equipment can stay for the life of the program. Inputs not returned in time are treated as definitive imports, with duties and possible penalties (verify current periods in the Ley Aduanera).
+- **Time limits:** temporary imports must be exported, transferred or changed to a definitive import within set periods: generally up to 18 months for raw materials, parts and components (Ley Aduanera art. 108); machinery and equipment can stay for the life of the program. Inputs not returned or changed to another regime in time are deemed to be in Mexico illegally, because the temporary regime has ended (art. 108), so IGI, IVA/IEPS with surcharges, and fines can be assessed (verify current periods in the Ley Aduanera).
 - **Anexo 24 (automated inventory control):** IMMEX companies must keep an automated inventory control system that meets RGCE Anexo 24. It tracks each temporarily imported input from its pedimento to its consumption, export, transfer or change of regime, generally on a first-in, first-out basis, and the authorities must have online access to it.
-- **"Anexo 31" (credit and guarantee accounts):** the trade calls SAT's Sistema de Control de Cuentas de Créditos y Garantías (SCCCyG) "Anexo 31", its original annex number. It tracks the IVA and IEPS credits that certified companies take on temporary imports, and their discharge as goods are exported. In the 2024 to 2026 RGCE the SCCCyG annex appears as **Anexo 30**; check the current numbering before citing it. Its balances must reconcile with the Anexo 24 inventory.
+- **Anexo 30, formerly Anexo 31 (credit and guarantee accounts):** SAT's Sistema de Control de Cuentas de Créditos y Garantías (SCCCyG) is set out in **Anexo 30** of the current RGCE. It was Anexo 31 before the RGCE for 2022, and the trade still often calls it "Anexo 31". It tracks the IVA and IEPS credits that certified companies take on temporary imports, and their discharge as goods are exported. Cite it as "Anexo 30 (formerly Anexo 31)" and check the numbering in the current year's RGCE. Its balances must reconcile with the Anexo 24 inventory.
 - **USMCA interaction:** USMCA Article 2.5 limits duty deferral and drawback programs for non-originating inputs in goods exported to another USMCA country, so IMMEX goods sent to the US or Canada can owe Mexican duty on those inputs. Ask the Senior how this applies to us.
 - **Where it sits:** [COMPANY: who owns IMMEX and Anexo 24 compliance: the Mexican entity, the broker, or this team; which system holds the Anexo 24 inventory]. The hires get an overview in W4; deeper work only if the Manager assigns it.
 
 ### 11.2 US duty drawback
 
-- **What it is:** a refund of up to 99 percent of the duties, taxes and fees paid on imported merchandise when the merchandise, or permitted substitute merchandise, is exported or destroyed (19 CFR Part 190, as modernized by TFTEA).
+- **What it is:** a refund of up to 99 percent of the duties, taxes and fees paid on imported merchandise when the merchandise, or permitted substitute merchandise, is exported or destroyed (19 CFR Part 190, as modernized by the Trade Facilitation and Trade Enforcement Act of 2015, TFTEA).
 - **Main types:**
 
 | Type | Statute | In plain words |
 |---|---|---|
 | Manufacturing, direct identification | 19 U.S.C. 1313(a) | Imported merchandise used to make an article that is exported or destroyed |
-| Manufacturing, substitution | 19 U.S.C. 1313(b) | Same kind and quality merchandise (imported or domestic) substituted for the imported input |
+| Manufacturing, substitution | 19 U.S.C. 1313(b) | Other merchandise (imported or domestic) classifiable under the same 8-digit HTSUS subheading as the imported input is used instead of it. There is no 10-digit "Other" rule for this type |
 | Unused merchandise, direct identification | 19 U.S.C. 1313(j)(1) | Imported goods exported or destroyed without being used in the US |
-| Unused merchandise, substitution | 19 U.S.C. 1313(j)(2) | Commercially interchangeable goods (under TFTEA, generally matched by 8-digit HTS) exported unused instead of the imported goods |
-| Rejected merchandise | 19 U.S.C. 1313(c) | Goods that did not conform to sample or specifications, were shipped without consent, or were defective at import, returned |
+| Unused merchandise, substitution | 19 U.S.C. 1313(j)(2) | Substitute goods classifiable under the same 8-digit HTSUS subheading are exported or destroyed unused instead of the imported goods. If the 8-digit description begins with "Other", they must match at the 10-digit level; if the 10-digit description also begins with "Other", substitution is not available (direct identification still is) |
+| Rejected merchandise | 19 U.S.C. 1313(c) | Goods that did not conform to sample or specifications, were shipped without the consignee's consent, or were defective at import, and are exported or destroyed under CBP supervision |
+
+"Same kind and quality" and "commercially interchangeable" are the pre-TFTEA substitution standards (19 CFR Part 191, legacy claims only). Current claims use the 8-digit tests above.
 
 - **Time limit:** generally 5 years from the date of importation (check the rule for each type in 19 CFR Part 190).
-- **Records:** drawback needs import data (entries, lines, duty paid), export data (proof of export), and the link between them (inventory or manufacturing records). Drawback records are kept until 3 years after the claim is paid.
+- **Records:** drawback needs import data (entries, lines, duty paid), export data (proof of export), and the link between them (inventory or manufacturing records). Drawback records are kept until 3 years after the drawback claim is liquidated (19 U.S.C. 1508(c); 19 CFR 190.15). Liquidation of the claim comes after any accelerated payment, so this is longer than it sounds.
 - **USMCA limits:** USMCA Article 2.5 restricts drawback on non-originating goods exported to Canada or Mexico.
 - **Where it sits:** US duty drawback **stays with the Senior**. The hires get exposure from W10 (M9): a shadow session and a one-page note on what data drawback needs from our import and export records, which feeds the e2open data maps.
 
@@ -759,7 +762,7 @@ The data elements below drive filings, costs and reports. "Lives in" is the syst
 | Additional-duty indicators (Chapter 99, AD/CVD case, surtax) | Tariff-Impact Briefs; [COMPANY: where flags are stored] | Brokers, Standard Cost | Underpaid duties; wrong cost and margin |
 | Duty rate used in standard cost | [COMPANY: name of std-cost tool] | Standard Cost, Finance | Wrong inventory value; PPV that nobody can explain |
 | Broker entry data returned (entry, CAD or pedimento numbers, lines, duty paid) | [COMPANY: broker files, SQL Server, data warehouse] | Audits, PPV, drawback, reports | Audits impossible; PPV unexplained; drawback claims lack import support |
-| IMMEX status and temporary import pedimento references | [COMPANY] | Mexico broker, Anexo 24 system | Inputs exceed time limits and become definitive imports with duties and penalties |
+| IMMEX status and temporary import pedimento references | [COMPANY] | Mexico broker, Anexo 24 system | Inputs exceed time limits and are deemed to be in Mexico illegally, with duties, taxes and fines |
 | ECCN, Schedule B and export flags | [COMPANY] | Exports, EEI filers | Wrong license determination; EEI errors |
 | Supplier certifications and expiry dates | [COMPANY: certificate repository] | USMCA claims, verifications | Expired support; claims denied in a verification |
 
@@ -768,7 +771,7 @@ The data elements below drive filings, costs and reports. "Lives in" is the syst
 This primer deliberately does not state the current status of anything that changes often. For each of these, use `docs/primers/current-tariff-landscape.md` and the primary sources it lists, and record the date you checked:
 
 - Which additional duties are in force (Section 232, Section 301, IEEPA-based actions and their replacements, other Chapter 99 measures), their HTS scope, rates, exclusions and stacking.
-- US low-value (Section 321 "de minimis") treatment.
+- US low-value (Section 321 "de minimis") treatment, and the informal-entry limit for goods with Chapter 99 duties (Section 4.3).
 - MPF minimum and maximum, MPF and HMF rates.
 - Canadian surtax orders and countermeasures; Mexican TIGIE changes and decrees.
 - The USMCA joint review and any changes to the agreement's rules or term.
@@ -798,7 +801,7 @@ Answer without notes first, then check against the section shown. The Manager bu
 | 16 | One non-originating component fails the required tariff shift. Which two provisions might still let the good qualify? | 10.5, 10.8 |
 | 17 | List the nine minimum data elements of a USMCA certification. How long can a blanket period be? | 10.7 |
 | 18 | We learn after entry that a USMCA certification we relied on is wrong. What must we do? | 10.7, 13.2 |
-| 19 | What does an IMMEX temporary import defer, and what do Anexo 24 and the SCCCyG ("Anexo 31") each track? | 11.1 |
+| 19 | What does an IMMEX temporary import defer, and what do Anexo 24 and the SCCCyG (Anexo 30, formerly Anexo 31) each track? | 11.1 |
 | 20 | What is the maximum share of duties refunded under US drawback, what is the general time limit, and who owns drawback in our team? | 11.2 |
 | 21 | What does EAR99 mean, and in which three situations might an EAR99 item still need a license? | 12.1 |
 | 22 | A US$12,000 shipment of EAR99 goods, all under one Schedule B number, needs no license. Is EEI required if it goes to Canada? To Mexico? | 12.2 |
@@ -828,10 +831,12 @@ Official sources (primary sources win over this primer):
 | US rules of origin for marking (goods of Canada and Mexico) | 19 CFR Part 102 | https://www.ecfr.gov/current/title-19/chapter-I/part-102 |
 | US marking | 19 CFR Part 134 | https://www.ecfr.gov/current/title-19/chapter-I/part-134 |
 | US drawback | CBP drawback overview; 19 CFR Part 190 | https://www.cbp.gov/trade/programs-administration/entry-summary/drawback-overview |
+| US drawback recordkeeping | 19 CFR 190.15 | https://www.ecfr.gov/current/title-19/chapter-I/part-190/subpart-A/section-190.15 |
 | USMCA text (all chapters) | USTR | https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement/agreement-between |
 | USMCA rules of origin (Chapter 4) | USTR | https://ustr.gov/sites/default/files/files/agreements/FTA/USMCA/Text/04-Rules-of-Origin.pdf |
 | USMCA origin procedures (Chapter 5) | USTR | https://ustr.gov/sites/default/files/files/agreements/FTA/USMCA/Text/05_Origin_Procedures.pdf |
 | USMCA in the US | CBP USMCA pages and FAQs | https://www.cbp.gov/trade/priority-issues/trade-agreements/free-trade-agreements/USMCA |
+| USMCA post-importation claims and MPF refunds | CBP USMCA Implementation Instructions Addendum (January 2021) | https://www.cbp.gov/document/guidance/usmca-implementation-instructions-addendum |
 | CARM | CBSA | https://www.cbsa-asfc.gc.ca/services/carm-gcra/menu-eng.html |
 | Canada Customs Tariff | CBSA | https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/menu-eng.html |
 | Canada valuation | CBSA customs valuation handbook | https://www.cbsa-asfc.gc.ca/import/valuation-valeur/customs-val-douane-eng.html |

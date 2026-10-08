@@ -3,7 +3,7 @@
 Last updated: 2026-10-08 · Owner: BSA Manager
 
 - **Purpose:** eight hands-on exercises on synthetic import data that build the M3 data skills both tracks need: profiling, joins without fan-out, effective-dated lookups, broker audit, USMCA claim checks, PPV, tariff scenario modeling, Power BI measures and a findings memo. Each exercise has SQL Server steps and Excel/Power Query steps.
-- **Who uses it:** Hire A (Research) and Hire B (Standard Cost) do every exercise. The Senior reviews Exercises 1 to 7 against `docs/analytics/answer-key.md`. The Manager reads the Exercise 8 memo.
+- **Who uses it:** Hire A (Research) and Hire B (Standard Cost) do every exercise. The Senior reviews Exercises 1 to 7 against the answer key. The key is trainer-only: it stays in [COMPANY: trainer-only location], never in the hires' OneNote sections or the onboarding folder. The Manager reads the Exercise 8 memo.
 - **When:** Exercises 1-2 in W1, 3-4 in W2, 5-6 in W3, 7-8 in W4. Exercises 1 to 6 are day-30 evidence (A30-5 and B30-5 in `docs/01-30-60-90-plan.md`). Day-by-day slots for W1-W2 are in `docs/02-weeks-1-2-schedule.md`.
 
 ## How the pack works
@@ -23,13 +23,13 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 Rules for every exercise:
 
-- Work on your own copy. Never edit files in `dist/`.
+- Work on your own copy. Never edit the files in the onboarding folder.
 - Save every SQL query with a header comment (purpose, source tables, author, date, exercise). Name every Power Query step so a reviewer can follow it.
 - Write down the row count before and after every join or filter. A row count that changes when it should not is the most common error in this pack.
 - Post each exercise to OneNote section 07 Analytics: the query or workbook, the result tables, three lines on what you learned, and open questions.
-- The answer key is held by the Senior and the Manager. After you post an exercise, ask for that exercise's section, self-check, and write down every difference and its cause. A difference you can explain is worth more than a lucky match.
-- Do not open `data/analytics/generate_practice_data.py` before Exercise 4 is posted: its comments list the planted problems.
-- Stuck for 30 minutes on the same step? Log the question (`docs/05-time-management.md`) and bring it to the Senior's office hours.
+- The answer key and the script that generated the data are trainer-only. You do not get either before the day-30 review: the key holds the answers, and the script's comments list every planted problem and its cause. Use each exercise's "Check yourself" to test your own work.
+- When the Senior reviews a posted exercise, they tell you which results differ from the key, not what the right number is. Find the cause of each difference and write it down. A difference you can explain is worth more than a lucky match.
+- Stuck for 15 minutes on the same step? Log the question with what you tried (the stuck rule in `docs/05-time-management.md`), move to the next step, and bring it to the Senior's office hours.
 
 ## The practice data
 
@@ -90,14 +90,14 @@ These simplify reality so the exercises have one right answer. Say them in your 
 
 ### Option A: Excel and Power Query (no database needed; use this in W1)
 
-1. Copy `dist/Practice-Data.xlsx` to your working folder [COMPANY: OneDrive or SharePoint folder]. Read its README sheet.
+1. Copy Practice-Data.xlsx from the onboarding folder to your working folder [COMPANY: OneDrive or SharePoint folder]. Read its README sheet.
 2. Create a new blank workbook for your work, for example `M3-practice-HireA.xlsx`.
 3. Data > Get Data > From File > From Excel Workbook, and pick your copy. In the Navigator tick "Select multiple items", select the eight `tbl_` tables (not the sheets), then click Transform Data.
 4. In Power Query, check the type icon on every column header. Codes (item_id, hts10, entry_no, receipt_id, po_no, supplier_id, broker_id, country codes, flags, hts_prefix) must be Text. Dates must be Date. qty and line_no are Whole Number. Money and rates are Decimal Number. If the hts10 icon shows "123" (a number), change the type to Text and choose Replace current.
 5. View tab: tick Column quality, Column distribution and Column profile. In the status bar at the bottom, change "Column profiling based on top 1000 rows" to "based on entire data set". Otherwise the profile only looks at 1,000 rows.
 6. Home > Close & Load To > Only Create Connection, for the eight source queries. Load to a sheet only the result queries you build.
 
-If you use the CSVs in `dist/practice-data/` instead, import them with Data > From Text/CSV and set the types in Power Query. Never double-click a CSV to open it: Excel converts hts10 to a number and may reinterpret dates.
+If you use the CSVs in the practice-data folder of the onboarding folder instead, import them with Data > From Text/CSV and set the types in Power Query. Never double-click a CSV to open it: Excel converts hts10 to a number and may reinterpret dates.
 
 ### Option B: SQL Server scratch database
 
@@ -107,7 +107,7 @@ You need a database where you may create tables and views. The read-only access 
 2. SQL Server Developer or Express edition on your laptop, only if IT approves the install.
 3. Until one of these exists, use Option A. Exercises 1 and 2 do not need SQL.
 
-To load: open `dist/practice-data/load_practice_data.sql` in SQL Server Management Studio (or VS Code with the MSSQL extension), connect to the scratch database, and run the whole script (F5). It creates schema `practice`, the eight tables and all rows in a few seconds, and ends with a row count per table that must match the Tables section above. Rerun it any time to reset the data. Never run it against a production database.
+To load: open load_practice_data.sql (in the practice-data folder of the onboarding folder) in SQL Server Management Studio (or VS Code with the MSSQL extension), connect to the scratch database, and run the whole script (F5). It creates schema `practice`, the eight tables and all rows in a few seconds, and ends with a row count per table that must match the Tables section above. Rerun it any time to reset the data. Never run it against a production database.
 
 If you cannot run the script, the SSMS Import Flat File wizard (right-click the database > Tasks > Import Flat File) loads one CSV at a time. Name each table exactly as its CSV file. On the Modify Columns page set every code column to a text type (nvarchar), dates to date, money and rates to decimal, and allow nulls. If the tables land in schema dbo, run `CREATE SCHEMA practice;` once and then `ALTER SCHEMA practice TRANSFER dbo.items;` for each table. Afterwards check that blanks became NULL: `SELECT COUNT(*) FROM practice.items WHERE hts10 = '';` must return 0; if not, run `UPDATE practice.items SET hts10 = NULL WHERE hts10 = '';` and do the same for entry_lines.program_claimed.
 
@@ -124,7 +124,8 @@ Start every saved query with a header like this:
 
 - Always name the schema: `practice.items`, not `items`.
 - Keep money in DECIMAL. Compute rates as `SUM(duty) / SUM(value)`, never as the average of line rates.
-- To annualize, write `SUM(x) * 12 / 9`. In T-SQL `12 / 9` on its own is integer division and returns 1.
+- To annualize, write `SUM(x) * 12.0 / 9`. In T-SQL `12 / 9` on its own is integer division and returns 1, and `SUM(qty) * 12 / 9` truncates because qty is an INT.
+- Wrap every denominator in `NULLIF(..., 0)`, for example `SUM(duty_amount) / NULLIF(SUM(entered_value), 0)`. A zero or empty group then gives NULL instead of stopping the query with a divide-by-zero error.
 - A comparison with NULL is never true: `program_claimed <> 'USMCA'` does not return rows where program_claimed is NULL. Use `IS NULL`.
 - Don't round inside a calculation. Round only the number you report.
 
@@ -166,6 +167,8 @@ FROM numbered
 WHERE copy_no = 1;
 ```
 
+`ORDER BY el.entry_no` is a placeholder: every row in a partition has the same entry_no, so SQL keeps an arbitrary copy. That is safe only if the copies are identical, so prove it first: `SELECT COUNT(*) FROM (SELECT DISTINCT * FROM practice.entry_lines) AS d;` must equal the number of distinct keys from step 3. In real data, order by a load timestamp or file ID so the copy you keep is the one you meant to keep.
+
 5. Orphans: `LEFT JOIN practice.items` and keep the rows `WHERE i.item_id IS NULL`. Also check entry lines whose entry_no is not in entries.
 6. Master checks: items `WHERE hts10 IS NULL`; flag Y with origin outside US, CA and MX; flag N with origin inside; supplier country different from origin (join suppliers).
 7. Format: `WHERE hts10 IS NOT NULL AND (LEN(hts10) <> 10 OR hts10 LIKE '%[^0-9]%')` finds codes that are not 10 digits.
@@ -174,7 +177,7 @@ WHERE copy_no = 1;
 
 1. For each source query, read the Column profile (count, empty, distinct, unique) on the entire data set and note anything odd.
 2. entry_lines: right-click the query > Reference. In the new query, select entry_no and line_no (Ctrl+click), then Home > Keep Rows > Keep Duplicates. The rows left are every copy of a duplicated key. Group By entry_no to see which entries.
-3. Make another Reference of entry_lines, select entry_no and line_no, Home > Remove Rows > Remove Duplicates, and name it `lines_clean`. Every later exercise uses it.
+3. Make another Reference of entry_lines, select entry_no and line_no, Home > Remove Rows > Remove Duplicates, and name it `lines_clean`. Every later exercise uses it. Prove the copies were identical before you trust it: in a throwaway Reference, select all columns (Ctrl+A) and Remove Duplicates. The row count must equal lines_clean's.
 4. Orphans: Home > Merge Queries as New, lines_clean to items on item_id, Join Kind "Left Anti (rows only in first)". The rows left are orphans.
 5. items: filter hts10 to null. Add a Conditional Column for the flag and origin checks. Merge suppliers on supplier_id and compare supplier_country with country_of_origin.
 6. Keep your answers in a profiling log table on a sheet (see Deliverable).
@@ -260,7 +263,7 @@ Formula alternative (no Power Query): bring import_country, entry_date and broke
 
 **Check yourself.** Match + Over + Under + not auditable = scope lines. The row count after the date condition equals the scope.
 
-**Stretch.** Hire A: classify every mismatch into a pattern (old rate after a change, new rate before a change, additional duty missed, 0% applied, other) and draft three questions the Senior could put to the broker with the worst pattern. You do not contact brokers yourself. Hire B: apply the same method to the sanitized standard cost extract, as in the Thu 10/29 slot (read-only, no system writes).
+**Stretch.** Hire A: classify every mismatch into a pattern (old rate after a change, new rate before a change, additional duty missed, 0% applied, other) and draft three questions the Senior could put to the broker with the worst pattern. You do not contact brokers yourself. Hire B (the Thu 10/29 slot): for each item in the sanitized standard cost extract, compute the implied duty rate = duty element / material (purchase) cost. Take the item's US HTS and country of origin from the AS400 trade item extract and look up the General rate for that HTS in hts.usitc.gov. List the items whose implied rate differs by more than 1 percentage point, with one possible reason each: additional duty (see `docs/primers/current-tariff-landscape.md`), a preference such as USMCA, a rate change since the cost period, freight or fees inside the duty element, or a data error. Material cost only approximates customs value; say so. Each difference is a question for Research and the Senior, not a conclusion. Read-only; no system writes.
 
 ## Exercise 4: USMCA claim check
 
@@ -345,12 +348,12 @@ W3 · Shared (Hire A: scope logic; Hire B: dollars) · 3 h · Reviewed by the Se
 - If more than one prefix of the same scenario matches a line, the **longest prefix wins** (the specific line overrides the heading).
 - usmca_exempt = 'Y': lines of items with usmca_eligible_flag = 'Y' are exempt.
 - YTD impact = entered_value x additional_rate. Annualized impact = YTD impact x 12 / 9.
-- Full-year view: ignore the effective date, as the Tariff-Impact Model does. List it as a limit.
+- Full-year view: ignore the effective date. List it as a limit.
 
 **Steps: SQL Server.**
 
-1. Build the base (clean lines + entries + items, hts10 not NULL).
-2. Join tariff_scenario on import_country, country_of_origin and `b.hts10 LIKE s.hts_prefix + '%'`. Count the rows, then count the distinct line and scenario pairs. If they differ, some lines match two prefixes.
+1. Build the base (clean lines + entries + items, hts10 not NULL). Keep qty: stretch (c) needs it.
+2. Join tariff_scenario on import_country, country_of_origin and `b.hts10 LIKE s.hts_prefix + '%'`. Count the rows, then count the distinct line and scenario pairs. If they differ, some lines match two prefixes. (These counts include the lines that step 4 exempts.)
 3. Keep the longest prefix: `ROW_NUMBER() OVER (PARTITION BY entry_no, line_no, scenario_id ORDER BY LEN(hts_prefix) DESC)` and keep row 1.
 4. Flag exempt lines; exclude them from the impact but report how much the exemption is worth.
 5. Annualized impact by scenario; by scenario, origin and chapter; by scenario and prefix; top 5 items.
@@ -359,13 +362,13 @@ W3 · Shared (Hire A: scope logic; Hire B: dollars) · 3 h · Reviewed by the Se
 
 **Steps: Excel (formulas).** Load a table from lines_clean merged with entries and items, with import_country, country_of_origin, hts10 (Text), usmca_eligible_flag and entered_value. On a calculation sheet, one row per scenario row, use SUMIFS with a wildcard, for example `=SUMIFS(lines[entered_value], lines[import_country], "US", lines[country_of_origin], "CN", lines[hts10], "7318*")`. Wildcards only work because hts10 is text. For the overlapping prefix, subtract the longer prefix's sum from the shorter one before applying the shorter one's rate. For the exempt scenario add the criterion `lines[usmca_eligible_flag], "N"`. Multiply by the rate and by 12/9.
 
-Power Query alternative: add a Custom Column whose formula is just `tariff_scenario` (every line gets the whole table), expand it, keep rows where import country and origin match and `Text.StartsWith([hts10], [hts_prefix])` is true, add `Text.Length([hts_prefix])`, then Group By line and scenario with Max of the length and keep only the longest.
+Power Query alternative: first filter hts10 to remove null (those lines go on your "not evaluable" list in step 7). Then add a Custom Column whose formula is just `tariff_scenario` (every line gets the whole table), expand it, keep rows where import country and origin match and `Text.StartsWith([hts10], [hts_prefix])` is true, add `Text.Length([hts_prefix])`, then Group By line and scenario with Max of the length and keep only the longest.
 
 **Deliverable.** A table by scenario (lines, YTD value, annualized impact), a table by scenario, origin and chapter, the top 5 items, and a limits and caveats list: what you could not evaluate and why, the volume basis, and what the full-year view ignores.
 
 **Check yourself.** By-origin totals and by-chapter totals both add up to each scenario total. You can state how many lines matched two prefixes and what double counting would have added.
 
-**Stretch.** (a) Impact from each effective date to 2026-12-31: annualized impact x days remaining / 365. (b) Hire A: for each HTS-missing item, say from its description whether it is likely in scope, and what Research needs to confirm it. (c) Hire B: fill the Items tab of a copy of `dist/Tariff-Impact-Model-Template.xlsx` for SCN-02 (Canada import, US origin, 25%): unit customs value = YTD value / YTD qty, annual quantity = YTD qty x 12 / 9. Confirm the model's Summary annual impact equals your SQL number for SCN-02.
+**Stretch.** (a) Impact from each effective date to 2026-12-31: annualized impact x days remaining / 365. (b) Hire A: for each HTS-missing item, say from its description whether it is likely in scope, and what Research needs to confirm it. (c) Hire B, with Hire A as Research: run SCN-02 (Canada import, US origin, 25%) through a copy of Tariff-Impact-Model-Template.xlsx from the onboarding folder, following `docs/templates/domain/tariff-impact-model-guide.md`. Hire A, or the Senior acting as Research, fills the Action tab with the SCN-02 rows of tariff_scenario and clears the template's sample action. Hire B does not edit the Action tab: Hire B uses the values Research provides and asks Research if they look wrong. Hire B fills the Items tab with all 18 US-origin items that have Canadian entry lines; the model, not Hire B, decides from the Action tab which are in scope. Per item: unit customs value = YTD entered value / YTD qty; quantity for a 12-month period = YTD qty x 12.0 / 9 (state the basis where the guide asks); current duty rate from duty_rates_reference for CA. Leave standard cost and sell price blank and say why (the practice std_cost is the US warehouse's). Confirm the model's impact equals your SQL annualized impact for SCN-02. If the impact is zero, check whether the Action tab still holds the sample action, and go back to Research.
 
 ## Exercise 7: Power BI page with DAX measures
 
@@ -375,11 +378,12 @@ W4 · Both (Hire B goes deeper) · 3 h · Reviewed by the Senior in W4; Power BI
 
 **Business context.** The reporting backlog moves to you from W10 (M8), and the business reads its numbers in Power BI. Knowing the difference between a measure and a column, what filter context does, and why a Power BI total can differ from SQL (skill S-M3-04) is the base for every report change you will make.
 
-**Data needed.** From SQL: v_entry_lines_clean joined to entries, items, v_ppv, v_scenario_lines. From Excel: your lines_clean (with entry fields), items, receipts with is_outlier, and the Exercise 6 scenario lines.
+**Data needed.** From SQL: v_entry_lines_clean joined to entries, items, v_ppv, v_scenario_lines. From Excel: your lines_clean (with entry fields), items, receipts with is_outlier, and the Exercise 6 scenario lines from the Power Query alternative (one row per line and scenario).
 
 **Model.**
 
 - Facts: EntryLines (one row per clean entry line, with import_country, entry_date and broker_id brought in from entries), Receipts (one row per receipt, with is_outlier), ScenarioLines (one row per line and scenario after the longest-prefix rule, with is_exempt).
+- EntryLines also carries hts_chapter = `COALESCE(LEFT(hts10, 2), 'UNK')` and origin = `COALESCE(country_of_origin, 'UNK')`, brought in from items while shaping (in the SQL view or in Power Query). The chapter visuals then tie to Exercise 2, UNK row included. Items has no chapter column, and the orphan lines have no Items row at all.
 - Dimensions: Items, and a Calendar table built in DAX for 2026, marked as the date table.
 - Relationships: Items to each fact on item_id, Calendar to EntryLines[entry_date] and Receipts[receipt_date] (not to ScenarioLines); one-to-many, single direction.
 
@@ -399,8 +403,8 @@ W4 · Both (Hire B goes deeper) · 3 h · Reviewed by the Senior in W4; Power BI
 |---|---|---|---|
 | Top row | Four cards | Total Duty, Effective Duty Rate, PPV %, Scenario Impact | The four numbers the Manager asks for first |
 | Left | Slicers | Calendar month, EntryLines import_country, Items country_of_origin, ScenarioLines scenario_id | Filter context practice: see which cards each slicer changes |
-| Middle left | Clustered bar | Total Duty by HTS chapter | Where the duty is |
-| Middle right | Matrix | Chapter rows, origin columns, Total Duty and Effective Duty Rate | Exercise 2 in one visual |
+| Middle left | Clustered bar | Total Duty by EntryLines hts_chapter | Where the duty is |
+| Middle right | Matrix | EntryLines hts_chapter rows, EntryLines origin columns, Total Duty and Effective Duty Rate | Exercise 2 in one visual |
 | Bottom left | Line chart | PPV % by month | Shows when PPV moved |
 | Bottom right | Table | Scenario Impact by scenario_id and country_of_origin | Exercise 6 in one visual |
 
@@ -409,13 +413,13 @@ Add a text box: "Synthetic practice data, Jan to Sep 2026. Not for business use.
 **Steps.**
 
 1. Power BI Desktop: Get data > SQL Server (Import mode) and select the views, or Get data > Excel workbook and select your result tables. Shape types in Power Query, then Close & Apply.
-2. Model view: create the relationships; check cardinality and direction. Create the Calendar table (Modeling > New table) and mark it as the date table.
+2. Model view: create the relationships; check cardinality and direction. Create the Calendar table (Modeling > New table) and mark it as the date table (Table tools > Mark as date table).
 3. Create the measures (Home > New measure). Format the rates as percentages.
 4. Build the visuals per the layout spec.
 5. Tie out: with no slicers, each card must equal your Exercise 2, 5 and 6 answers. Then pick one origin and recheck Total Duty against a SQL query with the same filter.
 6. Save the .pbix to [COMPANY: your OneDrive working folder]. Do not publish it to a shared workspace.
 
-If Power BI Desktop is not installed yet (AR-09), build the same measures in Excel: Power Pivot > Manage, add the tables to the Data Model, create the relationships and measures, and show them in a PivotTable. DAX is the same language.
+If Power BI Desktop is not installed yet (AR-09), build the model in Excel: Power Pivot > Manage, add the tables to the Data Model and create the relationships. Excel cannot create DAX calculated tables, so make the Calendar with Design > Date Table > New (it creates the table and marks it as the date table) and use its Month column. Build ScenarioLines with the Exercise 6 Power Query alternative. Write the measures in the Calculation Area and show them in a PivotTable; the measure DAX is the same.
 
 **Deliverable.** The .pbix (or Excel file), a screenshot in OneNote, the measure list with a one-line definition each, and a tie-out table: measure, Power BI value, SQL or Excel value, difference.
 
@@ -462,8 +466,8 @@ Rules: one page (about 400 words). Round for reading ($31.4K), but every number 
 
 ## Related files
 
-- `docs/analytics/answer-key.md` (Manager and Senior only)
-- `data/analytics/generate_practice_data.py` (rebuilds `dist/Practice-Data.xlsx` and `dist/practice-data/`)
+- In the onboarding folder: Practice-Data.xlsx, the practice-data folder (CSVs and load_practice_data.sql), Tariff-Impact-Model-Template.xlsx, and BSA-Onboarding.apkg (sub-deck "03 BSA Craft & Data": SQL, warehouse, Power BI and BSA craft cards)
+- Trainer-only until the day-30 review: the answer key and the data generator script ([COMPANY: trainer-only location])
 - `docs/primers/customs-trade-compliance-primer.md`, `docs/primers/trade-systems-gtm-e2open-primer.md`
 - `docs/templates/domain/tariff-impact-model-guide.md`, `docs/templates/domain/standard-cost-update-checklist.md`
-- `data/anki/03-bsa-data-analytics.csv` (SQL, warehouse, Power BI and BSA craft cards)
+- `docs/05-time-management.md` (stuck rule, question log, office hours)
