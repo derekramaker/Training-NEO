@@ -259,7 +259,7 @@ Worked example (hypothetical rates; DTA left out for clarity). Valor en aduana U
 | Item | Amount (US$ equivalent) | Note |
 |---|---|---|
 | Valor en aduana | 11,850.00 | Includes freight and insurance to arrival (Section 9.7) |
-| IGI at 5% | 592.50 | 11,850 x 5%; zero if a valid T-MEC claim applies and the rate is free |
+| IGI at 5% | 592.50 | 11,850 x 5%. No T-MEC preference here: these goods come from Taiwan and are not USMCA-originating. A USMCA-originating good with a valid claim would pay the T-MEC rate instead |
 | IVA base | 12,442.50 | Valor en aduana + IGI (+ DTA and other contributions in real life) |
 | IVA at 16% | 1,990.80 | Generally creditable |
 
@@ -314,7 +314,7 @@ Audit routine (the Senior's W4 and W5 sessions go through this with real data):
 - [ ] Join it to our master data by item, country and date. Count rows before and after the join to catch join fan-out (see the glossary and the M3 practice pack).
 - [ ] Flag mismatches in the four fields above. Focus on new items, high-duty lines, preference claims and items under new tariff actions.
 - [ ] Log each finding with evidence: entry and line, filed value, expected value, source, possible duty impact.
-- [ ] Escalate to the Senior. You do not contact the broker or customs about a correction unless asked.
+- [ ] Escalate to the Senior. You never contact customs about a correction. Before the day-60 review you do not contact the broker either: the Senior (or the Manager) does. After day 60, you may email the broker only with the Senior's agreement and the Senior copied (rule 5 in "How to use this primer").
 - [ ] If our master data caused it, raise a change request and fix the master data with maker-checker review.
 
 ## 8. Classification
@@ -736,7 +736,7 @@ The US multiples come from the statute named; Canadian and Mexican penalty amoun
 1. **Contain:** stop the error spreading. Tell the owner of the data, and do not send more filings with the known-bad value.
 2. **Record** what you found, with evidence: item, country, entries affected, filed value, correct value, source, date found.
 3. **Escalate the same day** to the Senior (and the Manager if the Senior is out). In Canada the 90-day clock may have started; in the US the PSC window may be closing.
-4. **Do not** contact customs, and do not ask the broker to correct a filed declaration, unless the Senior asks you to.
+4. **Do not** contact customs. Before the day-60 review, do not contact the broker either: the Senior (or the Manager) does. After day 60, contact the broker only with the Senior's agreement and the Senior copied; the Senior still decides the correction route (step 7).
 5. **Scope it:** find every affected entry, line and period with a query; the Senior uses this to choose the route.
 6. **Fix the root cause** in master data through a change request with maker-checker review (`docs/templates/bsa/06-change-request.md`).
 7. **The correction route** (PSC, protest, prior disclosure, CAD adjustment, rectificación) is decided by the Senior or Manager, with counsel where needed. You prepare the data.

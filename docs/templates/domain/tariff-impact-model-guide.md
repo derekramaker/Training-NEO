@@ -14,11 +14,11 @@ One workbook per tariff action and importing country. Research copies the checke
 
 | Step | Who | Tab | What to do | Done when |
 |---|---|---|---|---|
-| 1 Copy | Hire A, at intake | All | Copy the template to [COMPANY: tariff model folder] as `TIM_[Action ID]_[import country]_v0.1.xlsx`. Link it on both Jira stories. Clear the SAMPLE rows on Action, Items and Review (select, press Delete; never delete rows) | One linked file; no email copies |
-| 2 Fill the WHAT | Hire A (maker) | Action | Fill column B, the HTS scope list, the exclusion list, the origin list, the determinations and any rate lines from the checked brief | Summary B26 and B27 read YES |
+| 1 Copy | Hire A, at intake; Hire B the same day | All | Hire A copies the template to [COMPANY: tariff model folder] as `TIM_[Action ID]_[import country]_v0.1.xlsx`, links it on both Jira stories, and clears the SAMPLE rows on Action and Review. Hire B clears the Items SAMPLE rows and the sample chapter on Summary (A47). Select, press Delete; never delete rows | One linked file; no email copies; no SAMPLE rows left |
+| 2 Fill the WHAT | Hire A (maker) | Action | Fill column B, the HTS scope list, the exclusion list, the origin list, the determinations and any rate lines from the checked brief | Summary B26 and B27 read YES. Until Items is loaded, Action column W shows WAIT (amber) instead of OK |
 | 3 Check the WHAT | Senior or Manager | Action, Review | Compare every Action entry with the brief and its sources. Log the review | Review line with "Approved for release" |
 | 4 Fill the $ inputs | Hire B (maker) | Items | Set the quantity period and currency (K1, K2). Paste the extract as values, one row per item and import country, all per the Oracle primary unit of measure. Record the source and date in column N | Item count = extract row count |
-| 5 Clear the checks | Hire B | Calc, Summary | Fix every CHECK in Calc column AJ. Explain each NOTE | Summary B19 = 0 and B30 = YES |
+| 5 Clear the checks | Hire B; Hire A for Action | Calc, Summary | Fix every CHECK in Calc column AJ that comes from the Items data. Explain each NOTE. Raise every CHECK that comes from the Action tab on the Research story: Action F, J, W (including "no Items row" after the paste) or AI, a NO in B26, and the rate and scope CHECKs in AJ. Hire A corrects or removes the Action entry; Hire B never edits Action | Summary B19 = 0 and B30 = YES |
 | 6 Sense-check | Hire B | Summary | Explain the top 10 and the origin and chapter totals in one line each | Covering note drafted |
 | 7 Check the $ | Manager | All, Review | Recalculate 3 items by hand, confirm counts and totals against the extract, run the Review checklist | Review line with "Approved for release" |
 | 8 Release | Manager approves | Summary | Send the Summary with a covering note that states the brief version, the quantity period and basis, and the limits | Sent; filed on the Jira epic |
@@ -31,7 +31,8 @@ Boundary rule: Research decides scope (which items are in or out, and why), rate
 - **Yellow cells are inputs.** Grey cells are formulas. Input cells use named styles that start with "TIM Input"; formula cells use styles that start with "TIM Calc".
 - **Every tab is protected without a password.** Only yellow cells can change, and rows and columns cannot be inserted or deleted, because that would break the row-by-row link between Items and Calc. Items allows sort and filter; Calc allows filter. Unprotect a tab (Review > Unprotect Sheet in Excel; Tools > Protect Sheet in LibreOffice) only with the Manager's agreement, and protect it again before review.
 - Header rows are frozen on every data tab. Items and Calc have filters on the header row.
-- Data validation guards the inputs: lists for country, Y/N, ADD/REPLACE, USMCA treatment, FULL/PART, IN/OUT and review decisions; 2-letter length for origin codes; ranges for rates, shares, values, quantities and dates. Pasting bypasses validation, which is why Calc column AJ re-checks the data.
+- Data validation guards the inputs: lists for country, Y/N, ADD/REPLACE, USMCA treatment, FULL/PART, IN/OUT and review decisions; 2-letter length for origin codes; ranges for rates, shares, values, quantities and dates. Pasting bypasses validation, so the formulas re-check what a paste can break: Action columns F and J (HTS prefixes), W (determinations) and AI (rate lines), Summary B26 (column B and the origin list) and Calc column AJ (the Items data).
+- **Pasted text is cleaned before it is compared.** Leading and trailing spaces, non-breaking spaces (character 160, common in text copied from web pages and PDFs) and non-printing characters are removed, and codes are compared in capitals. So `XX `, ` xx` and XX followed by a non-breaking space all match XX, and IN, OUT, Y, N, ADD, REPLACE, FULL and PART are read the same way. A space inside a code is not removed: `X X` is 3 characters and raises a CHECK or a NO.
 - Item numbers, HTS numbers and origin codes are stored as text. Paste with Paste Special > Values, so Excel keeps leading zeros and the cells keep their input format (a normal paste can also bring in the source cell's locked setting).
 - Rates and shares are percentages: 25% is stored as 0.25. Type `25%`, not `25`.
 - Tab colours: grey for README and Calc, blue for Action (Research), orange for Items (Standard Cost), green for Summary, purple for Review.
@@ -50,7 +51,7 @@ Fields in column B, rows 5 to 24. Each has a workbook-level defined name, so for
 |---|---|---|---|---|
 | B5 | Action ID | act_ID | Summary | Same ID as the brief, the file name and the Jira story |
 | B6 | Action name | act_Name | Summary | Plain-language name |
-| B7 | Importing country | act_Country | Calc F; Action W | US, CA or MX. One model per importing country |
+| B7 | Importing country | act_Country | Calc F; Action W | US, CA or MX (B26 checks it). One model per importing country |
 | B8 | Legal authority category | act_Authority | No | From the list |
 | B9 | Brief ID and version | act_Brief | Summary | Must be a checked version |
 | B10 | Primary legal source | act_Source | No | Citation |
@@ -59,11 +60,11 @@ Fields in column B, rows 5 to 24. Each has a workbook-level defined name, so for
 | B13 | In-transit provision | act_InTransit | No | Not applied |
 | B14 | End date | act_EndDate | No | Not applied |
 | B15 | Default additional rate | act_Rate | Calc R | Applies to in-scope items that match no rate line. Blank = every in-scope item must match a rate line |
-| B16 | Rate change type | act_RateType | Calc S | ADD or REPLACE |
+| B16 | Rate change type | act_RateType | Calc S | ADD or REPLACE, for B15 and for every rate line with AD blank (B26 checks it) |
 | B17 | Default earlier rate replaced | act_PriorRate | Calc S | REPLACE only |
-| B18 | USMCA-qualifying goods | act_USMCAExempt | Calc J | Y (exempt), PARTIAL, N or N/A |
+| B18 | USMCA-qualifying goods | act_USMCAExempt | Calc J | Y (exempt), PARTIAL, N or N/A (B26 checks it) |
 | B19 | Stacking interpretation | act_Stacking | No | Quoted from brief 6.6 |
-| B20 | Duty base for the default rate | act_DefaultBase | Calc P | FULL or PART |
+| B20 | Duty base for the default rate | act_DefaultBase | Calc P | FULL, PART or blank (= FULL; B26 checks it) |
 | B21 to B23 | Research maker, checker, date checked | act_Maker, act_Checker, act_Checked | No | Who checked the brief |
 | B24 | Model version | act_ModelVersion | No | Matches Review and the file name |
 
@@ -71,9 +72,9 @@ Lists (all start on row 5, header on row 4):
 
 | Columns | List | Names used by formulas | How to fill it |
 |---|---|---|---|
-| E to H | In-scope HTS prefixes (300 rows) | scope_HTS (F), scope_Group (H) | One prefix per row exactly as the annex writes it (4, 6, 8 or 10 digits, dots allowed). Column F strips dots, spaces and hyphens. Column H, the rate group, is needed only when rate lines differ by product list: use the brief's Chapter 99 heading or annex name (for example `9903.XX.01`) |
+| E to H | In-scope HTS prefixes (300 rows) | scope_HTS (F), scope_Group (H) | One prefix per row exactly as the annex writes it (4, 6, 8 or 10 digits, dots allowed). Column F strips dots, spaces (normal and non-breaking) and hyphens. It also flags a result that is not 2, 4, 6, 8 or 10 digits, which catches a footnote number copied as a plain digit (`7318 1` gives 73181) and a prefix pasted as a number that lost its leading zero (`0303.89` gives 30389). If anything else is left (a letter, a footnote marker such as `1/`), or the result is not 2, 4, 6, 8 or 10 digits, F shows "CHECK: not 2, 4, 6, 8 or 10 digits" in red, the prefix matches nothing, and B26 reads NO. Column H, the rate group, is needed only when rate lines differ by product list: use the brief's Chapter 99 heading or annex name (for example `9903.XX.01`) |
 | I to K | Excluded HTS prefixes (300 rows) | excl_HTS (J) | Same rules. Only exclusions defined by HTS go here |
-| M to N | Origins in scope (50 rows) | scope_COO (M) | 2-letter ISO codes, one per row, each once. For an action on all origins, list every origin in your candidate query (brief Part 9) |
+| M to N | Origins in scope (50 rows) | scope_COO (M) | 2-letter ISO codes, one per row, each once. B26 reads NO if a code is not 2 letters after cleaning. For an action on all origins, list every origin in your candidate query (brief Part 9) |
 | P to W | Item-level determinations (100 rows) | det_Key (V), det_Status (R), det_Displaced (S), det_Check (W) | Item number and import country; IN, OUT or blank; any other duty the action switches off on that item; the reason and brief section. V and W are formulas |
 | Y to AI | Rate lines (30 rows) | rate_ID (Y), rate_Group (Z), rate_COO (AA), rate_USMCA (AB), rate_Rate (AC), rate_Prior (AD), rate_Base (AE), rate_Displaced (AF), rate_Check (AI) | One row per brief Part 7 line that differs from B15. AH (items using the line) and AI (check) are formulas |
 
@@ -83,21 +84,22 @@ Most actions have one rate: put it in B15 and leave the rate lines empty. When b
 
 - **Line ID** (Y): the brief's line number, for example `R2`. Must be unique.
 - **Keys** (Z, AA, AB): rate group (from the scope list), origin, and USMCA-qualifying (Y = only qualifying items, N = only non-qualifying, blank = either). A blank key matches everything. A line matches an in-scope item when all its filled keys match.
-- **Rate, earlier rate, base, displaced duty** (AC to AF): the additional rate; the earlier rate it replaces (REPLACE only; blank uses B17); FULL or PART (blank = FULL); any other duty this line switches off (see stacking below).
+- **Rate, earlier rate, base, displaced duty** (AC to AF): the additional rate; the earlier rate of this action that the line replaces (next bullet); FULL or PART (blank = FULL); any other duty this line switches off (see stacking below).
+- **Adds or replaces** (brief Part 7, "Adds to or replaces"): B16 and B17 apply to B15 and to every line with AD blank. A line that replaces an earlier rate of this action gets that rate in AD, whatever B16 says. A line that only adds while B16 is REPLACE gets 0% in AD. With REPLACE, an in-scope item that finds no earlier rate (no AD on its line and no B17) is a CHECK in Calc AJ, and B26 reads NO when there is no earlier rate anywhere.
 
 When more than one line matches an item, the most specific wins: a line that names the origin beats one that names the USMCA status, which beats one that names only the rate group. A line with no keys matches every in-scope item. An in-scope item that matches no line takes B15. Two matching lines with the same keys are a CHECK, because the model cannot choose. If the instrument's precedence differs from this order, add a more specific line (for example origin plus rate group) and say so in the brief.
 
-Column AI checks each line: ID missing, rate missing, ID listed twice, rate group not on the scope list, origin not on the origin list. Column AH counts the in-scope items that use the line; a line used by 0 items is not an error, but the checker asks why.
+Column AI checks each line: ID missing; rate missing or outside 0% to 1000%; ID listed twice; rate group not on the scope list; origin not on the origin list; USMCA not Y, N or blank; duty base not FULL, PART or blank; earlier or displaced rate not a number. A rate above 100% is an amber NOTE (was `25` pasted instead of `25%`?). Column AH counts the in-scope items that use the line; a line used by 0 items is not an error, but the checker asks why.
 
 #### Item-level determinations
 
-Use them for exclusions written as product descriptions, borderline items, and items whose stacking differs from the rest. Each row is keyed by item number AND import country, and both are trimmed and upper-cased before matching, so a trailing space pasted from the brief no longer breaks the match.
+Use them for exclusions written as product descriptions, borderline items, and items whose stacking differs from the rest. Each row is keyed by item number AND import country, and both are cleaned and upper-cased before matching, so a trailing space pasted from the brief does not break the match.
 
 - **IN or OUT** (R) overrides the HTS, exclusion, origin and USMCA tests, but never the import-country test: an IN determination cannot pull a Canadian row into a US model.
 - **Blank** (R) leaves scope to the rules. Use it to record only a displaced duty (S).
-- **Check** (W) must read OK: it flags a row whose import country is not B7, a row listed twice, a row with no matching Items row, and a row with neither a determination nor a displaced rate. Summary B15 counts the rows listed; B27 is NO until every row is OK.
+- **Check** (W) must read OK. It flags, in this order: an import country that is not B7; a row listed twice; a determination other than IN, OUT or blank (a pasted `EXCLUDED` would otherwise be ignored and the scope rules would decide); a displaced rate that is not a number; a row with neither a determination nor a displaced rate; and, once Items has rows, a row with no matching Items row. Until Items has rows, W shows "WAIT: Items not loaded yet" in amber, which B27 does not count. Summary B15 counts the rows listed; B27 is NO while any row shows a CHECK.
 
-A determination is per item, while many exclusions are per entry ("accompanied by a certificate"). An item certified on only some shipments cannot be OUT: keep it IN (as in brief example Q2) or, if the volumes are known, split it into two Items rows with a note. SAMPLE-005 is OUT because its supplier certifies every shipment.
+A determination is per item, while many exclusions are per entry ("accompanied by a certificate"). An item certified on only some shipments cannot be OUT: keep it IN (as in brief example Q2). If Research can state the certified share of the volume from a source, Research records it in the brief, names two model rows with distinct item numbers (for example ITEM-123-CERT and ITEM-123-NOCERT) and lists them on the Action tab as OUT and IN. Standard Cost enters those two Items rows with the quantity split as the brief states it, explained in column N. Two rows with the same item number and import country are a duplicate CHECK. SAMPLE-005 is OUT because its supplier certifies every shipment.
 
 #### Duty base and partial USMCA relief
 
@@ -147,33 +149,35 @@ The 14 SAMPLE rows are synthetic: invented items, values, rates, costs and price
 
 Row n on Calc reads row n on Items. Every formula starts with `IF($A5="","",...)` (or returns 0 for helpers) so empty rows stay blank and do not count in totals. The formulas below are for row 5; columns AL to AQ are helpers.
 
+Shorthand: where a formula below shows `tidy(x)`, the workbook has `TRIM(CLEAN(SUBSTITUTE(x&"",[NBSP]," ")))`, where [NBSP] is the non-breaking space character itself, between quotes. It looks like a normal space in the formula bar. The formulas use the character rather than `CHAR(160)` because CHAR reads the computer's own character set, so it returns a different character on a Mac and in some LibreOffice settings. Codes and keys are compared as `UPPER(tidy(x))`.
+
 **Identification**
 
-- **A Item number:** `=IF(TRIM(Items!A5&"")="","",TRIM(Items!A5&""))`. Trimmed text, so numeric and text item numbers both match.
+- **A Item number:** `=IF(tidy(Items!A5)="","",tidy(Items!A5))`. Cleaned text, so numeric and text item numbers both match.
 - **B Description:** `=IF($A5="","",Items!B5&"")`.
-- **C HTS digits:** `=IF($A5="","",SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM(Items!D5&""),".","")," ",""),"-",""))`. Digits only, as text.
+- **C HTS digits:** `=IF($A5="","",SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(CLEAN(Items!D5&""),[NBSP],""),".","")," ",""),"-",""))`. Dots, spaces, non-breaking spaces and hyphens removed; AJ checks that exactly 10 digits are left.
 - **D HTS chapter:** `=IF($A5="","",LEFT($C5,2))`.
-- **E Origin:** `=IF($A5="","",UPPER(TRIM(Items!E5&"")))`.
+- **E Origin:** `=IF($A5="","",UPPER(tidy(Items!E5)))`.
 
 **Scope tests (each returns Y or N)**
 
-- **F Import country matches:** `=IF($A5="","",IF(UPPER(TRIM(Items!C5&""))=UPPER(TRIM(act_Country&"")),"Y","N"))`.
+- **F Import country matches:** `=IF($A5="","",IF(UPPER(tidy(Items!C5))=UPPER(tidy(act_Country)),"Y","N"))`.
 - **G HTS on scope list:** `=IF($A5="","",IF($AM5>0,"Y","N"))`. AM is the scope match score (below).
 - **H HTS on exclusion list:** `=IF($A5="","",IF(SUMPRODUCT((excl_HTS<>"")*(LEFT($C5,LEN(excl_HTS))=excl_HTS))>0,"Y","N"))`. For every prefix on the list, it compares that many leading digits of the item's HTS. One match is enough. SUMPRODUCT handles the list without array entry, in Excel and LibreOffice.
-- **I Origin on scope list:** `=IF($A5="","",IF($E5="","N",IF(COUNTIF(scope_COO,$E5)>0,"Y","N")))`.
-- **J USMCA exempt:** `=IF($A5="","",IF(AND(UPPER(TRIM(act_USMCAExempt&""))="Y",UPPER(TRIM(Items!F5&""))="Y"),"Y","N"))`. Only when B18 = Y.
-- **K Research determination:** `=IF($A5="","",IF($AQ5=0,"",UPPER(TRIM(INDEX(det_Status,$AQ5)&""))))`. IN, OUT or blank, from the determination row found in AQ.
+- **I Origin on scope list:** `=IF($A5="","",IF($E5="","N",IF(SUMPRODUCT(--(UPPER(tidy(scope_COO))=$E5))>0,"Y","N")))`. The origin list is cleaned the same way, so `XX ` on the list still matches XX.
+- **J USMCA exempt:** `=IF($A5="","",IF(AND(UPPER(tidy(act_USMCAExempt))="Y",UPPER(tidy(Items!F5))="Y"),"Y","N"))`. Only when B18 = Y.
+- **K Research determination:** `=IF($A5="","",IF($AQ5=0,"",UPPER(tidy(INDEX(det_Status,$AQ5)))))`. IN, OUT or blank, from the determination row found in AQ. Any other value is ignored here, and Action W shows a CHECK for it.
 - **L In scope:** `=IF($A5="","",IF($F5="N","N",IF($K5="IN","Y",IF($K5="OUT","N",IF(AND($G5="Y",$H5="N",$I5="Y",$J5="N"),"Y","N")))))`. The import country is tested first. Then a determination wins. Otherwise the item is in scope only if it is on the scope list, not excluded, from a listed origin and not USMCA-exempt.
 - **M Scope reason:** names the first reason that applies, in this order: different import country, Research determination (IN or OUT), HTS not on scope list, HTS on exclusion list, origin not on scope list, USMCA-qualifying exempt, otherwise "In: matches scope rules". Filter on it when you review.
 
 **Which rate applies**
 
-- **N Rate group:** `=IF(OR($A5="",$AM5=0),"",TRIM(INDEX(scope_Group,MOD($AM5,1000))&""))`. The group of the longest scope prefix that matches the item.
+- **N Rate group:** `=IF(OR($A5="",$AM5=0),"",UPPER(tidy(INDEX(scope_Group,MOD($AM5,1000)))))`. The group of the longest scope prefix that matches the item.
 - **O Rate line used:** the matching line's ID, or "Default (B15)" when no line matches. Blank when out of scope.
 - **P Duty base:** FULL or PART, from the line (column AE) or from B20.
 - **Q Current duty rate:** `=IF($A5="","",N(Items!J5))`. `N()` turns blanks and text into 0 so the arithmetic never errors; AJ flags those rows.
 - **R Additional rate:** the line's rate (AC) or B15; 0 when out of scope.
-- **S Earlier rate replaced:** REPLACE only: the line's AD, or B17 when AD is blank; otherwise 0.
+- **S Earlier rate replaced:** the line's AD when it holds a number (whatever B16 says); otherwise B17 when B16 is REPLACE; otherwise 0. Items on B15 take B17 when B16 is REPLACE.
 - **T Dutiable share applied:** `=IF($A5="","",IF(AND($L5="Y",$P5="PART",ISNUMBER(Items!M5)),Items!M5,1))`.
 - **U Other duty displaced:** the item's determination value (S) if there is one, otherwise the line's AF, otherwise 0.
 
@@ -199,15 +203,15 @@ Row n on Calc reads row n on Items. Every formula starts with `IF($A5="","",...)
 
 **Controls**
 
-- **AJ Data check:** returns the first problem found, in this order. CHECKs: duplicate item and import country; import country missing; HTS must be 10 digits (also catches a lost leading zero or letters); origin code missing or not 2 letters; unit of measure missing; value, rate or cost missing; text in a number column (H, J, K, and I, L, M when filled); USMCA flag on an origin other than US, CA or MX; in scope but no rate; two rate lines match equally; HTS prefix listed twice on the scope list; dutiable share missing (PART base); dutiable share entered, but the rate taxes the full value; current rate is below the duty being replaced or displaced. NOTEs: in scope, no quantity; in scope, no sell price; customs value above standard cost (check unit of measure). Otherwise "OK". CHECK rows turn red and NOTE rows amber. Every CHECK must be cleared before review. A NOTE needs a one-line explanation in the covering note.
+- **AJ Data check:** returns the first problem found, in this order. CHECKs: duplicate item and import country; import country missing; import country must be US, CA or MX; HTS must be 10 digits (also catches a lost leading zero, letters or other characters); origin code missing or not 2 letters; unit of measure missing; value, rate or cost missing; text in a number column (H, J, K, and I, L, M when filled); dutiable share must be 0% to 100% (catches `40` pasted for 40%); USMCA flag must be Y, N or blank; USMCA flag on an origin other than US, CA or MX; in scope but no rate; REPLACE but no earlier rate (B17 or the rate line's AD); two rate lines match equally; HTS prefix listed twice on the scope list; dutiable share missing (PART base); dutiable share entered, but the rate taxes the full value; current rate is below the duty being replaced or displaced. NOTEs: in scope, no quantity; in scope, no sell price; customs value above standard cost (check unit of measure); current rate above 100% (check it was entered as a percentage). Otherwise "OK". Who clears them: Hire B fixes the Items data; the rate and scope CHECKs (no rate, REPLACE without an earlier rate, two lines match, prefix listed twice) come from the Action tab and go to Research (workflow step 5). CHECK rows turn red and NOTE rows amber. Every CHECK must be cleared before review. A NOTE needs a one-line explanation in the covering note.
 - **AK Rank key:** `=IF($A5="","",IF(AND($L5="Y",$AE5<>0),ABS($AE5)+ROW()/1000000000,""))`. The size of the impact plus a tiny row-based amount so equal impacts still rank separately. Used only by the Summary top 10.
 
 **Helpers (AL to AQ)**
 
-- **AL Key:** `=IF($A5="","",$A5&"/"&UPPER(TRIM(Items!C5&"")))`, for example `SAMPLE-001/US`. Determinations use the same key (Action V).
+- **AL Key:** `=IF($A5="","",UPPER($A5)&"/"&UPPER(tidy(Items!C5)))`, for example `SAMPLE-001/US`. Determinations use the same key (Action V).
 - **AM Scope match score:** `=IF($A5="",0,SUMPRODUCT(MAX((scope_HTS<>"")*(LEFT($C5,LEN(scope_HTS))=scope_HTS)*(LEN(scope_HTS)*1000+ROW(scope_HTS)-4))))`. For the longest matching prefix: its length x 1000 plus its row on the list. 0 = no match. SUMPRODUCT makes MAX work on the list without array entry.
 - **AN Scope ties:** how many matching prefixes have that length (more than 1 means the same prefix is listed twice).
-- **AO Rate line score:** for the best matching rate line: its specificity (1, plus 1 for a rate group, 2 for a USMCA status and 4 for an origin) x 100, plus its row on the list. 0 = no line matches, so B15 applies.
+- **AO Rate line score:** for the best matching rate line: its specificity (1, plus 1 for a rate group, 2 for a USMCA status and 4 for an origin) x 100, plus its row on the list. 0 = no line matches, so B15 applies. The line keys (Z, AA, AB) are compared as `UPPER(tidy(...))`, so a pasted space cannot switch a line off.
 - **AP Rate line ties:** how many matching lines have that specificity (more than 1 is a CHECK).
 - **AQ Determination row:** `=IF($A5="",0,IFERROR(MATCH($AL5,det_Key,0),0))`.
 
@@ -227,15 +231,15 @@ Row n on Calc reads row n on Items. Every formula starts with `IF($A5="","",...)
 | B22 | Revenue, in-scope items with a sell price | SUMIFS on Calc AG |
 | B23, B24 | Margin % before and after, in-scope items with a sell price | Calc AH or AI (SUMIFS on in-scope) divided by B22: revenue-weighted, unpriced items excluded from both sides |
 | B25 | Margin change | B24 - B23, in points |
-| B26 | Action tab complete? | Required fields; a default rate or at least one rate line; at least one HTS prefix and one origin; PARTIAL in B18 needs a rate line with USMCA = Y |
-| B27 | Determinations and rate lines check out? | No CHECK on Action columns W and AI: every determination matched exactly one Items row of this import country |
-| B28 | Origin table reconciles? | YES when the origin table total (C113) equals B20 |
-| B29 | Chapter table reconciles? | YES when "Other chapters" (C57) is zero |
-| B30 | Ready for checker review? | YES when B26 to B29 are YES and B19 is 0 |
+| B26 | Action tab complete? | YES, or "NO:" and the first problem, checked in this order: B5 missing; B7 not US, CA or MX; B9 or B11 missing; B15 not a percentage from 0% to 1000%; no rate (B15 or a rate line); B16 not ADD or REPLACE; B17 not a number; REPLACE with no earlier rate anywhere (B17 or AD); B18 not Y, PARTIAL, N or N/A; B20 not FULL, PART or blank; no HTS prefix, or a prefix in F or J that is not 2, 4, 6, 8 or 10 digits; no origin, or an origin that is not a 2-letter code; PARTIAL with no USMCA = Y rate line |
+| B27 | Determinations and rate lines check out? | No CHECK on Action columns W and AI: every determination valid and, once Items is loaded, matched to one Items row of this import country |
+| B28 | Origin table reconciles? | YES when the origin table totals (B113 and C113) equal B14 and B20 |
+| B29 | Chapter table reconciles? | YES when "Other chapters" (B57 and C57) is zero: no in-scope item, even one with no impact, is missing from the chapter list |
+| B30 | Ready for checker review? | YES when Items has rows (B13 > 0), B26 to B29 are YES and B19 is 0 |
 
 - **Top 10 (rows 34 to 43).** Column I takes the k-th largest rank key with `LARGE`; columns B to H look the row up with `INDEX/MATCH`. Ranked by size of impact, so a duty decrease (negative impact) ranks by its size too. Column E shows the rate line used.
-- **By HTS chapter (rows 46 to 57).** Type each chapter in scope as 2 digits in the yellow cells A47 to A56 (the sample has 73). Row 57 "Other chapters" is what is left over and must be 0; if not, a chapter is missing from the list.
-- **By country of origin (rows 62 to 113).** One row per row of the Action origin list (all 50). Row 112 "Other origins" is computed directly: in-scope items whose origin is not on the list, which can only happen through an IN determination. Row 113 adds the rows up and must equal B20. It fails if an origin is listed twice on Action, because that origin is then counted twice.
+- **By HTS chapter (rows 46 to 57).** Type each chapter in scope as 2 digits in the yellow cells A47 to A56 (the sample has 73). Row 57 "Other chapters" is what is left over: both the count and the $ must be 0; if not, a chapter is missing from the list.
+- **By country of origin (rows 62 to 113).** One row per row of the Action origin list (all 50). Row 112 "Other origins" is computed directly: in-scope items whose origin is not on the list, which can only happen through an IN determination. Row 113 adds the rows up: the count must equal B14 and the $ must equal B20. It fails if an origin is listed twice on Action, because that origin is then counted twice.
 
 ### Review (maker-checker log)
 
@@ -274,7 +278,9 @@ By hand, SAMPLE-001: duty before 4.20 x 5% = 0.21; after 4.20 x 30% = 1.26; new 
 
 **Drill 5: several rate lines and a partial duty base.** Add XY to the origin list (M6). Add a scope prefix 7326.90 (E6) with rate group `ANNEX III` (H6). Add two rate lines: Y5 `R2`, AA5 `XY`, AC5 10%; Y6 `R3`, Z6 `ANNEX III`, AC6 25%, AE6 PART. On Items, set SAMPLE-010's dutiable share (M14) to 20%. Expected: SAMPLE-006 uses R2: 3.90 x 10% = 0.3900, impact 23,400.00. SAMPLE-010 uses R3 on a PART base: 6.00 x 20% x 25% = 0.3000, impact 6,000.00. The other in-scope items still show "Default (B15)". Total 257,850.00; AH5 and AH6 each show 1. Now clear M14: SAMPLE-010 shows "CHECK: dutiable share missing (PART base)".
 
-**Drill 6: partial USMCA relief.** Add MX to the origin list (M6) and set B18 to PARTIAL. Add a rate line: Y5 `R4`, AA5 `MX`, AB5 `Y`, AC5 25%, AE5 PART (qualifying goods pay only on their non-US content). On Items, set SAMPLE-007's dutiable share (M11) to 40%. Expected: SAMPLE-007 (USMCA Y) is in scope on R4: 2.10 x 40% x 25% = 0.2100, impact 31,500.00. SAMPLE-008 (USMCA N) takes B15: 23,000.00. Total 282,950.00 and B30 = YES. Delete the rate line and B26 reads NO.
+**Drill 6: partial USMCA relief.** Add MX to the origin list (M6) and set B18 to PARTIAL. Add a rate line: Y5 `R4`, AA5 `MX`, AB5 `Y`, AC5 25%, AE5 PART (qualifying goods pay only on their non-US content). On Items, set SAMPLE-007's dutiable share (M11) to 40%. Expected: SAMPLE-007 (USMCA Y) is in scope on R4: 2.10 x 40% x 25% = 0.2100, impact 31,500.00. SAMPLE-008 (USMCA N) takes B15: 23,000.00. Total 282,950.00 and B30 = YES. Delete the rate line and B26 reads "NO: PARTIAL needs a rate line with USMCA = Y".
+
+**Drill 7: pasted values that bypass validation.** Build each value in a scratch workbook, copy it, and paste it into the copy with Paste Special > Values, one at a time, undoing each. (a) `73I8` (a capital I, not a 1) in Action E5: F5 shows "CHECK: not 2, 4, 6, 8 or 10 digits", every item drops out of scope, and B26 reads "NO: an HTS prefix is not 2, 4, 6, 8 or 10 digits (column F or J)". (b) `EXCLUDED` in Action R5: W5 shows "CHECK: determination must be IN, OUT or blank" and B27 reads NO. (c) `="X"&UNICHAR(160)&"X"` (an X, a non-breaking space, an X; UNICHAR needs Excel 2013 or later, or LibreOffice) in Action M5: B26 reads "NO: an origin in column M is not a 2-letter code". B30 reads NO each time. Then paste `="XX"&UNICHAR(160)` into M5: the model cleans it, and every result matches the sample. Lesson: a NO on the Summary names the problem; a value the model can clean needs no action.
 
 ## Extending the template
 
@@ -299,6 +305,7 @@ By hand, SAMPLE-001: duty before 4.20 x 5% = 0.21; after 4.20 x 30% = 1.26; new 
 - Typing over a formula, or unprotecting a tab to "fix" a number. Fix the input or ask the Manager.
 - Deleting SAMPLE rows instead of clearing them. Protection blocks it; if a tab was unprotected, the link between Items and Calc breaks.
 - Pasting HTS or item numbers as numbers. Leading zeros vanish and matches fail. AJ flags HTS problems; Action column W flags determinations that match no Items row.
+- Pasting an annex list from a PDF or web page with its footnote markers (`7318 1/`, or a plain digit after a space, `7318 1`). Action column F flags every prefix that is not plain digits; fix it from the source.
 - Mixing units: a customs value per box with a standard cost per each. Watch for the "customs value above standard cost" NOTE.
 - Pasting a per-organization extract without aggregating it: every duplicate row is a CHECK.
 - Using the supplier's country instead of the country of origin.
@@ -309,7 +316,7 @@ By hand, SAMPLE-001: duty before 4.20 x 5% = 0.21; after 4.20 x 30% = 1.26; new 
 
 ## Excel and LibreOffice notes
 
-- The formulas avoid dynamic arrays, LET, LAMBDA, XLOOKUP, IFS and wildcard criteria, so they work in Excel 2010 and later and in LibreOffice Calc. The longest-prefix and rate-line choices use `SUMPRODUCT(MAX(...))`, which evaluates the list without array entry in both. Template v2.0 was recalculated in LibreOffice 24.2 with no formula errors, the sample and every drill above were checked by hand, and the result matched. Open it once in your Excel version before first real use and confirm the sample totals match.
+- The formulas avoid dynamic arrays, LET, LAMBDA, XLOOKUP, IFS and wildcard criteria, so they work in Excel 2010 and later and in LibreOffice Calc. The longest-prefix and rate-line choices use `SUMPRODUCT(MAX(...))`, which evaluates the list without array entry in both. Template v2.0 was recalculated in LibreOffice 24.2 with no formula errors, the sample and every drill above were checked by hand, and the result matched. The non-breaking space is matched by the character itself, not by `CHAR(160)`, so the cleaning does not depend on the computer: CHAR reads the computer's own character set, which differs between Windows, Mac and some LibreOffice settings. Open it once in your Excel version before first real use and confirm the sample totals match.
 - Excel recalculates the whole workbook when the file opens. If Excel opens it in Protected View, click Enable Editing so the formulas calculate.
 - In LibreOffice, if values look stale, use Data > Calculate > Recalculate Hard.
 - Pasting from another workbook can bring in its styles and names. Use Paste Special > Values.

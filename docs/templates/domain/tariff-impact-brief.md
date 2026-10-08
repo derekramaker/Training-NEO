@@ -24,7 +24,7 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 1. Find the legal instrument and its annexes. US: Federal Register (and the proclamation or executive order). Canada: the Department of Finance announcement, then the order in the Canada Gazette, Part II. Mexico: the decree or resolution in the DOF.
 2. Find the implementing guidance. US: the CBP CSMS message (Chapter 99 numbers, filing order, in-transit claims). Canada: the CBSA Customs Notice. Mexico: ask the Senior to get the agente aduanal's view of how they will apply it ([COMPANY: agente aduanal contact]).
 3. Read the timing clause and copy it word for word.
-4. Get the HTS list as text (download the annex or copy from the HTSUS Chapter 99 page). Never retype a list of HTS numbers by hand.
+4. Get the HTS list as text (download the annex or copy from the HTSUS Chapter 99 page). Never retype a list of HTS numbers by hand. Remove footnote markers (such as `1/`, or a footnote number copied as a plain digit) before the list goes into the model: the model's Action column F flags any prefix that is not plain digits or not 2, 4, 6, 8 or 10 digits long.
 5. Read the exclusions, the exemptions and any stacking or "does not apply" clauses.
 6. Run the candidate-item query (Part 9) and count the matches.
 7. Write down every question. Log the Jira story and tell the Manager the effective date and the candidate count.
@@ -187,6 +187,7 @@ How the lines go into the model (Action tab, `docs/templates/domain/tariff-impac
 - **One rate for every in-scope item:** R1 goes in B15, its base (full or part) in B20.
 - **More than one rate:** the line that covers most items goes in B15. Every other line becomes a rate line, keyed by rate group (the 6.1 heading, entered next to each of its HTS prefixes), origin and USMCA status. A line for excluded goods ("no additional duty") is an exclusion (6.4), not a rate line.
 - **Which line wins:** when two lines could apply to the same item, the model uses the most specific one (origin, then USMCA status, then rate group). If the instrument sets a different order, say so here and give the item-level answer, so the model can carry an extra line.
+- **Adds to or replaces:** for the B15 line, ADD or REPLACE goes in B16 and the earlier rate it replaces in B17. Every other line follows B16 and B17 unless its own entry differs: a line that replaces an earlier rate of this action gets that rate in rate-line column AD; a line that only adds while B16 is REPLACE gets 0% in AD. A duty that a line switches off (another measure, 6.6) goes in column AF, or per item in determinations column S.
 - **Part of the value:** write which part and the source of each item's share. Standard Cost enters the shares on Items; the checker traces them. Research states the rule; Standard Cost does the arithmetic.
 
 ### Part 8: Interpretation, confidence and confirmation

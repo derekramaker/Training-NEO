@@ -26,7 +26,7 @@ If a card names a company system object, tool, report, team, person, threshold, 
 5. **Avoid volatile facts.** Tariff rates, fee amounts, thresholds, the current status of an action and system names change. Prefer a card on where to find the current value. If you must keep a fact that can change, tag the card `dated`, cite the source, and end the back with the month you checked it, for example "(as of Oct 2026)". The team deck uses the same convention. Update or delete the card when the fact changes.
 6. **Cite a source** in the Source field: primer section, regulation, SOP ID, brief ID, OneNote page. A card you cannot source is a question for the question log, not a card.
 7. **Your own words,** not copied paragraphs. Writing the card is half the learning.
-8. **No lists longer than 3.** Break them up or use cloze, one card per item.
+8. **No lists longer than 3.** Break them up or use cloze, one card per item. Exception: the team deck keeps a few fixed lists from a legal text or standard (for example the nine USMCA certification data elements or the five ECCN product groups) as numbered lists; every card you write follows rule 8.
 9. **No yes or no questions.** Ask for the thing itself.
 10. **Fix or suspend bad cards.** A card you keep failing is badly written more often than it is hard. Rewrite it.
 

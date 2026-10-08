@@ -16,7 +16,7 @@ systems team (US / Canada / Mexico imports). Start date: **Monday, October 19, 2
 ## Manager: do these before Oct 19
 
 1. **Submit system access requests now.** Provisioning often takes 1 to 2 weeks. See `docs/04-access-request-checklist.md`.
-2. Read the four-page summary `docs/00-program-at-a-glance.md`, then the full plan `docs/01-30-60-90-plan.md` and the day-by-day `docs/02-weeks-1-2-schedule.md`.
+2. Read the short summary `docs/00-program-at-a-glance.md`, then the full plan `docs/01-30-60-90-plan.md` and the day-by-day `docs/02-weeks-1-2-schedule.md`.
 3. Create the team **onboarding folder** on SharePoint/Teams and copy everything in `dist/` into it **except `dist/trainer-only/`**.
    The hires never read this repo; every hire-facing page refers to "the onboarding folder".
 4. Set up the OneNote notebook (structure below) and paste in the Word files from `dist/docs/`.

@@ -17,6 +17,10 @@ What the model handles (template v2.0):
 - Partial USMCA relief (a rate line for USMCA-qualifying goods), or full exemption.
 - Non-stacking rules: an other additional duty that the action switches off, per rate line or per item.
 - Research determinations keyed by item AND import country, trimmed, with a matched-count check.
+- Pasted text is cleaned before matching (spaces, non-breaking spaces (character 160), non-printing characters), and
+  pasted values that bypass validation are re-checked: HTS prefixes must be 2, 4, 6, 8 or 10 digits, coded fields
+  (IN/OUT, Y/N, ADD/REPLACE, FULL/PART, USMCA treatment, origin codes) must be on their lists.
+- Per rate line ADD or REPLACE: a rate line with an earlier rate in column AD replaces it; B16 and B17 cover the rest.
 - Duplicate item and import-country rows, unit-of-measure and USMCA-origin checks.
 - Margin % on items with a sell price only; impact on unpriced items is still counted and shown.
 - A quantity period with a label (Annual by default).
@@ -165,6 +169,35 @@ def length_dv(ws, rng, length, message):
     dv.add(rng)
 
 
+# The non-breaking space (character 160) is written into the formulas as the character itself, not as CHAR(160):
+# CHAR() follows the operating system's code page (Mac Excel and some LibreOffice locales return another character).
+NBSP = "\u00a0"
+
+
+def clean(x):
+    """Formula text for x as trimmed text: non-breaking spaces become spaces, non-printing characters go."""
+    return f'TRIM(CLEAN(SUBSTITUTE({x}&"","{NBSP}"," ")))'
+
+
+def ukey(x):
+    """clean(x), upper-cased: the form every code and key is compared in."""
+    return f"UPPER({clean(x)})"
+
+
+def digits(x):
+    """Formula text for x with dots, spaces (normal and non-breaking), hyphens and non-printing characters removed."""
+    return f'SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(CLEAN({x}&""),"{NBSP}",""),".","")," ",""),"-","")'
+
+
+def all_digits(d, length=None):
+    """Formula text: TRUE when the text d holds only digits (and has the given length, or 2, 4, 6, 8 or 10 digits).
+
+    HTS levels are even-length, so an odd length means a pasted footnote digit or a lost leading zero.
+    """
+    size = f"LEN({d})={length}" if length else f"OR(LEN({d})=2,LEN({d})=4,LEN({d})=6,LEN({d})=8,LEN({d})=10)"
+    return f'AND({size},IFERROR(TEXT(VALUE({d}),REPT("0",LEN({d})))={d},FALSE))'
+
+
 def name(wb, label, ref):
     wb.defined_names[label] = DefinedName(label, attr_text=ref)
 
@@ -202,15 +235,18 @@ README_ROWS = [
     ("section", "How to use it (one copy per tariff action and importing country)"),
     ("1", "Copy this template. Name the copy TIM_[Action ID]_[import country]_v0.1.xlsx and save it in [COMPANY: tariff model folder]. "
           "Link it on the Jira story; never email copies."),
-    ("2", "Clear the SAMPLE rows on Action (lists, determinations, rate lines), Items and Review before real use: select the cells "
-          "and press Delete. Never delete rows."),
+    ("2", "Clear the SAMPLE rows at intake: select the cells and press Delete; never delete rows. Research clears Action "
+          "(lists, determinations, rate lines) and Review; Standard Cost clears Items and the Summary chapter list the same day."),
     ("3", "Research (maker): fill the Action tab from the checked brief: fields in column B, the HTS scope list with rate groups, "
-          "the exclusion list, the origin list, item-level determinations and rate lines."),
+          "the exclusion list, the origin list, item-level determinations and rate lines. Done when Summary B26 and B27 read YES "
+          "(until Items is loaded, Action column W shows WAIT instead of OK)."),
     ("4", "Research checker (Senior or Manager): compare the Action tab with the brief line by line. Log the review on the Review tab."),
     ("5", "Standard Cost (maker): set the quantity period and currency (Items K1:K2), then paste the item extract into Items as values "
           "([COMPANY: Oracle cost extract or warehouse query], with the extract date in column N). One row per item and import country, "
           "all values per the Oracle primary unit of measure in column G. Keep HTS, item numbers and origin codes as text."),
-    ("6", "Clear every CHECK in Calc column AJ and on the Action status columns. Summary B30 must read YES before review."),
+    ("6", "Clear every CHECK in Calc column AJ that comes from the Items data. A CHECK caused by the Action tab (Action columns "
+          "F, J, W or AI, Summary B26, or a rate or scope CHECK in Calc AJ) goes to Research on the Jira story: Research fixes "
+          "it; Standard Cost never edits Action. Summary B30 must read YES before review."),
     ("7", "Standard Cost checker (Manager): recalculate 3 items by hand, confirm the item count and totals against the extract, "
           "confirm the Summary reconciles. Log the review on the Review tab."),
     ("8", "Release: only a version with a checker sign-off on the Review tab goes to the business. Any change after sign-off is a new "
@@ -291,8 +327,8 @@ ACTION_FIELDS = [
      "Brief Part 7. Applies to every in-scope item that matches no rate line (columns Y to AI). "
      "Leave blank if every in-scope item must match a rate line. Ad valorem only."),
     ("Rate change type (ADD or REPLACE)", "act_RateType", "ADD", "TIM Input Text",
-     "ADD: the rates are added to the item's current rate. REPLACE: they replace this action's earlier rate "
-     "(B17, or column AD of a rate line)."),
+     "Applies to B15 and to rate lines with column AD blank. ADD: added to the item's current rate. REPLACE: replaces "
+     "this action's earlier rate in B17. A rate line with a number in AD replaces that rate instead (0% = it only adds)."),
     ("Earlier rate of this action being replaced (default)", "act_PriorRate", None, "TIM Input Pct",
      "REPLACE only. Brief Part 7. Must already be inside each item's current rate on Items."),
     ("USMCA-qualifying goods (Y, PARTIAL, N or N/A)", "act_USMCAExempt", "N/A", "TIM Input Text",
@@ -353,7 +389,10 @@ def build_action(wb, calc_col):
         put(ws, f"C{r}", note, "TIM Note")
         name(wb, dname, f"Action!$B${r}")
 
-    digits = '=IF(TRIM({c}{r}&"")="","",SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM({c}{r}&""),".","")," ",""),"-",""))'
+    def prefix_digits(c, r):
+        # Digits only, or a CHECK when anything else is left (a letter, a footnote marker such as 1/, a stray symbol).
+        d = digits(f"{c}{r}")
+        return f'=IF({d}="","",IF({all_digits(d)},{d},"CHECK: not 2, 4, 6, 8 or 10 digits"))'
 
     # HTS scope list and exclusion list.
     headers(ws, 4, 5, ["In-scope HTS prefix (as written)", "Digits (formula)", "Annex line or description (source)",
@@ -361,11 +400,11 @@ def build_action(wb, calc_col):
     headers(ws, 4, 9, ["Excluded HTS prefix (as written)", "Digits (formula)", "Exclusion basis (source)"])
     for r in range(FIRST, HTS_LAST + 1):
         put(ws, f"E{r}", None, "TIM Input Text")
-        put(ws, f"F{r}", digits.format(c="E", r=r), "TIM Calc")
+        put(ws, f"F{r}", prefix_digits("E", r), "TIM Calc")
         put(ws, f"G{r}", None, "TIM Input")
         put(ws, f"H{r}", None, "TIM Input Text")
         put(ws, f"I{r}", None, "TIM Input Text")
-        put(ws, f"J{r}", digits.format(c="I", r=r), "TIM Calc")
+        put(ws, f"J{r}", prefix_digits("I", r), "TIM Calc")
         put(ws, f"K{r}", None, "TIM Input")
     for i, (prefix, desc, group) in enumerate(SAMPLE_SCOPE_HTS):
         r = FIRST + i
@@ -393,12 +432,16 @@ def build_action(wb, calc_col):
         put(ws, f"S{r}", None, "TIM Input Pct")
         put(ws, f"T{r}", None, "TIM Input")
         put(ws, f"U{r}", None, "TIM Input")
-        put(ws, f"V{r}", f'=IF(TRIM(P{r}&"")="","",UPPER(TRIM(P{r}&""))&"/"&UPPER(TRIM(Q{r}&"")))', "TIM Calc")
+        put(ws, f"V{r}", f'=IF({clean(f"P{r}")}="","",{ukey(f"P{r}")}&"/"&{ukey(f"Q{r}")})', "TIM Calc")
+        st = ukey(f"R{r}")
         put(ws, f"W{r}",
-            f'=IF(V{r}="","",IF(UPPER(TRIM(Q{r}&""))<>UPPER(TRIM(act_Country&"")),"CHECK: import country must match B7",'
+            f'=IF(V{r}="","",IF({ukey(f"Q{r}")}<>{ukey("act_Country")},"CHECK: import country must match B7",'
             f'IF(COUNTIF(det_Key,V{r})>1,"CHECK: listed twice",'
-            f'IF(COUNTIF({key_rng},V{r})=0,"CHECK: no Items row for this item and import country",'
-            f'IF(AND(TRIM(R{r}&"")="",NOT(ISNUMBER(S{r}))),"CHECK: enter IN, OUT or a displaced rate","OK")))))',
+            f'IF(AND({st}<>"",{st}<>"IN",{st}<>"OUT"),"CHECK: determination must be IN, OUT or blank",'
+            f'IF(AND(S{r}&""<>"",NOT(ISNUMBER(S{r}))),"CHECK: displaced rate must be a percentage",'
+            f'IF(AND({st}="",NOT(ISNUMBER(S{r}))),"CHECK: enter IN, OUT or a displaced rate",'
+            f'IF(SUMPRODUCT(--({key_rng}<>""))=0,"WAIT: Items not loaded yet",'
+            f'IF(COUNTIF({key_rng},V{r})=0,"CHECK: no Items row for this item and import country","OK"))))))))',
             "TIM Calc")
     for i, (item, ctry, det, displaced, reason, ref) in enumerate(SAMPLE_DETERMINATIONS):
         r = FIRST + i
@@ -410,7 +453,8 @@ def build_action(wb, calc_col):
     in_rng = f"Calc!${calc_col['inscope']}${FIRST}:${calc_col['inscope']}${LAST}"
     headers(ws, 4, 25, ["Rate line ID (brief Part 7)", "Rate group (blank = all)", "Origin (blank = all listed)",
                         "USMCA-qualifying (Y, N or blank = either)", "Additional rate (% of customs value)",
-                        "Earlier rate replaced (REPLACE only; blank = B17)", "Duty base (FULL or PART; blank = FULL)",
+                        "Earlier rate this line replaces (blank: B17 if B16 = REPLACE; 0% = adds)",
+                        "Duty base (FULL or PART; blank = FULL)",
                         "Other duty this line displaces (% of customs value)", "Brief ref",
                         "In-scope items using this line (formula)", "Check (formula)"])
     for r in range(FIRST, RATE_LAST + 1):
@@ -418,14 +462,20 @@ def build_action(wb, calc_col):
                            ("AB", "TIM Input Text"), ("AC", "TIM Input Pct"), ("AD", "TIM Input Pct"),
                            ("AE", "TIM Input Text"), ("AF", "TIM Input Pct"), ("AG", "TIM Input")):
             put(ws, f"{col}{r}", None, style)
-        put(ws, f"AH{r}", f'=IF(TRIM(Y{r}&"")="","",COUNTIFS({line_rng},TRIM(Y{r}&""),{in_rng},"Y"))', "TIM Calc Whole")
+        lid, grp, coo, usm, base = (ukey(f"{c}{r}") for c in ("Y", "Z", "AA", "AB", "AE"))
+        put(ws, f"AH{r}", f'=IF({lid}="","",COUNTIFS({line_rng},{lid},{in_rng},"Y"))', "TIM Calc Whole")
         put(ws, f"AI{r}",
-            f'=IF(AND(TRIM(Y{r}&"")="",TRIM(Z{r}&"")="",TRIM(AA{r}&"")="",TRIM(AB{r}&"")="",AC{r}&""=""),"",'
-            f'IF(TRIM(Y{r}&"")="","CHECK: line ID missing",IF(NOT(ISNUMBER(AC{r})),"CHECK: rate missing",'
-            f'IF(COUNTIF(rate_ID,TRIM(Y{r}&""))>1,"CHECK: line ID listed twice",'
-            f'IF(AND(TRIM(Z{r}&"")<>"",COUNTIF(scope_Group,TRIM(Z{r}&""))=0),"CHECK: rate group not on the scope list",'
-            f'IF(AND(TRIM(AA{r}&"")<>"",COUNTIF(scope_COO,TRIM(AA{r}&""))=0),"CHECK: origin not on the origin list",'
-            f'"OK"))))))', "TIM Calc")
+            f'=IF(AND({lid}="",{grp}="",{coo}="",{usm}="",{base}="",AC{r}&""="",AD{r}&""="",AF{r}&""=""),"",'
+            f'IF({lid}="","CHECK: line ID missing",IF(NOT(ISNUMBER(AC{r})),"CHECK: rate missing",'
+            f'IF(OR(AC{r}<0,AC{r}>10),"CHECK: rate must be 0% to 1000%",'
+            f'IF(SUMPRODUCT(--({ukey("rate_ID")}={lid}))>1,"CHECK: line ID listed twice",'
+            f'IF(AND({grp}<>"",SUMPRODUCT(--({ukey("scope_Group")}={grp}))=0),"CHECK: rate group not on the scope list",'
+            f'IF(AND({coo}<>"",SUMPRODUCT(--({ukey("scope_COO")}={coo}))=0),"CHECK: origin not on the origin list",'
+            f'IF(AND({usm}<>"",{usm}<>"Y",{usm}<>"N"),"CHECK: USMCA must be Y, N or blank",'
+            f'IF(AND({base}<>"",{base}<>"FULL",{base}<>"PART"),"CHECK: duty base must be FULL, PART or blank",'
+            f'IF(OR(AND(AD{r}&""<>"",NOT(ISNUMBER(AD{r}))),AND(AF{r}&""<>"",NOT(ISNUMBER(AF{r})))),'
+            f'"CHECK: earlier or displaced rate must be a percentage",'
+            f'IF(AC{r}>1,"NOTE: rate above 100%: check it was entered as a percentage","OK")))))))))))', "TIM Calc")
     for i, row in enumerate(SAMPLE_RATE_LINES):
         for col, v in zip(["Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG"], row):
             ws[f"{col}{FIRST + i}"].value = v
@@ -464,12 +514,17 @@ def build_action(wb, calc_col):
         number_dv(ws, "decimal", f"{col}{FIRST}:{col}{RATE_LAST}", 0, 10, "Enter a rate as a percentage, for example 25%.")
     list_dv(ws, ["FULL", "PART"], f"AE{FIRST}:AE{RATE_LAST}")
 
+    for col in ("F", "J"):
+        ws.conditional_formatting.add(f"{col}{FIRST}:{col}{HTS_LAST}",
+                                      FormulaRule(formula=[f'LEFT(${col}{FIRST},5)="CHECK"'], fill=RED))
     ws.conditional_formatting.add(f"W{FIRST}:W{DET_LAST}", FormulaRule(formula=[f'LEFT($W{FIRST},5)="CHECK"'], fill=RED))
+    ws.conditional_formatting.add(f"W{FIRST}:W{DET_LAST}", FormulaRule(formula=[f'LEFT($W{FIRST},4)="WAIT"'], fill=AMBER))
     ws.conditional_formatting.add(f"AI{FIRST}:AI{RATE_LAST}", FormulaRule(formula=[f'LEFT($AI{FIRST},5)="CHECK"'], fill=RED))
+    ws.conditional_formatting.add(f"AI{FIRST}:AI{RATE_LAST}", FormulaRule(formula=[f'LEFT($AI{FIRST},4)="NOTE"'], fill=AMBER))
 
-    widths(ws, {"A": 30, "B": 44, "C": 40, "D": 2, "E": 16, "F": 11, "G": 36, "H": 14, "I": 16, "J": 11, "K": 32,
+    widths(ws, {"A": 30, "B": 44, "C": 40, "D": 2, "E": 16, "F": 14, "G": 36, "H": 14, "I": 16, "J": 14, "K": 32,
                 "L": 2, "M": 9, "N": 28, "O": 2, "P": 14, "Q": 9, "R": 14, "S": 14, "T": 36, "U": 12, "V": 16, "W": 30,
-                "X": 2, "Y": 10, "Z": 13, "AA": 9, "AB": 12, "AC": 11, "AD": 12, "AE": 11, "AF": 13, "AG": 12,
+                "X": 2, "Y": 10, "Z": 13, "AA": 9, "AB": 12, "AC": 11, "AD": 14, "AE": 11, "AF": 13, "AG": 12,
                 "AH": 11, "AI": 30})
     ws.row_dimensions[4].height = 58
     ws.freeze_panes = "A5"
@@ -573,32 +628,36 @@ def build_items(wb):
 # -------------------------------------------------------------------- Calc ----
 
 # (key, header, formula template, style, width). Templates use {r} for the row and {key} for another column's letter.
+# Rate-line keys and Items codes are compared cleaned and upper-cased (ukey), so a pasted space, non-breaking
+# space or lower-case letter cannot switch a line off or take an item out of scope without a CHECK.
 LINE_IDX = "MOD(${r_score}{r},100)"
-RATE_MATCH = ('ISNUMBER(rate_Rate)*((TRIM(rate_Group&"")="")+(TRIM(rate_Group&"")=${group}{r})>0)'
-              '*((rate_COO="")+(rate_COO=${coo}{r})>0)'
-              '*((rate_USMCA="")+(rate_USMCA=IF(UPPER(TRIM(Items!F{r}&""))="Y","Y","N"))>0)')
-RATE_SPEC = '(1+(TRIM(rate_Group&"")<>"")+2*(rate_USMCA<>"")+4*(rate_COO<>""))'
+RATE_MATCH = (f'ISNUMBER(rate_Rate)*(({ukey("rate_Group")}="")+({ukey("rate_Group")}=${{group}}{{r}})>0)'
+              f'*(({ukey("rate_COO")}="")+({ukey("rate_COO")}=${{coo}}{{r}})>0)'
+              f'*(({ukey("rate_USMCA")}="")+({ukey("rate_USMCA")}=IF({ukey("Items!F{r}")}="Y","Y","N"))>0)')
+RATE_SPEC = f'(1+({ukey("rate_Group")}<>"")+2*({ukey("rate_USMCA")}<>"")+4*({ukey("rate_COO")}<>""))'
 SCOPE_MATCH = '(scope_HTS<>"")*(LEFT(${hts}{r},LEN(scope_HTS))=scope_HTS)'
+REPLACE = f'{ukey("act_RateType")}="REPLACE"'
 
 CALC_COLUMNS = [
-    ("item", "Item number", '=IF(TRIM(Items!A{r}&"")="","",TRIM(Items!A{r}&""))', "TIM Calc", 14),
+    ("item", "Item number", f'=IF({clean("Items!A{r}")}="","",{clean("Items!A{r}")})', "TIM Calc", 14),
     ("desc", "Description", '=IF(${item}{r}="","",Items!B{r}&"")', "TIM Calc", 28),
     ("hts", "HTS digits",
-     '=IF(${item}{r}="","",SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM(Items!D{r}&""),".","")," ",""),"-",""))', "TIM Calc", 12),
+     f'=IF(${{item}}{{r}}="","",{digits("Items!D{r}")})', "TIM Calc", 12),
     ("chap", "HTS chapter", '=IF(${item}{r}="","",LEFT(${hts}{r},2))', "TIM Calc", 8),
-    ("coo", "Origin", '=IF(${item}{r}="","",UPPER(TRIM(Items!E{r}&"")))', "TIM Calc", 8),
+    ("coo", "Origin", f'=IF(${{item}}{{r}}="","",{ukey("Items!E{r}")})', "TIM Calc", 8),
     ("ctry_ok", "Import country matches (Y/N)",
-     '=IF(${item}{r}="","",IF(UPPER(TRIM(Items!C{r}&""))=UPPER(TRIM(act_Country&"")),"Y","N"))', "TIM Calc", 10),
+     f'=IF(${{item}}{{r}}="","",IF({ukey("Items!C{r}")}={ukey("act_Country")},"Y","N"))', "TIM Calc", 10),
     ("on_scope", "HTS on scope list (Y/N)", '=IF(${item}{r}="","",IF(${s_score}{r}>0,"Y","N"))', "TIM Calc", 10),
     ("on_excl", "HTS on exclusion list (Y/N)",
      '=IF(${item}{r}="","",IF(SUMPRODUCT((excl_HTS<>"")*(LEFT(${hts}{r},LEN(excl_HTS))=excl_HTS))>0,"Y","N"))', "TIM Calc", 10),
     ("coo_ok", "Origin on scope list (Y/N)",
-     '=IF(${item}{r}="","",IF(${coo}{r}="","N",IF(COUNTIF(scope_COO,${coo}{r})>0,"Y","N")))', "TIM Calc", 10),
+     f'=IF(${{item}}{{r}}="","",IF(${{coo}}{{r}}="","N",IF(SUMPRODUCT(--({ukey("scope_COO")}=${{coo}}{{r}}))>0,"Y","N")))',
+     "TIM Calc", 10),
     ("usmca_ex", "USMCA exempt (Y/N)",
-     '=IF(${item}{r}="","",IF(AND(UPPER(TRIM(act_USMCAExempt&""))="Y",UPPER(TRIM(Items!F{r}&""))="Y"),"Y","N"))',
+     f'=IF(${{item}}{{r}}="","",IF(AND({ukey("act_USMCAExempt")}="Y",{ukey("Items!F{r}")}="Y"),"Y","N"))',
      "TIM Calc", 10),
     ("det", "Research determination",
-     '=IF(${item}{r}="","",IF(${det_row}{r}=0,"",UPPER(TRIM(INDEX(det_Status,${det_row}{r})&""))))', "TIM Calc", 12),
+     f'=IF(${{item}}{{r}}="","",IF(${{det_row}}{{r}}=0,"",{ukey("INDEX(det_Status,${det_row}{r})")}))', "TIM Calc", 12),
     ("inscope", "In scope (Y/N)",
      '=IF(${item}{r}="","",IF(${ctry_ok}{r}="N","N",IF(${det}{r}="IN","Y",IF(${det}{r}="OUT","N",'
      'IF(AND(${on_scope}{r}="Y",${on_excl}{r}="N",${coo_ok}{r}="Y",${usmca_ex}{r}="N"),"Y","N")))))', "TIM Calc", 9),
@@ -609,21 +668,21 @@ CALC_COLUMNS = [
      'IF(${coo_ok}{r}="N","Out: origin not on scope list",'
      'IF(${usmca_ex}{r}="Y","Out: USMCA-qualifying, exempt","In: matches scope rules"))))))))', "TIM Calc", 28),
     ("group", "Rate group (from scope list)",
-     '=IF(OR(${item}{r}="",${s_score}{r}=0),"",TRIM(INDEX(scope_Group,MOD(${s_score}{r},1000))&""))', "TIM Calc", 12),
+     f'=IF(OR(${{item}}{{r}}="",${{s_score}}{{r}}=0),"",{ukey("INDEX(scope_Group,MOD(${s_score}{r},1000))")})', "TIM Calc", 12),
     ("line", "Rate line used",
-     '=IF(${inscope}{r}<>"Y","",IF(${r_score}{r}=0,"Default (B15)",TRIM(INDEX(rate_ID,' + LINE_IDX + ')&"")))',
+     '=IF(${inscope}{r}<>"Y","",IF(${r_score}{r}=0,"Default (B15)",' + ukey('INDEX(rate_ID,' + LINE_IDX + ')') + '))',
      "TIM Calc", 12),
     ("base", "Duty base (FULL or PART)",
-     '=IF(${inscope}{r}<>"Y","",IF(${r_score}{r}=0,IF(UPPER(TRIM(act_DefaultBase&""))="PART","PART","FULL"),'
-     'IF(UPPER(TRIM(INDEX(rate_Base,' + LINE_IDX + ')&""))="PART","PART","FULL")))', "TIM Calc", 9),
+     '=IF(${inscope}{r}<>"Y","",IF(${r_score}{r}=0,IF(' + ukey("act_DefaultBase") + '="PART","PART","FULL"),'
+     'IF(' + ukey('INDEX(rate_Base,' + LINE_IDX + ')') + '="PART","PART","FULL")))', "TIM Calc", 9),
     ("cur", "Current duty rate", '=IF(${item}{r}="","",N(Items!J{r}))', "TIM Calc Pct", 10),
     ("add", "Additional rate (this action)",
      '=IF(${item}{r}="","",IF(${inscope}{r}<>"Y",0,IF(${r_score}{r}=0,N(act_Rate),N(INDEX(rate_Rate,' + LINE_IDX + ')))))',
      "TIM Calc Pct", 10),
     ("prior", "Earlier rate replaced",
-     '=IF(${item}{r}="","",IF(OR(${inscope}{r}<>"Y",UPPER(TRIM(act_RateType&""))<>"REPLACE"),0,'
-     'IF(${r_score}{r}=0,N(act_PriorRate),IF(ISNUMBER(INDEX(rate_Prior,' + LINE_IDX + ')),'
-     'INDEX(rate_Prior,' + LINE_IDX + '),N(act_PriorRate)))))', "TIM Calc Pct", 10),
+     '=IF(${item}{r}="","",IF(${inscope}{r}<>"Y",0,'
+     'IF(${r_score}{r}=0,IF(' + REPLACE + ',N(act_PriorRate),0),IF(ISNUMBER(INDEX(rate_Prior,' + LINE_IDX + ')),'
+     'INDEX(rate_Prior,' + LINE_IDX + '),IF(' + REPLACE + ',N(act_PriorRate),0)))))', "TIM Calc Pct", 10),
     ("share", "Dutiable share applied",
      '=IF(${item}{r}="","",IF(AND(${inscope}{r}="Y",${base}{r}="PART",ISNUMBER(Items!M{r})),Items!M{r},1))',
      "TIM Calc Pct", 10),
@@ -656,17 +715,25 @@ CALC_COLUMNS = [
     ("check", "Data check",
      '=IF(${item}{r}="","",'
      'IF(COUNTIF(${key}$' + str(FIRST) + ':${key}$' + str(LAST) + ',${key}{r})>1,"CHECK: duplicate item and import country",'
-     'IF(TRIM(Items!C{r}&"")="","CHECK: import country missing",'
-     'IF(OR(LEN(${hts}{r})<>10,ISERROR(VALUE(${hts}{r}))),"CHECK: HTS must be 10 digits",'
+     'IF(' + clean("Items!C{r}") + '="","CHECK: import country missing",'
+     'IF(AND(' + ukey("Items!C{r}") + '<>"US",' + ukey("Items!C{r}") + '<>"CA",' + ukey("Items!C{r}") + '<>"MX"),'
+     '"CHECK: import country must be US, CA or MX",'
+     'IF(NOT(' + all_digits("${hts}{r}", 10) + '),"CHECK: HTS must be 10 digits",'
      'IF(LEN(${coo}{r})<>2,"CHECK: origin code missing or not 2 letters",'
-     'IF(TRIM(Items!G{r}&"")="","CHECK: unit of measure missing",'
+     'IF(' + clean("Items!G{r}") + '="","CHECK: unit of measure missing",'
      'IF(OR(Items!H{r}="",Items!J{r}="",Items!K{r}=""),"CHECK: value, rate or cost missing",'
      'IF(OR(NOT(ISNUMBER(Items!H{r})),NOT(ISNUMBER(Items!J{r})),NOT(ISNUMBER(Items!K{r})),'
      'AND(Items!I{r}<>"",NOT(ISNUMBER(Items!I{r}))),AND(Items!L{r}<>"",NOT(ISNUMBER(Items!L{r}))),'
      'AND(Items!M{r}<>"",NOT(ISNUMBER(Items!M{r})))),"CHECK: text in a number column",'
-     'IF(AND(UPPER(TRIM(Items!F{r}&""))="Y",${coo}{r}<>"US",${coo}{r}<>"CA",${coo}{r}<>"MX"),'
+     'IF(AND(ISNUMBER(Items!M{r}),OR(N(Items!M{r})<0,N(Items!M{r})>1)),"CHECK: dutiable share must be 0% to 100%",'
+     'IF(AND(' + ukey("Items!F{r}") + '<>"",' + ukey("Items!F{r}") + '<>"Y",' + ukey("Items!F{r}") + '<>"N"),'
+     '"CHECK: USMCA flag must be Y, N or blank",'
+     'IF(AND(' + ukey("Items!F{r}") + '="Y",${coo}{r}<>"US",${coo}{r}<>"CA",${coo}{r}<>"MX"),'
      '"CHECK: USMCA flag on an origin other than US, CA or MX",'
      'IF(AND(${inscope}{r}="Y",${r_score}{r}=0,NOT(ISNUMBER(act_Rate))),"CHECK: in scope but no rate (add a rate line or B15)",'
+     'IF(AND(${inscope}{r}="Y",' + REPLACE + ',NOT(ISNUMBER(act_PriorRate)),'
+     'IF(${r_score}{r}=0,TRUE,NOT(ISNUMBER(INDEX(rate_Prior,' + LINE_IDX + '))))),'
+     '"CHECK: REPLACE but no earlier rate (B17 or the rate line\'s AD)",'
      'IF(AND(${inscope}{r}="Y",${r_ties}{r}>1),"CHECK: two rate lines match equally",'
      'IF(AND(${inscope}{r}="Y",${s_ties}{r}>1),"CHECK: HTS prefix listed twice on the scope list",'
      'IF(AND(${inscope}{r}="Y",${base}{r}="PART",NOT(ISNUMBER(Items!M{r}))),"CHECK: dutiable share missing (PART base)",'
@@ -677,12 +744,13 @@ CALC_COLUMNS = [
      'IF(AND(${inscope}{r}="Y",${qty}{r}=0),"NOTE: in scope, no quantity",'
      'IF(AND(${inscope}{r}="Y",${priced}{r}="N"),"NOTE: in scope, no sell price (left out of margin %)",'
      'IF(AND(${inscope}{r}="Y",N(Items!H{r})>N(Items!K{r})),"NOTE: customs value above standard cost (check unit of measure)",'
-     '"OK"))))))))))))))))))', "TIM Calc", 30),
+     'IF(AND(${inscope}{r}="Y",${cur}{r}>1),"NOTE: current rate above 100% (check it was entered as a percentage)",'
+     '"OK")))))))))))))))))))))))', "TIM Calc", 30),
     ("rank", "Rank key (helper for Summary top 10)",
      '=IF(${item}{r}="","",IF(AND(${inscope}{r}="Y",${impact}{r}<>0),ABS(${impact}{r})+ROW()/1000000000,""))',
      "TIM Calc Key", 12),
     ("key", "Item and import country key (helper)",
-     '=IF(${item}{r}="","",${item}{r}&"/"&UPPER(TRIM(Items!C{r}&"")))', "TIM Calc", 16),
+     '=IF(${item}{r}="","",UPPER(${item}{r})&"/"&' + ukey("Items!C{r}") + ')', "TIM Calc", 16),
     ("s_score", "Scope match score (helper)",
      '=IF(${item}{r}="",0,SUMPRODUCT(MAX(' + SCOPE_MATCH + '*(LEN(scope_HTS)*1000+ROW(scope_HTS)-' + str(FIRST - 1) + '))))',
      "TIM Calc Whole", 10),
@@ -733,6 +801,37 @@ CHAPTER_SECTION = TOP_SECTION + 13          # 45
 ORIGIN_SECTION = CHAPTER_SECTION + CHAPTER_ROWS + 5   # 60
 
 
+def action_complete():
+    """Summary B26: YES, or NO plus the first problem found on the Action tab (pasted values bypass validation)."""
+    rtype, usmca, dbase, ctry = ukey("act_RateType"), ukey("act_USMCAExempt"), ukey("act_DefaultBase"), ukey("act_Country")
+    coo = ukey("scope_COO")
+    tests = [
+        ('act_ID&""=""', "B5 Action ID missing"),
+        (f'AND({ctry}<>"US",{ctry}<>"CA",{ctry}<>"MX")', "B7 must be US, CA or MX"),
+        ('act_Brief&""=""', "B9 brief ID missing"),
+        ("NOT(ISNUMBER(act_EffDate))", "B11 effective date missing"),
+        ('AND(act_Rate&""<>"",OR(NOT(ISNUMBER(act_Rate)),N(act_Rate)<0,N(act_Rate)>10))',
+         "B15 must be a percentage from 0% to 1000%, or blank"),
+        ("AND(NOT(ISNUMBER(act_Rate)),COUNT(rate_Rate)=0)", "no rate (B15 or a rate line)"),
+        (f'AND({rtype}<>"ADD",{rtype}<>"REPLACE")', "B16 must be ADD or REPLACE"),
+        ('AND(act_PriorRate&""<>"",NOT(ISNUMBER(act_PriorRate)))', "B17 must be a percentage or blank"),
+        (f'AND({rtype}="REPLACE",NOT(ISNUMBER(act_PriorRate)),COUNT(rate_Prior)=0)',
+         "REPLACE needs an earlier rate (B17 or rate line AD)"),
+        (f'AND({usmca}<>"Y",{usmca}<>"PARTIAL",{usmca}<>"N",{usmca}<>"N/A")', "B18 must be Y, PARTIAL, N or N/A"),
+        (f'AND({dbase}<>"",{dbase}<>"FULL",{dbase}<>"PART")', "B20 must be FULL, PART or blank"),
+        ('SUMPRODUCT(--(scope_HTS<>""))=0', "no HTS prefix on the scope list"),
+        ('SUMPRODUCT(--(LEFT(scope_HTS,5)="CHECK"))+SUMPRODUCT(--(LEFT(excl_HTS,5)="CHECK"))>0',
+         "an HTS prefix is not 2, 4, 6, 8 or 10 digits (column F or J)"),
+        (f'SUMPRODUCT(--({coo}<>""))=0', "no origin on the origin list"),
+        (f'SUMPRODUCT(({coo}<>"")*(LEN({coo})<>2))>0', "an origin in column M is not a 2-letter code"),
+        (f'AND({usmca}="PARTIAL",SUMPRODUCT(--({ukey("rate_USMCA")}="Y"))=0)', "PARTIAL needs a rate line with USMCA = Y"),
+    ]
+    formula = '"YES"'
+    for test, problem in reversed(tests):
+        formula = f'IF({test},"NO: {problem}",{formula})'
+    return "=" + formula
+
+
 def build_summary(wb):
     ws = wb.create_sheet("Summary")
     title(ws, "Summary: what the action does to cost and margin (formulas only, except the yellow chapter list)",
@@ -776,21 +875,22 @@ def build_summary(wb):
         ("Margin % after, in-scope items with a sell price", f'=IF(B22=0,"",SUMIFS({rng("mg_a")},{ins},"Y")/B22)',
          "TIM Calc Pct", "Revenue-weighted; assumes sell prices do not change"),
         ("Margin change (points)", '=IF(B22=0,"",B24-B23)', "TIM Calc Pct", "After minus before"),
-        ("Action tab complete?",
-         '=IF(AND(act_ID&""<>"",act_Country&""<>"",act_Brief&""<>"",ISNUMBER(act_EffDate),'
-         'OR(ISNUMBER(act_Rate),COUNT(rate_Rate)>0),act_RateType&""<>"",act_USMCAExempt&""<>"",'
-         'SUMPRODUCT(--(scope_HTS<>""))>0,SUMPRODUCT(--(scope_COO<>""))>0,'
-         'OR(UPPER(TRIM(act_USMCAExempt&""))<>"PARTIAL",COUNTIF(rate_USMCA,"Y")>0)),"YES","NO")', "TIM Calc",
-         "Required fields; a default rate or a rate line; one HTS prefix and one origin; PARTIAL needs a USMCA = Y rate line"),
+        ("Action tab complete?", action_complete(), "TIM Calc",
+         "Required fields; coded fields on their lists (B7, B16, B18, B20); a rate (B15 or a rate line); REPLACE has an "
+         "earlier rate; HTS prefixes all digits; origins 2-letter codes; PARTIAL needs a USMCA = Y rate line. "
+         "A NO names the first problem"),
         ("Determinations and rate lines check out?",
          '=IF(SUMPRODUCT(--(LEFT(det_Check,5)="CHECK"))+SUMPRODUCT(--(LEFT(rate_Check,5)="CHECK"))=0,"YES","NO")', "TIM Calc",
-         "Every determination matched one Items row of this import country; no CHECK on Action columns W or AI"),
-        ("Origin table reconciles?", f'=IF(ABS(C{origin_total_row}-B20)<0.005,"YES","NO")', "TIM Calc",
-         f"Origin table total (C{origin_total_row}) equals B20; fails if an origin is listed twice"),
-        ("Chapter table reconciles?", f'=IF(ABS(C{chapter_other_row})<0.005,"YES","NO: add the missing chapter")', "TIM Calc",
-         f"Nothing left in 'Other chapters' (C{chapter_other_row})"),
-        ("Ready for checker review?", '=IF(AND(B26="YES",B27="YES",B28="YES",B29="YES",B19=0),"YES","NO")', "TIM Calc",
-         "B26 to B29 all YES and B19 = 0"),
+         "No CHECK on Action columns W or AI: every determination valid and, once Items is loaded, matched to one Items "
+         "row of this import country (W shows WAIT until then)"),
+        ("Origin table reconciles?",
+         f'=IF(AND(B{origin_total_row}=B14,ABS(C{origin_total_row}-B20)<0.005),"YES","NO")', "TIM Calc",
+         f"Origin table totals (B{origin_total_row}, C{origin_total_row}) equal B14 and B20; fails if an origin is listed twice"),
+        ("Chapter table reconciles?",
+         f'=IF(AND(B{chapter_other_row}=0,ABS(C{chapter_other_row})<0.005),"YES","NO: add the missing chapter")', "TIM Calc",
+         f"Nothing left in 'Other chapters' (B{chapter_other_row} and C{chapter_other_row} both 0)"),
+        ("Ready for checker review?", '=IF(AND(B13>0,B26="YES",B27="YES",B28="YES",B29="YES",B19=0),"YES","NO")', "TIM Calc",
+         "Items loaded (B13 > 0), B26 to B29 all YES and B19 = 0"),
     ]
     for i, (label, formula, style, how) in enumerate(kpis):
         r = KPI_FIRST + i
@@ -833,7 +933,7 @@ def build_summary(wb):
     put(ws, f"B{o}", f"=B14-SUM(B{ch_first}:B{ch_last})", "TIM Calc Whole")
     put(ws, f"C{o}", f"=B20-SUM(C{ch_first}:C{ch_last})", "TIM Calc Money")
     put(ws, f"D{o}", f'=IF($B$20=0,"",C{o}/$B$20)', "TIM Calc Pct")
-    ws.conditional_formatting.add(f"B{o}:C{o}", FormulaRule(formula=[f"ABS($C${o})>=0.005"], fill=RED))
+    ws.conditional_formatting.add(f"B{o}:C{o}", FormulaRule(formula=[f"OR($B${o}<>0,ABS($C${o})>=0.005)"], fill=RED))
     length_dv(ws, f"A{ch_first}:A{ch_last}", 2, "Type the chapter as 2 digits, for example 73 or 08.")
 
     # By country of origin: one row per row of the Action origin list, plus a directly computed 'Other' row.
@@ -842,7 +942,8 @@ def build_summary(wb):
     or_first, or_last = ORIGIN_SECTION + 2, ORIGIN_SECTION + 1 + ORIGIN_ROWS
     for i in range(ORIGIN_ROWS):
         r = or_first + i
-        put(ws, f"A{r}", f'=IF(Action!$M${FIRST + i}="","",UPPER(TRIM(Action!$M${FIRST + i}&"")))', "TIM Calc")
+        code = ukey(f"Action!$M${FIRST + i}")
+        put(ws, f"A{r}", f'=IF({code}="","",{code})', "TIM Calc")
         put(ws, f"B{r}", f'=IF(A{r}="","",COUNTIFS({rng("coo")},A{r},{ins},"Y"))', "TIM Calc Whole")
         put(ws, f"C{r}", f'=IF(A{r}="","",SUMIFS({rng("impact")},{rng("coo")},A{r},{ins},"Y"))', "TIM Calc Money")
         put(ws, f"D{r}", f'=IF(OR(A{r}="",$B$20=0),"",C{r}/$B$20)', "TIM Calc Pct")
@@ -857,7 +958,8 @@ def build_summary(wb):
     put(ws, f"B{t}", f"=SUM(B{or_first}:B{other})", "TIM Calc Whole")
     put(ws, f"C{t}", f"=SUM(C{or_first}:C{other})", "TIM Calc Money")
     put(ws, f"D{t}", f'=IF($B$20=0,"",C{t}/$B$20)', "TIM Calc Pct")
-    ws.conditional_formatting.add(f"B{t}:C{t}", FormulaRule(formula=[f"ABS($C${t}-$B$20)>=0.005"], fill=RED))
+    ws.conditional_formatting.add(f"B{t}:C{t}", FormulaRule(formula=[f"OR($B${t}<>$B$14,ABS($C${t}-$B$20)>=0.005)"],
+                                                            fill=RED))
 
     widths(ws, {"A": 46, "B": 22, "C": 46, "D": 14, "E": 13, "F": 14, "G": 13, "H": 12, "I": 13})
     ws.freeze_panes = "A4"
@@ -889,6 +991,7 @@ CHECKLIST = [
     "Every HTS prefix, rate group, exclusion, origin and determination traced to the brief",
     "Default rate, rate lines, rate type, duty base, displaced duties and USMCA rule match brief Part 7, 6.5 and 6.6",
     "Item count on Items = extract row count; one row per item and import country",
+    "Summary B14 (items in scope) = brief Part 9 in-scope count, or the difference explained",
     "Items G is the Oracle primary UOM; value, quantity, cost and price are all per that unit",
     "Dutiable shares (Items M) traced to their source",
     "No CHECK flags (Summary B19 = 0, B27 = YES); every NOTE explained",

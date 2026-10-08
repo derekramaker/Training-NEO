@@ -4,7 +4,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 - **Purpose:** run one periodic standard cost update for duty and landed-cost inputs, end to end, with the same steps and evidence every time: plan with Finance, collect inputs, calculate, validate, maker-checker review and Finance approval, load to Oracle, verify, communicate, archive. It is also the control record: a cycle without this completed checklist did not happen properly.
 - **Who uses it:** Hire B (Standard Cost) as maker. The Manager as checker (the Senior checks duty-rate and classification questions). [COMPANY: Finance cost accounting contact] plans the calendar and approves before any Oracle load. Hire A (Research) supplies tariff actions through checked Tariff-Impact Briefs.
-- **When:** every cost cycle ([COMPANY: cycle frequency]) and every interim tariff-driven update. Training use: walkthrough in W5, dry run on a copy for B60-2 (W7 to W8), and one cycle as maker for B90-1: a live cycle, a full parallel run or an interim update. A live cycle with T in W12 or W13 starts Phase 1 at T-30, which is in W6 or W7 (Mon 11/30 for T = Wed 1/13), so Hire B joins it from Phase 1 with the Manager as checker. A parallel run or interim update uses the compressed calendar below: pick the option provisionally in the W8 1:1 (Fri 12/11) so Finance can book holiday-week time, and confirm it at the day-60 review (Fri 12/18), as `docs/01-30-60-90-plan.md` says. Module M5C. Hire B: the cost data is the part to push hardest; the business context is a refresher for you.
+- **When:** every cost cycle ([COMPANY: cycle frequency]) and every interim tariff-driven update. Training use: walkthrough in W5, dry run on a copy for B60-2 (W8 to W9), and one cycle as maker for B90-1, using one of the options in `docs/01-30-60-90-plan.md`: a live cycle, a full parallel run or an interim update. A live cycle counts only if T falls between Mon 1/4 and Wed 1/13 (W12 or W13), so its Phase 1 starts in W5 to W7 ("B90-1 with a live cycle", below the cycle calendar): the Manager checks the [COMPANY: cost calendar] by the W4 1:1 (Fri 11/13). If no live cycle counts, the parallel run or interim update uses the compressed calendar below: pick the option provisionally in the W8 1:1 (Fri 12/11) so Finance can book holiday-week time, and confirm it at the day-60 review (Fri 12/18), as the plan says. Module M5C. Hire B: the cost data is the part to push hardest; the business context is a refresher for you.
 
 ## How to use this checklist
 
@@ -61,7 +61,14 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | 8 Communicate | Hire B drafts | Manager approves | T+1 to T+2 | Finance and business notes sent |
 | 9 Archive evidence | Hire B | Manager | By T+5 | Complete evidence folder; Jira closed |
 
-B90-1 with a live cycle: Phase 9 can finish after day 90 (T+5 is Wed 1/20 for T = Wed 1/13). The day-90 evidence needs Phases 1 to 7 done. The Phase 5 review then falls in W11 and W12, so name the checker and Finance cover before Phase 1 (rule 5).
+B90-1 with a live cycle: the day-90 evidence needs Phases 1 to 7 done before the day-90 review (Fri 1/15), so a live cycle counts only if T falls between Mon 1/4 and Wed 1/13 (W12 or W13). With the example holidays of the compressed calendar below (Thu 11/26, Fri 11/27, Fri 12/25, Fri 1/1):
+
+- Phase 1 (T-30) starts between Tue 11/17 (W5, for T = Mon 1/4) and Mon 11/30 (W7, for T = Wed 1/13). Hire B joins it from Phase 1 as maker, with the Manager as checker. When Phase 1 starts in W5 (T = Mon 1/4 to Thu 1/7), hold the W5 cycle walkthrough no later than the day it starts.
+- The Phase 5 review falls between Thu 12/17 (W9, for T = Mon 1/4) and Wed 1/6 (W12, for T = Wed 1/13), so it can cross the day-60 review and the holiday weeks. Keep it off milestone review days.
+- Phase 9 can finish after day 90 (T+5 is Wed 1/20 for T = Wed 1/13).
+- A cycle with T in W10 or W11 does not count: its Phase 1 would start between Thu 11/5 (W3) and Mon 11/16 (W5), too early for Hire B to run it as maker. Hire B shadows it, and B90-1 uses the parallel run or the interim update. A cycle with T on Thu 1/14 or later does not count either.
+
+Work out every phase date from the real T as soon as Finance publishes the cost calendar, and name the checker and Finance cover before Phase 1 (rule 5).
 
 ### Compressed calendar (interim tariff-driven update or parallel run; B90-1 option)
 
@@ -77,7 +84,7 @@ Use it for an interim duty update after a tariff action (only the affected items
 | 7 Verify | T to T+1 | Mon 1/11 to Tue 1/12 | Interim: 100% compare. Parallel: explain every difference from the live result |
 | 8 and 9 Communicate and archive | By T+3 | Thu 1/14 | Before the day-90 review |
 
-Phases 1 to 5 fall in W10 and W11, the reduced weeks: name the trainer and Finance cover before Phase 1 (rule 5). A parallel run never loads to Oracle production.
+Phases 1 to 4 fall in W10 and W11, the reduced weeks. Phase 5 runs to Wed 1/6, into W12, the expected e2open kickoff week: book the Manager's review (about 1.5 h) and Finance approval away from the kickoff day, and name the trainer and Finance cover before Phase 1 (rule 5). A parallel run never loads to Oracle production.
 
 ## Phase 1: Plan the cycle with Finance (T-30 to T-25)
 

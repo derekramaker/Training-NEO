@@ -39,7 +39,7 @@ Week 2 total: Manager 6.00 h, Senior 4.00 h.
 - Times assume an 08:00-17:00 day with lunch 12:00-13:00. Shift every block to fit [COMPANY: core hours and time zone]; keep the order.
 - A row with no prefix means **both hires together**. Rows that start with "Hire A:" or "Hire B:" run at the same time, in parallel.
 - **Lead** values: Manager, Senior, HR (HR or IT runs it), Shadow (the hire sits with someone doing real work), Hires (both hires together, no trainer), Self-study (the hire works alone from the named file).
-- Files outside this repo (the Anki deck, practice data, model template, trackers workbook) are in the onboarding folder ([COMPANY: team onboarding folder on SharePoint/Teams]), linked from OneNote 00 Start Here.
+- Files that are not OneNote pages (the Anki deck, practice data, model template, trackers workbook) are in the onboarding folder ([COMPANY: team onboarding folder on SharePoint/Teams]), linked from OneNote 00 Start Here.
 - **Output** is what exists in the hire's OneNote section (or Jira or Planner) at the end of the block. If the output is missing, the block is not done; carry it to the Friday self-report.
 - Every self-study block names a file. If that file says something different from this schedule, follow the file and add a note to the question log.
 - Daily routine for the hires: 15 min of Anki first thing, and a 15-min wrap at 16:45 (question log, notes, tomorrow's top-3). Method: `docs/05-time-management.md`.
@@ -51,10 +51,10 @@ Today is Thu 10/08. Access requests are the long pole, so send them before the w
 
 ### By Mon 10/12
 
-- [ ] Submit every request marked "Day 1" or "Week 1" in `docs/04-access-request-checklist.md` for both hires. Put ticket numbers in its tracking table.
+- [ ] Submit every request marked "Day 1" or "Week 1" in `docs/04-access-request-checklist.md` for both hires. Put ticket numbers in its tracking table (on its OneNote copy once the notebook is set up); the hires copy that table into their own Access tracker pages on Day 1.
 - [ ] Submit the Week 2 requests too: Oracle inquiry for Hire A, AS400 inquiry for both, and read access to the shared drives or SharePoint folders where the custom tools live.
 - [ ] Confirm with HR the time and place of [COMPANY: HR orientation] on Mon 10/19 (the schedule assumes 08:00-12:00).
-- [ ] Ask HR whether Hire B, who already knows the business, needs the full orientation or a shorter internal-transfer session. If it is shorter, Hire B uses the spare morning for the access check and the Oracle cost-data self-study (Tue 10:30 block).
+- [ ] Ask HR whether Hire B, who already knows the business, can take a shorter orientation session. If so, Hire B uses the spare morning for the access check and the Oracle cost-data self-study (Tue 10:30 block).
 - [ ] Confirm laptops come with Outlook, Teams, OneNote, Excel (Power Query is built into Excel for Windows), VPN and MFA.
 - [ ] Book the shadow hosts (they are not trainers, but it is their time):
   - [COMPANY: Purchasing or Logistics contact]: Hire A, Tue 10/20 10:30-12:00.
@@ -67,8 +67,8 @@ Today is Thu 10/08. Access requests are the long pole, so send them before the w
 
 - [ ] Run `python3 build/build.py` (or take the files from `dist/`) so the Word versions in `dist/docs/` are current.
 - [ ] Set up the OneNote team notebook with the sections from `README.md`: 00 Start Here, 01 Check-ins, 02 Primers, 03 Templates, 04 Tool Docs, 05 Process SOPs, 06 Question Log, 07 Analytics.
-- [ ] Add one section group per hire ("Hire A notes", "Hire B notes") with four pages: Daily notes, Question log, Weekly plans and self-reports, Teach-backs.
-- [ ] Paste these pages first (Word: Ctrl+A, Ctrl+C, then paste into OneNote): 30/60/90 plan, this schedule, access checklist, time management, the customs primer, the trade systems primer, practice exercises, and the templates folder.
+- [ ] Add one section group per hire ("Hire A notes", "Hire B notes") with four pages: Daily notes, Weekly plans and self-reports, Teach-backs, and Access tracker (left empty; the hire copies the tracking table from the access checklist into it on Day 1). In section 06 Question Log, add one page per hire ("Hire A questions", "Hire B questions"): that page is the hire's question log.
+- [ ] Paste these pages first (Word: Ctrl+A, Ctrl+C, then paste into OneNote): program at a glance, 30/60/90 plan, this schedule, access checklist and time management (00 Start Here); check-ins and scorecards (01 Check-ins); the customs primer and the trade systems primer; practice exercises; and the templates folder.
 - [ ] The answer key is built to `dist/trainer-only/answer-key.docx`. Keep it in [COMPANY: trainer-only location], never in the notebook or the onboarding folder, and never give the hires it or `data/analytics/generate_practice_data.py` before the day-30 review. The Senior uses it on Thu 10/29.
 - [ ] Copy to the onboarding folder ([COMPANY: team onboarding folder on SharePoint/Teams]): `dist/BSA-Onboarding.apkg`, `dist/anki/BSA-Onboarding-cards.csv`, `dist/Practice-Data.xlsx`, the `dist/practice-data/` folder, `dist/Tariff-Impact-Model-Template.xlsx`, `dist/BSA-Onboarding-Handbook.docx`, `dist/docs/`, and `dist/BSA-Onboarding-Trackers.xlsx` (the only file both hires can edit). Never copy `dist/trainer-only/`. Link the folder and the workbook from 00 Start Here (AR-14, live Day 1).
 - [ ] In its Tool Inventory tab, overwrite the placeholder rows (T-01 to T-15) with every custom tool you know of: tool name, stack, and where it lives. This list is the input to the Thu 10/29 split. Leave the other columns for the hires.
@@ -79,7 +79,7 @@ Today is Thu 10/08. Access requests are the long pole, so send them before the w
 
 ### By Thu 10/15
 
-- [ ] Block the Senior's calendar for the slots in the table below. Check them against the Senior's drawback, exports and reporting deadlines; move a session within the same week if there is a clash.
+- [ ] Block the Senior's calendar for the slots in the table below, plus about 1 h this week for the Senior to prepare S1-S4 (15 minutes each, using the session template in `docs/03-check-ins-and-scorecards.md` Section 4). Check the slots against the Senior's drawback, exports and reporting deadlines; move a session within the same week if there is a clash.
 - [ ] Block your own calendar for every Manager row in the day tables, plus 2 h (W1) and 2 h (W2) of async review time. Friday 15:00-16:00 works well for reviewing the self-reports and planning the next week.
 - [ ] Gather the sanitized sample documents (table below). Save them to the onboarding folder and link them from OneNote 03 Templates.
 
@@ -136,12 +136,12 @@ PM
 
 | Time | Activity | Lead | Module | Output |
 |---|---|---|---|---|
-| 13:00-14:00 | Welcome: team purpose and stakeholders; walk through `docs/01-30-60-90-plan.md`; how 6-8 guided hours a week plus structured self-study works; the boundary rule (Research owns the WHAT, Standard Cost owns the $) and the maker-checker rule | Manager | M0 | Each hire writes their own day-30/60/90 goals in their OneNote section |
+| 13:00-14:00 | Welcome: team purpose and stakeholders; walk through `docs/01-30-60-90-plan.md`; how 5-8 guided hours a week plus structured self-study works; the boundary rule (Research owns the WHAT, Standard Cost owns the $) and the maker-checker rule | Manager | M0 | Each hire writes their own day-30/60/90 goals in their OneNote section |
 | 14:00-14:15 | Meet the Senior: what the Senior owns (reporting, exports, US duty drawback), office-hour slots, how to bring questions (question log), and why questions for a broker or trade counsel go through the Senior | Senior | M0 | Office-hour slots in calendar |
-| 14:15-15:00 | Access check: try each system due by Day 1 in `docs/04-access-request-checklist.md` (AR-01, AR-02, AR-10, AR-14 onboarding folder, AR-21), mark the others "not due yet", and update its tracking table; send the gaps to the Manager by 15:00 | Self-study | M0 | Access status updated; gaps sent |
-| 15:00-15:45 | Read `docs/05-time-management.md` (weekly ritual, daily top-3, intake rules, question log); set up your daily-plan and question-log pages | Self-study | M0 | Daily plan and question log pages in OneNote |
+| 14:15-15:00 | Access check: copy the tracking table from `docs/04-access-request-checklist.md` into the Access tracker page in your own section; try each system due by Day 1 (AR-01, AR-02, AR-10, AR-14 onboarding folder, AR-21), mark the others "not due yet", and record each status there; send the gaps to the Manager by 15:00 | Self-study | M0 | Access tracker page filled in; gaps sent |
+| 15:00-15:45 | Read `docs/05-time-management.md` (weekly ritual, daily top-3, intake rules, question log); set up your daily-plan page and your question-log page in section 06 Question Log, using the templates in `docs/05-time-management.md` | Self-study | M0 | Daily plan and question log pages in OneNote |
 | 15:45-16:00 | Anki: import BSA-Onboarding.apkg from the onboarding folder (link in 00 Start Here); first review session | Self-study | M1 | Deck imported; first reviews done |
-| 16:00-16:45 | Read OneNote 00 Start Here and skim the rest of this week's schedule; log anything unclear | Self-study | M0 | Week 1 questions in the question log |
+| 16:00-16:45 | Read OneNote 00 Start Here: Program at a Glance, then start Sections 1 and 3 of the 30/60/90 plan (finish them by Fri 10/23); skim the rest of this week's schedule; log anything unclear | Self-study | M0 | Week 1 questions in the question log |
 | 16:45-17:00 | Day-1 wrap: blockers, first questions, Tuesday's top-3 | Manager | M0 | Top-3 for Tue written |
 
 ### Day 2 - Tue 10/20
@@ -222,7 +222,7 @@ AM
 | 08:00-08:15 | Anki daily review | Self-study | M1 | Reviews done |
 | 08:15-09:00 | Finish the entry packet mark-up; pick your 2 most important questions for S2 | Self-study | M1 | Packet ready; 2 questions |
 | 09:00-10:30 | S2, US customs fundamentals II: walk the sanitized entry packet line by line. Classification (HTSUS structure, the General Rules of Interpretation), valuation (transaction value and additions), country of origin and marking, recordkeeping. What data the team owns vs what the broker keys in, and how the team audits broker filings | Senior | M1 | Corrected packet mark-up; "our data vs broker data" list |
-| 10:30-11:30 | Friday self-report and draft W2 weekly plan (templates in `docs/05-time-management.md`); send both to the Manager by 11:30 | Self-study | M0 | Self-report and W2 plan sent |
+| 10:30-11:30 | Friday self-report (the 5 prompts in `docs/03-check-ins-and-scorecards.md` Section 5) and draft W2 weekly plan (template in `docs/05-time-management.md`); send both to the Manager by 11:30 | Self-study | M0 | Self-report and W2 plan sent |
 | 11:30-12:00 | Write 5 Anki cards from S2 | Self-study | M1 | 5 cards |
 
 PM
@@ -431,7 +431,7 @@ Counting rule: a session that both hires attend counts once. A row with a "Hire 
 | W1 (10/19-10/23) | 6.00 | 8.00 | 2.00 | 4.25 | 4.50 |
 | W2 (10/26-10/30) | 6.00 | 8.00 | 2.00 | 4.00 | 4.50 |
 
-Both weeks fit. The Senior has 0.25 h (W1) and 0.50 h (W2) of headroom under the 4.5 h planning cap, so do not fill it.
+Both weeks fit. The Senior has 0.25 h (W1) and 0.50 h (W2) of headroom under the 4.5 h planning cap, so do not fill it. The Senior's prep for S1-S4 (about 1 h) is done in the week of Mon 10/12, before the hires start, so it is not in these totals.
 
 ### If you or the Senior host a shadow
 

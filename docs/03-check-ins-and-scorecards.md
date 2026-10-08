@@ -14,22 +14,24 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 |---|---|---|---|---|
 | Monday confirm | Manager and both hires | Mon 08:15 | 15 min | Week plan confirmed or changed (`docs/05-time-management.md`) |
 | Stand-up | Both hires, no trainer | Tue-Fri 08:15 (W1-W2: as scheduled) | 10 min | Top-3 and blockers; blockers to the Manager in Teams |
-| Manager 1:1 | Manager and one hire | Friday afternoon, after the self-report: 13:00 Hire A, 13:45 Hire B (W1: Fri 10/23) | 45 min (30 min in W5, W6, W9, W10, W11, W13) | Updated trackers, agreed top 3 for the week, 1:1 notes |
+| Manager 1:1 | Manager and one hire | Friday afternoon, after the self-report: 13:00 Hire A, 13:45 Hire B (W1: Fri 10/23; on holiday Fridays, the last working day of the week, see below) | 45 min (30 min in W5, W6, W9, W10, W11, W13) | Updated trackers, agreed top 3 for the week, 1:1 notes |
 | Senior structured session | Senior and both hires | Two fixed slots a week from W3: Tue 09:00 and Thu 13:00 (only the Tuesday slot in W6, W10, W11). W1-W2 slots are in `docs/02-weeks-1-2-schedule.md` | 90 min | Session notes in OneNote, Anki cards, homework |
-| Senior office hours | Senior and both hires | Once a week from W3: Wed 15:00, questions in by 12:00 (none in W6, W10, W11) | 30 min | Answers in the question log |
+| Senior office hours | Senior and both hires | Once a week from W3: Wed 15:00, questions in by 12:00 (none in W5, W6, W9, W10, W11; in W3 the slot is the two hires' small-analysis scoping, 15 minutes each) | 30 min | Answers in the question log |
 | Shadowing | Senior, Manager or [COMPANY: Finance cost accounting contact], and one hire | As real work happens, booked in the trainer's review time | 30–60 min | Shadowing note, SOP lines, Anki cards |
 | Friday teach-back | Both hires present; Manager attends | Friday 10:00, 30 min (last working day in W10; none in W6 and W11; inside the review in W9 and W13) | 15 min per hire | Teach-back record (`docs/templates/knowledge/teach-back.md`) |
-| Friday self-report | Hire to Manager, copy to Senior | By 11:30 Friday (last working day in holiday weeks) | 15 min to write | OneNote page using Section 5; link sent to the Manager |
-| Question log | Each hire | Continuous | none | OneNote page (Section 2) |
+| Friday self-report | Hire to Manager, copy to Senior | By 11:30 Friday (on holiday Fridays, the last working day of the week) | 15 min to write | OneNote page using Section 5; link sent to the Manager |
+| Question log | Each hire | Continuous | none | Own page in OneNote section 06 Question Log (Section 2) |
 | Milestone review | Manager and one hire; Senior gives written input | W5 Wed 11/18, W9 Fri 12/18, W13 Fri 1/15 | 60 min per hire | Scorecard and decision (Section 6) |
+
+**Holiday Fridays:** when Friday is not a working day (W6 Fri 11/27, assumed off; W10 Fri 12/25; W11 Fri 1/1), the self-report, the 1:1s and the teach-back (W10 only) move to the last working day of that week ([COMPANY: confirm holiday calendar]). In W6 that is Wed 11/25, with the 1:1s at 15:00 and 15:30 (30 minutes each). This is the rule in the standard week, `docs/01-30-60-90-plan.md` Section 5.
 
 ## 2. Question log
 
-Each hire keeps a running "Question Log" page in their own OneNote section, one row per question. If the trackers workbook gets a question-log tab later, move the log there.
+Each hire keeps a running question log: their own page in OneNote section 06 Question Log (so each hire can see the other's), one row per question. The columns are the same as the copy-paste template in `docs/05-time-management.md` (Templates, Question log); there is no other format. If the trackers workbook gets a question-log tab later, move the log there.
 
-| Date | Question | Module | Where I looked first | Answer and source | Turned into |
-|---|-------------|---|---------|-------------|---------|
-| 2026-10-21 | Example: Who decides the HTS code the broker files? | M1 | Primer, glossary | Example answer: the team maintains classification in [COMPANY: item master]; the broker files what we provide (Senior, 10/21) | Anki card; SOP line |
+| Date | Question | Tried so far | Who to ask | Answer and source | Turned into |
+|---|-------------|---------|---|-------------|---------|
+| 2026-10-21 | Example (M1): Who decides the HTS code the broker files? | Customs primer and glossary | Senior | Example answer: the team maintains classification in [COMPANY: item master]; the broker files what we provide (Senior, 10/21) | Anki card; SOP line |
 
 Rules:
 
@@ -47,7 +49,8 @@ Rules:
 - [ ] Hire: Friday self-report sent (Section 5).
 - [ ] Hire: Skills, Knowledge Topics and Tool Inventory tabs updated in the trackers workbook (BSA-Onboarding-Trackers.xlsx in the onboarding folder), with an evidence link for any rating change.
 - [ ] Hire: question log current.
-- [ ] Manager (5 min, inside the 1:1 budget): read the self-report, scan the hire's Jira board, read the question log rows added this week.
+- [ ] Hire: Access tracker page (in your own OneNote section, copied from `docs/04-access-request-checklist.md` on Day 1) current, until every item is Verified.
+- [ ] Manager (5 min, inside the 1:1 budget): read the self-report, scan the hire's Jira board, read the question log rows added this week, and check the hire's Access tracker page.
 
 ### Agenda
 
@@ -58,7 +61,7 @@ Rules:
 | 15–25 | Trackers workbook | Open the hire's workbook. Challenge every rating change; confirm learn-by-documenting counts against the milestone targets. | "You moved this skill from 1 to 2. Show me the work that proves it." "How many cards, SOPs, tool docs and teach-backs so far, against the day-30, 60 or 90 target?" "Which Knowledge Topics are still at 0?" |
 | 25–32 | Question log | Look for patterns. Clear stuck questions. Check that reusable answers became cards or SOP lines. | "Which question took longest to answer, and where did you finally find it?" "Which answers did you turn into cards?" "Any question older than 2 days?" |
 | 32–40 | Coaching on one work product | Pick one artifact (a brief, model, query, SOP draft or tool doc). Give feedback using Situation-Behavior-Impact (Section 7). | "Walk me through how you checked this before sending it." "What would a checker flag first?" |
-| 40–45 | Next week and feedback | Agree the top 3 priorities and any access issues. Ask for feedback on the program. | "What are your top 3 for next week, and which one is at risk?" "What do you need from me or the Senior?" "What should we do more or less of?" |
+| 40–45 | Next week and feedback | Agree the top 3 priorities and any access issues (from the Access tracker page). Ask for feedback on the program. | "What are your top 3 for next week, and which one is at risk?" "What do you need from me or the Senior?" "What should we do more or less of?" |
 
 **30-minute version (review weeks and short weeks):** Pulse 3 min, last week 7 min, trackers 8 min, question log 5 min, next week 7 min. Drop the coaching section that week.
 
@@ -105,7 +108,7 @@ W10–W13 (ownership and e2open):
 
 ## 4. Senior structured session (90 minutes, both hires)
 
-The Senior runs two sessions a week for both hires together, in the standard-week slots. Topics come from the roadmap (`docs/01-30-60-90-plan.md` Sections 3 and 5). The template keeps prep under 15 minutes and makes sure every session produces something.
+The Senior runs two sessions a week for both hires together, in the standard-week slots. Topics come from the roadmap (`docs/01-30-60-90-plan.md` Sections 3 and 5). The template keeps prep under 15 minutes, which is its own line in the Senior's hours (`docs/01-30-60-90-plan.md` Section 5), and makes sure every session produces something.
 
 ### Template
 
@@ -182,7 +185,7 @@ Shadowing note format:
 
 ## 5. Friday self-report (5 prompts, about 15 minutes)
 
-This is the only self-report format; `docs/05-time-management.md` points here. Post it by 11:30 Friday (last working day in holiday weeks) on your OneNote page "Weekly plans and self-reports" and send the link to the Manager, copy to the Senior. It feeds the Friday afternoon 1:1. Use short bullets with links. Don't polish it.
+This is the only self-report format; `docs/05-time-management.md` points here. Post it by 11:30 Friday (on a holiday Friday, the last working day of the week; Section 1) on your OneNote page "Weekly plans and self-reports" and send the link to the Manager, copy to the Senior. It feeds the Friday afternoon 1:1. Use short bullets with links. Don't polish it.
 
 1. **Done this week, with links:** your top-3 outcomes (done or not, and why), Jira items, docs, queries, cards written (count), teach-back topic. Add a rough split of your hours: guided, self-study, shadowing, real work, documentation, and the learning/doing total against your phase target.
 2. **One thing I learned that I could teach:** explain one concept in 2–3 sentences in your own words, and name the source.
@@ -209,7 +212,7 @@ A "material error" is defined in `docs/01-30-60-90-plan.md` Section 4. It means 
 
 - **Two working days before (Mon 11/16, Wed 12/16, Wed 1/13):** the hire fills in the Evidence column with links and writes a self-rating in Notes, e.g. "Self: 3".
 - **Senior input:** the Senior sends ratings and one line of notes for the criteria they checked (M1, M3, M7, M8, Research briefs).
-- **Manager prep (45 min per hire):** open every link, spot-check 10 Anki cards, verify 3 Skills-tab ratings against work products, and pre-fill ratings.
+- **Manager prep (30 min per hire at day 30 and day 60, 45 min at day 90):** open every link, spot-check 10 Anki cards, verify 3 Skills-tab ratings against work products, and pre-fill ratings. At day 30 and day 60 the Senior's input and the Manager's own checker reviews already cover most criteria. At day 30, another 30 min in total marks the two knowledge checks.
 - **Day-30 written knowledge check:** taken Mon 11/16, 45 minutes. 20 questions from the customs primer and Anki decks, assembled by the Manager in W4.
 
 ### Review agenda (60 minutes per hire)
@@ -305,10 +308,10 @@ Decision:
 | A60-1 (Must) Tariff-Impact Brief for a real recent action: scope, HTS codes and countries, rates, effective dates, stacking and exclusions, a primary source for every claim; no material errors at checker review | Brief; checker comments on Jira | | |
 | A60-2 (Must) Model handoff: Research (WHAT) inputs in the shared model handed to Hire B with no more than 1 clarification round; no $ conclusions in the brief | Model version; Jira handoff | | |
 | A60-3 (Must) One ad-hoc investigation end to end (question, sources and data, finding, recommendation); no material errors | Jira ticket; write-up | | |
-| A60-4 (Must) Owns one tool: every point of the "owns one tool" definition met for [COMPANY: tool closest to Research] | Tool doc, run log, change request, demo | | |
+| A60-4 (Must) Owns one tool: every point of the "owns one tool" definition met for [COMPANY: tool closest to Research], including one end-to-end run, either supervised in production or on a test copy | Tool doc, run log, change request, demo | | |
 | A60-5 (Must) Exports: 1 or more backlog items completed with Senior review; exports process at proficiency 1 | Jira | | |
 | A60-6 (Must) Proficiency: Research core skills at 2 or more, "find and read primary sources" at 3, M1 skills at 2 or more (Manager-verified) | Trackers workbook | | |
-| A60-7 (Must) Learn-by-documenting: 50 or more cards, 6 or more teach-backs, 2 SOP drafts, 1 tool doc complete | Trackers workbook, OneNote, Anki | | |
+| A60-7 (Must) Learn-by-documenting: 50 or more cards, 6 or more teach-backs, 2 SOP drafts (primary-process v0.1 and exports), 1 tool doc complete | Trackers workbook, OneNote, Anki | | |
 | A60-8 (Stretch) e2open prep: primer read; Research data elements listed for mapping | Draft list | | |
 
 Decision:
@@ -331,10 +334,10 @@ Decision:
 | B60-1 (Must) Tariff $ impact: landed-cost and margin impact modeled from a Tariff-Impact Brief (item set, duty base, rate and stacking per the brief, volume basis); no material errors at checker review | Model; checker log | | |
 | B60-2 (Must) Cost cycle: walks through the full cycle with the checklist; prepares the duty and landed-cost input file for a cycle or dry run; no material errors | Input file; checklist; checker log | | |
 | B60-3 (Must) PPV analysis for one closed period: top 10 variances by driver; total ties to [COMPANY: Finance PPV report or GL account] within tolerance; reviewed by the Manager and Finance | PPV workbook; reviewer notes | | |
-| B60-4 (Must) Owns one tool: every point of the "owns one tool" definition met for [COMPANY: name of std-cost tool] | Tool doc, run log, change request, demo | | |
+| B60-4 (Must) Owns one tool: every point of the "owns one tool" definition met for [COMPANY: name of std-cost tool], including one end-to-end run, either supervised in production or on a test copy | Tool doc, run log, change request, demo | | |
 | B60-5 (Must) Exports: 1 or more backlog items completed with Senior review; exports process at proficiency 1 | Jira | | |
 | B60-6 (Must) Proficiency: Standard Cost core skills at 2 or more, "build item landed cost" at 3, M1 skills at 2 or more (Manager-verified) | Trackers workbook | | |
-| B60-7 (Must) Learn-by-documenting: 50 or more cards, 6 or more teach-backs, 2 SOP drafts, 1 tool doc complete | Trackers workbook, OneNote, Anki | | |
+| B60-7 (Must) Learn-by-documenting: 50 or more cards, 6 or more teach-backs, 2 SOP drafts (primary-process v0.1 and exports), 1 tool doc complete | Trackers workbook, OneNote, Anki | | |
 | B60-8 (Stretch) Data depth: one reusable SQL view or Power BI page for duty, landed cost or PPV, reviewed by the Senior | Asset; review note | | |
 
 Decision:
@@ -471,4 +474,4 @@ Rules for any change:
 - `docs/templates/domain/tariff-impact-brief.md`, `docs/templates/domain/standard-cost-update-checklist.md`, `docs/templates/domain/tariff-impact-model-guide.md`
 - `docs/templates/bsa/03-process-map-as-is-to-be.md`, `docs/templates/bsa/04-data-mapping-spec.md`, `docs/templates/bsa/06-change-request.md`
 - `docs/primers/customs-trade-compliance-primer.md`, `docs/primers/trade-systems-gtm-e2open-primer.md`, `docs/primers/current-tariff-landscape.md`
-- `docs/analytics/practice-exercises.md`; the answer key is trainer-only ([COMPANY: trainer-only location], never in the hires' OneNote sections)
+- `docs/analytics/practice-exercises.md`; the answer key is trainer-only ([COMPANY: trainer-only location], never in the hires' OneNote sections or the onboarding folder; not given to the hires before the day-30 review, and after it only if the Manager decides to share it)

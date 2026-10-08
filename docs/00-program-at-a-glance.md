@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-08 · Owner: BSA Manager
 
-- **Purpose:** a four-page summary of the 90-day program for the two new BSAs. The full plan is `docs/01-30-60-90-plan.md`; if this page and the plan ever differ, the plan wins.
+- **Purpose:** a short summary of the 90-day program for the two new BSAs. The full plan is `docs/01-30-60-90-plan.md`; if this page and the plan ever differ, the plan wins.
 - **Who uses it:** BSA Manager (owner), Senior BSA (co-trainer), Hire A (Research track), Hire B (Standard Cost track).
 - **When:** Manager and Senior before Day 1 (Mon 2026-10-19); hires at the Day-1 welcome (Mon 10/19 13:00). Everyone: check the current week's roadmap row every Monday.
 
@@ -29,7 +29,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 - **BSA Manager: 8 h a week for both hires** (about 5 h in W6, 4 h in W10 and W11). The only trainer for AS400 and the custom tools; also orientation, Oracle touchpoints, BSA craft, track coaching, 1:1s, reviews.
 - **Senior BSA: 4–5 h a week, planned at no more than 4.5 h** (about 3 h in W6, 2.5 h in W10 and W11). Customs and trade compliance, data and analytics, exports, reporting, drawback; not AS400 or the custom tools.
-- **Each hire:** about 40 h a week, about 6–8 h guided (about 9 h in W1–W2); the rest is structured self-study, shadowing, real low-risk work and documentation.
+- **Each hire:** about 40 h a week, about 5–8 h guided (about 9 h in W1–W2, about 5 h in W10–W13); the rest is structured self-study, shadowing, real low-risk work and documentation.
 
 ## Standard week (W3 onward)
 
@@ -43,13 +43,15 @@ Every recurring session from W3 sits in one of these slots ([COMPANY: confirm sl
 | Tue 13:00–14:00, 14:00–15:00 | Track coaching: Hire A, then Hire B | Manager, one hire | W3, W4, W7, W8 |
 | Wed 10:00–11:00 | Manager shared session (M2, M4, M10, drill debrief; in W12 the kickoff debrief, on the day after the kickoff) | Manager, both hires | W3, W4, W7, W8, W9, W12 |
 | Wed 13:00–14:00, 14:00–15:00 | Tool-ownership coaching: Hire A, then Hire B | Manager, one hire | W4, W5–W9 |
-| Wed 15:00–15:30 | Senior office hours (questions in by 12:00) | Senior, both hires | Not W6, W10, W11 |
+| Wed 15:00–15:30 | Senior office hours (questions in by 12:00; in W3 the slot is small-analysis scoping, 15 minutes for Hire B, then 15 for Hire A) | Senior, both hires | Not W5, W6, W9, W10, W11 |
 | Thu 10:00–11:00 | Second Manager shared session | Manager, both hires | W3 |
-| Thu 13:00–14:30 | Senior session 2 | Senior, both hires | Not W6, W10, W11 |
-| Fri 10:00–10:30 | Teach-back (W10: last working day) | Manager, both hires | Not W6, W9, W11, W13 |
-| Fri 11:30 | Friday self-report due (`docs/03-check-ins-and-scorecards.md` Section 5) | Both hires | Every week |
-| Fri 13:00–13:45, 13:45–14:30 | 1:1: Hire A, then Hire B (30 minutes each in W5, W6, W9–W11, W13) | Manager, one hire | Every week |
+| Thu 13:00–14:30 | Senior session 2 (W4: 13:00–14:00 small-analysis SQL review) | Senior, both hires | Not W6, W10, W11 |
+| Fri 10:00–10:30 | Teach-back | Manager, both hires | Not W6, W9, W11, W13 |
+| Fri 11:30 | Friday self-report due (`docs/03-check-ins-and-scorecards.md` Section 5) | Both hires | Every week (holiday Fridays: see below) |
+| Fri 13:00–13:45, 13:45–14:30 | 1:1: Hire A, then Hire B (30 minutes each in W5, W6, W9–W11, W13) | Manager, one hire | Every week (holiday Fridays: see below) |
 | Review days 08:30–09:30, 09:45–10:45 | Milestone review: Hire A, then Hire B (Wed 11/18, Fri 12/18, Fri 1/15) | Manager, one hire | W5, W9, W13 |
+
+**Holiday Fridays:** when Friday is not a working day (W6 Fri 11/27, assumed off; W10 Fri 12/25; W11 Fri 1/1), the Friday self-report, the 1:1s and the teach-back (W10 only; there is none in W6 or W11) move to the last working day of that week, at the Friday times ([COMPANY: confirm holiday calendar]). In W6 that is Wed 11/25, and the 1:1s run 15:00–15:30 and 15:30–16:00, after tool coaching. The 1:1s are never skipped in these weeks.
 
 ## Roadmap W1–W13
 
@@ -57,7 +59,7 @@ Every recurring session from W3 sits in one of these slots ([COMPANY: confirm sl
 |---|---|---|---|---|
 | W1 | 10/19 – 10/23 | M0 orientation; M1 US customs; M2 systems landscape; M3 Exercises 1–2 | Business orientation | Business overview refresher; Oracle cost data |
 | W2 | 10/26 – 10/30 | M1 Canada, Mexico, USMCA, classification; M2 AS400 data flow; M6 inventory; first teach-back | Research shadow; USMCA test-out Wed 10/28 | Cost or variance shadow |
-| W3 | 11/2 – 11/6 | M1 valuation, USMCA origin; reading a tariff action; M2 Oracle and broker data | M5R kickoff; stakeholder intros | M5C kickoff; scope the analysis |
+| W3 | 11/2 – 11/6 | M1 valuation, USMCA origin; reading a tariff action; M2 Oracle and broker data | M5R kickoff; stakeholder intros; scope the analysis | M5C kickoff; scope the analysis |
 | W4 | 11/9 – 11/13 | M1 IMMEX, Anexo 24 and 30; M4 process mapping; classification worksheet due Wed 11/11 | Brief outline; small analysis | Landed cost for 5 items; analysis due Fri 11/13 |
 | W5 | 11/16 – 11/20 | Knowledge check Mon 11/16; day-30 review Wed 11/18; M7 exports overview | Weekly tariff-landscape upkeep starts | Cost cycle walkthrough |
 | W6 | 11/23 – 11/25 (3 days) | No new core content; exports item 1; supervised owned-tool run; test copy set up | Tool doc started | Tool doc started |
@@ -92,13 +94,13 @@ Must criteria decide the outcome; Stretch criteria never block "on track". On tr
 **Hire A (Research)**
 
 - A60-1, A60-2: brief for a real recent action, primary source for every claim; WHAT handed to Hire B, no $.
-- A60-3, A60-4: one ad-hoc investigation end to end; owns [COMPANY: tool closest to Research].
+- A60-3, A60-4: one ad-hoc investigation end to end; owns [COMPANY: tool closest to Research] (one end-to-end run, either supervised in production or on a test copy).
 - A60-5 to A60-7: 1 exports item; core skills at 2, "find and read primary sources" at 3; 50 cards, 6 teach-backs, 2 SOPs, 1 tool doc.
 
 **Hire B (Standard Cost)**
 
 - B60-1, B60-2: $ impact modeled from a Tariff-Impact Brief; cost cycle input file (real cycle or dry run).
-- B60-3, B60-4: PPV for one closed period, top 10 variances by driver; owns [COMPANY: name of std-cost tool].
+- B60-3, B60-4: PPV for one closed period, top 10 variances by driver; owns [COMPANY: name of std-cost tool] (one end-to-end run, either supervised in production or on a test copy).
 - B60-5 to B60-7: same exports and documenting bar as Hire A; core skills at 2, "build item landed cost" at 3.
 
 ### Day 90 (Fri 2027-01-15)
@@ -119,7 +121,7 @@ Must criteria decide the outcome; Stretch criteria never block "on track". On tr
 
 - **Boundary:** Research owns the WHAT (action, legal scope, items in scope, HTS codes, countries, rates, effective dates, stacking, exclusions, sources) and hands it off in a Tariff-Impact Brief. Standard Cost owns the $ (landed cost and margin, the Oracle cost update, variances) and never decides scope. One shared Tariff-Impact Model.
 - **Maker-checker:** every standard cost update and every tariff model released to the business gets a documented Senior or Manager review before release, also after day 90. Hire B never loads to [COMPANY: Oracle EBS or Fusion] production without Finance and checker sign-off.
-- **Live tariff urgency** (business days to effective date): under 5 or business-critical, a trainer is maker and the hires shadow and draft a parallel practice brief or model; 5–15, the hire is maker with a 15-minute daily checkpoint; over 15, the hire is maker on the normal cycle. In W1–W2 the trainer is always maker.
+- **Live tariff urgency** (business days to effective date): under 5 or business-critical, a trainer is maker and the hires shadow and draft a parallel practice brief or model; 5–15, the hire is maker with a 15-minute daily checkpoint, and the checker reviews each draft on the same business day it is submitted (from the checker's review or buffer time), with nothing released before that review; over 15, the hire is maker on the normal cycle. In W1–W2 the trainer is always maker.
 - **Brokers and counsel:** before the day-60 review, no direct contact with a customs broker, agente aduanal or trade counsel; questions go through the Senior (or the Manager). After day 60, with the Senior's agreement, email the broker with the Senior copied.
 
 ## Where things live
@@ -127,4 +129,4 @@ Must criteria decide the outcome; Stretch criteria never block "on track". On tr
 - **OneNote:** the program pages and the hires' diagrams, analyses and SOPs (only Reviewed and Published docs in the shared section).
 - **Onboarding folder** ([COMPANY: team onboarding folder on SharePoint/Teams]): the trackers workbook BSA-Onboarding-Trackers.xlsx (Skills, Knowledge Topics, Glossary, Tool Inventory tabs), the team Anki deck BSA-Onboarding.apkg, Tariff-Impact-Model-Template.xlsx, Practice-Data.xlsx, Word versions of these pages.
 - **Anki:** only the cards you write count toward 20, 50 and 80; the team deck does not.
-- **Trainer-only** ([COMPANY: trainer-only location]): the analytics answer key and data generator.
+- **Trainer-only** ([COMPANY: trainer-only location]): the analytics answer key and data generator. The hires do not get them before the day-30 review; after it, the Manager decides whether to share the key.

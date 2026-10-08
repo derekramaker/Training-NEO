@@ -8,7 +8,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 ## Why this matters here
 
-About 6-8 of your 40 hours a week are guided by the Manager or the Senior (about 9 in W1-W2). The other 32-34 are yours to plan: self-study, shadowing, documentation and, later, real work. Both trainers have small, fixed budgets (Manager 8 h a week across both of you, Senior about 4.5 h), so a badly timed question or a missed review slot costs more than it would on a bigger team.
+About 5-8 of your 40 hours a week are guided by the Manager or the Senior (about 9 in W1-W2, about 5 in W10-W13). The other 32-35 are yours to plan: self-study, shadowing, documentation and, later, real work. Both trainers have small, fixed budgets (Manager 8 h a week across both of you, Senior about 4.5 h), so a badly timed question or a missed review slot costs more than it would on a bigger team.
 
 The work also has hard dates you don't control: tariff effective dates, the Finance cost cycle, broker cut-offs, the e2open kickoff (expected W12). The habits below are about seeing those dates early and saying clearly what will and will not be done.
 
@@ -20,10 +20,12 @@ The work also has hard dates you don't control: tariff effective dates, the Fina
 | Tue-Fri 08:15 | Stand-up with the other hire (no trainer) | 10 min | Top-3 and blockers shared; blockers sent to the Manager in Teams |
 | Every day | Two focus blocks | 2 x 90 min | Named self-study or work item moved forward |
 | Every day, 16:45 | Daily wrap | 15 min | Question log updated; notes tidied; tomorrow's top-3 drafted |
-| Once a week (from W3: Wed 15:00) | Senior office hours | 30 min | Batched questions answered; answers turned into cards or notes |
-| Friday morning | Friday self-report and next week's plan | 60 min, due 11:30 | Self-report (format below) and weekly plan sent to the Manager, copy to the Senior |
-| Friday 13:00 (Hire A) or 13:45 (Hire B) | 1:1 with the Manager | 45 min | Plan agreed; actions noted (`docs/03-check-ins-and-scorecards.md`) |
+| Once a week (from W3: Wed 15:00; none in W5, W6, W9, W10, W11) | Senior office hours | 30 min | Batched questions answered; answers turned into cards or notes |
+| Friday morning (holiday Fridays: the last working day) | Friday self-report and next week's plan | 60 min, due 11:30 | Self-report (format below) and weekly plan sent to the Manager, copy to the Senior |
+| Friday 13:00 (Hire A) or 13:45 (Hire B); holiday Fridays: the last working day | 1:1 with the Manager | 45 min (30 min in W5, W6, W9-W11, W13) | Plan agreed; actions noted (`docs/03-check-ins-and-scorecards.md`) |
 | Monday 08:15 | Monday confirm with the Manager | 15 min | Plan confirmed or adjusted for anything new |
+
+Holiday Fridays: when Friday is not a working day (W6 Fri 11/27, assumed off; W10 Fri 12/25; W11 Fri 1/1), the self-report, the 1:1s and the teach-back (W10 only) move to the last working day of that week ([COMPANY: confirm holiday calendar]). In W6 that is Wed 11/25, with the 1:1s at 15:00 (Hire A) and 15:30 (Hire B). The rule is in the standard week, Section 5 of `docs/01-30-60-90-plan.md`.
 
 ## Weekly planning ritual
 
@@ -120,7 +122,7 @@ Brokers, agentes aduanales and trade counsel: before the day-60 review, you neve
 
 ### Senior office hours
 
-- Fixed 30-minute slots: in W1-W2 they are in `docs/02-weeks-1-2-schedule.md`; from W3, one slot a week, Wed 15:00-15:30, in the standard week in Section 5 of `docs/01-30-60-90-plan.md` (none in W6, W10 and W11).
+- Fixed 30-minute slots: in W1-W2 they are in `docs/02-weeks-1-2-schedule.md`; from W3, one slot a week, Wed 15:00-15:30, in the standard week in Section 5 of `docs/01-30-60-90-plan.md` (none in W5, W6, W9, W10 and W11; in those weeks bring non-urgent questions to the recap block of the next Senior session or to your 1:1).
 - Send your batch by 12:00 on the day: at most 5 questions each, ranked, every one with "tried so far" filled in.
 - Both hires come together, and you each hear the other's answers.
 - After the session, turn every answer into an Anki card, a glossary entry, or a line in a tool doc or SOP. Mark it in the question log's last column.
@@ -193,7 +195,7 @@ Notes:
 
 ## Friday self-report
 
-Use the 5 prompts in Section 5 of `docs/03-check-ins-and-scorecards.md`; there is no other format. Post it on your OneNote page "Weekly plans and self-reports" by 11:30 on Friday and send the link to the Manager, copy to the Senior. It drives the 1:1, so keep it short and honest. Prompt 1 is where your learning/doing hours go.
+Use the 5 prompts in Section 5 of `docs/03-check-ins-and-scorecards.md`; there is no other format. Post it on your OneNote page "Weekly plans and self-reports" by 11:30 on Friday (on a holiday Friday, the last working day of the week) and send the link to the Manager, copy to the Senior. It drives the 1:1, so keep it short and honest. Prompt 1 is where your learning/doing hours go.
 
 ## Templates (copy and paste)
 
@@ -238,9 +240,11 @@ Use the 5 prompts in Section 5 of `docs/03-check-ins-and-scorecards.md`; there i
 
 ### Question log
 
-| Date | Question | Tried so far | Who to ask | Answer | Turned into card/doc? |
+Your own page in OneNote section 06 Question Log. This is the only question-log format; `docs/03-check-ins-and-scorecards.md` Section 2 has the rules.
+
+| Date | Question | Tried so far | Who to ask | Answer and source | Turned into |
 |---|---|---|---|---|---|
-| 10/20 | Example: Is MPF charged on the entered value of every line, or once per entry? | Read the US duties section of the customs primer; searched cbp.gov | Senior | (fill in after office hours) | Card drafted: Y |
+| 10/20 | Example (M1): Is MPF charged on the entered value of every line, or once per entry? | Read the US duties section of the customs primer; searched cbp.gov | Senior | (fill in after office hours) | Card drafted |
 | | | | | | |
 | | | | | | |
 
@@ -271,7 +275,7 @@ Read each one and write down what you would do before you read the suggested han
 
 It is Tuesday 10:30 in Week 7. A new tariff action is published (for example a Federal Register notice under Section 232 or Section 301), effective for goods entered for consumption on or after 12:01 a.m. Eastern on Friday of next week: 7 business days away. CBP follows up with a CSMS message on how to report it. Hire A's plan for the rest of the week was the A60-1 brief on a recent action and an exports item. Hire B's plan was the PPV analysis.
 
-Who is maker depends on the urgency rule in Section 7 of `docs/01-30-60-90-plan.md`. With 5-15 business days, the hire is maker, with a 15-minute daily checkpoint and checker review before release. If the effective date were fewer than 5 business days away (or the action were business-critical), the Senior would be maker for the WHAT and the Manager for the $, each checking the other. You would shadow, draft a parallel practice brief or model for review afterward, and write after-action notes within 2 working days. In W1-W2 the trainer is always maker.
+Who is maker depends on the urgency rule in Section 7 of `docs/01-30-60-90-plan.md`. With 5-15 business days, the hire is maker, with a 15-minute daily checkpoint, and the checker reviews each draft on the same business day it is submitted; nothing is released before that review. If the effective date were fewer than 5 business days away (or the action were business-critical), the Senior would be maker for the WHAT and the Manager for the $, each checking the other. You would shadow, draft a parallel practice brief or model for review afterward, and write after-action notes within 2 working days. In W1-W2 the trainer is always maker.
 
 Suggested handling, Hire A (Research owns the WHAT):
 
@@ -294,7 +298,7 @@ It is Thursday 14:00. [COMPANY: Finance contact] messages Hire B: "What's the co
 
 Suggested handling:
 
-1. **Tell the Manager within 15 minutes.** A same-day P1 or P2 date is the Manager's call in days 1-60. If the duty takes effect in fewer than 5 business days, the Manager is maker for the $ and you prepare the inputs.
+1. **Tell the Manager within 15 minutes.** A same-day P1 or P2 date is the Manager's call in days 1-60. If the duty takes effect in fewer than 5 business days, the Manager is maker for the $ and the Senior checks; you shadow, build a parallel practice model that is reviewed afterwards, and write after-action notes within 2 working days. Otherwise you are maker and steps 2-6 apply; with 5-15 business days to go, the checker reviews your numbers on the same business day you submit them.
 2. **Clarify** (a call is faster than email): what decision is it for? Which items? Standard cost, landed cost or margin? Which tariff assumption, and is there a reviewed Tariff-Impact Brief? What format: one number or an item list? Does "EOD" mean 17:00 or "before 9 tomorrow"?
 3. **Log it in Jira** and link the brief, if one exists. If there is no reviewed brief, the WHAT isn't settled: ask Research (Hire A or [COMPANY: current Research process runner]) where it stands, and tell Finance the answer depends on it.
 4. **Estimate honestly.** For example: 40 items in the model takes about 2 hours, plus a 30-minute review. Ask the Manager or Senior for a review slot before 16:30.
@@ -305,15 +309,15 @@ What not to do: send unreviewed numbers "just as a rough idea" (they get forward
 
 ### Scenario 3: the Senior is heads-down on a drawback deadline
 
-It is Tuesday in Week 3. The Senior posts: "Heads-down on drawback claims until Friday; office hours cancelled this week." Between them, the hires have 8 open questions, and 2 of them block the USMCA worksheet that is due Thursday.
+It is Monday in Week 4. The Senior posts: "Heads-down on drawback claims until Friday; office hours cancelled this week." Between them, the hires have 8 open questions, and 2 of them block the classification worksheet that is due Wednesday 11/11.
 
 Suggested handling:
 
 1. **Don't ping.** Acknowledge once: "Understood, good luck. We'll send one batched list for after Friday."
 2. **Triage the question log.** Label each question B (blocks a dated deliverable this week), N (needed this week) or L (later).
-3. **Try once more:** spend up to 15 more minutes on each B and N question in the primers and the official sources (USMCA text on ustr.gov, 19 CFR on ecfr.gov, CBP guidance), and update "tried so far". Each hire checks the other's log; the answer may already be there.
+3. **Try once more:** spend up to 15 more minutes on each B and N question in the primers and the official sources (HTSUS and its notes on hts.usitc.gov, CROSS rulings on rulings.cbp.gov, the Canada Customs Tariff on cbsa-asfc.gc.ca, TIGIE changes in the DOF), and update "tried so far". Each hire checks the other's log; the answer may already be there.
 4. **Re-route:** process, system and priority questions go to the Manager. A blocking customs-interpretation question goes to the Manager too, who decides whether to wait, ask [COMPANY: broker], or move the due date.
-5. **Re-plan:** move work that doesn't need the Senior to this week (analytics, tool inventory, SOP drafting, Anki). Tell the Manager if the Thursday date moves.
+5. **Re-plan:** move work that doesn't need the Senior to this week (analytics, tool inventory, SOP drafting, Anki). Tell the Manager if the Wednesday date moves.
 6. **Send one consolidated message,** timed for after the deadline: at most 5 questions, ranked, each with "tried so far". Propose a 20-minute slot.
 7. **Use it as M9 exposure:** ask the Manager (not the Senior, this week) whether there is a low-risk drawback task to observe after the deadline. Drawback stays with the Senior; you're there to learn how it works.
 

@@ -574,6 +574,8 @@ Top 10 items by absolute PPV, excluding outliers:
 
 By origin, excluding outliers: CN $44,119.21 (2.09%); CA $8,380.68 (1.42%); DE $7,090.70 (2.69%); US $3,923.28 (0.49%); MX $3,845.69 (0.37%); TW $3,104.52 (0.69%); KR $576.00 (0.18%); IT -$45.34 (-0.03%); IN -$3,542.73 (-0.89%); VN -$10,552.77 (-1.21%). 87 items are unfavorable and 63 favorable.
 
+By chapter, excluding outliers: 73 $26,415.24 (2.11%, 240 receipts); 84 $11,336.85 (0.78%); 76 $7,447.16 (2.02%); 85 $6,097.62 (0.38%); 94 $6,007.42 (1.27%); 39 $3,100.36 (0.83%); 82 $2,979.10 (0.50%); 40 $2,867.60 (1.94%); 63 $297.29 (0.20%); 42 -$242.84 (-0.48%); 83 -$593.78 (-0.50%); UNK -$8,812.78 (-1.95%, 73 receipts of the HTS-missing items). The chapters add up to the $56,899.24 total.
+
 The biggest driver: CN-origin chapter 73 and 76 items after the fictional US rate change on 2026-06-01.
 
 | CN, chapters 73 and 76 | Receipts | Standard value | PPV | PPV % |
@@ -700,9 +702,9 @@ Top 5 items by annualized impact:
 - Overlap: at step 2 (before the exemption) the prefix join gives 271 rows for 251 line and scenario pairs, because 20 SCN-01 lines (CN, 731815) match both 7318 and 731815. 65 SCN-03 pairs are exempt, which leaves 186 pairs (206 rows if both prefixes are kept). Counting both prefixes on non-exempt lines adds $50,738.10 (total $447,013.43). The longest prefix (25%) applies.
 - USMCA exemption: 65 SCN-03 lines ($750,029.39 YTD value) are exempt; the exemption is worth **$250,009.80** a year. The only SCN-03 impact comes from the two MX items with no certification: SYN-1149 $24,729.26 and SYN-1132 $7,836.22. Getting their certifications in place, if they qualify, removes the whole SCN-03 impact.
 - Not evaluable: 43 lines ($506,582.85 YTD value) of 5 HTS-missing items have an import country and origin that match a scenario: SYN-1034 CN, 7 lines, $48,378.19; SYN-1051 CN, 9, $76,387.88; SYN-1100 VN, 4, $95,360.58; SYN-1105 VN, 12, $156,814.11; SYN-1120 CN, 11, $129,642.09. From the descriptions, SYN-1100 (hex bolt) and SYN-1105 (hex nut) from VN look like heading 7318 and could add about **$33,623.29** a year under SCN-01 (10%). Research confirms the classification first; the others (cable clip, shelving, fan) do not look like SCN-01 goods.
-- Stretch (a), from the effective date to 2026-12-31: SCN-01 (from 12/1, 31 days) $19,278.46; SCN-02 (from 11/15, 47 days) $17,605.23; SCN-03 (from 2027-01-01) $0.
-- Stretch (c): of the 18 US-origin items with Canadian entry lines, the model should put 7 in scope (45 lines, 38,470 units YTD) and show an impact of $136,721.49 for the 12-month quantity (within a few dollars if the unit customs value was rounded). $136,713.28 means the quantity was truncated by integer division (`SUM(qty) * 12 / 9` on an INT). Zero usually means the Action tab still holds the template's sample action. Check that Hire B did not edit the Action tab: Research (Hire A or the Senior) fills it.
-- Fingerprints: $297,206.50 means `* (12 / 9)` integer division in T-SQL (the YTD impact); $646,285.13 means the exemption was ignored; $447,013.43 means no longest-prefix rule; $400,707.20 (188 lines) means duplicates were not removed.
+- Stretch (a), from the effective date to 2026-12-31: SCN-01 (from 12/1, 31 days) $19,278.46; SCN-02 (from 11/15, 47 days) $17,605.23; SCN-03 (from 2027-01-01) $0. Without the +1 (30 and 46 days) the results are $18,656.58 and $17,230.65: accept them if the day count is stated.
+- Stretch (c): of the 18 US-origin items with Canadian entry lines, the model should put 7 in scope (45 lines, 38,470 units YTD) and show an impact of $136,721.49 for the 12-month quantity (within a few dollars if the unit customs value was rounded). $136,713.28 means the quantity was truncated by integer division (`SUM(qty) * 12 / 9` on an INT). Zero usually means the Action tab still holds the template's sample action. Check that Hire B did not edit the Action tab: Research (Hire A or the Senior) fills it. Expect B19 = 18 and B30 = NO, because standard cost is blank on every row; B26 to B29 should read YES once the chapter list holds 85 and 94. The current duty rate is 0% for the 17 items with usmca_eligible_flag = 'Y' and the CA reference rate for SYN-1104; it does not change the impact.
+- Fingerprints: $297,206.50 means `* (12 / 9)` integer division in T-SQL (the YTD impact); $646,285.13 means the exemption was ignored; $447,013.43 means no longest-prefix rule; $400,707.20 (188 lines) means duplicates were not removed (Power Query or Excel route). In SQL, the ROW_NUMBER partition on entry_no, line_no and scenario_id also drops the duplicate copies, so a query on raw practice.entry_lines still returns $396,275.33. Check that the base reads v_entry_lines_clean.
 
 ### Reference T-SQL
 
@@ -888,7 +890,7 @@ Pass if: four cards on top that tie out; slicers that each change the expected c
 
 ### Model memo (about 400 words)
 
-**To:** BSA Manager · **From:** Hire A · **Date:** Fri 2026-11-13 · **Subject:** Practice data review (synthetic, Jan-Sep 2026): broker rates, USMCA claims, PPV, tariff scenarios
+**To:** BSA Manager · **From:** Hire A · **Date:** Fri 2026-11-13 · **Subject:** Practice data review (synthetic, Jan-Sep 2026): broker rates, USMCA (United States-Mexico-Canada Agreement) claims, PPV (purchase price variance), tariff scenarios
 
 **Bottom line**
 
@@ -901,11 +903,11 @@ Pass if: four cards on top that tie out; slicers that each change the expected c
 1. Rate audit: 1,198 lines audited, 49 mismatches (7 over, 42 under). Patterns: old rate after the change (18, -$23.8K), 0% applied (10, -$11.2K), additional duty missed (7, -$5.0K), new rate before the change (5, +$9.1K), other rates (9). High confidence: each line ties to the reference table.
 2. USMCA: SYN-1016 and SYN-1143 cause 30 invalid lines across all brokers ($20.6K); 7 lines on items with no certification; 8 one-off broker claims. 12 eligible lines paid $4.8K without claiming.
 3. PPV: $56.9K unfavorable (0.81%) after setting aside 12 outlier receipts ($322.1K: 9 unit-of-measure errors, 3 decimal shifts). CN chapter 73/76 receipts since June carry $37.1K (12.8%); the duty increase explains about $35.5K. Their standards still carry the old rate.
-4. Data quality: 24 duplicate lines (4 entries loaded twice; $15.3K duty double counted if kept), 4 lines on items missing from the master, 6 items with no HTS (94 lines, $1.05M) that cannot be audited or modeled. Two of them (VN hex bolt and nut) may fall under SCN-01: about $33.6K a year.
+4. Data quality: 24 duplicate lines (4 entries loaded twice; $15.3K duty double counted if kept), 4 lines on items missing from the master, 6 items with no HTS (Harmonized Tariff Schedule) code (94 lines, $1.05M) that cannot be audited or modeled. Two of them (VN hex bolt and nut) may fall under SCN-01: about $33.6K a year.
 
 **Recommended actions**
 
-- Correct the USMCA flag on SYN-1016 and SYN-1143 (Hire A maker, Senior checker, by 11/20). Senior decides the correction route for the 45 lines.
+- Hire A to draft the master-data correction for SYN-1016 and SYN-1143, with the evidence, by 11/20; the Senior reviews it and makes or approves the change. The Senior decides the correction route for the 45 lines.
 - Send the 49 mismatches to the Senior for broker follow-up, starting with BRK-US2's 14 stale-rate lines (by 11/18).
 - Hire B to prepare a standard cost update with Finance for the CN chapter 73/76 items, using the rate and item scope Research confirms, with maker-checker review (by 12/4).
 - Research to classify the 6 items with no HTS (by 11/25).
