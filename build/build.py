@@ -8,6 +8,7 @@ Run from the repo root:
 Needs: pandoc, python-docx, openpyxl, genanki, pandas (for the practice data).
 Outputs:
     dist/docs/**.docx                    one Word file per Markdown page (paste into OneNote)
+    dist/trainer-only/answer-key.docx    analytics answer key: Manager and Senior only
     dist/BSA-Onboarding-Handbook.docx    the core program docs in one printable file
     dist/BSA-Onboarding-Trackers.xlsx    skills tracker, knowledge tracker, tool inventory, glossary
     dist/BSA-Onboarding.apkg             Anki deck (File > Import in Anki)
@@ -48,12 +49,16 @@ HIRES = [("Hire A", "Research", "M5R"), ("Hire B", "Standard Cost", "M5C")]
 
 # Core program docs, in reading order, for the combined handbook.
 HANDBOOK_ORDER = [
+    "00-program-on-a-page.md",
     "01-30-60-90-plan.md",
     "02-weeks-1-2-schedule.md",
     "03-check-ins-and-scorecards.md",
     "04-access-request-checklist.md",
     "05-time-management.md",
 ]
+
+# Pages the hires must not see before the day-30 review; built to dist/trainer-only/.
+TRAINER_ONLY = {"analytics/answer-key.md"}
 
 NAVY = "1F3864"
 FONT = "Calibri"
@@ -135,7 +140,8 @@ def make_reference_docx(path):
 
 def pandoc_docx(sources, out, ref, toc=False):
     out.parent.mkdir(parents=True, exist_ok=True)
-    cmd = ["pandoc", "-f", "gfm", "-t", "docx", f"--reference-doc={ref}",
+    # gfm enables tex_math_dollars; turn it off so dollar amounts ("$1,234 ... $56") stay text.
+    cmd = ["pandoc", "-f", "gfm-tex_math_dollars", "-t", "docx", f"--reference-doc={ref}",
            f"--lua-filter={BUILD / 'links.lua'}", "-o", str(out)]
     if toc:
         cmd += ["--toc", "--toc-depth=2", "-M", "title=BSA Onboarding Handbook",
@@ -151,7 +157,9 @@ def build_docs():
         ref = Path(tmp) / "reference.docx"
         make_reference_docx(ref)
         for md in md_files:
-            pandoc_docx([md], DIST / "docs" / md.relative_to(DOCS).with_suffix(".docx"), ref)
+            rel = md.relative_to(DOCS)
+            out_dir = DIST / "trainer-only" if rel.as_posix() in TRAINER_ONLY else DIST / "docs" / rel.parent
+            pandoc_docx([md], out_dir / f"{md.stem}.docx", ref)
         handbook = [DOCS / name for name in HANDBOOK_ORDER if (DOCS / name).exists()]
         if handbook:
             pandoc_docx(handbook, DIST / "BSA-Onboarding-Handbook.docx", ref, toc=True)
@@ -493,8 +501,9 @@ def main():
     if shutil.which("pandoc") is None:
         fail("pandoc is not installed")
     DIST.mkdir(exist_ok=True)
-    if (DIST / "docs").exists():
-        shutil.rmtree(DIST / "docs")
+    for sub in ("docs", "trainer-only"):
+        if (DIST / sub).exists():
+            shutil.rmtree(DIST / sub)
     build_docs()
     build_trackers()
     build_anki()
