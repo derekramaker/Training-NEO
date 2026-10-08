@@ -1,0 +1,12 @@
+scenario_id,scenario_name,import_country,hts_prefix,country_of_origin,additional_rate,effective_date,usmca_exempt
+SCN-01,Fictional US additional duty on fasteners and valves,US,7318,CN,0.1500,2026-12-01,N
+SCN-01,Fictional US additional duty on fasteners and valves,US,731815,CN,0.2500,2026-12-01,N
+SCN-01,Fictional US additional duty on fasteners and valves,US,8481,CN,0.1500,2026-12-01,N
+SCN-01,Fictional US additional duty on fasteners and valves,US,7318,VN,0.1000,2026-12-01,N
+SCN-01,Fictional US additional duty on fasteners and valves,US,8481,VN,0.1000,2026-12-01,N
+SCN-02,Fictional Canadian surtax on selected US goods,CA,8504,US,0.2500,2026-11-15,N
+SCN-02,Fictional Canadian surtax on selected US goods,CA,8544,US,0.2500,2026-11-15,N
+SCN-02,Fictional Canadian surtax on selected US goods,CA,9403,US,0.2500,2026-11-15,N
+SCN-03,"Fictional US duty on Mexican electrical goods, USMCA-qualifying exempt",US,8536,MX,0.2500,2027-01-01,Y
+SCN-03,"Fictional US duty on Mexican electrical goods, USMCA-qualifying exempt",US,8544,MX,0.2500,2027-01-01,Y
+SCN-03,"Fictional US duty on Mexican electrical goods, USMCA-qualifying exempt",US,8504,MX,0.2500,2027-01-01,Y

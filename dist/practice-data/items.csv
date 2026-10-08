@@ -1,0 +1,151 @@
+item_id,description,hts10,country_of_origin,supplier_id,std_cost,list_price,usmca_eligible_flag
+SYN-1001,"Steel mounting bracket, 100 mm",7326900020,US,SUP-116,1.6362,2.63,Y
+SYN-1002,"Plastic storage bin, 12 L",3923106080,CN,SUP-106,2.6449,4.80,N
+SYN-1003,"Centrifugal utility pump, 1/4 HP",8413706090,CA,SUP-118,47.0074,75.99,Y
+SYN-1004,"Wall switch, 20 A single-pole",8536508030,CN,SUP-102,1.5945,2.30,N
+SYN-1005,"Stainless threaded elbow, 1 in",7307220060,CN,SUP-101,6.7765,9.98,N
+SYN-1006,"Screwdriver set, 10-piece",8205405050,CN,SUP-130,8.6430,14.07,N
+SYN-1007,"Check valve, brass, 3/4 in",8481308080,IN,SUP-120,7.9002,11.01,N
+SYN-1008,"Steel shelving unit, 4-tier",9403200040,US,SUP-114,34.3912,46.79,Y
+SYN-1009,"Combination wrench set, 12-piece",8204110040,IN,SUP-121,19.2071,30.15,N
+SYN-1010,"Extension cord, 10 ft",8544420060,MX,SUP-110,9.0984,15.22,Y
+SYN-1011,"Hex bolt, zinc-plated steel, M12 x 60 mm, box of 100",7318156060,CN,SUP-102,13.4543,20.91,N
+SYN-1012,"Hex nut, steel, M6, box of 200",7318164010,VN,SUP-108,7.0484,11.56,N
+SYN-1013,"Aluminum storage hook, large",7616994050,CN,SUP-103,3.0960,4.35,N
+SYN-1014,"Slip-joint pliers, 6 in",8203204050,CN,SUP-106,5.3775,8.28,N
+SYN-1015,"Extension cord, 10 ft",8544420020,KR,SUP-126,7.4984,10.14,N
+SYN-1016,"Slip-joint pliers, 10 in",8203208040,CN,SUP-129,5.2818,7.43,Y
+SYN-1017,"Moving blanket, 40 x 72 in",6307904040,CN,SUP-106,9.0402,14.19,N
+SYN-1018,"Wall switch, 15 A single-pole",8536502030,MX,SUP-131,2.0743,3.52,Y
+SYN-1019,"Ball valve, brass, 3/4 in",8481804060,IT,SUP-127,12.6399,21.25,N
+SYN-1020,"Ball valve, brass, 3/4 in",8481804060,VN,SUP-108,14.1748,19.98,N
+SYN-1021,"Extension cord, 50 ft",8544420020,US,SUP-116,6.1546,10.08,Y
+SYN-1022,"Extension cord, 50 ft",8544424010,CN,SUP-101,9.2488,13.72,N
+SYN-1023,"Wall switch, 20 A single-pole",8536505010,MX,SUP-110,0.7287,1.06,Y
+SYN-1024,"Plastic storage bin, 12 L",3923106080,CN,SUP-129,7.5914,11.61,N
+SYN-1025,"Cordless drill, 18 V",8467212060,CN,SUP-129,69.2668,106.10,N
+SYN-1026,"Ball valve, brass, 1/2 in",8481804030,DE,SUP-124,5.1697,7.38,N
+SYN-1027,"Vinyl tubing, 3/8 in x 20 ft",3917326090,CN,SUP-129,6.1758,9.95,N
+SYN-1028,"Ball valve, brass, 1/2 in",8481805020,US,SUP-114,15.2744,21.16,Y
+SYN-1029,"Flat washer, steel, 6 mm, box of 500",7318220050,VN,SUP-107,7.7732,13.45,N
+SYN-1030,"Centrifugal utility pump, 1/4 HP",8413706090,CA,SUP-117,85.5963,117.33,Y
+SYN-1031,"Extension cord, 25 ft",8544420020,KR,SUP-126,9.4207,16.65,N
+SYN-1032,"Tool bag, polyester, 20 in",4202925090,VN,SUP-108,5.8808,9.29,N
+SYN-1033,"Vinyl tubing, 1/4 in x 20 ft",3917324030,US,SUP-114,3.6635,5.80,Y
+SYN-1034,"Plastic cable clip, pack of 50",,CN,SUP-105,2.5137,3.78,N
+SYN-1035,"Rubber O-ring kit, 225-piece",4016935030,US,SUP-114,5.4305,8.96,Y
+SYN-1036,"Butt hinge, steel, 3.5 in",8302102060,CN,SUP-129,2.1435,3.80,N
+SYN-1037,"Lithium-ion battery pack, 4 Ah",8507606060,TW,SUP-123,29.2892,48.24,N
+SYN-1038,"Cordless drill, 18 V",8467212060,CN,SUP-104,63.9237,112.02,N
+SYN-1039,"Ball valve, brass, 3/4 in",8481804060,IN,SUP-120,5.0327,7.52,N
+SYN-1040,"Ball valve, brass, 1/2 in",8481805020,DE,SUP-124,6.3071,9.14,N
+SYN-1041,"Aluminum sheet pan, 13 x 18 in",7615104090,MX,SUP-112,6.2049,10.72,Y
+SYN-1042,"Centrifugal utility pump, 1/4 HP",8413706090,MX,SUP-113,51.2539,94.79,Y
+SYN-1043,"Hex nut, steel, M10, box of 200",7318166050,CN,SUP-130,11.7910,19.08,N
+SYN-1044,"Battery charger, 12 V",8504404050,US,SUP-116,14.4636,20.60,Y
+SYN-1045,"Plastic storage bin, 12 L",3923100090,MX,SUP-112,3.8107,7.03,Y
+SYN-1046,"Lithium-ion battery pack, 5 Ah",8507602040,KR,SUP-126,21.6290,39.36,N
+SYN-1047,"Centrifugal utility pump, 1/4 HP",8413706060,IT,SUP-127,92.4487,154.17,N
+SYN-1048,"Steel shelving unit, 5-tier",9403206020,CA,SUP-119,39.6469,68.92,Y
+SYN-1049,"Flat washer, steel, 12 mm, box of 500",7318220050,CN,SUP-130,7.3944,13.45,N
+SYN-1050,"Aluminum storage hook, large",7616994050,CA,SUP-119,2.1081,3.87,Y
+SYN-1051,"Steel shelving unit, 5-tier",,CN,SUP-101,46.8021,71.00,N
+SYN-1052,"Vinyl tubing, 1/4 in x 20 ft",3917326090,US,SUP-114,3.4145,6.16,Y
+SYN-1053,"Hex bolt, zinc-plated steel, M6 x 30 mm, box of 100",7318158020,CN,SUP-102,9.0421,14.40,N
+SYN-1054,"Centrifugal utility pump, 1/4 HP",8413704010,CN,SUP-105,54.7669,79.98,N
+SYN-1055,"Padlock, laminated steel, 50 mm",8301100060,VN,SUP-109,7.6578,14.04,N
+SYN-1056,"Duplex receptacle, 20 A",8536698030,MX,SUP-111,2.2314,4.03,Y
+SYN-1057,"Aluminum sheet pan, 9 x 13 in",7615106080,MX,SUP-110,4.7123,6.60,Y
+SYN-1058,"Moving blanket, 40 x 72 in",6307902040,VN,SUP-107,9.5935,13.58,N
+SYN-1059,"Hex bolt, zinc-plated steel, M6 x 30 mm, box of 100",7318158020,TW,SUP-122,13.9424,24.04,N
+SYN-1060,"Combination wrench set, 12-piece",8204115090,CN,SUP-130,26.0287,40.10,N
+SYN-1061,"Cordless drill, 12 V",8467212050,US,SUP-114,29.4223,44.87,Y
+SYN-1062,"Rubber O-ring kit, 225-piece",4016934060,CN,SUP-104,5.5196,8.25,N
+SYN-1063,"Extension cord, 50 ft",8544420060,CN,SUP-105,6.2543,11.56,N
+SYN-1064,"Aluminum sheet pan, 13 x 18 in",7615106080,CN,SUP-105,4.6598,7.02,N
+SYN-1065,"Tool bag, polyester, 16 in",4202926010,CN,SUP-130,4.9673,8.36,N
+SYN-1066,"Steel shelving unit, 4-tier",9403200030,CN,SUP-128,37.8815,63.86,N
+SYN-1067,"Centrifugal utility pump, 1/2 HP",8413706060,MX,SUP-113,81.6229,124.55,Y
+SYN-1068,"Slip-joint pliers, 6 in",8203208040,VN,SUP-109,4.6225,7.56,N
+SYN-1069,"Plastic cable clip, pack of 50",3926900080,VN,SUP-130,2.7156,4.17,N
+SYN-1070,"Steel shelving unit, 4-tier",9403200030,US,SUP-116,25.1181,39.22,Y
+SYN-1071,"Check valve, brass, 1 in",8481308080,IT,SUP-127,15.3756,25.72,N
+SYN-1072,"Steel mounting bracket, 150 mm",7326900020,US,SUP-115,1.6162,2.40,Y
+SYN-1073,"Lithium-ion battery pack, 2 Ah",8507604040,TW,SUP-122,18.0772,24.55,N
+SYN-1074,"Screwdriver set, 6-piece",8205400040,TW,SUP-122,6.8587,11.35,N
+SYN-1075,"Battery charger, 20 V",8504400060,US,SUP-115,8.7725,13.74,Y
+SYN-1076,"Lithium-ion battery pack, 2 Ah",8507602040,CN,SUP-101,20.4969,32.91,N
+SYN-1077,"Steel mounting bracket, 150 mm",7326905050,CA,SUP-117,3.0837,5.40,Y
+SYN-1078,"Steel mounting bracket, 150 mm",7326902090,MX,SUP-112,3.5908,6.62,Y
+SYN-1079,"Ball valve, brass, 3/4 in",8481804030,US,SUP-114,5.6602,10.40,Y
+SYN-1080,"Stainless steel mixing bowl set, 3-piece",7323936020,CN,SUP-101,9.5854,16.71,N
+SYN-1081,"Lithium-ion battery pack, 2 Ah",8507604040,CN,SUP-103,19.6774,33.31,N
+SYN-1082,"Battery charger, 18 V",8504404050,MX,SUP-131,20.8127,33.72,Y
+SYN-1083,"Moving blanket, 40 x 72 in",6307904040,CN,SUP-103,9.9101,15.16,N
+SYN-1084,"Screwdriver set, 6-piece",8205405050,DE,SUP-125,10.7788,18.46,N
+SYN-1085,"Steel mounting bracket, 150 mm",7326900020,CN,SUP-130,4.9074,6.67,N
+SYN-1086,"Combination wrench set, 12-piece",8204110040,TW,SUP-122,21.6825,33.37,N
+SYN-1087,"Lithium-ion battery pack, 2 Ah",8507606060,KR,SUP-126,42.1276,60.91,N
+SYN-1088,"Steel shelving unit, 4-tier",9403200040,MX,SUP-131,22.2483,37.81,Y
+SYN-1089,"Check valve, brass, 1/2 in",8481302050,VN,SUP-109,13.6773,20.86,N
+SYN-1090,"Rubber O-ring kit, 225-piece",4016935030,CN,SUP-101,3.8885,5.40,N
+SYN-1091,"Vinyl tubing, 1/4 in x 20 ft",3917326090,CA,SUP-119,4.4351,7.14,Y
+SYN-1092,"Vinyl tubing, 3/8 in x 20 ft",3917326090,CA,SUP-118,6.3405,9.89,Y
+SYN-1093,"Stainless steel mixing bowl set, 5-piece",7323936020,CN,SUP-105,12.4635,19.43,N
+SYN-1094,"Ball valve, brass, 1/2 in",8481804060,CN,SUP-101,10.0587,13.92,N
+SYN-1095,"Cordless drill, 20 V",8467212020,DE,SUP-125,63.2498,97.95,N
+SYN-1096,"Rubber O-ring kit, 407-piece",4016934060,US,SUP-114,6.0932,9.91,Y
+SYN-1097,"Stainless threaded elbow, 1/2 in",,IN,SUP-121,4.0673,6.53,N
+SYN-1098,"Rubber O-ring kit, 407-piece",4016934060,CA,SUP-117,4.9651,6.91,Y
+SYN-1099,"Extension cord, 25 ft",8544424010,MX,SUP-111,4.4294,7.14,Y
+SYN-1100,"Hex bolt, zinc-plated steel, M6 x 30 mm, box of 100",,VN,SUP-108,15.4732,21.46,N
+SYN-1101,"Padlock, laminated steel, 50 mm",8301100060,CN,SUP-104,5.0336,7.57,N
+SYN-1102,"Aluminum storage hook, large",7616996020,CN,SUP-130,3.0821,5.23,N
+SYN-1103,"Flat washer, steel, 8 mm, box of 500",7318225050,CN,SUP-103,5.7834,7.98,N
+SYN-1104,"Cordless drill, 18 V",8467212060,US,SUP-116,51.1437,72.23,N
+SYN-1105,"Hex nut, steel, M6, box of 200",,VN,SUP-108,9.2931,13.10,N
+SYN-1106,"Battery charger, 12 V",8504402020,CN,SUP-106,19.3151,33.69,N
+SYN-1107,"Steel mounting bracket, 100 mm",7326905050,CA,SUP-119,1.5374,2.45,Y
+SYN-1108,"Steel shelving unit, 5-tier",9403206020,VN,SUP-109,39.2701,62.70,N
+SYN-1109,"Steel shelving unit, 5-tier",9403200040,MX,SUP-131,43.0678,73.40,Y
+SYN-1110,"Oscillating floor fan, 16 in",8414514090,MX,SUP-113,27.8993,42.57,Y
+SYN-1111,"Combination wrench set, 12-piece",8204118030,DE,SUP-124,29.7945,51.55,N
+SYN-1112,"Hex nut, steel, M8, box of 200",7318164010,TW,SUP-123,7.4687,11.54,N
+SYN-1113,"Screwdriver set, 6-piece",8205400040,CN,SUP-101,6.1733,10.09,N
+SYN-1114,"Stainless steel mixing bowl set, 3-piece",7323934010,IN,SUP-121,14.2129,25.10,N
+SYN-1115,"Battery charger, 18 V",8504402020,MX,SUP-110,19.3255,30.38,Y
+SYN-1116,"Duplex receptacle, 20 A",8536698030,KR,SUP-126,0.9501,1.59,N
+SYN-1117,"Ball valve, brass, 3/4 in",8481804060,IT,SUP-127,8.0875,12.96,N
+SYN-1118,"Plastic storage bin, 45 L",3923106060,VN,SUP-107,3.7248,5.93,N
+SYN-1119,"Vinyl tubing, 1/4 in x 20 ft",3917326090,CN,SUP-128,2.0810,3.11,N
+SYN-1120,"Oscillating floor fan, 18 in",,CN,SUP-104,32.1415,59.32,N
+SYN-1121,"Hex bolt, zinc-plated steel, M10 x 50 mm, box of 100",7318156060,IN,SUP-121,7.1569,10.66,N
+SYN-1122,"Aluminum sheet pan, 13 x 18 in",7615106080,CA,SUP-118,6.5689,9.61,Y
+SYN-1123,"Rubber O-ring kit, 407-piece",4016934030,CA,SUP-119,7.7951,14.19,Y
+SYN-1124,"Tool bag, polyester, 16 in",4202926040,VN,SUP-107,4.6630,8.39,N
+SYN-1125,"Ball valve, brass, 1/2 in",8481804030,US,SUP-116,12.8481,21.13,Y
+SYN-1126,"Combination wrench set, 8-piece",8204110040,IN,SUP-121,19.4377,27.80,N
+SYN-1127,"Screwdriver set, 6-piece",8205406040,DE,SUP-125,10.4776,19.26,N
+SYN-1128,"Steel shelving unit, 5-tier",9403200030,US,SUP-114,45.9929,71.73,Y
+SYN-1129,"Screwdriver set, 10-piece",8205406040,TW,SUP-122,4.3393,6.30,N
+SYN-1130,"Flat washer, steel, 10 mm, box of 500",7318220050,VN,SUP-108,4.0949,6.23,N
+SYN-1131,"Steel mounting bracket, 75 mm",7326902090,MX,SUP-110,4.1664,7.54,Y
+SYN-1132,"Duplex receptacle, 15 A",8536696060,MX,SUP-131,1.3323,1.82,N
+SYN-1133,"Aluminum sheet pan, 13 x 18 in",7615104090,CA,SUP-117,3.6376,5.47,N
+SYN-1134,"Stainless threaded elbow, 1/4 in",7307220030,IN,SUP-120,5.6195,10.06,N
+SYN-1135,"Plastic storage bin, 12 L",3923100090,MX,SUP-131,2.5457,4.60,Y
+SYN-1136,"Extension cord, 25 ft",8544420060,US,SUP-114,9.0002,12.36,Y
+SYN-1137,"Battery charger, 12 V",8504402020,CN,SUP-104,14.6111,25.51,N
+SYN-1138,"Steel shelving unit, 4-tier",9403200030,MX,SUP-111,37.8117,51.59,Y
+SYN-1139,"Cordless drill, 12 V",8467212020,TW,SUP-123,55.8971,96.06,N
+SYN-1140,"Combination wrench set, 12-piece",8204110040,CN,SUP-128,31.6948,51.14,N
+SYN-1141,"Aluminum storage hook, small",7616994050,CA,SUP-117,1.3985,2.36,Y
+SYN-1142,"Wall switch, 15 A 3-way",8536508030,CN,SUP-105,1.8704,3.45,N
+SYN-1143,"Duplex receptacle, 15 A tamper-resistant",8536696060,CN,SUP-129,0.9592,1.65,Y
+SYN-1144,"Steel shelving unit, 5-tier",9403206020,CA,SUP-118,34.5901,62.60,Y
+SYN-1145,"Hex bolt, zinc-plated steel, M6 x 30 mm, box of 100",7318156060,VN,SUP-108,17.6697,29.19,N
+SYN-1146,"Check valve, brass, 1/2 in",8481302050,CN,SUP-106,19.2336,34.10,N
+SYN-1147,"Check valve, brass, 3/4 in",8481302050,IN,SUP-121,13.8051,19.99,N
+SYN-1148,"Plastic cable clip, pack of 50",3926905030,CN,SUP-106,2.1836,3.92,N
+SYN-1149,"Wall switch, 15 A single-pole",8536502030,MX,SUP-113,2.2783,3.29,N
+SYN-1150,"Oscillating floor fan, 20 in",8414512020,MX,SUP-131,21.6809,32.26,Y

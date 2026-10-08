@@ -1,0 +1,149 @@
+term,definition,country,category
+CBP (U.S. Customs and Border Protection),"DHS agency that enforces US import and export laws, assesses and collects duties, taxes and fees, and releases goods at US ports of entry.",US,Customs
+ACE (Automated Commercial Environment),CBP's single-window system for import and export processing. Brokers file entries in it; the ACE Portal gives importers reports on their own entries.,US,Customs
+ABI (Automated Broker Interface),The electronic interface brokers and self-filers use to transmit entry and entry summary data to ACE.,US,Customs
+"Entry (cargo release, CBP Form 3461)",The filing that asks CBP to release goods from customs custody. Release is not the end: the entry summary and duty payment follow.,US,Customs
+Entry summary (CBP Form 7501),"The filing that declares classification, value, origin, preference claims, rates and duties for each line; generally due with duty deposit within 10 working days after release.",US,Customs
+Liquidation,"CBP's final computation of duties, taxes and fees on an entry; by statute generally within one year of entry unless extended or suspended. It starts the 180-day protest clock.",US,Customs
+Protest (CBP Form 19),"Formal challenge to a CBP decision such as liquidation, filed within 180 days of the decision under 19 U.S.C. 1514.",US,Customs
+PSC (Post Summary Correction),"An electronic correction to an accepted entry summary, filed in ACE before liquidation within CBP's PSC time limits; it fully replaces the original entry summary.",US,Customs
+Reasonable care,"The importer of record's legal duty (19 U.S.C. 1484) to use reasonable care in declaring classification, value, origin and rate. Relying blindly on the broker does not meet it.",US,Customs
+Prior disclosure,"Voluntary report to CBP of a potential 19 U.S.C. 1592 violation before a formal investigation starts, with tender of lost duties; it substantially reduces penalties (19 CFR 162.74). Hires escalate; they do not decide.",US,Customs
+Importer of record (IOR),"The party legally responsible for a US entry: accurate declarations, payment of duties and fees, and keeping records. Usually the owner or purchaser of the goods.",US,Customs
+Customs broker,"Licensed intermediary who files import declarations for the importer: CBP-licensed in the US, CBSA-licensed in Canada, an agente aduanal in Mexico. The importer stays responsible for the data.",All,Customs
+Customs bond,"Surety contract guaranteeing payment of duties, taxes and penalties to CBP; required for formal entries. A continuous bond covers a year of entries, a single-transaction bond one entry.",US,Customs
+MPF (Merchandise Processing Fee),"CBP user fee charged as a percentage of value on formal entries, with a per-entry minimum and maximum that change. Goods claimed as USMCA-originating are exempt.",US,Customs
+HMF (Harbor Maintenance Fee),"Fee charged as a percentage of the value of commercial cargo moving through US seaports; it generally does not apply to air, truck or rail shipments.",US,Customs
+"ISF (Importer Security Filing, 10+2)",Advance cargo data the ISF importer must file for ocean shipments before the cargo is loaded at the foreign port; late or wrong filings risk liquidated damages and holds.,US,Customs
+PGA (Partner Government Agency),"Another US agency, such as FDA, EPA, USDA or CPSC, whose admissibility data is filed through ACE alongside the customs entry.",US,Customs
+Recordkeeping (19 CFR Part 163),"Legal duty to keep import records, such as entries, invoices and origin support, generally for five years from entry and to produce them when CBP demands.",US,Customs
+AD/CVD (antidumping and countervailing duties),"Additional duties that offset dumping or subsidies on specific goods from specific countries, often by manufacturer. US cases run through Commerce and USITC; Canadian ones through CBSA and CITT.",All,Customs
+Section 232,"Trade Expansion Act of 1962 provision letting the President adjust imports that threaten US national security; basis for tariffs on steel, aluminum and other goods, implemented in HTSUS Chapter 99.",US,Customs
+Section 301,"Trade Act of 1974 provision letting USTR act against unfair foreign trade practices; basis for additional duties on many products of China. Liability follows country of origin, not country of export.",US,Customs
+IEEPA,International Emergency Economic Powers Act. Used in 2025 as the legal basis for broad additional tariffs; in Learning Resources v. Trump (February 2026) the Supreme Court held it does not authorize tariffs.,US,Customs
+Section 122,"Trade Act of 1974 provision allowing a temporary import surcharge of up to 15 percent for up to 150 days to address balance-of-payments problems, unless Congress extends it.",US,Customs
+Tariff stacking,"How several additional duties apply together to one item, set by each action's legal text and CBP guidance. Research must document it with sources; never assume it.",US,Customs
+CSMS (Cargo Systems Messaging Service),CBP's official messages to the trade about ACE changes and how new tariff actions must be filed; a primary source for Research alongside the Federal Register.,US,Customs
+Federal Register,"The US government's daily publication of rules, proclamations, executive orders and notices. Tariff actions and their HTS annexes appear here; it is the legal source for scope and effective dates.",US,Customs
+Special Program Indicator (SPI),Code on an entry summary line that claims a preference program such as USMCA; a wrong or missing SPI changes the duty paid.,US,Programs
+HTSUS,"Harmonized Tariff Schedule of the United States, published by the USITC: 8-digit tariff lines plus 2-digit statistical suffixes, with general notes, chapter notes and duty rates.",US,Classification
+Chapter 98 (HTSUS),"Special classification provisions, such as US goods returned or assembled abroad, that can reduce or remove duty when their conditions and documentation are met.",US,Classification
+Chapter 99 (HTSUS),"Temporary legislation and additional import duties, such as Section 232 and Section 301 measures, reported as an extra HTS number alongside the regular Chapter 1-97 classification.",US,Classification
+CROSS,"CBP's Customs Rulings Online Search System: a free, searchable database of CBP rulings on classification, origin and valuation since 1989, used to support our classification decisions.",US,Classification
+Binding ruling,"Written CBP decision (19 CFR Part 177) on classification, origin or value for a specifically described good; binding on CBP for that good. Canada and Mexico offer advance rulings too.",US,Classification
+Duty drawback,"Refund of up to 99 percent of certain duties, taxes and fees paid on imports when the goods, or permitted substitutes, are exported or destroyed (19 CFR Part 190). The Senior owns it here.",US,Programs
+Manufacturing drawback,"Drawback on imported merchandise used to make an article that is exported or destroyed, by direct identification (19 U.S.C. 1313(a)) or substitution (1313(b)).",US,Programs
+Unused merchandise drawback,"Drawback when imported goods, or substitutes classified in the same 8-digit HTS, are exported or destroyed without being used in the US (19 U.S.C. 1313(j)).",US,Programs
+Substantial transformation,"Test for non-preferential origin: goods originate where they were last transformed into a new article with a different name, character or use. Used for marking and most trade remedies.",All,Origin
+CBSA (Canada Border Services Agency),"Federal agency that administers Canadian customs and trade laws, assesses and collects duties and taxes, and releases goods at the border.",CA,Customs
+CARM (CBSA Assessment and Revenue Management),"CBSA's system of record for assessing and collecting duties and taxes on commercial imports since October 2024, used through the CARM Client Portal.",CA,Customs
+CAD (Commercial Accounting Declaration),"The CARM declaration that accounts for imported commercial goods: classification, value, origin, duties and taxes. It replaced the B3; corrections are filed as new versions.",CA,Customs
+Business Number and RM account (BN15),A Canadian importer's 9-digit CRA Business Number plus its CBSA import-export (RM) program account; together the 15-character identifier on customs documents.,CA,Customs
+D-Memoranda,"CBSA departmental memoranda explaining how customs laws are applied, such as D10 classification, D11 origin, D13 valuation and D17 accounting; the operational rulebook for Canada.",CA,Customs
+Customs Tariff (Canada),Canadian statute whose schedule sets classification and duty rates by tariff treatment; tariff items are 8 digits plus a 2-digit statistical suffix.,CA,Classification
+CUSMA,Canada-United States-Mexico Agreement: Canada's name for USMCA. Same agreement as USMCA and T-MEC.,CA,Origin
+GST on imports,"Canada's federal Goods and Services Tax charged on most imported goods on the duty-paid value, collected by the CBSA; registered businesses can usually claim input tax credits.",CA,Customs
+Release prior to payment (RPP),CBSA privilege that releases goods before final accounting and payment of duties and taxes; under CARM the importer must post its own financial security to use it.,CA,Customs
+Value for duty (Canada),"Canada's customs value. Under transaction value it excludes transportation and insurance after the place of direct shipment to Canada, giving an FOB-like value.",CA,Customs
+Surtax order (Canada),"Canadian order imposing additional duties on goods of a specified origin, such as countermeasures on certain US goods; implementation details appear in CBSA customs notices.",CA,Customs
+CERS (Canadian Export Reporting System),CBSA's free web portal for filing export declarations for goods leaving Canada; it normally requires a valid BN15.,CA,Exports
+SAT (Servicio de Administración Tributaria),"Mexico's tax authority. It administers the RFC, e.firma, the padrón de importadores and the annual foreign-trade rules (Reglas Generales de Comercio Exterior, RGCE).",MX,Customs
+ANAM (Agencia Nacional de Aduanas de México),"Mexico's customs agency since 2022, responsible for customs offices, inspections and customs operations.",MX,Customs
+Pedimento,"The Mexican customs declaration that the agente aduanal transmits for each import or export, showing classification, value, origin, taxes and regime, such as definitive or temporary.",MX,Customs
+Agente aduanal,"Mexican customs broker holding a patente from the customs authority; files pedimentos for the importer. The importer remains liable, and the agente shares liability for the taxes.",MX,Customs
+Padrón de importadores,"SAT registry an importer must be in, active and in good standing, to import into Mexico; some sectors need an extra sector-specific registration.",MX,Customs
+RFC (Registro Federal de Contribuyentes),"Mexico's taxpayer ID, required on pedimentos and for registration in the padrón de importadores.",MX,Customs
+e.firma,"SAT-issued advanced electronic signature (formerly FIEL) used to sign SAT and VUCEM filings, including padrón registration.",MX,Customs
+TIGIE,"Mexico's tariff schedule (Tarifa de la Ley de los Impuestos Generales de Importación y de Exportación), with 8-digit fracciones arancelarias; changed by decrees published in the DOF.",MX,Classification
+NICO (Número de Identificación Comercial),"2-digit statistical suffix after the 8-digit TIGIE fracción, giving the 10-digit code declared on the pedimento.",MX,Classification
+IMMEX,"Mexican program (Industria Manufacturera, Maquiladora y de Servicios de Exportación) letting authorized companies import inputs temporarily, deferring import duty and IVA, to process and export them.",MX,Programs
+Anexo 24,"RGCE annex setting the automated inventory control system IMMEX companies must keep for temporary imports, tracking each input from entry to export or change of regime.",MX,Programs
+Anexo 31,"RGCE annex for SAT's system of credit and guarantee accounts (SCCCyG), which tracks IVA and IEPS credits on certified companies' temporary imports until exports discharge them.",MX,Programs
+VUCEM,"Ventanilla Única de Comercio Exterior Mexicana: Mexico's single window for foreign-trade procedures, permits and digitized supporting documents linked to pedimentos.",MX,Customs
+IVA (Impuesto al Valor Agregado),Mexico's value-added tax. On imports it is charged on the customs value plus the import duty and other charges; most businesses can credit it.,MX,Customs
+IGI (Impuesto General de Importación),"Mexico's import duty, calculated on the customs value at the TIGIE rate unless a preference such as T-MEC applies.",MX,Customs
+DTA (Derecho de Trámite Aduanero),"Mexican customs processing fee charged on pedimentos, either a percentage of customs value or a fixed amount depending on the regime.",MX,Customs
+Customs value (Mexico),"Mexico's valor en aduana: transaction value plus additions such as freight and insurance to the point of entry, giving a CIF-like base, unlike the US and Canada.",MX,Customs
+T-MEC,"Tratado entre México, Estados Unidos y Canadá: Mexico's name for USMCA.",MX,Origin
+DOF (Diario Oficial de la Federación),"Mexico's official gazette, where TIGIE changes, decrees and RGCE amendments are published; the legal source for Mexican tariff research.",MX,Customs
+HS (Harmonized System),"The World Customs Organization's international product nomenclature. The first 6 digits are shared by the US, Canada and Mexico; each country adds its own digits.",All,Classification
+GRI (General Rules of Interpretation),Six ordered rules for classifying goods in the HS. GRI 1 (heading terms plus section and chapter notes) decides most cases; later rules apply only when GRI 1 does not.,All,Classification
+Explanatory Notes,"The WCO's official commentary on HS headings; not legally binding in the US, but CBP and courts treat them as persuasive guidance.",All,Classification
+"Ad valorem, specific and compound duty","Ad valorem duty is a percentage of customs value, specific duty a fixed amount per unit such as per kg, and compound duty combines both.",All,Customs
+Transaction value (customs valuation),"The price actually paid or payable for goods sold for export, plus defined additions such as assists, royalties, certain commissions and packing; the primary valuation method in all three countries.",All,Customs
+Assist,"A good or service the buyer supplies free or at reduced cost for producing imported goods, such as molds, tooling or engineering done abroad; its value is added to customs value.",All,Customs
+USMCA,"United States-Mexico-Canada Agreement, in force since July 1, 2020, replacing NAFTA. Originating goods with a valid claim get preferential duty. Called CUSMA in Canada and T-MEC in Mexico.",All,Origin
+Originating good,"A good that meets USMCA Article 4.2: wholly obtained or produced, produced only from originating materials, or meeting its product-specific rule of origin, plus the other chapter requirements.",All,Origin
+Product-specific rule of origin (PSR),"The USMCA Annex 4-B rule for an HS chapter, heading or subheading stating the tariff shift and/or RVC a good must meet to originate.",All,Origin
+Tariff shift,"Rule of origin requiring each non-originating material to be classified in a different HS chapter, heading or subheading than the finished good; also called change in tariff classification.",All,Origin
+RVC (regional value content),"The share of a good's value that is regional, calculated by the transaction value method or the net cost method as the product-specific rule allows.",All,Origin
+Transaction value method (RVC),"RVC = (transaction value of the good minus value of non-originating materials) divided by transaction value, times 100. Not allowed for some goods, such as many automotive goods.",All,Origin
+Net cost method (RVC),"RVC = (net cost minus value of non-originating materials) divided by net cost, times 100; net cost excludes sales promotion, royalties, shipping and packing, and non-allowable interest.",All,Origin
+De minimis (USMCA),"Lets a good originate even though some non-originating materials fail the tariff shift, if those materials are no more than 10 percent of the good's value; exceptions apply.",All,Origin
+Accumulation (USMCA),Rule that lets production and originating materials from any of the three USMCA countries count toward a good's origin.,All,Origin
+Certification of origin (USMCA),"Statement by the importer, exporter or producer, in any format, containing the nine minimum data elements of Annex 5-A; it can cover one shipment or a blanket period of up to 12 months.",All,Origin
+Bill of materials for origin,"List of a good's components with HS classification, origin and value, used to test the product-specific rule; the core evidence behind a USMCA certification.",All,Origin
+EAR (Export Administration Regulations),"Rules at 15 CFR Parts 730-774, administered by BIS, controlling exports, reexports and transfers of commercial and dual-use items.",US,Exports
+BIS (Bureau of Industry and Security),"Department of Commerce bureau that administers and enforces the EAR, including the Commerce Control List and the Entity List.",US,Exports
+CCL (Commerce Control List),"The EAR list of controlled items (Supplement No. 1 to 15 CFR Part 774), organized into 10 categories and 5 product groups and identified by ECCN.",US,Exports
+ECCN (Export Control Classification Number),"Five-character code on the CCL, such as 3A001, that identifies an item and its reasons for control and license requirements.",US,Exports
+EAR99,"Designation for items subject to the EAR but not on the CCL; usually no license is needed, except for embargoed destinations, prohibited end uses or restricted parties.",US,Exports
+EEI (Electronic Export Information),Export data filed in AES under the Foreign Trade Regulations (15 CFR Part 30) for many US exports; an accepted filing returns an Internal Transaction Number (ITN) as proof.,US,Exports
+AES and ACE AESDirect,The Automated Export System is the export part of ACE where EEI is filed; ACE AESDirect is the Census Bureau's free web portal for filing it.,US,Exports
+Schedule B,"Census Bureau 10-digit export classification. The first 6 digits match the HS, and for most goods the HTSUS number may be reported instead.",US,Exports
+USPPI (US Principal Party in Interest),"The US party that receives the primary benefit of an export, usually the US seller; responsible for providing accurate EEI data.",US,Exports
+Restricted party screening (RPS),"Checking customers, suppliers and other parties against government restricted lists, such as the Consolidated Screening List, before a transaction. Awareness only for the hires.",US,Exports
+Standard cost,A predetermined per-unit cost used to value inventory and cost of goods sold; differences from actual cost are recorded as variances such as PPV.,All,Cost
+Landed cost,"Total cost to bring an item into our warehouse: purchase price plus freight, insurance, duty, customs fees, brokerage, inland freight and [COMPANY: other components].",All,Cost
+PPV (purchase price variance),"Difference between actual purchase cost and standard cost for quantities received; drivers include vendor price, duty or tariff, freight and FX.",All,Cost
+Cost update (cost roll),"Periodic process that calculates new standard costs, rolls up their components, and loads them to the ERP, revaluing on-hand inventory. Here it needs Finance and checker sign-off.",All,Cost
+Inventory revaluation,"Accounting adjustment to on-hand inventory when standard costs change: new standard minus old standard, times on-hand quantity, posted to a revaluation account.",All,Cost
+Cost element,"A bucket within an item's cost in the ERP, such as material or material overhead. Which element holds freight and duty is a setup choice [COMPANY: Oracle cost element setup].",All,Cost
+Effective duty rate,"Total duties paid divided by customs value; combines the base rate, additional duties and any preference. Use it to sanity-check models against actual entries.",All,Cost
+Duty base,"The value a duty rate is applied to: an FOB-like customs value in the US and Canada, CIF-like in Mexico. Some actions tax only part of the value; read the legal text.",All,Cost
+Incoterms 2020,"The ICC's 11 standard trade terms defining where risk passes and who pays freight, insurance and clearance. They do not set customs value or transfer of title.",All,Cost
+EXW (Ex Works),"Seller makes the goods available at its premises; the buyer bears all transport, risk, and export and import clearance.",All,Cost
+FCA (Free Carrier),"Seller delivers the goods, cleared for export, to the buyer's carrier at a named place, where risk passes; usable for any mode of transport.",All,Cost
+FOB (Free On Board),"Sea and inland waterway term: seller delivers goods on board the vessel at the named port of shipment, where risk passes. Often misused for container or truck freight.",All,Cost
+"CIF (Cost, Insurance and Freight)","Sea term: seller pays freight and minimum insurance to the destination port, but risk passes when the goods are loaded on the vessel at origin.",All,Cost
+CIP (Carriage and Insurance Paid To),Any-mode version of CIF; Incoterms 2020 requires the seller to buy broader insurance cover (Institute Cargo Clauses A).,All,Cost
+DAP (Delivered at Place),"Seller bears transport and risk to the named destination, ready for unloading; the buyer handles import clearance and pays duties.",All,Cost
+DDP (Delivered Duty Paid),"Seller bears all costs and risk to the destination, including import clearance and duties, so it typically acts as importer of record.",All,Cost
+GTM (Global Trade Management),"Software that manages trade compliance data and processes, such as product classification, origin and trade agreements, restricted party screening, customs filing data and landed cost.",All,Systems
+e2open,Supply chain software vendor whose Global Trade Management applications will replace our AS400 trade system; the project starts January 2027 [COMPANY: confirm scope and kickoff date].,Internal,Systems
+AS400 / IBM i,"IBM midrange platform; AS/400 is the original name and IBM i the current operating system. It runs our legacy trade system, which e2open will replace.",Internal,Systems
+Db2 for i,"The relational database built into IBM i. Libraries act as schemas, physical files as tables, and logical files as views or indexes; it can be queried with SQL.",All,Systems
+ERP (enterprise resource planning),"Integrated business system for items, purchasing, receiving, inventory, costing and the general ledger; ours is Oracle [COMPANY: Oracle EBS or Fusion].",Internal,Systems
+EDI (electronic data interchange),"Exchange of business documents between systems in standard formats such as ANSI X12 or EDIFACT; brokers, carriers and government systems often exchange data this way.",All,Systems
+Broker data exchange,"The files or messages we send each country's broker (classification, values, origin) and the entry data they return [COMPANY: broker interfaces and formats].",Internal,Systems
+Power Apps and Power Automate,"Microsoft low-code tools for building apps and automated flows. Several of our custom tools use them; record each flow's owner, connections and credentials when documenting it.",All,Systems
+Master data,"Core reference records shared across processes, such as items, suppliers, HTS codes, origin and cost; an error here spreads to every entry, cost and report that uses it.",All,Data
+Item master,"The system record of an item. For trade it carries HTS by country, origin, program eligibility and descriptions [COMPANY: which system is the source of truth].",Internal,Data
+SQL,Structured Query Language for reading and changing data in relational databases; the team uses T-SQL on SQL Server for analysis.,All,Data
+Data warehouse,"A database built for reporting that integrates data from source systems such as AS400, Oracle and broker files on a schedule, usually as fact and dimension tables.",All,Data
+Fact and dimension tables,"Fact tables hold measurable events, such as entry lines or receipts, at a defined grain; dimension tables describe them, such as item, supplier, country or date.",All,Data
+Grain,"What one row of a table represents, such as one entry line or one item per day. Joining tables of different grain carelessly duplicates rows.",All,Data
+Join fan-out,"Row multiplication when a join matches several rows per key, inflating sums; check row counts before and after every join.",All,Data
+Power BI,"Microsoft's business intelligence tool. Power BI Desktop builds semantic models and reports; the Power BI service publishes, shares and refreshes them.",All,Data
+Power Query,Data import and transformation engine in Excel and Power BI; each step is recorded in the M language and replayed on refresh.,All,Data
+DAX (Data Analysis Expressions),Formula language for Power BI measures and calculated columns; CALCULATE evaluates an expression under a modified filter context.,All,Data
+"ETL (extract, transform, load)","Process that moves data from source systems into the warehouse, cleaning and reshaping it on the way.",All,Data
+Data profiling,"Systematic checking of a dataset for completeness, validity and consistency, such as nulls, invalid HTS codes, duplicates and outliers; issues become cleansing candidates with an owner.",All,Data
+Control total,"A known total, such as a row count, value or duty amount, used to prove data was extracted or transformed completely and correctly.",All,Data
+BRD (business requirements document),"Document stating the business problem, scope, stakeholders, requirements and acceptance criteria for a change, approved before build starts.",All,BSA
+User story,"A requirement written from a user's point of view: As a [role], I want [capability] so that [benefit], with acceptance criteria.",All,BSA
+Acceptance criteria,"Specific, testable conditions a deliverable must meet to be accepted, agreed before work starts and often written as Given/When/Then.",All,BSA
+Definition of done,"The team's checklist every work item must meet before it is closed, such as tested, checker-reviewed, documented and stakeholder informed.",All,BSA
+MoSCoW,"Prioritization method that sorts requirements into Must have, Should have, Could have and Won't have (this time).",All,BSA
+As-is and to-be,"As-is documents how a process works today, workarounds included; to-be describes the target process after the change. The gaps between them drive requirements.",All,BSA
+Data mapping,"Specifying field by field how source data moves to a target system, including transformations, defaults, validation rules and known data-quality issues.",All,BSA
+UAT (user acceptance testing),Testing in which business users check a change against its requirements in a test environment and formally sign off before go-live.,All,BSA
+Cutover,"The planned, rehearsed switch from the old system to the new one: final data migration, go/no-go decision and fallback plan.",All,BSA
+RACI,"Responsibility matrix for each task or decision: Responsible (does the work), Accountable (the one owner who approves), Consulted and Informed.",All,BSA
+Change request,"Documented request to change a system or tool, with reason, impact, test evidence, rollback plan and approvals, completed before the change reaches production.",All,BSA
+SOP (standard operating procedure),"Step-by-step instructions for a recurring process, with roles, inputs, controls and exceptions, that someone new could follow.",All,BSA
+Maker-checker,Control where one person prepares the work (maker) and a second person independently reviews and signs it off (checker) before release. Mandatory here for cost updates and tariff models.,Internal,BSA
+Tariff-Impact Brief,"Research's handoff document for a tariff action: legal scope, HTS codes, countries, rates, effective dates, stacking interpretation and sources, with no dollar conclusions.",Internal,BSA
+Tariff-Impact Model,The shared workbook template where Research enters the WHAT of a tariff action and Standard Cost calculates the landed-cost and margin impact.,Internal,BSA
+Boundary rule,"Research owns the WHAT (legal scope, codes, rates, dates, stacking, sources); Standard Cost owns the $ (landed cost, margin, Oracle update, variance).",Internal,BSA
+Material error,"Here: an error that would change a business decision, such as wrong items, rate, effective date or stacking, or a cost impact off by more than [COMPANY: materiality threshold].",Internal,BSA

@@ -1,0 +1,32 @@
+supplier_id,supplier_name,supplier_country,supplier_type
+SUP-101,Synthetic Supplier CN-1,CN,Manufacturer
+SUP-102,Synthetic Supplier CN-2,CN,Manufacturer
+SUP-103,Synthetic Supplier CN-3,CN,Manufacturer
+SUP-104,Synthetic Supplier CN-4,CN,Manufacturer
+SUP-105,Synthetic Supplier CN-5,CN,Manufacturer
+SUP-106,Synthetic Supplier CN-6,CN,Manufacturer
+SUP-107,Synthetic Supplier VN-1,VN,Manufacturer
+SUP-108,Synthetic Supplier VN-2,VN,Manufacturer
+SUP-109,Synthetic Supplier VN-3,VN,Manufacturer
+SUP-110,Synthetic Supplier MX-1,MX,Manufacturer
+SUP-111,Synthetic Supplier MX-2,MX,Manufacturer
+SUP-112,Synthetic Supplier MX-3,MX,Manufacturer
+SUP-113,Synthetic Supplier MX-4,MX,Manufacturer
+SUP-114,Synthetic Supplier US-1,US,Manufacturer
+SUP-115,Synthetic Supplier US-2,US,Manufacturer
+SUP-116,Synthetic Supplier US-3,US,Manufacturer
+SUP-117,Synthetic Supplier CA-1,CA,Manufacturer
+SUP-118,Synthetic Supplier CA-2,CA,Manufacturer
+SUP-119,Synthetic Supplier CA-3,CA,Manufacturer
+SUP-120,Synthetic Supplier IN-1,IN,Manufacturer
+SUP-121,Synthetic Supplier IN-2,IN,Manufacturer
+SUP-122,Synthetic Supplier TW-1,TW,Manufacturer
+SUP-123,Synthetic Supplier TW-2,TW,Manufacturer
+SUP-124,Synthetic Supplier DE-1,DE,Manufacturer
+SUP-125,Synthetic Supplier DE-2,DE,Manufacturer
+SUP-126,Synthetic Supplier KR-1,KR,Manufacturer
+SUP-127,Synthetic Supplier IT-1,IT,Manufacturer
+SUP-128,Synthetic Trading Co HK-1,HK,Trading company
+SUP-129,Synthetic Trading Co HK-2,HK,Trading company
+SUP-130,Synthetic Trading Co TW-1,TW,Trading company
+SUP-131,Synthetic Distributor US-1,US,Distributor
