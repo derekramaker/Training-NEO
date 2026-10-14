@@ -8,12 +8,18 @@ Reads video/<id>/script.yaml (scenes, each with a list of sentences), writes to 
     timings.json    scene and sentence start/end times, used by the page and the captions
     captions.vtt    WebVTT captions, one cue per sentence (upload these to Stream)
 
+    python3 video/engine/narrate.py --say "text" out.wav    # audition one line
+    python3 video/engine/narrate.py --phonemes "text"       # show how the voice will read it
+
+Terms listed in lexicon.yaml (next to this file) are spoken with the phonemes set there; captions keep the text.
+
 Voice: Kokoro-82M (Apache-2.0), voice af_heart, run locally through kokoro-onnx. Model files are looked up in
 $KOKORO_DIR or video/.models (model.onnx and voices.npz); see video/README.md.
 """
 
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -27,6 +33,7 @@ SENTENCE_GAP = 0.35   # seconds of silence between sentences
 SCENE_GAP = 0.9       # extra silence between scenes
 LEAD_IN = 0.8         # silence before the first sentence
 TAIL = 1.5            # silence after the last sentence
+LEXICON = Path(__file__).with_name("lexicon.yaml")
 
 
 def model_dir(root):
@@ -36,6 +43,31 @@ def model_dir(root):
     sys.exit("Kokoro model not found: set KOKORO_DIR or put model.onnx and voices.npz in video/.models")
 
 
+def load_lexicon():
+    return yaml.safe_load(LEXICON.read_text(encoding="utf-8")) or {}
+
+
+def speech(text, lexicon, tokenizer):
+    """What to pass the voice for one sentence: the text itself, or phonemes with each lexicon term spliced in."""
+    terms = sorted(lexicon, key=len, reverse=True)
+    pattern = re.compile(r"(?<![\w-])(" + "|".join(map(re.escape, terms)) + r")(?![\w-])")
+    if not terms or not pattern.search(text):
+        return text, False
+    parts, last = [], 0
+    for m in pattern.finditer(text):
+        parts += [tokenizer.phonemize(text[last:m.start()], "en-us"), lexicon[m.group(1)]]
+        last = m.end()
+    parts.append(tokenizer.phonemize(text[last:], "en-us"))
+    joined = " ".join(p.strip() for p in parts if p.strip())
+    return re.sub(r"\s+([,.;:!?])", r"\1", joined), True
+
+
+def say(tts, tokenizer, lexicon, text):
+    spoken, is_ph = speech(text, lexicon, tokenizer)
+    audio, rate = tts.create(spoken, voice=VOICE, speed=SPEED, lang="en-us", is_phonemes=is_ph)
+    return audio, rate
+
+
 def vtt_time(t):
     h, rem = divmod(t, 3600)
     m, s = divmod(rem, 60)
@@ -43,13 +75,24 @@ def vtt_time(t):
 
 
 def main():
-    vdir = Path(sys.argv[1]).resolve()
     root = Path(__file__).resolve().parents[2]
-    script = yaml.safe_load((vdir / "script.yaml").read_text(encoding="utf-8"))
-    from kokoro_onnx import Kokoro  # imported late: slow to load
+    from kokoro_onnx.tokenizer import Tokenizer  # imported late: slow to load
+
+    tokenizer, lexicon = Tokenizer(), load_lexicon()
+    if sys.argv[1] == "--phonemes":
+        spoken, is_ph = speech(sys.argv[2], lexicon, tokenizer)
+        print(spoken if is_ph else tokenizer.phonemize(spoken, "en-us"))
+        return
+    from kokoro_onnx import Kokoro
 
     mdir = model_dir(root)
     tts = Kokoro(str(mdir / "model.onnx"), str(mdir / "voices.npz"))
+    if sys.argv[1] == "--say":
+        audio, rate = say(tts, tokenizer, lexicon, sys.argv[2])
+        sf.write(sys.argv[3], audio, rate)
+        return
+    vdir = Path(sys.argv[1]).resolve()
+    script = yaml.safe_load((vdir / "script.yaml").read_text(encoding="utf-8"))
     out = vdir / "build"
     out.mkdir(parents=True, exist_ok=True)
 
@@ -66,7 +109,7 @@ def main():
             if ti:
                 chunks.append(np.zeros(int(SENTENCE_GAP * sr), dtype=np.float32))
                 t += SENTENCE_GAP
-            audio, rate = tts.create(text, voice=VOICE, speed=SPEED, lang="en-us")
+            audio, rate = say(tts, tokenizer, lexicon, text)
             if rate != sr:
                 sys.exit(f"unexpected sample rate {rate}")
             chunks.append(audio.astype(np.float32))

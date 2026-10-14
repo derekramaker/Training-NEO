@@ -1,0 +1,14 @@
+# How the narrator says terms it would otherwise misread. Captions keep the written form; only the voice changes.
+# Key: the term exactly as written in script.yaml (whole word, case-sensitive). Value: phonemes for the voice
+# (the espeak en-us symbols Kokoro uses). Audition a line before adding it:
+#     python3 video/engine/narrate.py --say "The broker files the CAD." sample.wav
+# and compare with how the voice reads a plain spelling: python3 video/engine/narrate.py --phonemes "text".
+AS400: "ˌeɪˈɛs fˈɔːɹhˈʌndɹɪd"          # A-S four hundred, not "as four hundred"
+USMCA: "jˌuːˌɛsˌɛmsˌiːˈeɪ"             # letters, not "uzmka"
+ERP: "ˌiːˌɑːɹpˈiː"                      # letters, not "erp"
+CAD: "sˌiːˌeɪdˈiː"                      # Canada's Commercial Accounting Declaration: letters, not "cad"
+IVA: "ˈiːvə"                            # Mexico's value-added tax: "EE-vuh", not "IV-uh"
+ANAM: "ɑːnˈɑːm"                         # Mexico's customs agency: "ah-NAHM"
+IMMEX: "ˈiːmɛks"                        # "EE-mex", as in Spanish
+padrón de importadores: "pɑːdɹˈoʊn deɪ ˌɪmpɔːɹtɑːdˈɔːɹɛs"
+agente aduanal: "ɑːhˈɛnteɪ ˌɑːdwɑːnˈɑːl"

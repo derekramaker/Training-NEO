@@ -1,0 +1,237 @@
+<!-- v1-import-entry-lifecycle: one section per scene in script.yaml. data-step="n" elements are revealed by
+     scenes.js when the narration reaches them. Content stays between y = 140 and y = 880. -->
+
+<section class="scene" id="title">
+  <div class="title-card">
+    <div class="kicker">BSA onboarding · Customs basics</div>
+    <div class="big">How an import entry works</div>
+    <div class="sub">United States · Canada · Mexico</div>
+    <div class="idea" data-step="0">The broker files. <span class="hl">The importer is responsible.</span></div>
+  </div>
+</section>
+
+<section class="scene" id="cast">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How an import entry works</span></div>
+  <div class="h2">Who does what at the border</div>
+
+  <div class="card accent cast" id="cast-ior" data-step="0">
+    <div class="label">Responsible</div>
+    <div class="text">Importer of record</div>
+    <div class="small">Legally responsible for the data, the duty and the records</div>
+  </div>
+  <div class="card cast" id="cast-broker" data-step="1">
+    <div class="label">Files</div>
+    <div class="text">Licensed customs broker</div>
+    <div class="small">Prepares and files the declaration, using our data</div>
+  </div>
+  <div class="card cast" id="cast-agency" data-step="2">
+    <div class="label">Releases and collects</div>
+    <div class="text">Customs agency</div>
+    <div class="small">Releases the goods and collects the duty</div>
+  </div>
+
+  <svg class="full" viewBox="0 0 1920 1080">
+    <path class="v-arrow" data-step="1" data-slide="0" d="M624 420 H692"/>
+    <path class="v-arrow" data-step="2" data-slide="0" d="M1228 420 H1296"/>
+  </svg>
+
+  <div class="agencies">
+    <div class="lab" data-step="2">The customs agency in each country</div>
+    <div class="agency" data-step="3"><div class="ag-k"><span class="chip-k">US</span>CBP</div><div class="ag-n">Customs and Border Protection</div></div>
+    <div class="agency" data-step="4"><div class="ag-k"><span class="chip-k">Canada</span>CBSA</div><div class="ag-n">Canada Border Services Agency</div></div>
+    <div class="agency" data-step="5"><div class="ag-k"><span class="chip-k">Mexico</span>ANAM</div><div class="ag-n">Agencia Nacional de Aduanas</div></div>
+  </div>
+</section>
+
+<section class="scene" id="us-entry">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How an import entry works</span></div>
+  <div class="h2">The life of a US entry</div>
+  <div class="note">Not to scale</div>
+
+  <svg class="full" viewBox="0 0 1920 1080">
+    <g transform="translate(0 -30)">
+    <path class="tl-line draw" data-step="0" d="M150 500 H1790"/>
+
+    <!-- 1 Arrival (above) -->
+    <g data-step="1">
+      <text class="tl-name mid" x="250" y="330">Arrival</text>
+      <text class="tl-det mid" x="250" y="376">Goods reach</text>
+      <text class="tl-det mid" x="250" y="416">a US port</text>
+      <path class="tl-tick" d="M250 438 V454"/>
+      <circle class="tl-badge" cx="250" cy="500" r="28"/>
+      <text class="tl-num mid" x="250" y="502">1</text>
+    </g>
+
+    <!-- 2 Entry and release (below) -->
+    <g data-step="2">
+      <circle class="tl-badge" cx="590" cy="500" r="28"/>
+      <text class="tl-num mid" x="590" y="502">2</text>
+      <path class="tl-tick" d="M590 546 V562"/>
+      <text class="tl-name mid" x="590" y="606">Entry and release</text>
+      <text class="tl-det mid" x="590" y="652">Broker files the entry,</text>
+      <text class="tl-det mid" x="590" y="692">CBP releases the goods</text>
+    </g>
+
+    <!-- 3 Entry summary (above) -->
+    <g data-step="3">
+      <text class="tl-name mid" x="930" y="330">Entry summary</text>
+      <text class="tl-det mid" x="930" y="376">Within 10 working days</text>
+      <text class="tl-det mid" x="930" y="416">of release, with estimated duty</text>
+      <path class="tl-tick" d="M930 438 V454"/>
+      <circle class="tl-badge" cx="930" cy="500" r="28"/>
+      <text class="tl-num mid" x="930" y="502">3</text>
+    </g>
+
+    <!-- correction window between 3 and 4 -->
+    <g data-step="4" data-slide="0">
+      <path class="tl-psc" d="M964 500 H1294"/>
+      <rect class="tl-band" x="300" y="746" width="1320" height="128" rx="18"/>
+      <path class="tl-psc" d="M340 792 H420"/>
+      <text class="tl-band-t" x="448" y="804">Post summary correction (PSC) fixes errors</text>
+      <text class="tl-det" x="448" y="848">within 300 days of entry, at least 15 days before liquidation</text>
+    </g>
+
+    <!-- 4 Liquidation (below, the accent) -->
+    <g data-step="5">
+      <circle class="tl-badge accent" cx="1330" cy="500" r="28"/>
+      <text class="tl-num mid" x="1330" y="502">4</text>
+      <path class="tl-tick" d="M1330 546 V562"/>
+      <text class="tl-name accent mid" x="1330" y="606">Liquidation</text>
+      <text class="tl-det mid" x="1330" y="652">About 314 days after entry:</text>
+      <text class="tl-det mid" x="1330" y="692">CBP's final duty computation</text>
+    </g>
+
+    <!-- 5 Protest (above) -->
+    <g data-step="6">
+      <text class="tl-name mid" x="1680" y="330">Protest</text>
+      <text class="tl-det mid" x="1680" y="376">Within 180 days</text>
+      <text class="tl-det mid" x="1680" y="416">of liquidation</text>
+      <path class="tl-tick" d="M1680 438 V454"/>
+      <circle class="tl-badge" cx="1680" cy="500" r="28"/>
+      <text class="tl-num mid" x="1680" y="502">5</text>
+    </g>
+
+    <!-- the entry, travelling along the timeline -->
+    <circle id="tl-ring" class="tl-ring" cx="250" cy="500" r="38"/>
+    </g>
+  </svg>
+</section>
+
+<section class="scene" id="canada">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How an import entry works</span></div>
+  <div class="h2">Canada: release first, then account and pay</div>
+
+  <div class="panel" id="ca-panel" data-step="3"><div class="panel-label">CARM Client Portal <span class="panel-sub">the importer's online CBSA account</span></div></div>
+
+  <div class="card flow" id="ca-release" data-step="0">
+    <div class="label">Day 0</div>
+    <div class="text">Release</div>
+    <div class="small">Release prior to payment: goods out first</div>
+  </div>
+  <div class="card accent flow" id="ca-cad" data-step="1">
+    <div class="label">Within 5 business days</div>
+    <div class="text">CAD</div>
+    <div class="small">Commercial Accounting Declaration, filed by the broker</div>
+  </div>
+  <div class="card flow" id="ca-statement" data-step="2">
+    <div class="label">Monthly</div>
+    <div class="text">Statement</div>
+    <div class="small">Duties paid by the due date</div>
+  </div>
+
+  <svg class="full" viewBox="0 0 1920 1080">
+    <path class="v-arrow" data-step="1" data-slide="0" d="M544 565 H652"/>
+    <path class="v-arrow" data-step="2" data-slide="0" d="M1228 565 H1316"/>
+  </svg>
+</section>
+
+<section class="scene" id="mexico">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How an import entry works</span></div>
+  <div class="h2">Mexico: pay first, then release</div>
+
+  <div class="card soft" id="mx-padron" data-step="2">
+    <div class="label">Before the first import, and kept active</div>
+    <div class="text">Padrón de importadores</div>
+    <div class="small">The importer registry, kept by SAT, the tax authority</div>
+  </div>
+  <div class="card" id="mx-immex" data-step="5">
+    <div class="label">Different rules</div>
+    <div class="text">IMMEX</div>
+    <div class="small">Temporary imports: Week 4</div>
+  </div>
+
+  <div class="card flow" id="mx-pedimento" data-step="3">
+    <div class="label">Each shipment</div>
+    <div class="text">Pedimento</div>
+    <div class="small">The declaration, filed by the agente aduanal</div>
+  </div>
+  <div class="card accent flow" id="mx-pay" data-step="0">
+    <div class="label">Before release</div>
+    <div class="text">Pay the taxes</div>
+    <div class="small" data-step="4">Including IVA, a <span class="nw">value-added</span> tax</div>
+  </div>
+  <div class="card flow" id="mx-release" data-step="1">
+    <div class="label">Then</div>
+    <div class="text">Release</div>
+    <div class="small">Or an inspection, by automated selection</div>
+  </div>
+
+  <svg class="full" viewBox="0 0 1920 1080">
+    <path class="v-arrow" data-step="1" data-slide="0" d="M1208 629 H1336"/>
+    <path class="v-arrow" data-step="3" data-slide="0" d="M584 629 H712"/>
+  </svg>
+</section>
+
+<section class="scene" id="audit">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How an import entry works</span></div>
+  <div class="h2">What we send, and why we audit what they file</div>
+
+  <div class="card soft" id="au-send" data-step="0">
+    <div class="label">We send</div>
+    <div class="text item" data-step="1">Classification</div>
+    <div class="text item" data-step="2">Value</div>
+    <div class="text item" data-step="3">Origin</div>
+  </div>
+  <div class="card" id="au-file" data-step="4">
+    <div class="label">The broker files</div>
+    <div class="text">The declaration</div>
+    <div class="small">US entry summary, Canada CAD, Mexico pedimento</div>
+  </div>
+  <div class="card accent" id="au-audit" data-step="6">
+    <div class="label">We audit</div>
+    <div class="text">Line by line</div>
+    <div class="small">Compared with our data. Mismatch? Tell the Senior the same day</div>
+  </div>
+
+  <svg class="full" viewBox="0 0 1920 1080">
+    <path class="v-arrow" data-step="4" data-slide="0" d="M580 400 H660"/>
+    <path class="v-arrow" data-step="6" data-slide="0" d="M1176 400 H1264"/>
+  </svg>
+
+  <div class="rule" id="au-rule" data-step="4">If our data is wrong, the filing is wrong.</div>
+
+  <div class="card strong" id="au-care" data-step="5">
+    <div class="label">Reasonable care · US law</div>
+    <div class="text">The importer's legal duty. Relying blindly on the broker does not meet it.</div>
+  </div>
+</section>
+
+<section class="scene" id="remember">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How an import entry works</span></div>
+
+  <div class="card strong" id="re-key" data-step="0">
+    <div class="label">Remember</div>
+    <div class="text">The broker files. The importer answers for it.</div>
+  </div>
+
+  <div class="card soft" id="re-primer" data-step="1">
+    <div class="label">Read next</div>
+    <div class="text">Customs primer, Sections 1 to 6</div>
+    <div class="small">The life of an entry: 4.2 US, 5.2 Canada, 6.2 Mexico</div>
+  </div>
+  <div class="card soft" id="re-anki" data-step="2">
+    <div class="label">Study</div>
+    <div class="text">Anki Unit 01 and Unit 02</div>
+    <div class="small">Roles, the US entry lifecycle, Canada and Mexico</div>
+  </div>
+</section>

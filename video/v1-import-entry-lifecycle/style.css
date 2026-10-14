@@ -1,0 +1,90 @@
+/* v1-import-entry-lifecycle: layout for each scene. Palette and base classes come from base.css and the
+   diagram _style.css; nothing here goes below y = 880 (the caption bar). */
+
+/* Minimum text size in this video is 30px */
+.header .series, .header .vtitle { font-size: 30px; }
+.card .label { font-size: 30px; }
+/* base .accent (for inline text) would make a whole .card.accent bold and orange: keep only the title orange */
+.card.accent { color: #262626; font-weight: 400; }
+.card.accent .text { color: #C55A11; }
+.note { position: absolute; right: 96px; top: 158px; font-size: 30px; color: #595959; }
+
+/* Full-frame SVG overlay for arrows and the timeline: coordinates are frame pixels */
+.nw { white-space: nowrap; }
+svg.full { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+.v-arrow { stroke: #1F3864; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+
+/* 1 Title */
+.title-card .idea { align-self: flex-start; margin-top: 72px; background: #FFFFFF; color: #1F3864; font-size: 50px;
+  font-weight: 750; padding: 24px 42px; border-radius: 20px; }
+.title-card .idea .hl { color: #C55A11; }
+
+/* 2 Cast */
+.card.cast { top: 260px; width: 520px; height: 320px; }
+#cast-ior { left: 96px; }
+#cast-broker { left: 700px; }
+#cast-agency { left: 1304px; }
+.card.cast .text { font-size: 44px; line-height: 1.15; margin-top: 14px; }
+.card.cast .small { margin-top: 22px; }
+.agencies { position: absolute; left: 96px; top: 626px; width: 1728px; display: grid;
+  grid-template-columns: repeat(3, 1fr); gap: 18px 36px; }
+.agencies .lab { grid-column: 1 / -1; font-size: 30px; font-weight: 700; color: #2E75B6; text-transform: uppercase;
+  letter-spacing: .04em; }
+.agency { background: #DCE6F2; border: 3px solid #1F3864; border-radius: 22px; padding: 18px 30px; box-sizing: border-box; }
+.agency .ag-k { font-size: 40px; font-weight: 800; color: #1F3864; line-height: 1.15; }
+.agency .chip-k { color: #595959; font-weight: 600; margin-right: 14px; }
+.agency .ag-n { font-size: 30px; color: #404040; line-height: 1.3; margin-top: 6px; white-space: nowrap; }
+
+/* 3 US entry timeline */
+.tl-line { stroke: #1F3864; stroke-width: 6; fill: none; stroke-linecap: round; }
+.tl-tick { stroke: #8497B0; stroke-width: 4; fill: none; }
+.tl-badge { fill: #1F3864; }
+.tl-badge.accent { fill: #C55A11; }
+.tl-num { font-size: 30px; font-weight: 800; fill: #FFFFFF; }
+.tl-name { font-size: 40px; font-weight: 750; fill: #1F3864; }
+.tl-name.accent { fill: #C55A11; }
+.tl-det { font-size: 32px; fill: #595959; }
+.tl-psc { stroke: #BF9000; stroke-width: 8; stroke-dasharray: 16 12; fill: none; }
+.tl-band { fill: #FFF2CC; stroke: #BF9000; stroke-width: 3; }
+.tl-band-t { font-size: 36px; font-weight: 700; fill: #262626; }
+.tl-ring { fill: none; stroke: #2E75B6; stroke-width: 7; }
+
+/* 4 Canada and 5 Mexico: three-step flows */
+.card.flow { width: 480px; }
+.card.flow .text { font-size: 48px; line-height: 1.1; margin-top: 12px; }
+.card.flow .small { margin-top: 18px; }
+#ca-release, #ca-cad, #ca-statement { top: 430px; height: 270px; }
+#ca-release { left: 96px; width: 440px; }
+#ca-cad { left: 660px; width: 560px; }
+#ca-statement { left: 1324px; width: 500px; }
+.panel { position: absolute; left: 636px; top: 340px; width: 1212px; height: 390px; box-sizing: border-box;
+  border: 3px dashed #8497B0; border-radius: 26px; background: rgba(220, 230, 242, .45); }
+.panel-label { position: absolute; left: 28px; top: 22px; font-size: 30px; font-weight: 700; color: #2E75B6;
+  text-transform: uppercase; letter-spacing: .04em; }
+.panel-label .panel-sub { margin-left: 14px; text-transform: none; letter-spacing: 0; font-weight: 500; color: #595959; }
+
+#mx-padron { left: 96px; top: 240px; width: 1104px; }
+#mx-immex { left: 1344px; top: 240px; width: 480px; height: 204px; border-style: dashed; }
+#mx-pedimento, #mx-pay, #mx-release { top: 494px; height: 270px; }
+#mx-pedimento { left: 96px; }
+#mx-pay { left: 720px; }
+#mx-release { left: 1344px; }
+
+/* 6 Audit */
+#au-send, #au-file, #au-audit { top: 250px; height: 300px; }
+#au-send { left: 96px; width: 476px; }
+#au-file { left: 668px; width: 500px; }
+#au-audit { left: 1272px; width: 552px; }
+#au-send .item { margin-top: 6px; }
+#au-send .label { margin-bottom: 8px; }
+.rule { position: absolute; left: 96px; top: 586px; font-size: 40px; font-weight: 750; color: #1F3864; }
+#au-care { left: 96px; top: 668px; width: 1728px; }
+
+/* 7 Remember */
+#re-key { left: 96px; top: 190px; width: 1728px; padding: 36px 48px; }
+#re-key .text { font-size: 64px; font-weight: 800; line-height: 1.15; margin-top: 12px; }
+#re-primer, #re-anki { top: 490px; width: 846px; height: 250px; padding: 34px 42px; }
+#re-primer { left: 96px; }
+#re-anki { left: 978px; }
+#re-primer .text, #re-anki .text { font-size: 46px; line-height: 1.15; margin-top: 12px; }
+#re-primer .small, #re-anki .small { margin-top: 20px; }

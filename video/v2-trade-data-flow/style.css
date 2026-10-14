@@ -1,0 +1,99 @@
+/* v2-trade-data-flow: the four-step chain (Oracle -> AS400 -> brokers -> entry data) on top of every scene,
+   and the detail for the current step underneath. Content stays between y = 140 and y = 880. */
+
+/* Minimum 30px text in this video: lift the base header and card labels */
+.header .series, .header .vtitle { font-size: 30px; }
+.card .label { font-size: 30px; }
+
+/* ---------- Title card ---------- */
+.title-card .big { font-size: 100px; }
+.trip { display: flex; align-items: center; gap: 22px; margin-top: 72px; }
+.tchip { position: relative; display: inline-block; font-size: 38px; font-weight: 700; color: #FFFFFF;
+  border: 3px solid #9DC3E6; border-radius: 16px; padding: 14px 30px; }
+.tarr { display: inline-block; font-size: 44px; color: #9DC3E6; font-weight: 700; }
+.ttag-wrap { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+.ttag { position: absolute; left: 50%; top: 100%; margin-top: 18px; transform: translateX(-50%); white-space: nowrap;
+  font-size: 32px; font-weight: 700; color: #1F3864; background: #FBE5D6; border: 3px solid #C55A11;
+  border-radius: 12px; padding: 6px 18px; }
+
+/* ---------- The chain strip ---------- */
+.chain { position: absolute; left: 96px; top: 150px; width: 1728px; height: 136px; }
+.chain svg.chain-lines { position: absolute; left: 0; top: 0; overflow: visible; }
+.node { position: absolute; top: 0; width: 342px; height: 136px; }
+.node .n-off, .node .n-on { position: absolute; inset: 0; border-radius: 20px; box-sizing: border-box; overflow: hidden; }
+.node .n-off { background: #FFFFFF; border: 3px solid #1F3864; }
+.node .n-on { background: #1F3864; border: 3px solid #1F3864; opacity: 0; }
+.node .lab { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
+  align-items: center; text-align: center; }
+.node .nt { font-size: 40px; font-weight: 800; color: #1F3864; line-height: 1.1; }
+.node .ns { font-size: 30px; color: #595959; margin-top: 6px; line-height: 1.15; }
+.node .n-on .nt { color: #FFFFFF; }
+.node .n-on .ns { color: #DCE6F2; }
+.flowline { stroke: #2E75B6; stroke-width: 7; fill: none; stroke-linecap: round; }
+.chain .base-arrow { stroke: #8497B0; stroke-width: 5; fill: none; marker-end: url(#arrow-soft); }
+
+/* ---------- Shared detail pieces ---------- */
+.cap { position: absolute; font-size: 30px; font-weight: 700; color: #2E75B6; text-transform: uppercase; letter-spacing: .04em; }
+.row-card { display: flex; align-items: center; justify-content: space-between; padding: 0 34px; }
+.row-card .name { font-size: 42px; font-weight: 750; color: #1F3864; }
+.row-card .desc { font-size: 30px; color: #404040; }
+.detail-svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+.v-arrow { stroke: #1F3864; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+.v-arrow-accent { stroke: #C55A11; stroke-width: 5; fill: none; }
+.v-line { stroke: #1F3864; stroke-width: 5; fill: none; }
+
+/* Oracle: the new item */
+.item-card .big-id { font-size: 60px; font-weight: 800; color: #1F3864; margin-top: 6px; }
+.item-card .fields { font-size: 34px; color: #404040; margin-top: 14px; line-height: 1.45; }
+.pill { display: inline-block; font-size: 32px; font-weight: 700; color: #FFFFFF; background: #2E75B6; border-radius: 40px;
+  padding: 10px 26px; }
+
+/* AS400: the item record that gains its trade data */
+.record { position: absolute; background: #FFFFFF; border: 3px solid #1F3864; border-radius: 22px; box-sizing: border-box; }
+.record .rhead { position: absolute; left: 34px; right: 34px; top: 26px; display: flex; justify-content: space-between; align-items: baseline; }
+.record .rhead .id { font-size: 44px; font-weight: 800; color: #1F3864; }
+.record .rhead .from { font-size: 30px; color: #595959; }
+.record .added { position: absolute; left: 34px; top: 112px; font-size: 30px; font-weight: 700; color: #C55A11; }
+.frow { position: absolute; left: 24px; right: 24px; height: 96px; border-radius: 14px; background: #FBE5D6;
+  border-left: 8px solid #C55A11; display: flex; align-items: center; padding: 0 28px; box-sizing: border-box; }
+.frow .k { width: 290px; font-size: 36px; font-weight: 700; color: #1F3864; }
+.frow .v { font-size: 36px; color: #262626; }
+.frow .v .muted { font-size: 30px; }
+
+/* Product file */
+.file { position: absolute; background: #FFFFFF; border: 3px solid #1F3864; border-radius: 22px; box-sizing: border-box; overflow: hidden; }
+.file .fhead { position: absolute; left: 0; right: 0; top: 0; height: 84px; background: #DCE6F2; border-bottom: 3px solid #1F3864;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 34px; box-sizing: border-box; }
+.file .fhead .ft { font-size: 40px; font-weight: 800; color: #1F3864; }
+.file .fhead .fs { font-size: 30px; color: #404040; }
+.trow { position: absolute; left: 30px; right: 30px; height: 70px; display: grid; grid-template-columns: 230px 290px 250px 1fr;
+  align-items: center; font-size: 34px; color: #262626; border-bottom: 2px solid #D9DEE7; padding: 0 12px; }
+.trow.th { font-size: 30px; font-weight: 700; color: #595959; text-transform: uppercase; letter-spacing: .03em; }
+.trow .id { font-weight: 700; color: #1F3864; }
+.trailer { position: absolute; left: 30px; right: 30px; height: 84px; border-radius: 14px; background: #E2F0D9; border: 3px solid #3B6E22;
+  display: flex; align-items: center; padding: 0 24px; box-sizing: border-box; font-size: 34px; color: #262626; gap: 18px; }
+.trailer b { color: #3B6E22; }
+
+/* Entry data */
+.erow { position: absolute; height: 90px; border-radius: 14px; background: #F7F9FC; border: 2px solid #8497B0;
+  display: flex; align-items: center; padding: 0 24px; box-sizing: border-box; font-size: 32px; color: #262626; gap: 14px; }
+.erow b { color: #1F3864; }
+.ichip { position: absolute; height: 90px; border-radius: 14px; background: #FFFFFF; border: 3px solid #1F3864;
+  display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 800; color: #1F3864; box-sizing: border-box; }
+.feeds .fline { font-size: 38px; font-weight: 650; color: #1F3864; margin-top: 18px; display: flex; align-items: center; gap: 16px; }
+.feeds .fline::before { content: ""; width: 14px; height: 14px; border-radius: 50%; background: #2E75B6; flex: none; }
+
+/* e2open */
+.same { position: absolute; left: 96px; top: 326px; display: flex; align-items: center; gap: 18px; }
+.same .lead-t { font-size: 34px; font-weight: 750; color: #1F3864; margin-right: 6px; }
+.dchip { display: inline-block; font-size: 32px; font-weight: 650; color: #1F3864; background: #DCE6F2; border: 2px solid #1F3864;
+  border-radius: 12px; padding: 8px 20px; }
+.banner { position: absolute; display: flex; align-items: center; justify-content: center; gap: 18px; background: #E2F0D9;
+  border: 3px solid #3B6E22; border-radius: 18px; font-size: 40px; font-weight: 750; color: #3B6E22; box-sizing: border-box; }
+
+/* Remember */
+.statement { position: absolute; left: 96px; top: 346px; width: 1728px; font-size: 62px; font-weight: 800; color: #1F3864; line-height: 1.2; }
+
+/* .card.accent inherits the base .accent text rule (orange, bold): keep card text dark and the small line regular */
+.card.accent { font-weight: 400; }
+.card.accent .text { color: #262626; font-weight: 650; }

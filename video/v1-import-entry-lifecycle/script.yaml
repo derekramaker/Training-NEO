@@ -1,0 +1,50 @@
+# Narration for "How an import entry works". Facts: customs primer sections 1, 2, 3.2, 4.2, 5.2, 6.2 and 7;
+# Anki Unit 01 (G1, G2), Unit 02 (G1, G2) and Unit 04 (G2); glossary. Edit a sentence, rebuild, and the
+# timings, captions and reveals follow.
+title: "How an import entry works (US, Canada, Mexico)"
+scenes:
+  - id: title
+    say:
+      - "How an import entry works in the US, Canada and Mexico."
+      - "The broker files, but the importer is responsible."
+
+  - id: cast
+    say:
+      - "The importer of record is legally responsible for the data, duty and records."
+      - "A licensed customs broker files the declaration."
+      - "The customs agency, CBP, CBSA or ANAM, releases the goods and collects the duty."
+
+  - id: us-entry
+    say:
+      - "Goods arrive, the broker files the entry, and CBP releases them."
+      - "The entry summary follows within ten working days, with the estimated duty."
+      - "A post summary correction can fix errors before liquidation."
+      - "About 314 days after entry, liquidation sets the final duty."
+      - "Then the importer has 180 days to challenge it with a protest."
+
+  - id: canada
+    say:
+      - "In Canada, release prior to payment lets goods out first."
+      - "Within five business days, the broker files the Commercial Accounting Declaration, or CAD."
+      - "Duties go on a monthly statement in the CARM Client Portal."
+
+  - id: mexico
+    say:
+      - "Mexico is the reverse: pay first, then release."
+      - "The importer must be in the padrón de importadores, the importer registry."
+      - "The agente aduanal, Mexico's broker, files the declaration: the pedimento."
+      - "Its taxes, including IVA, a value-added tax, are paid before release."
+      - "IMMEX temporary imports follow other rules, covered in week four."
+
+  - id: audit
+    say:
+      - "Everywhere, brokers file with our data: classification, value and origin."
+      - "If our data is wrong, the filing is wrong."
+      - "Under US law, relying blindly on the broker is not reasonable care."
+      - "So we audit what brokers file, and escalate mismatches the same day."
+
+  - id: remember
+    hold: 0.6
+    say:
+      - "Remember: the broker files, but the importer answers for it."
+      - "Next: customs primer sections one to six, and Anki units one and two."

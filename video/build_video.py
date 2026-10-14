@@ -36,7 +36,8 @@ def run(cmd, **kw):
 
 def narrate(vdir, build):
     """Synthesize the narration unless script.yaml is unchanged since the last run."""
-    digest = hashlib.sha256((vdir / "script.yaml").read_bytes() + (ENGINE / "narrate.py").read_bytes()).hexdigest()
+    digest = hashlib.sha256(b"".join(f.read_bytes() for f in
+                                     [vdir / "script.yaml", ENGINE / "narrate.py", ENGINE / "lexicon.yaml"])).hexdigest()
     stamp = build / "script.sha256"
     if (build / "timings.json").exists() and stamp.exists() and stamp.read_text() == digest:
         return json.loads((build / "timings.json").read_text())
@@ -73,14 +74,14 @@ def assemble(vdir, build, timings):
 
 
 def storyboard(build, page, timings):
-    """One still per scene, at 70% of the way through it (when its visuals are fully built), plus a contact sheet."""
+    """One still per scene, just after its last sentence (everything built, before the switch), plus a contact sheet."""
     sb = build / "storyboard"
     if sb.exists():
         shutil.rmtree(sb)
     sb.mkdir(parents=True)
     shots = []
     for i, sc in enumerate(timings["scenes"], 1):
-        t = sc["start"] + 0.7 * (sc["end"] - sc["start"])
+        t = sc["end"] + 0.1  # the dip to the next scene starts 0.2 s after the end
         shots.append(f"{t:.3f}:{sb / f'{i:02d}-{sc['id']}.png'}")
     run(["node", str(ENGINE / "render.cjs"), "--still", str(page)] + shots)
     from PIL import Image, ImageDraw

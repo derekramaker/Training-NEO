@@ -31,6 +31,11 @@ The music bed is synthesized by the build script, so nothing needs a license.
 - **Text:** at least 30 px. One idea per scene; the narration says it, the screen shows it.
 - **Timing:** reveal things when the narration mentions them: `S.at(scene, i, offset)` is the time sentence `i`
   starts. `S.steps(el, t, times)` fades in each `[data-step=n]` element at `times[n]`; paths with class `draw` draw on.
+- **Pronunciation:** the voice misreads some acronyms and the Spanish terms ("CAD" as "cad", "AS400" as "as four
+  hundred"). Write the term normally in `script.yaml` and add its phonemes to `video/engine/lexicon.yaml`; the captions
+  keep the written form. Check a line with `python3 video/engine/narrate.py --phonemes "text"` and listen to it with
+  `python3 video/engine/narrate.py --say "text" out.wav`.
+- **Storyboard:** `--storyboard` takes one still just after each scene's last sentence, when everything is built.
 - **Facts:** only what the verified primers, decks and plan say. No current tariff rates or status.
 - **Generic only:** fictional items and countries, no company names, people or internal systems.
 

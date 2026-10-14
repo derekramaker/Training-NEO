@@ -1,0 +1,179 @@
+<!-- v2-trade-data-flow. Each scene from oracle on carries the same chain strip (built in scenes.js from
+     <div class="chain">); the detail for the current step sits below it (y 318 to 860). -->
+
+<section class="scene" id="title">
+  <div class="title-card">
+    <div class="kicker" data-step="0">BSA onboarding · Trade systems</div>
+    <div class="big" data-step="0">How trade data flows</div>
+    <div class="sub" data-step="0">and what changes with e2open</div>
+    <div class="trip">
+      <span class="tchip" data-step="1">Oracle</span>
+      <span class="tarr" data-step="2">→</span>
+      <span class="tchip" data-step="2">AS400<span class="ttag-wrap" data-step="5"><span class="ttag">replaced by e2open</span></span></span>
+      <span class="tarr" data-step="3">→</span>
+      <span class="tchip" data-step="3">Brokers</span>
+      <span class="tarr" data-step="4">→</span>
+      <span class="tchip" data-step="4">Entries back</span>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="oracle">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How trade data flows</span></div>
+  <div class="chain"></div>
+
+  <div class="cap" data-step="0" style="left:96px; top:336px">Oracle holds</div>
+  <div class="card soft row-card" data-step="1" style="left:96px; top:386px; width:800px; height:120px">
+    <span class="name">Items</span><span class="desc">number, description, unit</span>
+  </div>
+  <div class="card soft row-card" data-step="2" style="left:96px; top:526px; width:800px; height:120px">
+    <span class="name">Purchase orders</span><span class="desc">price, currency, supplier</span>
+  </div>
+  <div class="card soft row-card" data-step="3" style="left:96px; top:666px; width:800px; height:120px">
+    <span class="name">Standard costs</span><span class="desc">planned cost per unit</span>
+  </div>
+
+  <div class="card item-card" data-step="4" style="left:976px; top:386px; width:848px; height:400px">
+    <div class="label">New or changed item</div>
+    <div class="big-id">KIT-100</div>
+    <div class="fields">Description: tool kit<br>Unit of measure: each</div>
+    <div style="position:absolute; left:34px; bottom:30px"><span class="pill">→ on to the trade system</span></div>
+  </div>
+</section>
+
+<section class="scene" id="as400">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How trade data flows</span></div>
+  <div class="chain"></div>
+
+  <div class="record" data-step="0" style="left:96px; top:330px; width:1000px; height:526px">
+    <div class="rhead"><span class="id">KIT-100 · tool kit</span><span class="from">from Oracle</span></div>
+    <div class="added" data-step="0">Added in the trade system</div>
+    <div class="frow" data-step="1" style="top:164px"><span class="k">Tariff code</span><span class="v">US · CA · MX <span class="muted">one per country</span></span></div>
+    <div class="frow" data-step="2" style="top:280px"><span class="k">Origin</span><span class="v">Country X</span></div>
+    <div class="frow" data-step="3" style="top:396px"><span class="k">USMCA flags</span><span class="v">Y or N <span class="muted">US-Mexico-Canada Agreement</span></span></div>
+  </div>
+
+  <div class="card" data-step="4" style="left:1176px; top:330px; width:648px; height:210px">
+    <div class="label">Maker</div>
+    <div class="text">Prepares the codes and origin</div>
+  </div>
+  <div class="card ok" data-step="6" style="left:1176px; top:626px; width:648px; height:230px">
+    <div class="label" style="color:#3B6E22">Checker ✓</div>
+    <div class="text">A second person reviews and signs off</div>
+  </div>
+  <svg class="detail-svg" viewBox="0 0 1920 1080">
+    <path class="v-arrow draw" data-step="5" d="M1500 550 V614"/>
+  </svg>
+</section>
+
+<section class="scene" id="product-file">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How trade data flows</span></div>
+  <div class="chain"></div>
+
+  <div class="card strong" data-step="0" style="left:96px; top:330px; width:620px; height:230px">
+    <div class="label">Batch job</div>
+    <div class="text">Scheduled, often nightly</div>
+    <div class="small">Builds one file per broker</div>
+  </div>
+
+  <div class="file" data-step="1" style="left:800px; top:330px; width:1024px; height:526px">
+    <div class="fhead"><span class="ft">Product file</span><span class="fs">to each broker</span></div>
+    <div class="trow th" data-step="2" style="top:100px"><span>Item</span><span>Tariff codes</span><span>Origin</span><span>USMCA</span></div>
+    <div class="trow" data-step="3" style="top:170px"><span class="id">KIT-100</span><span>US, CA, MX</span><span>Country X</span><span>Y</span></div>
+    <div class="trow" data-step="4" style="top:240px"><span class="id">KIT-200</span><span>US, CA, MX</span><span>Country Y</span><span>N</span></div>
+    <div class="trow" data-step="5" style="top:310px"><span class="id">KIT-300</span><span>US, CA, MX</span><span>Country X</span><span>Y</span></div>
+    <div class="trailer" data-step="6" style="top:404px"><b>Trailer</b><span>3 records · control totals</span><b style="margin-left:auto">✓ complete</b></div>
+  </div>
+
+  <div class="card accent" data-step="7" style="left:96px; top:600px; width:620px; height:256px">
+    <div class="label" style="color:#C55A11">Watch out</div>
+    <div class="text">Failures are usually silent</div>
+    <div class="small">No run? Brokers file with yesterday's codes.</div>
+  </div>
+
+  <svg class="detail-svg" viewBox="0 0 1920 1080">
+    <path class="v-arrow draw" data-step="1" d="M726 445 H786"/>
+  </svg>
+</section>
+
+<section class="scene" id="entries">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">How trade data flows</span></div>
+  <div class="chain"></div>
+
+  <div class="file" data-step="0" style="left:96px; top:330px; width:700px; height:450px">
+    <div class="fhead"><span class="ft">Entry data</span><span class="fs">from each broker</span></div>
+    <div class="erow" data-step="1" style="left:24px; width:652px; top:110px"><b>Line 1</b><span>code · origin · value · duty</span></div>
+    <div class="erow" data-step="2" style="left:24px; width:652px; top:220px"><b>Line 2</b><span>code · origin · value · duty</span></div>
+    <div class="erow" data-step="3" style="left:24px; width:652px; top:330px"><b>Line 3</b><span>code · origin · value · duty</span></div>
+  </div>
+
+  <div class="cap" data-step="5" style="left:846px; top:378px; width:400px; text-align:center; color:#C55A11">Matched to our items</div>
+  <div class="ichip" data-step="4" style="left:896px; top:440px; width:300px">KIT-100</div>
+  <div class="ichip" data-step="4" style="left:896px; top:550px; width:300px">KIT-200</div>
+  <div class="ichip" data-step="4" style="left:896px; top:660px; width:300px">KIT-300</div>
+
+  <div class="card feeds" data-step="7" style="left:1316px; top:445px; width:508px; height:300px">
+    <div class="label">Then it feeds</div>
+    <div class="fline" data-step="8">Broker audits</div>
+    <div class="fline" data-step="9">Actual duty paid</div>
+    <div class="fline" data-step="10">Power BI reports</div>
+  </div>
+
+  <svg class="detail-svg" viewBox="0 0 1920 1080">
+    <path class="v-arrow-accent draw" data-step="5" d="M776 485 H892"/>
+    <path class="v-arrow-accent draw" data-step="5" d="M776 595 H892"/>
+    <path class="v-arrow-accent draw" data-step="5" d="M776 705 H892"/>
+    <path class="v-line draw" data-step="6" d="M1200 485 H1236 V705 H1200"/>
+    <path class="v-arrow draw" data-step="6" d="M1236 595 H1302"/>
+  </svg>
+</section>
+
+<section class="scene" id="e2open">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">What changes with e2open</span></div>
+  <div class="chain" data-n1="AS400|adds trade data" data-swap1="e2open GTM|replaces the AS400"></div>
+
+  <div class="same">
+    <span class="lead-t" data-step="0">Same data, new system:</span>
+    <span class="dchip" data-step="1">Items</span>
+    <span class="dchip" data-step="2">Tariff codes</span>
+    <span class="dchip" data-step="3">Origin</span>
+    <span class="dchip" data-step="4">USMCA flags</span>
+  </div>
+
+  <div class="cap" data-step="5" style="left:96px; top:416px">For your own process</div>
+  <div class="card accent" data-step="6" style="left:96px; top:462px; width:549px; height:250px">
+    <div class="label" style="color:#C55A11">You write</div>
+    <div class="text">As-is process doc</div>
+    <div class="small">How your process really works today</div>
+  </div>
+  <div class="card accent" data-step="7" style="left:685px; top:462px; width:549px; height:250px">
+    <div class="label" style="color:#C55A11">You write</div>
+    <div class="text">Data map</div>
+    <div class="small">Where each field goes in e2open</div>
+  </div>
+  <div class="card soft" data-step="8" style="left:1274px; top:462px; width:550px; height:250px">
+    <div class="label">Then you help</div>
+    <div class="text">Clean the data and test</div>
+    <div class="small">Fix at the source; the data owner decides</div>
+  </div>
+
+  <div class="banner" data-step="9" style="left:96px; top:748px; width:1728px; height:100px">The goal: nothing is lost in the move</div>
+</section>
+
+<section class="scene" id="remember">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">Remember</span></div>
+  <div class="chain" data-n1="Trade system|AS400, then e2open"></div>
+
+  <div class="statement" data-step="0">Every filing and every report<br>is only as good as <span class="accent">this chain</span>.</div>
+
+  <div class="card soft" data-step="1" style="left:96px; top:572px; width:844px; height:212px">
+    <div class="label">Read next</div>
+    <div class="text">Trade systems primer</div>
+    <div class="small">Sections 3 to 5: data flow, the AS400, e2open</div>
+  </div>
+  <div class="card soft" data-step="2" style="left:980px; top:572px; width:844px; height:212px">
+    <div class="label">Study now</div>
+    <div class="text">Anki Units 01 and 02</div>
+    <div class="small" data-step="3">Unit 07, the e2open migration: from Week 10</div>
+  </div>
+</section>
