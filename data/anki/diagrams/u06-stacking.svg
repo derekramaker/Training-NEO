@@ -1,6 +1,6 @@
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 404" width="640" height="404">
-  <rect class="bg" width="640" height="404"/>
-  <text class="t-title" x="24" y="40">Adds, replaces or displaces?</text>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 448" width="640" height="448">
+  <rect class="bg" width="640" height="448"/>
+  <text class="t-title" x="24" y="40">Adds, displaces or replaces?</text>
   <text class="t-sm t-muted" x="24" y="68">Fictional PART-A, customs value $200.00; hypothetical rates</text>
 
   <rect class="box-soft" x="24" y="86" width="592" height="50" rx="8"/>
@@ -9,15 +9,16 @@
   <foreignObject x="24" y="150" width="592" height="156">
     <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
       <table>
-        <tr><th>A 25% duty that</th><th>Working</th><th class="num">Rate</th><th class="num">Duty</th></tr>
-        <tr class="hl"><td><b>adds</b> (default)</td><td>12.5% + 25%</td><td class="num">37.5%</td><td class="num">$75.00</td></tr>
-        <tr><td><b>replaces</b> Y's 10%</td><td>12.5% + 25% − 10%</td><td class="num">27.5%</td><td class="num">$55.00</td></tr>
-        <tr><td><b>displaces</b> Y</td><td>12.5% + 25% − 10%</td><td class="num">27.5%</td><td class="num">$55.00</td></tr>
+        <tr><th>What happens</th><th>Working</th><th class="num">Rate</th><th class="num">Duty</th></tr>
+        <tr class="hl"><td>New 25% <b>adds</b></td><td>12.5% + 25%</td><td class="num">37.5%</td><td class="num">$75.00</td></tr>
+        <tr><td>New 25% <b>displaces</b> Y</td><td>12.5% + 25% − 10%</td><td class="num">27.5%</td><td class="num">$55.00</td></tr>
+        <tr><td>Y rises to 20%</td><td>12.5% + 20% − 10%</td><td class="num">22.5%</td><td class="num">$45.00</td></tr>
       </table>
     </div>
   </foreignObject>
 
-  <rect class="box" x="24" y="314" width="592" height="78" rx="8"/>
-  <g data-cloze="replace"><text class="t-sm" x="40" y="342"><tspan class="t-bold">Replaces:</tspan> Action Y itself rises from 10% to 25%.</text></g>
-  <text class="t-sm" x="40" y="376"><tspan class="t-bold">Displaces:</tspan> a new action switches Y off.</text>
+  <rect class="box" x="24" y="318" width="592" height="114" rx="8"/>
+  <text class="t-sm" x="40" y="347"><tspan class="t-bold">Adds:</tspan> the default when the text is silent.</text>
+  <text class="t-sm" x="40" y="381"><tspan class="t-bold">Displaces:</tspan> the new action's text switches Y off.</text>
+  <g data-cloze="replace"><text class="t-sm" x="40" y="415"><tspan class="t-bold">Replaces:</tspan> Y's own rate changes; old rate comes off.</text></g>
 </svg>

@@ -4,41 +4,41 @@
   <text class="t-sm t-muted" x="24" y="68">One shared workbook; each track fills only its own tab</text>
 
   <!-- lane headings and the boundary between them -->
-  <text class="t mid t-bold t-navy" x="164" y="98">Research · Hire A</text>
-  <text class="t mid t-bold t-navy" x="476" y="98">Standard Cost · Hire B</text>
+  <text class="t mid t-bold t-navy" x="164" y="96">Research · Hire A</text>
+  <text class="t mid t-bold t-navy" x="476" y="96">Standard Cost · Hire B</text>
   <path class="line-dash" d="M320 84 V310"/>
 
   <!-- inputs -->
-  <rect class="box" x="24" y="114" width="280" height="60" rx="8"/>
-  <text class="t mid t-bold" x="164" y="133">Tariff-Impact Brief</text>
-  <text class="t-sm mid t-muted" x="164" y="157">checked v1.0, no $</text>
+  <rect class="box" x="24" y="112" width="280" height="64" rx="8"/>
+  <text class="t mid t-bold" x="164" y="134">Tariff-Impact Brief</text>
+  <text class="t-sm mid t-muted" x="164" y="158">checked v1.0, no $</text>
 
-  <rect class="box-ghost" x="336" y="114" width="280" height="60" rx="8"/>
-  <text class="t mid t-bold" x="476" y="133">Item extract</text>
-  <text class="t-sm mid t-muted" x="476" y="157">from Oracle and AS400</text>
+  <rect class="box-ghost" x="336" y="112" width="280" height="64" rx="8"/>
+  <text class="t mid t-bold" x="476" y="134">Item extract</text>
+  <text class="t-sm mid t-muted" x="476" y="158">from Oracle and AS400</text>
 
   <path class="arrow" d="M164 180 V204"/>
   <path class="arrow" d="M476 180 V204"/>
 
   <!-- the two input tabs -->
   <rect class="box-soft" x="24" y="210" width="280" height="100" rx="8"/>
-  <g data-cloze="action"><text class="t mid t-bold" x="164" y="238">Action tab</text></g>
-  <text class="t-sm mid" x="164" y="270">scope, rates, dates,</text>
-  <text class="t-sm mid" x="164" y="293">duty base, stacking</text>
+  <g data-cloze="action"><text class="t mid t-bold" x="164" y="236">Action tab</text></g>
+  <text class="t-sm mid" x="164" y="268">scope, rates, dates,</text>
+  <text class="t-sm mid" x="164" y="290">duty base, stacking</text>
 
   <rect class="box-soft" x="336" y="210" width="280" height="100" rx="8"/>
-  <g data-cloze="items"><text class="t mid t-bold" x="476" y="238">Items tab</text></g>
-  <text class="t-sm mid" x="476" y="270">value, quantity, current</text>
-  <text class="t-sm mid" x="476" y="293">rate, standard, shares</text>
+  <g data-cloze="items"><text class="t mid t-bold" x="476" y="236">Items tab</text></g>
+  <text class="t-sm mid" x="476" y="268">value, quantity, current</text>
+  <text class="t-sm mid" x="476" y="290">rate, standard, shares</text>
 
-  <path class="arrow" d="M164 316 V340"/>
-  <path class="arrow" d="M476 316 V340"/>
+  <path class="arrow" d="M164 314 V340"/>
+  <path class="arrow" d="M476 314 V340"/>
 
   <!-- formulas -->
   <rect class="box" x="24" y="346" width="592" height="44" rx="8"/>
   <text class="t mid" x="320" y="368"><tspan class="t-bold">Calc and Summary:</tspan> formulas only, the $</text>
 
-  <path class="arrow-accent" d="M320 396 V418"/>
+  <path class="arrow-accent" d="M320 394 V418"/>
 
   <!-- control -->
   <rect class="box-accent" x="24" y="424" width="592" height="44" rx="8"/>

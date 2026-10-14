@@ -1,6 +1,6 @@
 <svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470">
   <rect class="bg" width="640" height="470"/>
-  <text class="t-title" x="24" y="40">US landed cost of KIT-100, per unit</text>
+  <text class="t-title" x="24" y="40">US landed cost of KIT-300, per unit</text>
   <text class="t-sm t-muted" x="24" y="68">Fictional import from Country X; hypothetical 5% duty</text>
 
   <!-- table panel and header -->

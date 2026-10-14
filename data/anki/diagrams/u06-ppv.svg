@@ -1,7 +1,7 @@
 <svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" width="640" height="430">
   <rect class="bg" width="640" height="430"/>
   <text class="t-title" x="24" y="40">Purchase price variance (PPV)</text>
-  <text class="t-sm t-muted" x="24" y="68">Fictional KIT-100, standard unit cost $14.00</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional KIT-400, standard unit cost $14.00</text>
 
   <rect class="box-soft" x="24" y="86" width="592" height="50" rx="8"/>
   <text class="t mid t-bold" x="320" y="111">PPV = (actual − standard) × quantity</text>
@@ -17,8 +17,8 @@
     </div>
   </foreignObject>
 
-  <rect class="box-accent" x="24" y="316" width="592" height="98" rx="8"/>
-  <text class="t t-accent" x="40" y="346">Positive = unfavorable</text>
-  <text class="t-sm" x="40" y="376">we paid more than standard; negative = favorable.</text>
-  <text class="t-sm t-muted" x="40" y="402">Confirm Finance's sign convention.</text>
+  <rect class="box-accent" x="24" y="316" width="592" height="100" rx="8"/>
+  <text class="t t-accent" x="40" y="345">Positive = unfavorable</text>
+  <text class="t-sm" x="40" y="373">we paid more than standard; negative = favorable.</text>
+  <text class="t-sm t-muted" x="40" y="399">Confirm Finance's sign convention.</text>
 </svg>

@@ -1,7 +1,7 @@
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470">
-  <rect class="bg" width="640" height="470"/>
-  <text class="t-title" x="24" y="40">Unused drawback on PART-A</text>
-  <text class="t-sm t-muted" x="24" y="68">Fictional: 1,000 imported, 600 exported unused, 1313(j)(1)</text>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 476" width="640" height="476">
+  <rect class="bg" width="640" height="476"/>
+  <text class="t-title" x="24" y="40">PART-A: unused drawback, 1313(j)(1)</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional: 1,000 imported 2026-03-10; 600 exported unused</text>
 
   <rect class="box-soft" x="24" y="84" width="592" height="48" rx="8"/>
   <text class="t mid t-bold" x="320" y="108">Refund = 99% × eligible duty on exported units</text>
@@ -10,25 +10,25 @@
     <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
       <table>
         <tr><th>Step</th><th>Working</th><th class="num">US$</th></tr>
-        <tr><td>Regular duty paid</td><td>1,000 units, 8.00 each</td><td class="num">8,000.00</td></tr>
+        <tr><td>Duty per unit</td><td>8,000.00 regular duty ÷ 1,000</td><td class="num">8.00</td></tr>
+        <tr class="hl"><td>Eligible duty</td><td>600 exported × 8.00</td><td class="num">4,800.00</td></tr>
         <tr><td>Antidumping duty</td><td>2,000.00 paid: never refunded</td><td class="num">0.00</td></tr>
-        <tr class="hl"><td>Eligible duty</td><td>600 × 8.00</td><td class="num">4,800.00</td></tr>
         <tr class="total"><td>Maximum refund</td><td>99% × 4,800.00</td><td class="num">4,752.00</td></tr>
       </table>
     </div>
   </foreignObject>
 
   <!-- time limits -->
-  <rect class="box" x="24" y="354" width="290" height="102" rx="8"/>
-  <text class="t-sm t-bold" x="40" y="380">Imported 2026-03-10</text>
+  <rect class="box" x="24" y="356" width="290" height="104" rx="8"/>
+  <text class="t-sm t-bold mid" x="169" y="381">Claim deadline</text>
   <g data-cloze="window">
-    <text class="t-sm" x="40" y="414">claim within 5 years:</text>
-    <text class="t-sm t-bold t-navy" x="40" y="438">by 2031-03-10</text>
+    <text class="t-sm mid" x="169" y="414">5 years from import:</text>
+    <text class="t-sm t-bold t-navy mid" x="169" y="438">by 2031-03-10</text>
   </g>
-  <rect class="box" x="326" y="354" width="290" height="102" rx="8"/>
-  <text class="t-sm t-bold" x="342" y="380">Records</text>
+  <rect class="box" x="326" y="356" width="290" height="104" rx="8"/>
+  <text class="t-sm t-bold mid" x="471" y="381">Records</text>
   <g data-cloze="records">
-    <text class="t-sm" x="342" y="414">keep until 3 years after</text>
-    <text class="t-sm t-bold t-navy" x="342" y="438">the claim liquidates</text>
+    <text class="t-sm mid" x="471" y="414">keep until 3 years after</text>
+    <text class="t-sm t-bold t-navy mid" x="471" y="438">the claim liquidates</text>
   </g>
 </svg>

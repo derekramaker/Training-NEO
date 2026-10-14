@@ -1,5 +1,5 @@
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
-  <rect class="bg" width="640" height="440"/>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 444" width="640" height="444">
+  <rect class="bg" width="640" height="444"/>
   <text class="t-title" x="24" y="40">Power BI total ≠ SQL total?</text>
   <text class="t-sm t-muted" x="24" y="68">Check in this order before you change the report</text>
 
@@ -27,10 +27,10 @@
   <text class="t-sm" x="80" y="290">sum vs average; exclusions</text>
 
   <!-- the (Blank) callout -->
-  <rect class="box-accent" x="24" y="322" width="592" height="100" rx="8"/>
-  <text class="t t-accent" x="40" y="352">A slicer shows "(Blank)"?</text>
+  <rect class="box-accent" x="24" y="318" width="592" height="110" rx="8"/>
+  <text class="t t-accent" x="40" y="348">A slicer shows "(Blank)"?</text>
   <g data-cloze="blank">
-    <text class="t-sm" x="40" y="380">fact rows whose key has no dimension row;</text>
-    <text class="t-sm" x="40" y="404">totals include them: fix the data, don't hide it</text>
+    <text class="t-sm" x="40" y="383">fact rows whose key has no dimension row;</text>
+    <text class="t-sm" x="40" y="407">totals include them: fix the data, don't hide it</text>
   </g>
 </svg>

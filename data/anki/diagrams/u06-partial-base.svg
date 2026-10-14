@@ -1,7 +1,7 @@
 <svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 444" width="640" height="444">
   <rect class="bg" width="640" height="444"/>
   <text class="t-title" x="24" y="40">Duty on part of the value</text>
-  <text class="t-sm t-muted" x="24" y="68">Fictional KIT-100, USMCA-qualifying; hypothetical 25% rate</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional PUMP-50, USMCA-qualifying; hypothetical 25% rate</text>
 
   <rect class="box-soft" x="24" y="86" width="592" height="50" rx="8"/>
   <text class="t mid" x="320" y="111">Duty base <tspan class="t-bold">PART</tspan>: the rate applies to non-US content only</text>
