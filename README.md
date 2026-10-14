@@ -33,7 +33,7 @@ systems team (US / Canada / Mexico imports). Start date: **Monday, October 19, 2
 | `BSA-Onboarding-Handbook.docx` | Program at a glance, plan, weeks 1 and 2 schedule, check-ins, access checklist, time management in one file | Print or read end to end |
 | `docs/*.docx` | One Word file per page (plan, schedule, primers, templates) | Open in Word, select all, paste into a OneNote page |
 | `BSA-Onboarding-Trackers.xlsx` | Skills tracker, knowledge tracker (one tab per hire), dashboard, tool inventory, glossary | Keep one shared copy; review in weekly 1:1s |
-| `BSA-Onboarding.apkg` | Anki deck in 3 sub-decks (customs/classification/USMCA; programs/exports/cost; BSA craft/data) | Anki: File > Import. 15 minutes a day |
+| `BSA-Onboarding.apkg` | Anki deck: Units 01–07 in teaching order (topic groups, diagrams, fill-in-the-diagram and worked-example cards) plus a suspended Reference unit | Anki: File > Import, then the one-time setup in the card-writing guide. 15 minutes a day |
 | `anki/BSA-Onboarding-cards.csv` | The same cards as a CSV | For Quizlet, Excel self-quiz, or review |
 | `Tariff-Impact-Model-Template.xlsx` | Shared Research + Standard Cost tariff model (live formulas) | Copy per tariff action; see `docs/templates/domain/tariff-impact-model-guide.md` |
 | `Practice-Data.xlsx`, `practice-data/*.csv` | Synthetic import data for the analytics exercises | Use with the practice exercises page |

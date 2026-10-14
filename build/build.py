@@ -3,30 +3,30 @@
 
 Run from the repo root:
 
-    python3 build/build.py
+    python3 build/build.py                  # add --preview-cards for flashcard contact sheets
 
-Needs: pandoc, python-docx, openpyxl, genanki, pandas (for the practice data).
+Needs: pandoc, python-docx, openpyxl, genanki, pyyaml, pandas (for the practice data), node with Playwright and
+ImageMagick (for the flashcard diagrams).
 Outputs:
     dist/docs/**.docx                    one Word file per Markdown page (paste into OneNote)
     dist/trainer-only/answer-key.docx    analytics answer key: Manager and Senior only
     dist/BSA-Onboarding-Handbook.docx    the core program docs in one printable file
     dist/BSA-Onboarding-Trackers.xlsx    skills tracker, knowledge tracker, tool inventory, glossary
-    dist/BSA-Onboarding.apkg             Anki deck (File > Import in Anki)
+    dist/BSA-Onboarding.apkg             Anki deck: 7 core units with diagrams + suspended Reference (File > Import)
     dist/anki/BSA-Onboarding-cards.csv   the same cards as one CSV
     dist/Tariff-Impact-Model-Template.xlsx, dist/Practice-Data.xlsx, dist/practice-data/*.csv
 """
 
 import csv
 import datetime as dt
-import html
 import shutil
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 
+import anki_deck
 import docx
-import genanki
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Pt, RGBColor
@@ -502,68 +502,11 @@ def build_trackers():
 
 # ---------------------------------------------------------------- Anki ----
 
-ANKI_COLS = ["front", "back", "tags", "source"]
-# Fixed IDs so re-importing an updated deck updates cards instead of duplicating them.
-ANKI_MODEL_ID = 1730826401
-ANKI_DECKS = {
-    "01": (1730826411, "BSA Onboarding::01 Customs, Classification & USMCA"),
-    "02": (1730826412, "BSA Onboarding::02 Programs, Exports & Cost"),
-    "03": (1730826413, "BSA Onboarding::03 BSA Craft & Data"),
-}
-ANKI_CSS = """
-.card { font-family: Calibri, Arial, sans-serif; font-size: 20px; color: #262626; background: #fff; text-align: left; line-height: 1.4; }
-.front { font-weight: bold; color: #1F3864; }
-.src { margin-top: 16px; font-size: 13px; color: #7f7f7f; }
-.nightMode .card, .night_mode .card { color: #e6e6e6; background: #1e1e1e; }
-.nightMode .front, .night_mode .front { color: #9dc3e6; }
-"""
-
-
-def build_anki():
-    model = genanki.Model(
-        ANKI_MODEL_ID, "BSA Onboarding Basic",
-        fields=[{"name": "Front"}, {"name": "Back"}, {"name": "Source"}],
-        templates=[{
-            "name": "Card 1",
-            "qfmt": '<div class="front">{{Front}}</div>',
-            "afmt": '{{FrontSide}}<hr id="answer"><div class="back">{{Back}}</div>'
-                    '{{#Source}}<div class="src">Source: {{Source}}</div>{{/Source}}',
-        }],
-        css=ANKI_CSS,
-    )
-    decks, all_rows, fronts = [], [], set()
-    for path in sorted((DATA / "anki").glob("*.csv")):
-        prefix = path.name[:2]
-        if prefix not in ANKI_DECKS:
-            fail(f"no deck configured for {path.name}")
-        deck_id, deck_name = ANKI_DECKS[prefix]
-        deck = genanki.Deck(deck_id, deck_name)
-        for row in read_csv(path, ANKI_COLS):
-            front, back = row["front"].strip(), row["back"].strip()
-            if not front or not back:
-                fail(f"{path.name}: empty front/back in {row}")
-            if front in fronts:
-                fail(f"{path.name}: duplicate card front: {front}")
-            fronts.add(front)
-            src = row["source"].strip()
-            src_html = "" if src.lower() in ("", "general") else (
-                f'<a href="{html.escape(src)}">{html.escape(src)}</a>' if src.startswith("http") else html.escape(src))
-            deck.add_note(genanki.Note(
-                model=model,
-                fields=[html.escape(front), html.escape(back), src_html],
-                tags=row["tags"].split(),
-                guid=genanki.guid_for(deck_name, front),
-            ))
-            all_rows.append({"deck": deck_name, **row})
-        decks.append(deck)
-    out = DIST / "BSA-Onboarding.apkg"
-    genanki.Package(decks).write_to_file(str(out))
-    (DIST / "anki").mkdir(parents=True, exist_ok=True)
-    with open(DIST / "anki" / "BSA-Onboarding-cards.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=["deck"] + ANKI_COLS)
-        w.writeheader()
-        w.writerows(all_rows)
-    print(f"anki: {len(all_rows)} cards in {len(decks)} decks -> {out.relative_to(ROOT)}")
+def build_anki(preview=False):
+    try:
+        print(anki_deck.build_deck(ROOT, DIST, preview=preview))
+    except anki_deck.DeckError as e:
+        fail(str(e))
 
 
 # ----------------------------------------------------- generated helpers ----
@@ -586,7 +529,7 @@ def main():
             shutil.rmtree(DIST / sub)
     build_docs()
     build_trackers()
-    build_anki()
+    build_anki(preview="--preview-cards" in sys.argv)
     run_generators()
 
 

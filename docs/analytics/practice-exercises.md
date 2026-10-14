@@ -466,7 +466,7 @@ Rules: one page (about 400 words). Round for reading ($31.4K), but every number 
 
 ## Related files
 
-- In the onboarding folder: Practice-Data.xlsx, the practice-data folder (CSVs and load_practice_data.sql), Tariff-Impact-Model-Template.xlsx, and BSA-Onboarding.apkg (sub-deck "03 BSA Craft & Data": SQL, warehouse, Power BI and BSA craft cards)
+- In the onboarding folder: Practice-Data.xlsx, the practice-data folder (CSVs and load_practice_data.sql), Tariff-Impact-Model-Template.xlsx, and BSA-Onboarding.apkg (Unit 04 › Data, SQL and Power BI; more SQL and Power BI cards in Reference › BSA craft and data)
 - Trainer-only until the day-30 review: the answer key and the data generator script ([COMPANY: trainer-only location])
 - `docs/primers/customs-trade-compliance-primer.md`, `docs/primers/trade-systems-gtm-e2open-primer.md`
 - `docs/templates/domain/tariff-impact-model-guide.md`, `docs/templates/domain/standard-cost-update-checklist.md`

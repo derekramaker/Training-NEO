@@ -1,0 +1,78 @@
+/* Shared style for every flashcard (and video) diagram. Diagrams use these classes only:
+   no inline colors, so the whole set stays consistent and can be re-themed in one place. */
+
+:root {
+  --navy: #1F3864;      /* primary: headings, strong boxes, arrows */
+  --blue: #2E75B6;      /* secondary emphasis */
+  --blue-soft: #DCE6F2; /* soft fills */
+  --panel: #F7F9FC;     /* diagram background */
+  --ink: #262626;       /* body text */
+  --muted: #595959;     /* secondary text */
+  --line: #8497B0;      /* neutral connectors */
+  --accent: #C55A11;    /* the one thing to notice; cloze masks */
+  --accent-soft: #FBE5D6;
+  --ok: #3B6E22;
+  --ok-soft: #E2F0D9;
+  --warn-soft: #FFF2CC;
+  --bad: #A31515;
+  --bad-soft: #F8D7DA;
+}
+
+svg.diagram { font-family: "Inter", "Liberation Sans", Arial, sans-serif; background: var(--panel); }
+
+/* Background panel (put one full-size rect.bg first) */
+.bg { fill: var(--panel); }
+
+/* Boxes */
+.box        { fill: #FFFFFF; stroke: var(--navy); stroke-width: 2; }
+.box-soft   { fill: var(--blue-soft); stroke: var(--navy); stroke-width: 1.5; }
+.box-strong { fill: var(--navy); stroke: var(--navy); stroke-width: 2; }
+.box-accent { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+.box-ok     { fill: var(--ok-soft); stroke: var(--ok); stroke-width: 2; }
+.box-warn   { fill: var(--warn-soft); stroke: #BF9000; stroke-width: 2; }
+.box-bad    { fill: var(--bad-soft); stroke: var(--bad); stroke-width: 2; }
+.box-ghost  { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 6 5; }
+.lane       { fill: #FFFFFF; stroke: var(--line); stroke-width: 1; }
+
+/* Text: minimum 18px on the 640-wide canvas, or it is unreadable on a phone */
+.t        { font-size: 20px; fill: var(--ink); }
+.t-sm     { font-size: 18px; fill: var(--ink); }
+.t-lg     { font-size: 24px; fill: var(--ink); font-weight: 600; }
+.t-title  { font-size: 26px; fill: var(--navy); font-weight: 700; }
+.t-bold   { font-weight: 700; }
+.t-white  { fill: #FFFFFF; }
+.t-muted  { fill: var(--muted); }
+.t-navy   { fill: var(--navy); }
+.t-accent { fill: var(--accent); font-weight: 700; }
+.t-ok     { fill: var(--ok); font-weight: 700; }
+.t-bad    { fill: var(--bad); font-weight: 700; }
+.t-mono   { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; }
+.mid      { text-anchor: middle; dominant-baseline: middle; }
+.end      { text-anchor: end; }
+
+/* Lines and arrows (arrowheads come from the shared markers the renderer provides) */
+.line       { stroke: var(--navy); stroke-width: 2.5; fill: none; }
+.line-soft  { stroke: var(--line); stroke-width: 2; fill: none; }
+.line-dash  { stroke: var(--line); stroke-width: 2; fill: none; stroke-dasharray: 7 6; }
+.arrow      { stroke: var(--navy); stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+.arrow-soft { stroke: var(--line); stroke-width: 2; fill: none; marker-end: url(#arrow-soft); }
+.arrow-accent { stroke: var(--accent); stroke-width: 3; fill: none; marker-end: url(#arrow-accent); }
+
+/* Small round step badges: <circle class="badge" r="16"/> + <text class="t-sm t-white mid t-bold"> */
+.badge { fill: var(--navy); }
+.badge-accent { fill: var(--accent); }
+
+/* Tables for worked examples, inside <foreignObject>: <div class="wt"><table>...</table></div> */
+.wt { font-family: "Inter", "Liberation Sans", Arial, sans-serif; color: var(--ink); font-size: 19px; }
+.wt table { border-collapse: collapse; width: 100%; background: #FFFFFF; }
+.wt th { background: var(--navy); color: #FFFFFF; text-align: left; padding: 7px 10px; font-weight: 600; }
+.wt td { border-bottom: 1px solid #D9DEE7; padding: 7px 10px; }
+.wt td.num, .wt th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.wt tr.total td { font-weight: 700; border-top: 2px solid var(--navy); border-bottom: none; }
+.wt tr.hl td { background: var(--accent-soft); }
+.wt .note { color: var(--muted); font-size: 18px; margin-top: 6px; }
+
+/* Renderer-only: cloze masks and highlights */
+.cloze-mask { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 8 5; }
+.cloze-q    { fill: var(--accent); font-weight: 800; }
+.cloze-hl   { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 3; }

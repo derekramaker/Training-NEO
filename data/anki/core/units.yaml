@@ -1,0 +1,105 @@
+# Core deck structure: units follow the teaching order in docs/01-30-60-90-plan.md.
+# Each unit is an Anki subdeck "BSA Onboarding::Unit NN · <title>"; each group a subdeck under it.
+# Cards live in unit-NN.csv; their `group` column must be one of the group keys below.
+# Hires study the current unit (and review earlier ones); later units wait until they are taught.
+
+units:
+  - number: 1
+    title: "Week 1 · Roles, US entry basics, trade systems"
+    weeks: "W1"
+    description: "Study from Week 1. Who does what at the border, how a US entry moves, what duties and fees are, and how our trade systems fit together. Also the program's ground rules."
+    groups:
+      - key: G1
+        name: "Roles and parties"
+      - key: G2
+        name: "US entry lifecycle"
+      - key: G3
+        name: "Duties and fees"
+      - key: G4
+        name: "Trade systems landscape"
+      - key: G5
+        name: "Ground rules: maker-checker, boundary, brokers"
+
+  - number: 2
+    title: "Week 2 · Canada, Mexico, classification, USMCA basics"
+    weeks: "W2"
+    description: "Study from Week 2. Canada and Mexico import basics, how tariff classification works, what USMCA is, and how trade data moves through the AS400 trade system."
+    groups:
+      - key: G1
+        name: "Canada"
+      - key: G2
+        name: "Mexico"
+      - key: G3
+        name: "Classification (HS, HTS, GRIs)"
+      - key: G4
+        name: "USMCA basics"
+      - key: G5
+        name: "Trade data flow"
+
+  - number: 3
+    title: "Week 3 · Valuation, USMCA origin, records, reading a tariff action"
+    weeks: "W3"
+    description: "Study from Week 3. Customs value, how goods qualify under USMCA (with a worked RVC example), certification and recordkeeping, how to read a tariff action, and BSA intake."
+    groups:
+      - key: G1
+        name: "Valuation"
+      - key: G2
+        name: "USMCA origin rules"
+      - key: G3
+        name: "Certification and records"
+      - key: G4
+        name: "Reading a tariff action"
+      - key: G5
+        name: "BSA intake and requirements"
+
+  - number: 4
+    title: "Week 4 · IMMEX, broker audits, process mapping, data"
+    weeks: "W4"
+    description: "Study from Week 4. Mexico's IMMEX program and its control annexes, auditing what brokers file, mapping a process, and the data and Power BI concepts you use every day."
+    groups:
+      - key: G1
+        name: "IMMEX and Mexican programs"
+      - key: G2
+        name: "Broker audits and corrections"
+      - key: G3
+        name: "Process mapping"
+      - key: G4
+        name: "Data, SQL and Power BI"
+
+  - number: 5
+    title: "Weeks 5–6 · Exports, standard and landed cost, owning a tool"
+    weeks: "W5–W6"
+    description: "Study from Week 5. Export compliance basics, how standard cost and landed cost work (with a worked build-up), and how to change a tool safely."
+    groups:
+      - key: G1
+        name: "Export compliance"
+      - key: G2
+        name: "Standard and landed cost"
+      - key: G3
+        name: "Owning a tool"
+
+  - number: 6
+    title: "Weeks 7–9 · Track deep dives, tariff mechanics, data mapping"
+    weeks: "W7–W9"
+    description: "Study from Week 7. The Research and Standard Cost track groups go deep on your own process (do yours first, then skim the other). Tariff mechanics and data mapping/UAT are for both."
+    groups:
+      - key: G1
+        name: "Research track"
+      - key: G2
+        name: "Standard Cost track"
+      - key: G3
+        name: "Tariff mechanics"
+      - key: G4
+        name: "Data mapping and UAT"
+
+  - number: 7
+    title: "Weeks 10–13 · Drawback, e2open migration, reporting"
+    weeks: "W10–W13"
+    description: "Study from Week 10. US duty drawback (exposure only), what happens in the e2open migration, and the reporting work you start picking up."
+    groups:
+      - key: G1
+        name: "US duty drawback"
+      - key: G2
+        name: "e2open migration"
+      - key: G3
+        name: "Reporting"

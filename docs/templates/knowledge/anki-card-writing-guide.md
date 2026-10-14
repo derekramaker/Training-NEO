@@ -10,12 +10,23 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 | Deck | What is in it | Where it comes from | May it leave company systems? |
 |---|---|---|---|
-| Team deck: "BSA Onboarding" (3 sub-decks) | Industry and regulatory knowledge, BSA craft and data skills. Nothing company-specific | BSA-Onboarding.apkg in the onboarding folder, built by the Manager. You study it; you do not edit it | Yes: it contains no company data. But Anki syncs whole profiles, so the sync rules below still apply |
+| Team deck: "BSA Onboarding" (Units 01–07 plus Reference) | Industry and regulatory knowledge, program rules, BSA craft and data skills, with diagrams. Nothing company-specific | BSA-Onboarding.apkg in the onboarding folder, built by the Manager. You study it; you do not edit it | Yes: it contains no company data. But Anki syncs whole profiles, so the sync rules below still apply |
 | Your own deck, for example "BSA Company Internal" | Every card you write: company systems, tables, tools, process steps, roles and rules of thumb (tag `company`), plus your own cards on general topics such as regulations, craft and data (tag `own`) | Written by you as you learn; company cards shared through [COMPANY: SharePoint or OneNote location] | No, unless [COMPANY: policy confirms] |
 
 If a card names a company system object, tool, report, team, person, threshold, customer, supplier or item, it is company-specific: tag it `company`.
 
 **Which cards count.** The targets above, the W2 check (15 cards) and the milestone spot checks count only the cards you write: `company` plus `own`. Cards in the team deck do not count, because you did not write them. Keep all your own cards in your own deck, never inside the team deck, so that importing a new team-deck version never touches them. In the Friday self-report, write "cards: N company, M own".
+
+## How the team deck is organized
+
+- **Units follow the teaching order.** Unit 01 is Week 1, Unit 02 Week 2, Unit 03 Week 3, Unit 04 Week 4, Unit 05 Weeks 5–6, Unit 06 Weeks 7–9 and Unit 07 Weeks 10–13. Each unit has topic groups, for example Unit 02 › 3 Classification (HS, HTS, GRIs).
+- **Priority and track tags.** `priority::1` cards are must-know by the end of that week; `priority::2` are should-know. Cards tagged `track::research` or `track::stdcost` belong to one track: do yours properly and skim the other.
+- **Four kinds of card.** Plain question cards; diagram cards, whose answer shows a diagram; fill-in-the-diagram cards, where the front hides one label (say the answer out loud before you flip); and worked examples (do the arithmetic on paper first).
+- **Reference (browse only).** The rest of the original cards, suspended so they stay out of your daily queue. To add one to your queue: Browse, select the card, then Cards > Toggle Suspend.
+
+**One-time setup (2 minutes).** On the Decks screen, click the gear next to "BSA Onboarding" > Options. Under Daily Limits, set New cards/day to 10 on the preset tab, then switch to the "This deck" tab and set New cards/day to 0, and save. Leave "Limits start from top" off. The top deck now shows only reviews, and each unit you click gives up to 10 new cards a day (Anki applies the limits of the deck you click, not its parent's).
+
+**Every day.** (1) Click the unit for the current week: learn its new cards and do its reviews. (2) Click "BSA Onboarding" to clear the remaining reviews from earlier units. (3) Study your own deck. If a unit's new cards run out before the week ends, use the spare minutes on your own cards; do not start next week's unit early.
 
 ## Principles
 
@@ -63,12 +74,12 @@ Tags let both hires and the trainers filter cards by module. The team deck uses 
 
 | When | What | Time |
 |---|---|---|
-| Every morning, first thing | Review all due cards in both decks. Reviews before new cards | 15 min |
+| Every morning, first thing | Current unit (new cards and its reviews), then the top deck (remaining reviews), then your own deck | 15 min |
 | During the day | Note card candidates in OneNote as you learn (last 5 minutes of each study block) | 1 to 2 min each |
 | 16:45 daily wrap | Turn the day's card candidates and answered questions into cards | Inside the wrap |
 | Friday, 10 minutes | Search `tag:leech` and `tag:dated`; rewrite or retire those cards; count the cards you wrote (`tag:company`, `tag:own`) for the Friday self-report | 10 min |
 
-Settings that keep it at 15 minutes: in the deck options for the team deck, set new cards per day to about 10. If reviews take more than 20 minutes for 3 days in a row, cut new cards to 5 until it settles. Anki tags a card `leech` after 8 lapses by default and, if the deck's leech action is set to suspend, also suspends it. Find leeches with the search `tag:leech` and rewrite them.
+Settings that keep it at 15 minutes: the setup above (10 new cards a day from the current unit, reviews only on the top deck). If reviews take more than 20 minutes for 3 days in a row, cut new cards to 5 until it settles. Anki tags a card `leech` after 8 lapses by default and, if the deck's leech action is set to suspend, also suspends it. Find leeches with the search `tag:leech` and rewrite them.
 
 ## Adding your own cards in a separate deck
 
