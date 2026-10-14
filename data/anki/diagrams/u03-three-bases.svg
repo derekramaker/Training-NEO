@@ -3,7 +3,7 @@
   <text class="t-title" x="24" y="40">One purchase, three duty bases</text>
   <text class="t-sm t-muted" x="24" y="68">Fictional purchase from Country X, all in US$</text>
 
-  <foreignObject x="24" y="86" width="592" height="252">
+  <foreignObject x="24" y="86" width="592" height="230">
     <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
       <table>
         <tr><th>Element</th><th class="num">US</th><th class="num">Canada</th><th class="num">Mexico</th></tr>
@@ -16,8 +16,8 @@
     </div>
   </foreignObject>
 
-  <rect class="box" x="24" y="330" width="592" height="96" rx="8"/>
-  <text class="t-sm" x="40" y="358"><tspan class="t-bold">US:</tspan> international freight and insurance left out</text>
-  <text class="t-sm" x="40" y="384"><tspan class="t-bold">Canada:</tspan> left out after the place of direct shipment</text>
-  <text class="t-sm" x="40" y="410"><tspan class="t-bold">Mexico:</tspan> added until the goods arrive (CIF-like)</text>
+  <rect class="box" x="24" y="328" width="592" height="96" rx="8"/>
+  <text class="t-sm" x="40" y="356"><tspan class="t-bold">US:</tspan> international freight and insurance left out</text>
+  <text class="t-sm" x="40" y="382"><tspan class="t-bold">Canada:</tspan> left out from the place of direct shipment</text>
+  <text class="t-sm" x="40" y="408"><tspan class="t-bold">Mexico:</tspan> added up to arrival in Mexico (CIF-like)</text>
 </svg>

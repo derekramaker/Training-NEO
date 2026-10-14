@@ -1,53 +1,53 @@
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 472" width="640" height="472">
-  <rect class="bg" width="640" height="472"/>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 476" width="640" height="476">
+  <rect class="bg" width="640" height="476"/>
   <text class="t-title" x="24" y="40">Auditing a broker's filed line</text>
   <text class="t-sm t-muted" x="24" y="68">You find, log and scope it; the Senior decides the fix</text>
 
   <!-- inputs -->
   <rect class="box-soft" x="24" y="88" width="168" height="64" rx="8"/>
-  <text class="t t-bold mid" x="108" y="110">Our data</text>
-  <text class="t-sm t-muted mid" x="108" y="136">master, PO, rates</text>
+  <text class="t t-bold mid" x="108" y="108">Our data</text>
+  <text class="t-sm t-muted mid" x="108" y="134">master, PO, rates</text>
   <rect class="box-soft" x="24" y="176" width="168" height="64" rx="8"/>
-  <text class="t t-bold mid" x="108" y="198">Filed line</text>
-  <text class="t-sm t-muted mid" x="108" y="224">from the broker</text>
+  <text class="t t-bold mid" x="108" y="196">Filed line</text>
+  <text class="t-sm t-muted mid" x="108" y="222">from the broker</text>
   <path class="arrow" d="M192 120 H226"/>
   <path class="arrow" d="M192 208 H226"/>
 
   <!-- compare -->
   <rect class="box" x="232" y="88" width="184" height="152" rx="8"/>
   <text class="t-sm t-muted mid" x="324" y="110">Compare first</text>
-  <text class="t-sm t-bold" x="252" y="144">1  Classification</text>
-  <text class="t-sm t-bold" x="252" y="170">2  Value</text>
-  <text class="t-sm t-bold" x="252" y="196">3  Origin, claim</text>
-  <text class="t-sm t-bold" x="252" y="222">4  Duty rate</text>
+  <text class="t-sm t-bold" x="254" y="144">1  Classification</text>
+  <text class="t-sm t-bold" x="254" y="170">2  Value</text>
+  <text class="t-sm t-bold" x="254" y="196">3  Origin, claim</text>
+  <text class="t-sm t-bold" x="254" y="222">4  Duty rate</text>
   <path class="arrow" d="M416 164 H450"/>
 
   <!-- log -->
   <rect class="box" x="456" y="88" width="160" height="152" rx="8"/>
   <text class="t-sm t-muted mid" x="536" y="110">Mismatch?</text>
-  <text class="t t-bold mid" x="536" y="146">Log it with</text>
-  <text class="t t-bold mid" x="536" y="170">evidence</text>
-  <text class="t-sm t-muted mid" x="536" y="206">entry, line,</text>
-  <text class="t-sm t-muted mid" x="536" y="228">filed vs ours</text>
-  <path class="arrow" d="M536 240 H536 V278"/>
+  <text class="t t-bold mid" x="536" y="142">Log it with</text>
+  <text class="t t-bold mid" x="536" y="166">evidence</text>
+  <text class="t-sm t-muted mid" x="536" y="198">entry, line,</text>
+  <text class="t-sm t-muted mid" x="536" y="220">filed vs ours</text>
+  <path class="arrow" d="M536 240 V278"/>
 
   <!-- escalate, scope, fix -->
-  <rect class="box-accent" x="456" y="284" width="160" height="104" rx="8"/>
-  <text class="t t-bold mid" x="536" y="310">Escalate to</text>
-  <text class="t t-bold mid" x="536" y="334">the Senior</text>
-  <g data-cloze="sameday"><text class="t t-accent mid" x="536" y="364">same day</text></g>
-  <path class="arrow" d="M456 336 H422"/>
+  <rect class="box-accent" x="456" y="284" width="160" height="112" rx="8"/>
+  <text class="t t-bold mid" x="536" y="306">Escalate to</text>
+  <text class="t t-bold mid" x="536" y="330">the Senior</text>
+  <g data-cloze="sameday"><text class="t t-accent mid" x="536" y="368">same day</text></g>
+  <path class="arrow" d="M456 340 H422"/>
 
-  <rect class="box" x="232" y="284" width="184" height="104" rx="8"/>
+  <rect class="box" x="232" y="284" width="184" height="112" rx="8"/>
   <text class="t-sm t-muted mid" x="324" y="306">Scope it</text>
-  <g data-cloze="scope"><text class="t-sm t-bold mid" x="324" y="338">every affected</text><text class="t-sm t-bold mid" x="324" y="362">entry and line</text></g>
-  <path class="arrow" d="M232 336 H198"/>
+  <g data-cloze="scope"><text class="t-sm t-bold mid" x="324" y="344">every affected</text><text class="t-sm t-bold mid" x="324" y="368">entry and line</text></g>
+  <path class="arrow" d="M232 340 H198"/>
 
-  <rect class="box" x="24" y="284" width="168" height="104" rx="8"/>
+  <rect class="box" x="24" y="284" width="168" height="112" rx="8"/>
   <text class="t-sm t-muted mid" x="108" y="306">Our data wrong?</text>
-  <g data-cloze="cr"><text class="t-sm t-bold mid" x="108" y="338">Change request,</text><text class="t-sm t-bold mid" x="108" y="362">maker-checker</text></g>
+  <g data-cloze="cr"><text class="t-sm t-bold mid" x="108" y="344">Change request,</text><text class="t-sm t-bold mid" x="108" y="368">maker-checker</text></g>
 
   <!-- rules -->
-  <text class="t-sm t-bold" x="24" y="424">The Senior or Manager picks the correction route.</text>
-  <text class="t-sm t-bad" x="24" y="452">You never contact customs, and not the broker before day 60.</text>
+  <text class="t-sm t-bold" x="24" y="430">The Senior or Manager picks the correction route.</text>
+  <text class="t-sm t-bad" x="24" y="458">You never contact customs, and not the broker before day 60.</text>
 </svg>

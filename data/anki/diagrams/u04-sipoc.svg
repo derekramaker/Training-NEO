@@ -4,59 +4,64 @@
   <text class="t-sm t-muted" x="24" y="68">Example: respond to a new tariff action</text>
 
   <!-- Suppliers -->
-  <rect class="box" x="24" y="86" width="110" height="272" rx="8"/>
-  <g data-cloze="s"><text class="t-title mid" x="79" y="112">S</text><text class="t-sm t-bold mid" x="79" y="140">Suppliers</text></g>
-  <path class="line-soft" d="M34 158 H124"/>
-  <text class="t-sm mid" x="79" y="184">Federal</text>
-  <text class="t-sm mid" x="79" y="206">Register</text>
-  <text class="t-sm mid" x="79" y="240">CBP CSMS</text>
-  <text class="t-sm mid" x="79" y="274">AS400</text>
-  <text class="t-sm mid" x="79" y="308">Data</text>
-  <text class="t-sm mid" x="79" y="330">warehouse</text>
+  <rect class="box" x="24" y="86" width="116" height="272" rx="8"/>
+  <text class="t-title mid" x="82" y="112">S</text>
+  <text class="t-sm t-bold mid" x="82" y="140">Suppliers</text>
+  <path class="line-soft" d="M36 158 H128"/>
+  <text class="t-sm mid" x="82" y="184">Federal</text>
+  <text class="t-sm mid" x="82" y="206">Register</text>
+  <text class="t-sm mid" x="82" y="240">CBP CSMS</text>
+  <text class="t-sm mid" x="82" y="274">AS400</text>
+  <text class="t-sm mid" x="82" y="308">Data</text>
+  <text class="t-sm mid" x="82" y="330">warehouse</text>
 
   <!-- Inputs -->
-  <rect class="box" x="138" y="86" width="110" height="272" rx="8"/>
-  <g data-cloze="i"><text class="t-title mid" x="193" y="112">I</text><text class="t-sm t-bold mid" x="193" y="140">Inputs</text></g>
-  <path class="line-soft" d="M148 158 H238"/>
-  <text class="t-sm mid" x="193" y="184">Notice,</text>
-  <text class="t-sm mid" x="193" y="206">annexes</text>
-  <text class="t-sm mid" x="193" y="240">Item</text>
-  <text class="t-sm mid" x="193" y="262">master</text>
-  <text class="t-sm mid" x="193" y="296">Import</text>
-  <text class="t-sm mid" x="193" y="318">history</text>
+  <rect class="box" x="144" y="86" width="96" height="272" rx="8"/>
+  <text class="t-title mid" x="192" y="112">I</text>
+  <text class="t-sm t-bold mid" x="192" y="140">Inputs</text>
+  <path class="line-soft" d="M154 158 H230"/>
+  <text class="t-sm mid" x="192" y="184">Notice,</text>
+  <text class="t-sm mid" x="192" y="206">annexes</text>
+  <text class="t-sm mid" x="192" y="240">Item</text>
+  <text class="t-sm mid" x="192" y="262">master</text>
+  <text class="t-sm mid" x="192" y="296">Import</text>
+  <text class="t-sm mid" x="192" y="318">history</text>
 
   <!-- Process -->
-  <rect class="box-accent" x="252" y="86" width="136" height="272" rx="8"/>
-  <g data-cloze="p"><text class="t-title mid" x="320" y="112">P</text><text class="t-sm t-bold mid" x="320" y="140">Process</text></g>
-  <path class="line-soft" d="M262 158 H378"/>
-  <text class="t-sm" x="261" y="190">1 Detect</text>
-  <text class="t-sm" x="261" y="214">2 Triage</text>
-  <text class="t-sm" x="261" y="238">3 Scope</text>
-  <text class="t-sm" x="261" y="262">4 Match items</text>
-  <text class="t-sm" x="261" y="286">5 Write brief</text>
-  <text class="t-sm" x="261" y="310">6 Check</text>
-  <text class="t-sm" x="261" y="334">7 Hand off</text>
+  <rect class="box" x="244" y="86" width="152" height="272" rx="8"/>
+  <text class="t-title mid" x="320" y="112">P</text>
+  <text class="t-sm t-bold mid" x="320" y="140">Process</text>
+  <path class="line-soft" d="M256 158 H384"/>
+  <text class="t-sm" x="262" y="190">1 Detect</text>
+  <text class="t-sm" x="262" y="214">2 Triage</text>
+  <text class="t-sm" x="262" y="238">3 Scope</text>
+  <text class="t-sm" x="262" y="262">4 Match items</text>
+  <text class="t-sm" x="262" y="286">5 Write brief</text>
+  <text class="t-sm" x="262" y="310">6 Check</text>
+  <text class="t-sm" x="262" y="334">7 Hand off</text>
 
   <!-- Outputs -->
-  <rect class="box" x="392" y="86" width="110" height="272" rx="8"/>
-  <g data-cloze="o"><text class="t-title mid" x="447" y="112">O</text><text class="t-sm t-bold mid" x="447" y="140">Outputs</text></g>
-  <path class="line-soft" d="M402 158 H492"/>
-  <text class="t-sm mid" x="447" y="184">Impact</text>
-  <text class="t-sm mid" x="447" y="206">brief</text>
-  <text class="t-sm mid" x="447" y="240">In-scope</text>
-  <text class="t-sm mid" x="447" y="262">items</text>
-  <text class="t-sm mid" x="447" y="296">Jira</text>
-  <text class="t-sm mid" x="447" y="318">trail</text>
+  <rect class="box" x="400" y="86" width="96" height="272" rx="8"/>
+  <text class="t-title mid" x="448" y="112">O</text>
+  <text class="t-sm t-bold mid" x="448" y="140">Outputs</text>
+  <path class="line-soft" d="M410 158 H486"/>
+  <text class="t-sm mid" x="448" y="184">Impact</text>
+  <text class="t-sm mid" x="448" y="206">brief</text>
+  <text class="t-sm mid" x="448" y="240">In-scope</text>
+  <text class="t-sm mid" x="448" y="262">items</text>
+  <text class="t-sm mid" x="448" y="296">Jira</text>
+  <text class="t-sm mid" x="448" y="318">trail</text>
 
   <!-- Customers -->
-  <rect class="box" x="506" y="86" width="110" height="272" rx="8"/>
-  <g data-cloze="c"><text class="t-title mid" x="561" y="112">C</text><text class="t-sm t-bold mid" x="561" y="140">Customers</text></g>
-  <path class="line-soft" d="M516 158 H606"/>
-  <text class="t-sm mid" x="561" y="184">Standard</text>
-  <text class="t-sm mid" x="561" y="206">Cost</text>
-  <text class="t-sm mid" x="561" y="240">Finance</text>
-  <text class="t-sm mid" x="561" y="274">Manager</text>
+  <rect class="box" x="500" y="86" width="116" height="272" rx="8"/>
+  <text class="t-title mid" x="558" y="112">C</text>
+  <text class="t-sm t-bold mid" x="558" y="140">Customers</text>
+  <path class="line-soft" d="M512 158 H604"/>
+  <text class="t-sm mid" x="558" y="184">Standard</text>
+  <text class="t-sm mid" x="558" y="206">Cost</text>
+  <text class="t-sm mid" x="558" y="240">Finance</text>
+  <text class="t-sm mid" x="558" y="274">Manager</text>
 
-  <g data-cloze="first"><text class="t-sm t-bold mid" x="320" y="388">Fill Process first: 5 to 7 high-level steps</text></g>
-  <text class="t-sm t-muted mid" x="320" y="428">It fixes where the process starts and ends</text>
+  <g data-cloze="first"><text class="t-sm t-bold t-accent mid" x="320" y="390">Fill order: P first, then O, C, then I, S</text></g>
+  <text class="t-sm t-muted mid" x="320" y="428">Process: 5 to 7 high-level steps</text>
 </svg>
