@@ -1,0 +1,37 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <rect class="bg" width="640" height="480"/>
+  <text class="t-title" x="24" y="40">PK-100: which test does it pass?</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional pump and rule (customs primer Exercise 2, step 4)</text>
+
+  <!-- the problem -->
+  <rect class="box-soft" x="24" y="84" width="592" height="92" rx="8"/>
+  <text class="t-sm" x="40" y="110"><tspan class="t-bold">Rule:</tspan> change of heading; or RVC ≥ 60% (TV) or ≥ 50% (NC)</text>
+  <text class="t-sm" x="40" y="138"><tspan class="t-bold">US$:</tspan> TV 211 (excl. international shipping), NC 185</text>
+  <text class="t-sm" x="40" y="164"><tspan class="t-bold">VNM</tspan> = motor 60 + housing 25 + fasteners 4 = 89</text>
+
+  <!-- step 1 -->
+  <rect class="box-bad" x="24" y="188" width="592" height="76" rx="8"/>
+  <circle class="badge" cx="52" cy="214" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="52" y="215">1</text>
+  <text class="t-sm t-bold" x="80" y="220">Change of heading: housing is in 84.AA too</text>
+  <g data-cloze="dm"><text class="t-sm" x="80" y="250">De minimis: 25 / 211 = 11.8% &gt; 10%</text></g>
+  <text class="t-sm t-bad end" x="600" y="250">fails</text>
+
+  <!-- step 2 -->
+  <rect class="box-bad" x="24" y="276" width="592" height="76" rx="8"/>
+  <circle class="badge" cx="52" cy="302" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="52" y="303">2</text>
+  <text class="t-sm t-bold" x="80" y="308">RVC by transaction value</text>
+  <g data-cloze="tv"><text class="t-sm" x="80" y="338">(211 − 89) / 211 × 100 = 57.8% &lt; 60%</text></g>
+  <text class="t-sm t-bad end" x="600" y="338">fails</text>
+
+  <!-- step 3 -->
+  <rect class="box-ok" x="24" y="364" width="592" height="76" rx="8"/>
+  <circle class="badge" cx="52" cy="390" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="52" y="391">3</text>
+  <text class="t-sm t-bold" x="80" y="396">RVC by net cost</text>
+  <g data-cloze="nc"><text class="t-sm" x="80" y="426">(185 − 89) / 185 × 100 = 51.9% ≥ 50%</text></g>
+  <text class="t-sm t-ok end" x="600" y="426">qualifies</text>
+
+  <text class="t-sm t-muted" x="24" y="466">Net cost (NC) needs the producer’s own cost data.</text>
+</svg>

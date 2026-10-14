@@ -1,0 +1,43 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 456" width="640" height="456">
+  <rect class="bg" width="640" height="456"/>
+  <text class="t-title" x="24" y="40">A star schema for entry lines</text>
+  <text class="t-sm t-muted" x="24" y="68">Dimensions describe and filter; the fact holds the numbers</text>
+
+  <!-- fact table -->
+  <rect class="box-accent" x="228" y="100" width="184" height="236" rx="8"/>
+  <g data-cloze="fact"><text class="t-sm t-bold t-accent mid" x="320" y="124">Fact table</text></g>
+  <text class="t-lg mid" x="320" y="158">EntryLines</text>
+  <path class="line-soft" d="M244 180 H396"/>
+  <g data-cloze="grain"><text class="t-sm t-bold mid" x="320" y="208">1 row =</text><text class="t-sm t-bold mid" x="320" y="232">1 entry line</text></g>
+  <text class="t-sm t-muted mid" x="320" y="276">measures:</text>
+  <text class="t-sm mid" x="320" y="302">value, duty</text>
+
+  <!-- dimensions -->
+  <rect class="box-soft" x="24" y="110" width="150" height="84" rx="8"/>
+  <text class="t t-bold mid" x="99" y="138">Item</text>
+  <text class="t-sm t-muted mid" x="99" y="166">HTS, origin</text>
+  <rect class="box-soft" x="24" y="242" width="150" height="84" rx="8"/>
+  <text class="t t-bold mid" x="99" y="270">Country</text>
+  <text class="t-sm t-muted mid" x="99" y="298">import country</text>
+  <rect class="box-soft" x="466" y="110" width="150" height="84" rx="8"/>
+  <text class="t t-bold mid" x="541" y="138">Date</text>
+  <text class="t-sm t-muted mid" x="541" y="166">day, month</text>
+  <rect class="box-soft" x="466" y="242" width="150" height="84" rx="8"/>
+  <text class="t t-bold mid" x="541" y="270">Broker</text>
+  <text class="t-sm t-muted mid" x="541" y="298">broker name</text>
+
+  <!-- one-to-many links, filtering dimension to fact -->
+  <path class="arrow" d="M174 152 H222"/>
+  <text class="t-sm t-bold" x="179" y="140">1</text><text class="t-sm t-bold" x="205" y="144">*</text>
+  <path class="arrow" d="M174 284 H222"/>
+  <text class="t-sm t-bold" x="179" y="272">1</text><text class="t-sm t-bold" x="205" y="276">*</text>
+  <path class="arrow" d="M466 152 H418"/>
+  <text class="t-sm t-bold end" x="461" y="140">1</text><text class="t-sm t-bold end" x="435" y="144">*</text>
+  <path class="arrow" d="M466 284 H418"/>
+  <text class="t-sm t-bold end" x="461" y="272">1</text><text class="t-sm t-bold end" x="435" y="276">*</text>
+
+  <!-- legend -->
+  <g data-cloze="onemany"><text class="t-sm t-bold mid" x="320" y="372">1 to *: one-to-many, one direction</text>
+  <text class="t-sm t-muted mid" x="320" y="400">One item row filters many entry lines</text></g>
+  <text class="t-sm t-muted mid" x="320" y="434">Dimensions never join to each other</text>
+</svg>

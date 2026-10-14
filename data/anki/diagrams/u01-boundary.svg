@@ -1,5 +1,5 @@
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470">
-  <rect class="bg" width="640" height="470"/>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <rect class="bg" width="640" height="480"/>
   <text class="t-title" x="24" y="40">The boundary rule</text>
   <text class="t-sm t-muted" x="24" y="68">One owner for each decision in a tariff action</text>
 
@@ -7,7 +7,7 @@
   <rect class="box" x="24" y="88" width="220" height="156" rx="8"/>
   <text class="t mid t-bold" x="134" y="114">Research</text>
   <text class="t-sm mid t-navy t-bold" x="134" y="140">Hire A · the WHAT</text>
-  <text class="t-sm mid" x="134" y="174">scope, in-scope items,</text>
+  <text class="t-sm mid" x="134" y="174">legal scope, items,</text>
   <text class="t-sm mid" x="134" y="198">HTS codes, rates,</text>
   <text class="t-sm mid" x="134" y="222">dates, stacking</text>
 
@@ -25,21 +25,21 @@
   <text class="t-sm mid t-muted" x="320" y="196">no $ in it</text>
 
   <!-- shared workbook -->
-  <path class="arrow-soft" d="M134 250 V280"/>
-  <path class="arrow-soft" d="M506 250 V280"/>
-  <rect class="box-soft" x="24" y="286" width="592" height="66" rx="8"/>
-  <text class="t mid t-bold" x="320" y="308">One shared Tariff-Impact Model</text>
-  <text class="t-sm mid" x="320" y="334">Standard Cost never decides scope</text>
+  <path class="arrow-soft" d="M134 250 V274"/>
+  <path class="arrow-soft" d="M506 250 V274"/>
+  <rect class="box-soft" x="24" y="280" width="592" height="72" rx="8"/>
+  <text class="t mid t-bold" x="320" y="305">One shared Tariff-Impact Model</text>
+  <text class="t-sm mid" x="320" y="331">Standard Cost never decides scope</text>
 
   <!-- control before release -->
-  <path class="arrow" d="M224 358 V386"/>
-  <rect class="box" x="24" y="392" width="400" height="64" rx="8"/>
+  <path class="arrow" d="M224 358 V380"/>
+  <rect class="box" x="24" y="386" width="400" height="80" rx="8"/>
   <g data-cloze="checker">
-    <text class="t mid t-bold t-navy" x="224" y="414">Checker review</text>
+    <text class="t mid t-bold t-navy" x="224" y="413">Checker review</text>
     <text class="t-sm mid" x="224" y="439">Senior or Manager signs off</text>
   </g>
-  <path class="arrow" d="M430 424 H462"/>
-  <rect class="box-soft" x="468" y="392" width="148" height="64" rx="8"/>
+  <path class="arrow" d="M430 426 H462"/>
+  <rect class="box-soft" x="468" y="386" width="148" height="80" rx="8"/>
   <text class="t-sm mid t-bold" x="542" y="414">Release to</text>
   <text class="t-sm mid t-bold" x="542" y="438">the business</text>
 </svg>

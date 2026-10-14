@@ -1,0 +1,24 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" width="640" height="430">
+  <rect class="bg" width="640" height="430"/>
+  <text class="t-title" x="24" y="40">Purchase price variance (PPV)</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional KIT-100, standard unit cost $14.00</text>
+
+  <rect class="box-soft" x="24" y="86" width="592" height="50" rx="8"/>
+  <text class="t mid t-bold" x="320" y="111">PPV = (actual − standard) × quantity</text>
+
+  <foreignObject x="24" y="150" width="592" height="160">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <tr><th>Receipt</th><th>Working</th><th class="num">PPV $</th></tr>
+        <tr><td>500 at $14.60</td><td>(14.60 − 14.00) × 500</td><td class="num">+300.00</td></tr>
+        <tr><td>300 at $13.80</td><td>(13.80 − 14.00) × 300</td><td class="num">−60.00</td></tr>
+        <tr class="total"><td>Total</td><td>300.00 − 60.00</td><td class="num">+240.00</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <rect class="box-accent" x="24" y="316" width="592" height="98" rx="8"/>
+  <text class="t t-accent" x="40" y="346">Positive = unfavorable</text>
+  <text class="t-sm" x="40" y="376">we paid more than standard; negative = favorable.</text>
+  <text class="t-sm t-muted" x="40" y="402">Confirm Finance's sign convention.</text>
+</svg>

@@ -11,8 +11,8 @@
       <table>
         <tr><th>Type</th><th>Rate</th><th>Working</th><th class="num">Duty</th></tr>
         <tr><td>Ad valorem</td><td>5% of value</td><td>5% × $8,000</td><td class="num">$400</td></tr>
-        <tr class="hl"><td>Specific</td><td>$0.30 per kg</td><td>$0.30 × 2,000 kg</td><td class="num">$600</td></tr>
-        <tr><td>Compound</td><td>2% + $0.10/kg</td><td>2% × $8,000 = $160<br/>+ $0.10 × 2,000 = $200</td><td class="num">$360</td></tr>
+        <tr><td>Specific</td><td>$0.30 per kg</td><td>$0.30 × 2,000 kg</td><td class="num">$600</td></tr>
+        <tr class="hl"><td>Compound</td><td>2% + $0.10/kg</td><td>2% × $8,000 = $160<br/>+ $0.10 × 2,000 = $200</td><td class="num">$360</td></tr>
       </table>
     </div>
   </foreignObject>

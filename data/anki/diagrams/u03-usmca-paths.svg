@@ -1,0 +1,36 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470">
+  <rect class="bg" width="640" height="470"/>
+  <text class="t-title" x="24" y="40">Four ways a good is USMCA-originating</text>
+  <text class="t-sm t-muted" x="24" y="68">Origin criteria A to D (USMCA Art. 4.2)</text>
+
+  <!-- A -->
+  <rect class="box" x="24" y="84" width="592" height="50" rx="8"/>
+  <circle class="badge" cx="54" cy="109" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="54" y="110">A</text>
+  <g data-cloze="crita"><text class="t" x="84" y="116">Wholly obtained or produced in the region</text></g>
+
+  <!-- B: the path for goods with non-originating materials -->
+  <rect class="box-accent" x="24" y="144" width="592" height="196" rx="8"/>
+  <circle class="badge-accent" cx="54" cy="170" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="54" y="171">B</text>
+  <g data-cloze="critb"><text class="t" x="84" y="177">Meets the product-specific rule (Annex 4-B)</text></g>
+  <text class="t-sm t-muted" x="84" y="205">for goods with non-originating materials</text>
+
+  <rect class="box" x="44" y="220" width="268" height="86" rx="8"/>
+  <g data-cloze="shift"><text class="t t-bold" x="60" y="248">Tariff shift</text><text class="t-sm" x="60" y="274">non-originating materials</text><text class="t-sm" x="60" y="296">change HS code</text></g>
+  <rect class="box" x="328" y="220" width="268" height="86" rx="8"/>
+  <g data-cloze="rvc"><text class="t t-bold" x="344" y="248">Regional value content</text><text class="t-sm" x="344" y="274">regional share at least</text><text class="t-sm" x="344" y="296">the rule's threshold</text></g>
+  <text class="t-sm mid t-muted" x="320" y="327">The rule says which: one, either, or both</text>
+
+  <!-- C -->
+  <rect class="box" x="24" y="350" width="592" height="50" rx="8"/>
+  <circle class="badge" cx="54" cy="375" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="54" y="376">C</text>
+  <g data-cloze="critc"><text class="t" x="84" y="382">Made exclusively from originating materials</text></g>
+
+  <!-- D -->
+  <rect class="box" x="24" y="410" width="592" height="50" rx="8"/>
+  <circle class="badge" cx="54" cy="435" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="54" y="436">D</text>
+  <text class="t" x="84" y="442">Narrow cases decided by an RVC test</text>
+</svg>

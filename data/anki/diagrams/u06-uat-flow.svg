@@ -1,0 +1,51 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="640" height="460">
+  <rect class="bg" width="640" height="460"/>
+  <text class="t-title" x="24" y="40">A UAT cycle, from cases to sign-off</text>
+  <text class="t-sm t-muted" x="24" y="68">Evidence decides: values, never "works correctly"</text>
+
+  <path class="line-soft" d="M38 112 V412"/>
+
+  <!-- 1 test cases (the thing to notice) -->
+  <rect class="box-accent" x="64" y="88" width="500" height="48" rx="8"/>
+  <circle class="badge-accent" cx="38" cy="112" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="113">1</text>
+  <text class="t-sm t-bold" x="80" y="118">Test cases</text>
+  <g data-cloze="expected"><text class="t-sm t-accent" x="240" y="118">exact expected values</text></g>
+
+  <!-- 2 entry criteria -->
+  <rect class="box" x="64" y="148" width="500" height="48" rx="8"/>
+  <circle class="badge" cx="38" cy="172" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="173">2</text>
+  <text class="t-sm t-bold" x="80" y="178">Entry criteria</text>
+  <text class="t-sm" x="240" y="178">cases reviewed, data ready</text>
+
+  <!-- 3 run -->
+  <rect class="box" x="64" y="208" width="500" height="48" rx="8"/>
+  <circle class="badge" cx="38" cy="232" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="233">3</text>
+  <text class="t-sm t-bold" x="80" y="238">Run</text>
+  <text class="t-sm" x="240" y="238">record actual values</text>
+
+  <!-- 4 defect fixed, with the loop back to run -->
+  <rect class="box" x="64" y="268" width="500" height="48" rx="8"/>
+  <circle class="badge" cx="38" cy="292" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="293">4</text>
+  <text class="t-sm t-bold" x="80" y="298">Defect fixed</text>
+  <g data-cloze="regress"><text class="t-sm" x="240" y="298">retest + regression</text></g>
+  <path class="arrow-soft" d="M570 292 H598 V232 H570"/>
+  <text class="t-sm t-muted mid" x="620" y="262" transform="rotate(-90 620 262)">re-run</text>
+
+  <!-- 5 exit criteria -->
+  <rect class="box" x="64" y="328" width="500" height="48" rx="8"/>
+  <circle class="badge" cx="38" cy="352" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="353">5</text>
+  <text class="t-sm t-bold" x="80" y="358">Exit criteria</text>
+  <g data-cloze="exit"><text class="t-sm" x="240" y="358">no open Critical or High</text></g>
+
+  <!-- 6 sign-off -->
+  <rect class="box-soft" x="64" y="388" width="500" height="48" rx="8"/>
+  <circle class="badge" cx="38" cy="412" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="413">6</text>
+  <text class="t-sm t-bold" x="80" y="418">Sign-off</text>
+  <g data-cloze="owner"><text class="t-sm" x="240" y="418">business owner: go or no-go</text></g>
+</svg>

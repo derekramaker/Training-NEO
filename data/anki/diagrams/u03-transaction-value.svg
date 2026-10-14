@@ -1,0 +1,38 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
+  <rect class="bg" width="640" height="440"/>
+  <text class="t-title" x="24" y="40">US transaction value</text>
+  <text class="t-sm t-muted" x="24" y="68">Canada and Mexico add the same five; freight differs</text>
+
+  <!-- left: the build-up -->
+  <rect class="box-strong" x="24" y="88" width="364" height="48" rx="8"/>
+  <text class="t t-white mid t-bold" x="206" y="113">Price actually paid or payable</text>
+
+  <rect class="box" x="24" y="148" width="364" height="216" rx="8"/>
+  <text class="t t-bold t-navy" x="40" y="178">+ Additions, if not in the price</text>
+  <text class="t-sm t-bold t-navy" x="40" y="212">1</text>
+  <text class="t-sm" x="64" y="212">Packing paid by the buyer</text>
+  <text class="t-sm t-bold t-navy" x="40" y="242">2</text>
+  <text class="t-sm" x="64" y="242">Selling commissions</text>
+  <text class="t-sm t-bold t-navy" x="40" y="272">3</text>
+  <g data-cloze="assist"><text class="t-sm t-accent" x="64" y="272">Assists: molds, tooling we supply</text></g>
+  <text class="t-sm t-bold t-navy" x="40" y="302">4</text>
+  <text class="t-sm" x="64" y="302">Royalties and license fees</text>
+  <text class="t-sm t-muted" x="64" y="326">paid as a condition of sale</text>
+  <text class="t-sm t-bold t-navy" x="40" y="352">5</text>
+  <text class="t-sm" x="64" y="352">Resale proceeds to the seller</text>
+
+  <rect class="box-soft" x="24" y="376" width="364" height="48" rx="8"/>
+  <text class="t-lg mid t-navy" x="206" y="401">= Transaction value</text>
+
+  <!-- right: what stays out -->
+  <rect class="box-ghost" x="404" y="88" width="212" height="112" rx="8"/>
+  <text class="t t-bold" x="420" y="118">Not added</text>
+  <g data-cloze="buying"><text class="t-sm" x="420" y="152">Buying commissions</text></g>
+  <text class="t-sm t-muted" x="420" y="182">paid to our own agent</text>
+
+  <rect class="box-ghost" x="404" y="212" width="212" height="212" rx="8"/>
+  <text class="t t-bold" x="420" y="242">Excluded (US)</text>
+  <g data-cloze="freight"><text class="t-sm" x="420" y="276">International freight</text><text class="t-sm" x="420" y="300">and insurance, if</text><text class="t-sm" x="420" y="324">separately identified</text></g>
+  <text class="t-sm" x="420" y="364">Costs after import</text>
+  <text class="t-sm" x="420" y="398">Duties and taxes</text>
+</svg>

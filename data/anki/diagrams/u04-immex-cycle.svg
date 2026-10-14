@@ -1,0 +1,46 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 476" width="640" height="476">
+  <rect class="bg" width="640" height="476"/>
+  <text class="t-title" x="24" y="40">The IMMEX cycle</text>
+  <text class="t-sm t-muted" x="24" y="68">Import temporarily, process in Mexico, export in time</text>
+
+  <!-- the cycle -->
+  <rect class="box" x="24" y="88" width="176" height="120" rx="8"/>
+  <text class="t-sm t-muted mid" x="112" y="110">Pedimento in</text>
+  <text class="t t-bold mid" x="112" y="142">Temporary</text>
+  <text class="t t-bold mid" x="112" y="166">import</text>
+  <text class="t-sm t-navy mid" x="112" y="192">IGI deferred</text>
+
+  <rect class="box" x="232" y="88" width="176" height="120" rx="8"/>
+  <text class="t-sm t-muted mid" x="320" y="110">In Mexico</text>
+  <text class="t t-bold mid" x="320" y="142">Elaborate,</text>
+  <text class="t t-bold mid" x="320" y="166">transform</text>
+  <text class="t t-bold mid" x="320" y="190">or repair</text>
+
+  <rect class="box" x="440" y="88" width="176" height="120" rx="8"/>
+  <text class="t-sm t-muted mid" x="528" y="110">Pedimento out</text>
+  <text class="t t-bold mid" x="528" y="142">Export</text>
+  <text class="t t-bold mid" x="528" y="166">or change</text>
+  <text class="t t-bold mid" x="528" y="190">regime</text>
+
+  <path class="arrow" d="M200 148 H226"/>
+  <path class="arrow" d="M408 148 H434"/>
+
+  <!-- the clock -->
+  <path class="line" d="M24 222 V234 H616 V222"/>
+  <text class="t-sm t-accent end" x="286" y="266">Parts and components:</text>
+  <g data-cloze="period"><text class="t-sm t-accent" x="296" y="266">generally up to 18 months</text></g>
+  <text class="t-sm t-bad end" x="286" y="304">Not out in time:</text>
+  <g data-cloze="late"><text class="t-sm t-bad" x="296" y="304">deemed illegally in Mexico</text></g>
+
+  <!-- the controls -->
+  <text class="t-sm t-bold t-navy" x="24" y="340">Two control systems that must reconcile</text>
+  <rect class="box-soft" x="24" y="356" width="284" height="104" rx="8"/>
+  <text class="t-sm t-muted mid" x="166" y="376">Inventory control</text>
+  <g data-cloze="a24"><text class="t t-bold mid" x="166" y="410">Anexo 24</text></g>
+  <text class="t-sm mid" x="166" y="442">each input: in, used, out</text>
+
+  <rect class="box-soft" x="332" y="356" width="284" height="104" rx="8"/>
+  <text class="t-sm t-muted mid" x="474" y="376">IVA/IEPS credit accounts</text>
+  <g data-cloze="a30"><text class="t t-bold mid" x="474" y="410">Anexo 30 (SCCCyG)</text>
+  <text class="t-sm mid" x="474" y="438">formerly Anexo 31</text></g>
+</svg>

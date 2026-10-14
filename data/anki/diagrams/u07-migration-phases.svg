@@ -1,0 +1,56 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470">
+  <rect class="bg" width="640" height="470"/>
+  <text class="t-title" x="24" y="40">The e2open migration, phase by phase</text>
+  <text class="t-sm t-muted" x="24" y="68">Orange: your day-90 evidence, for your own process</text>
+
+  <path class="line-soft" d="M38 108 V432"/>
+
+  <!-- 1 as-is (day-90 evidence) -->
+  <rect class="box" x="64" y="86" width="552" height="44" rx="8"/>
+  <circle class="badge-accent" cx="38" cy="108" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="109">1</text>
+  <text class="t-sm t-bold" x="80" y="114">As-is</text>
+  <text class="t-sm" x="292" y="114">the real process, workarounds too</text>
+
+  <!-- 2 to-be -->
+  <rect class="box" x="64" y="140" width="552" height="44" rx="8"/>
+  <circle class="badge" cx="38" cy="162" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="163">2</text>
+  <text class="t-sm t-bold" x="80" y="168">To-be design</text>
+  <g data-cloze="tobe"><text class="t-sm" x="292" y="168">fit-gap; don't rebuild the AS400</text></g>
+
+  <!-- 3 data mapping (day-90 evidence) -->
+  <rect class="box" x="64" y="194" width="552" height="44" rx="8"/>
+  <circle class="badge-accent" cx="38" cy="216" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="217">3</text>
+  <text class="t-sm t-bold" x="80" y="222">Data mapping</text>
+  <text class="t-sm" x="292" y="222">field by field, source to target</text>
+
+  <!-- 4 profile and cleanse -->
+  <rect class="box" x="64" y="248" width="552" height="44" rx="8"/>
+  <circle class="badge" cx="38" cy="270" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="271">4</text>
+  <text class="t-sm t-bold" x="80" y="276">Profile &amp; cleanse</text>
+  <g data-cloze="cleanse"><text class="t-sm" x="292" y="276">fix at source; data owner decides</text></g>
+
+  <!-- 5 convert and reconcile -->
+  <rect class="box" x="64" y="302" width="552" height="44" rx="8"/>
+  <circle class="badge" cx="38" cy="324" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="325">5</text>
+  <text class="t-sm t-bold" x="80" y="330">Convert &amp; reconcile</text>
+  <text class="t-sm" x="292" y="330">counts, totals, samples per load</text>
+
+  <!-- 6 UAT and parallel run -->
+  <rect class="box" x="64" y="356" width="552" height="44" rx="8"/>
+  <circle class="badge" cx="38" cy="378" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="379">6</text>
+  <text class="t-sm t-bold" x="80" y="384">UAT &amp; parallel run</text>
+  <g data-cloze="parallel"><text class="t-sm" x="292" y="384">sign-off; old = new, or explained</text></g>
+
+  <!-- 7 cutover and hypercare -->
+  <rect class="box-soft" x="64" y="410" width="552" height="44" rx="8"/>
+  <circle class="badge" cx="38" cy="432" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="433">7</text>
+  <text class="t-sm t-bold" x="80" y="438">Cutover &amp; hypercare</text>
+  <text class="t-sm" x="292" y="438">go/no-go, then intensive support</text>
+</svg>

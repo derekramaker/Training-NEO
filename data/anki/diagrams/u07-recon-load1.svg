@@ -1,0 +1,25 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="640" height="460">
+  <rect class="bg" width="640" height="460"/>
+  <text class="t-title" x="24" y="40">Test load 1: does it reconcile?</text>
+  <text class="t-sm t-muted" x="24" y="68">Illustrative: classification master, AS400 to e2open</text>
+
+  <foreignObject x="24" y="84" width="592" height="200">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <tr><th>Check</th><th class="num">AS400</th><th class="num">e2open</th><th>Result</th></tr>
+        <tr><td>Records, all</td><td class="num">41,250</td><td class="num">41,232</td><td>Pass *</td></tr>
+        <tr><td>Records, US</td><td class="num">13,750</td><td class="num">13,744</td><td>Pass *</td></tr>
+        <tr><td>Required blanks</td><td class="num">n/a</td><td class="num">0</td><td>Pass</td></tr>
+        <tr class="hl"><td>Sample, 25 + 15 edge</td><td class="num">40</td><td class="num">39 match</td><td>Fail</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <rect class="box-ok" x="24" y="298" width="592" height="68" rx="8"/>
+  <text class="t-sm" x="40" y="324"><tspan class="t-ok">* 41,250 − 41,232 = 18:</tspan> DQ-04, 6 items × 3 countries</text>
+  <text class="t-sm" x="40" y="350">not in the Oracle item master, excluded with approval</text>
+
+  <rect class="box-accent" x="24" y="378" width="592" height="68" rx="8"/>
+  <text class="t-sm" x="40" y="404"><tspan class="t-accent">Fail:</tspan> a 1990s date loaded as 2090s (DQ-05)</text>
+  <text class="t-sm" x="40" y="430">Fix the conversion, reload, re-run every check</text>
+</svg>

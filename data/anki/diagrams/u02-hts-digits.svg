@@ -16,16 +16,16 @@
   <text class="t-lg mid t-mono" x="556" y="125">30</text>
 
   <!-- labels under each group -->
-  <g data-cloze="chapter"><text class="t-sm mid t-bold" x="76" y="180">Chapter</text></g>
-  <text class="t-sm mid t-muted" x="76" y="216">2 digits</text>
-  <g data-cloze="heading"><text class="t-sm mid t-bold" x="192" y="180">Heading</text></g>
-  <text class="t-sm mid t-muted" x="192" y="216">4 digits</text>
-  <g data-cloze="subheading"><text class="t-sm mid t-bold" x="308" y="180">Subheading</text></g>
-  <text class="t-sm mid t-muted" x="308" y="216">6 digits</text>
-  <g data-cloze="rate"><text class="t-sm mid t-bold t-accent" x="428" y="180">Rate line</text></g>
-  <text class="t-sm mid t-muted" x="428" y="216">8 digits</text>
-  <g data-cloze="stat"><text class="t-sm mid t-bold" x="556" y="180">Statistical</text></g>
-  <text class="t-sm mid t-muted" x="556" y="216">10 digits</text>
+  <g data-cloze="chapter"><text class="t-sm mid t-bold" x="76" y="184">Chapter</text></g>
+  <text class="t-sm mid t-muted" x="76" y="222">2 digits</text>
+  <g data-cloze="heading"><text class="t-sm mid t-bold" x="192" y="184">Heading</text></g>
+  <text class="t-sm mid t-muted" x="192" y="222">4 digits</text>
+  <g data-cloze="subheading"><text class="t-sm mid t-bold" x="308" y="184">Subheading</text></g>
+  <text class="t-sm mid t-muted" x="308" y="222">6 digits</text>
+  <g data-cloze="rate"><text class="t-sm mid t-bold t-accent" x="428" y="184">Rate line</text></g>
+  <text class="t-sm mid t-muted" x="428" y="222">8 digits</text>
+  <g data-cloze="stat"><text class="t-sm mid t-bold" x="556" y="184">Statistical</text></g>
+  <text class="t-sm mid t-muted" x="556" y="222">10 digits</text>
 
   <!-- brackets -->
   <path class="line" d="M24 240 V252 H360 V240"/>

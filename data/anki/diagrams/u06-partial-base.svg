@@ -1,0 +1,24 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 444" width="640" height="444">
+  <rect class="bg" width="640" height="444"/>
+  <text class="t-title" x="24" y="40">Duty on part of the value</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional KIT-100, USMCA-qualifying; hypothetical 25% rate</text>
+
+  <rect class="box-soft" x="24" y="86" width="592" height="50" rx="8"/>
+  <text class="t mid" x="320" y="111">Duty base <tspan class="t-bold">PART</tspan>: the rate applies to non-US content only</text>
+
+  <foreignObject x="24" y="150" width="592" height="194">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <tr><th>Step</th><th>Working</th><th class="num">US$ per unit</th></tr>
+        <tr><td>Customs value</td><td>given</td><td class="num">500.00</td></tr>
+        <tr><td>Dutiable share</td><td>non-US content</td><td class="num">40%</td></tr>
+        <tr class="hl"><td>Duty base</td><td>500.00 × 40%</td><td class="num">200.00</td></tr>
+        <tr class="total"><td>Additional duty</td><td>200.00 × 25%</td><td class="num">50.00</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <rect class="box" x="24" y="356" width="592" height="72" rx="8"/>
+  <text class="t-sm t-bad" x="40" y="384">Common mistake: 500.00 × 25% = 125.00 (full value)</text>
+  <text class="t-sm" x="40" y="412">On the full value it equals 10% (40% × 25%).</text>
+</svg>

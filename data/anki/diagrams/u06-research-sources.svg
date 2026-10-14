@@ -1,0 +1,59 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <rect class="bg" width="640" height="480"/>
+  <text class="t-title" x="24" y="40">Canada and Mexico: where an action appears</text>
+  <text class="t-sm t-muted" x="24" y="68">Typical order. Announcements are only leads.</text>
+
+  <text class="t t-bold t-navy" x="24" y="104">Canada</text>
+  <text class="t t-bold t-navy" x="336" y="104">Mexico</text>
+  <path class="line-soft" d="M36 153 V399"/>
+  <path class="line-soft" d="M348 153 V317"/>
+
+  <!-- Canada -->
+  <rect class="box-ghost" x="58" y="116" width="246" height="74" rx="8"/>
+  <circle class="badge" cx="36" cy="153" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="36" y="154">1</text>
+  <text class="t-sm t-bold" x="72" y="145">Finance announcement</text>
+  <text class="t-sm t-muted" x="72" y="176">a lead only</text>
+
+  <rect class="box-strong" x="58" y="198" width="246" height="74" rx="8"/>
+  <circle class="badge" cx="36" cy="235" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="36" y="236">2</text>
+  <g data-cloze="order"><text class="t-sm t-bold t-white" x="72" y="227">Order in Council (SOR)</text></g>
+  <text class="t-sm t-white" x="72" y="258">has the legal effect</text>
+
+  <rect class="box" x="58" y="280" width="246" height="74" rx="8"/>
+  <circle class="badge" cx="36" cy="317" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="36" y="318">3</text>
+  <g data-cloze="gazette"><text class="t-sm t-bold" x="72" y="309">Canada Gazette Part II</text></g>
+  <text class="t-sm t-muted" x="72" y="340">official published text</text>
+
+  <rect class="box" x="58" y="362" width="246" height="74" rx="8"/>
+  <circle class="badge" cx="36" cy="399" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="36" y="400">4</text>
+  <g data-cloze="cbsa"><text class="t-sm t-bold" x="72" y="391">CBSA Customs Notice</text></g>
+  <text class="t-sm t-muted" x="72" y="422">how CBSA applies it</text>
+
+  <!-- Mexico -->
+  <rect class="box-ghost" x="370" y="116" width="246" height="74" rx="8"/>
+  <circle class="badge" cx="348" cy="153" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="348" y="154">1</text>
+  <text class="t-sm t-bold" x="384" y="145">Economía announcement</text>
+  <text class="t-sm t-muted" x="384" y="176">a lead only</text>
+
+  <rect class="box-strong" x="370" y="198" width="246" height="74" rx="8"/>
+  <circle class="badge" cx="348" cy="235" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="348" y="236">2</text>
+  <g data-cloze="dof"><text class="t-sm t-bold t-white" x="384" y="227">DOF decree or acuerdo</text></g>
+  <text class="t-sm t-white" x="384" y="258">check evening editions</text>
+
+  <rect class="box" x="370" y="280" width="246" height="74" rx="8"/>
+  <circle class="badge" cx="348" cy="317" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="348" y="318">3</text>
+  <g data-cloze="sat"><text class="t-sm t-bold" x="384" y="309">SAT and ANAM</text></g>
+  <text class="t-sm t-muted" x="384" y="340">how to file the pedimento</text>
+
+  <text class="t-sm t-muted" x="370" y="390">Agente aduanal circulars:</text>
+  <text class="t-sm t-muted" x="370" y="414">leads, via the Senior</text>
+
+  <text class="t-sm t-accent" x="24" y="464">If they differ, the order or the decree governs.</text>
+</svg>

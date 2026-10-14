@@ -1,0 +1,32 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 424" width="640" height="424">
+  <rect class="bg" width="640" height="424"/>
+  <text class="t-title" x="24" y="40">Reconciling a test load</text>
+  <text class="t-sm t-muted" x="24" y="68">After every test load and at cutover; keep the queries</text>
+
+  <!-- source and target -->
+  <rect class="box-strong" x="24" y="88" width="132" height="228" rx="8"/>
+  <text class="t t-white t-bold mid" x="90" y="180">Source</text>
+  <text class="t-sm t-white mid" x="90" y="210">AS400</text>
+  <text class="t-sm t-white mid" x="90" y="234">extract</text>
+  <rect class="box-strong" x="484" y="88" width="132" height="228" rx="8"/>
+  <text class="t t-white t-bold mid" x="550" y="180">Target</text>
+  <text class="t-sm t-white mid" x="550" y="210">e2open</text>
+  <text class="t-sm t-white mid" x="550" y="234">test load</text>
+
+  <!-- the three checks -->
+  <path class="line-soft" d="M156 120 H176 M464 120 H484 M156 202 H176 M464 202 H484 M156 284 H176 M464 284 H484"/>
+  <rect class="box" x="176" y="88" width="288" height="64" rx="8"/>
+  <text class="t t-bold" x="192" y="114">1 Record counts</text>
+  <text class="t-sm" x="192" y="140">total, by country, keys</text>
+  <rect class="box" x="176" y="170" width="288" height="64" rx="8"/>
+  <text class="t t-bold" x="192" y="196">2 Control totals</text>
+  <text class="t-sm" x="192" y="222">sums, or an HTS hash total</text>
+  <rect class="box" x="176" y="252" width="288" height="64" rx="8"/>
+  <text class="t t-bold" x="192" y="278">3 Sample checks</text>
+  <text class="t-sm" x="192" y="304">25 random + all edge cases</text>
+
+  <!-- the rule -->
+  <rect class="box-accent" x="24" y="336" width="592" height="72" rx="8"/>
+  <text class="t t-accent mid" x="320" y="364">Every difference explained, or the check fails</text>
+  <text class="t-sm t-muted mid" x="320" y="390">for example, by exclusions the data owner approved</text>
+</svg>

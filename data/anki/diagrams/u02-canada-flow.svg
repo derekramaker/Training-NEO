@@ -4,35 +4,35 @@
   <text class="t-sm t-muted" x="24" y="68">Release prior to payment (RPP): release first, pay later</text>
 
   <!-- set-up, once -->
-  <text class="t-sm t-bold t-navy" x="24" y="106">Set up once, in the CARM Client Portal</text>
-  <rect class="box-soft" x="24" y="120" width="284" height="80" rx="8"/>
-  <text class="t-sm t-muted mid" x="166" y="143">Importer identifier</text>
-  <g data-cloze="bn15"><text class="t t-bold mid" x="166" y="177">BN15 (BN + RM account)</text></g>
-  <rect class="box-soft" x="332" y="120" width="284" height="80" rx="8"/>
-  <text class="t-sm t-muted mid" x="474" y="143">Needed for RPP</text>
-  <g data-cloze="security"><text class="t t-bold mid" x="474" y="177">Own financial security</text></g>
+  <text class="t-sm t-bold t-navy" x="24" y="104">Set up once, in the CARM Client Portal</text>
+  <rect class="box-soft" x="24" y="116" width="284" height="80" rx="8"/>
+  <text class="t-sm t-muted mid" x="166" y="139">Importer identifier</text>
+  <g data-cloze="bn15"><text class="t t-bold mid" x="166" y="172">BN15 (BN + RM account)</text></g>
+  <rect class="box-soft" x="332" y="116" width="284" height="80" rx="8"/>
+  <text class="t-sm t-muted mid" x="474" y="139">Needed for RPP</text>
+  <g data-cloze="security"><text class="t t-bold mid" x="474" y="172">Own financial security</text></g>
 
   <!-- each shipment -->
-  <text class="t-sm t-bold t-navy" x="24" y="240">Each shipment</text>
-  <rect class="box" x="24" y="254" width="168" height="64" rx="8"/>
-  <text class="t t-bold mid" x="108" y="287">Release</text>
-  <rect class="box-accent" x="236" y="254" width="168" height="64" rx="8"/>
-  <g data-cloze="cad"><text class="t-lg mid" x="320" y="287">CAD</text></g>
-  <rect class="box" x="448" y="254" width="168" height="64" rx="8"/>
-  <g data-cloze="statement"><text class="t t-bold mid" x="532" y="287">Statement</text></g>
-  <path class="arrow" d="M192 286 H230"/>
-  <path class="arrow" d="M404 286 H442"/>
+  <text class="t-sm t-bold t-navy" x="24" y="232">Each shipment</text>
+  <rect class="box" x="24" y="244" width="168" height="64" rx="8"/>
+  <text class="t t-bold mid" x="108" y="276">Release</text>
+  <rect class="box-accent" x="236" y="244" width="168" height="64" rx="8"/>
+  <g data-cloze="cad"><text class="t-lg mid" x="320" y="276">CAD</text></g>
+  <rect class="box" x="448" y="244" width="168" height="64" rx="8"/>
+  <g data-cloze="statement"><text class="t t-bold mid" x="532" y="276">Statement</text></g>
+  <path class="arrow" d="M192 276 H230"/>
+  <path class="arrow" d="M404 276 H442"/>
 
   <!-- timing under each step -->
-  <text class="t-sm t-bold mid" x="108" y="344">Day 0</text>
-  <text class="t-sm t-muted mid" x="108" y="372">minimum documents</text>
-  <g data-cloze="days5"><text class="t-sm t-bold mid" x="320" y="344">5 business days</text></g>
-  <text class="t-sm t-muted mid" x="320" y="372">to account</text>
-  <text class="t-sm t-bold mid" x="532" y="344">Monthly</text>
-  <text class="t-sm t-muted mid" x="532" y="372">pay by due date</text>
+  <text class="t-sm t-bold mid" x="108" y="340">Day 0</text>
+  <text class="t-sm t-muted mid" x="108" y="374">minimum documents</text>
+  <g data-cloze="days5"><text class="t-sm t-bold mid" x="320" y="340">5 business days</text></g>
+  <text class="t-sm t-muted mid" x="320" y="374">to account</text>
+  <text class="t-sm t-bold mid" x="532" y="340">Monthly</text>
+  <text class="t-sm t-muted mid" x="532" y="374">pay by due date</text>
 
   <!-- correction duty -->
-  <rect class="box-warn" x="24" y="394" width="592" height="62" rx="8"/>
+  <rect class="box-warn" x="24" y="396" width="592" height="60" rx="8"/>
   <text class="t-sm mid" x="320" y="414">Reason to believe a declaration is wrong?</text>
   <text class="t-sm mid t-bold" x="320" y="438">Correct it and pay within 90 days (s. 32.2)</text>
 </svg>

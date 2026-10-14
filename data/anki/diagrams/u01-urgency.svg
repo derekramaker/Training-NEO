@@ -1,36 +1,42 @@
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 410" width="640" height="410">
-  <rect class="bg" width="640" height="410"/>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 432" width="640" height="432">
+  <rect class="bg" width="640" height="432"/>
   <text class="t-title" x="24" y="40">Live tariff action: who is maker?</text>
   <text class="t-sm t-muted" x="24" y="68">Business days until the action takes effect</text>
 
-  <!-- three lead-time bands -->
-  <rect class="box-accent" x="24" y="88" width="188" height="232" rx="8"/>
+  <!-- three lead-time bands, read left to right: less time to more time -->
+  <rect class="box-accent" x="24" y="88" width="188" height="264" rx="8"/>
   <text class="t mid t-bold" x="118" y="116">Under 5 days</text>
   <text class="t-sm mid t-muted" x="118" y="142">or business-critical</text>
-  <path class="line-soft" d="M40 162 H196"/>
-  <g data-cloze="lt5"><text class="t mid t-accent" x="118" y="196">Trainer is maker</text></g>
-  <text class="t-sm mid" x="118" y="236">other trainer checks;</text>
-  <text class="t-sm mid" x="118" y="260">hires shadow and</text>
-  <text class="t-sm mid" x="118" y="284">draft in parallel</text>
+  <path class="line-soft" d="M40 160 H196"/>
+  <text class="t-sm mid t-muted" x="118" y="178">Maker</text>
+  <g data-cloze="lt5"><text class="t mid t-accent" x="118" y="210">Trainer</text></g>
+  <text class="t-sm mid" x="118" y="250">the other trainer</text>
+  <text class="t-sm mid" x="118" y="274">checks; hires</text>
+  <text class="t-sm mid" x="118" y="298">shadow and draft</text>
+  <text class="t-sm mid" x="118" y="322">in parallel</text>
 
-  <rect class="box" x="226" y="88" width="188" height="232" rx="8"/>
+  <rect class="box" x="226" y="88" width="188" height="264" rx="8"/>
   <text class="t mid t-bold" x="320" y="116">5 to 15 days</text>
-  <path class="line-soft" d="M242 162 H398"/>
-  <text class="t mid t-bold" x="320" y="196">Hire is maker</text>
+  <path class="line-soft" d="M242 160 H398"/>
+  <text class="t-sm mid t-muted" x="320" y="178">Maker</text>
+  <text class="t mid t-bold" x="320" y="210">Hire</text>
   <g data-cloze="mid">
-    <text class="t-sm mid" x="320" y="236">checker reviews</text>
-    <text class="t-sm mid" x="320" y="260">each draft the same</text>
-    <text class="t-sm mid" x="320" y="284">business day</text>
+    <text class="t-sm mid" x="320" y="250">checker reviews</text>
+    <text class="t-sm mid" x="320" y="274">each draft on</text>
+    <text class="t-sm mid" x="320" y="298">the same</text>
+    <text class="t-sm mid" x="320" y="322">business day</text>
   </g>
 
-  <rect class="box-soft" x="428" y="88" width="188" height="232" rx="8"/>
+  <rect class="box-soft" x="428" y="88" width="188" height="264" rx="8"/>
   <text class="t mid t-bold" x="522" y="116">Over 15 days</text>
-  <path class="line-soft" d="M444 162 H600"/>
-  <text class="t mid t-bold" x="522" y="196">Hire is maker</text>
-  <text class="t-sm mid" x="522" y="236">normal cycle;</text>
-  <text class="t-sm mid" x="522" y="260">replaces that week's</text>
-  <text class="t-sm mid" x="522" y="284">track session</text>
+  <path class="line-soft" d="M444 160 H600"/>
+  <text class="t-sm mid t-muted" x="522" y="178">Maker</text>
+  <text class="t mid t-bold" x="522" y="210">Hire</text>
+  <text class="t-sm mid" x="522" y="250">normal cycle;</text>
+  <text class="t-sm mid" x="522" y="274">replaces that</text>
+  <text class="t-sm mid" x="522" y="298">week's track</text>
+  <text class="t-sm mid" x="522" y="322">session</text>
 
-  <rect class="box" x="24" y="340" width="592" height="48" rx="8"/>
-  <text class="t-sm mid" x="320" y="364">In W1–W2 the trainer is always maker</text>
+  <rect class="box" x="24" y="368" width="592" height="48" rx="8"/>
+  <text class="t-sm mid" x="320" y="392">In W1–W2 the trainer is always maker</text>
 </svg>

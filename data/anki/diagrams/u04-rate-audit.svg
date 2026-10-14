@@ -1,0 +1,22 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420">
+  <rect class="bg" width="640" height="420"/>
+  <text class="t-title" x="24" y="40">Applied rate vs expected rate</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional items and rates. Entered values in US$.</text>
+
+  <foreignObject x="24" y="86" width="592" height="164">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <tr><th>Item</th><th class="num">Value</th><th class="num">Applied</th><th class="num">Expected</th><th class="num">Variance</th><th>Status</th></tr>
+        <tr><td>KIT-100</td><td class="num">12,000</td><td class="num">3.4%</td><td class="num">3.4%</td><td class="num">0.00</td><td>Match</td></tr>
+        <tr class="hl"><td>PART-A</td><td class="num">40,000</td><td class="num">2.5%</td><td class="num">6.5%</td><td class="num">−1,600.00</td><td>Under</td></tr>
+        <tr><td>PART-B</td><td class="num">8,500</td><td class="num">9.0%</td><td class="num">4.0%</td><td class="num">+425.00</td><td>Over</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <rect class="box" x="24" y="266" width="592" height="134" rx="8"/>
+  <text class="t-sm t-bold" x="40" y="294">Variance = value × (applied − expected)</text>
+  <text class="t-sm" x="40" y="322">PART-A: 40,000 × (2.5% − 6.5%) = −1,600</text>
+  <text class="t-sm t-muted" x="40" y="350">Negative = underpaid; positive = overpaid</text>
+  <text class="t-sm t-bad" x="40" y="380">Report under and over separately: net −1,175 hides both</text>
+</svg>

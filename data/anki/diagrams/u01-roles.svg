@@ -1,41 +1,41 @@
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 450" width="640" height="450">
-  <rect class="bg" width="640" height="450"/>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 464" width="640" height="464">
+  <rect class="bg" width="640" height="464"/>
   <text class="t-title" x="24" y="40">Who does what at the border</text>
   <text class="t-sm t-muted" x="24" y="68">US terms; Canada and Mexico follow the same pattern</text>
 
-  <!-- the filing chain -->
-  <rect class="box-soft" x="24" y="92" width="168" height="120" rx="8"/>
-  <text class="t mid t-bold" x="108" y="122">Our team</text>
-  <text class="t-sm mid" x="108" y="156">supplies the data</text>
-  <text class="t-sm mid t-muted" x="108" y="180">classification,</text>
-  <text class="t-sm mid t-muted" x="108" y="202">value, origin</text>
+  <!-- the filing chain: three boxes, tops and bottom lines aligned -->
+  <rect class="box-soft" x="24" y="92" width="164" height="136" rx="8"/>
+  <text class="t mid t-bold" x="106" y="124">Our team</text>
+  <text class="t-sm mid" x="106" y="154">supplies data:</text>
+  <text class="t-sm mid t-muted" x="106" y="180">classification,</text>
+  <text class="t-sm mid t-muted" x="106" y="204">value, origin</text>
 
-  <rect class="box" x="236" y="92" width="168" height="120" rx="8"/>
+  <rect class="box" x="224" y="92" width="192" height="136" rx="8"/>
   <g data-cloze="broker">
-    <text class="t mid t-bold" x="320" y="120">Licensed</text>
-    <text class="t mid t-bold" x="320" y="144">customs broker</text>
+    <text class="t mid t-bold" x="320" y="124">Licensed</text>
+    <text class="t mid t-bold" x="320" y="148">customs broker</text>
   </g>
-  <text class="t-sm mid" x="320" y="178">files the</text>
-  <text class="t-sm mid" x="320" y="200">declaration</text>
+  <text class="t-sm mid" x="320" y="180">files the</text>
+  <text class="t-sm mid" x="320" y="204">declaration</text>
 
-  <rect class="box" x="448" y="92" width="168" height="120" rx="8"/>
-  <text class="t mid t-bold" x="532" y="120">Customs</text>
-  <text class="t mid t-bold" x="532" y="144">agency</text>
-  <text class="t-sm mid" x="532" y="178">releases goods,</text>
-  <text class="t-sm mid" x="532" y="200">collects duty</text>
+  <rect class="box" x="452" y="92" width="164" height="136" rx="8"/>
+  <text class="t mid t-bold" x="534" y="124">Customs</text>
+  <text class="t mid t-bold" x="534" y="148">agency</text>
+  <text class="t-sm mid" x="534" y="180">releases goods,</text>
+  <text class="t-sm mid" x="534" y="204">collects duty</text>
 
-  <path class="arrow" d="M198 152 H230"/>
-  <path class="arrow" d="M410 152 H442"/>
+  <path class="arrow" d="M194 160 H218"/>
+  <path class="arrow" d="M422 160 H446"/>
 
   <!-- the importer answers for the whole chain -->
-  <path class="line-soft" d="M108 218 V230 H532 V218"/>
-  <path class="line-soft" d="M320 230 V244"/>
-  <rect class="box-accent" x="24" y="250" width="592" height="112" rx="8"/>
-  <g data-cloze="ior"><text class="t-lg mid" x="320" y="280">Importer of record (IOR)</text></g>
-  <text class="t-sm mid" x="320" y="314">legally responsible: accurate data, duty, records</text>
-  <text class="t-sm mid t-muted" x="320" y="342">Relying blindly on the broker is not reasonable care</text>
+  <path class="line-soft" d="M106 234 V246 H534 V234"/>
+  <path class="line-soft" d="M320 234 V258"/>
+  <rect class="box-accent" x="24" y="264" width="592" height="116" rx="8"/>
+  <g data-cloze="ior"><text class="t-lg mid" x="320" y="296">Importer of record (IOR)</text></g>
+  <text class="t-sm mid" x="320" y="334">legally responsible: accurate data, duty, records</text>
+  <text class="t-sm mid t-muted" x="320" y="360">Relying blindly on the broker is not reasonable care</text>
 
   <!-- names by country -->
-  <rect class="box" x="24" y="382" width="592" height="48" rx="8"/>
-  <text class="t-sm mid" x="320" y="407">US: CBP · Canada: CBSA · Mexico: ANAM (SAT for tax)</text>
+  <rect class="box" x="24" y="396" width="592" height="48" rx="8"/>
+  <text class="t-sm mid" x="320" y="421">US: CBP · Canada: CBSA · Mexico: ANAM (SAT for tax)</text>
 </svg>

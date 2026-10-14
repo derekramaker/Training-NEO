@@ -1,36 +1,36 @@
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 428" width="640" height="428">
-  <rect class="bg" width="640" height="428"/>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
+  <rect class="bg" width="640" height="440"/>
   <text class="t-title" x="24" y="40">A Mexican import</text>
   <text class="t-sm t-muted" x="24" y="68">Definitive import: pay first, then release</text>
 
   <!-- set-up, once -->
-  <text class="t-sm t-bold t-navy" x="24" y="106">Set up once, before the first pedimento</text>
-  <rect class="box-soft" x="24" y="120" width="184" height="100" rx="8"/>
-  <text class="t-sm t-muted mid" x="116" y="142">Tax ID</text>
-  <g data-cloze="rfc"><text class="t t-bold mid" x="116" y="187">Active RFC</text></g>
-  <rect class="box-soft" x="228" y="120" width="184" height="100" rx="8"/>
-  <text class="t-sm t-muted mid" x="320" y="142">Importer registry</text>
-  <g data-cloze="padron"><text class="t t-bold mid" x="320" y="178">Padrón de</text><text class="t t-bold mid" x="320" y="202">importadores</text></g>
-  <rect class="box-soft" x="432" y="120" width="184" height="100" rx="8"/>
-  <text class="t-sm t-muted mid" x="524" y="142">Names the agente</text>
-  <g data-cloze="encargo"><text class="t t-bold mid" x="524" y="178">Encargo</text><text class="t t-bold mid" x="524" y="202">conferido</text></g>
+  <text class="t-sm t-bold t-navy" x="24" y="104">Set up once, before the first pedimento</text>
+  <rect class="box-soft" x="24" y="118" width="184" height="106" rx="8"/>
+  <text class="t-sm t-muted mid" x="116" y="141">Tax ID</text>
+  <g data-cloze="rfc"><text class="t t-bold mid" x="116" y="186">Active RFC</text></g>
+  <rect class="box-soft" x="228" y="118" width="184" height="106" rx="8"/>
+  <text class="t-sm t-muted mid" x="320" y="141">Importer registry</text>
+  <g data-cloze="padron"><text class="t t-bold mid" x="320" y="174">Padrón de</text><text class="t t-bold mid" x="320" y="198">importadores</text></g>
+  <rect class="box-soft" x="432" y="118" width="184" height="106" rx="8"/>
+  <text class="t-sm t-muted mid" x="524" y="141">Names the agente</text>
+  <g data-cloze="encargo"><text class="t t-bold mid" x="524" y="174">Encargo</text><text class="t t-bold mid" x="524" y="198">conferido</text></g>
 
   <!-- each shipment -->
-  <text class="t-sm t-bold t-navy" x="24" y="264">Each shipment</text>
-  <rect class="box" x="24" y="278" width="168" height="64" rx="8"/>
-  <g data-cloze="pedimento"><text class="t t-bold mid" x="108" y="311">Pedimento</text></g>
-  <rect class="box-accent" x="236" y="278" width="168" height="64" rx="8"/>
-  <g data-cloze="pay"><text class="t t-bold mid" x="320" y="311">Pay taxes</text></g>
-  <rect class="box" x="448" y="278" width="168" height="64" rx="8"/>
-  <g data-cloze="selection"><text class="t t-bold mid" x="532" y="299">Automated</text><text class="t t-bold mid" x="532" y="323">selection</text></g>
-  <path class="arrow" d="M192 310 H230"/>
-  <path class="arrow" d="M404 310 H442"/>
+  <text class="t-sm t-bold t-navy" x="24" y="268">Each shipment</text>
+  <rect class="box" x="24" y="282" width="168" height="72" rx="8"/>
+  <g data-cloze="pedimento"><text class="t t-bold mid" x="108" y="318">Pedimento</text></g>
+  <rect class="box-accent" x="236" y="282" width="168" height="72" rx="8"/>
+  <g data-cloze="pay"><text class="t t-bold mid" x="320" y="318">Pay taxes</text></g>
+  <rect class="box" x="448" y="282" width="168" height="72" rx="8"/>
+  <g data-cloze="selection"><text class="t t-bold mid" x="532" y="306">Automated</text><text class="t t-bold mid" x="532" y="330">selection</text></g>
+  <path class="arrow" d="M192 318 H230"/>
+  <path class="arrow" d="M404 318 H442"/>
 
   <!-- who / what under each step -->
-  <text class="t-sm t-bold mid" x="108" y="368">agente aduanal</text>
-  <text class="t-sm t-muted mid" x="108" y="396">prepares, transmits</text>
-  <text class="t-sm t-bold mid" x="320" y="368">IGI, DTA, IVA</text>
-  <text class="t-sm t-accent mid" x="320" y="396">before release</text>
-  <text class="t-sm t-bold mid" x="532" y="368">Release</text>
-  <text class="t-sm t-muted mid" x="532" y="396">or inspection</text>
+  <text class="t-sm t-bold mid" x="108" y="380">agente aduanal</text>
+  <text class="t-sm t-muted mid" x="108" y="408">prepares, transmits</text>
+  <text class="t-sm t-bold mid" x="320" y="380">IGI, DTA, IVA</text>
+  <text class="t-sm t-accent mid" x="320" y="408">before release</text>
+  <text class="t-sm t-bold mid" x="532" y="380">Release</text>
+  <text class="t-sm t-muted mid" x="532" y="408">or inspection</text>
 </svg>

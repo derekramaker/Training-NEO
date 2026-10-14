@@ -1,0 +1,62 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 448" width="640" height="448">
+  <rect class="bg" width="640" height="448"/>
+  <text class="t-title" x="24" y="40">SIPOC: a process on one page</text>
+  <text class="t-sm t-muted" x="24" y="68">Example: respond to a new tariff action</text>
+
+  <!-- Suppliers -->
+  <rect class="box" x="24" y="86" width="110" height="272" rx="8"/>
+  <g data-cloze="s"><text class="t-title mid" x="79" y="112">S</text><text class="t-sm t-bold mid" x="79" y="140">Suppliers</text></g>
+  <path class="line-soft" d="M34 158 H124"/>
+  <text class="t-sm mid" x="79" y="184">Federal</text>
+  <text class="t-sm mid" x="79" y="206">Register</text>
+  <text class="t-sm mid" x="79" y="240">CBP CSMS</text>
+  <text class="t-sm mid" x="79" y="274">AS400</text>
+  <text class="t-sm mid" x="79" y="308">Data</text>
+  <text class="t-sm mid" x="79" y="330">warehouse</text>
+
+  <!-- Inputs -->
+  <rect class="box" x="138" y="86" width="110" height="272" rx="8"/>
+  <g data-cloze="i"><text class="t-title mid" x="193" y="112">I</text><text class="t-sm t-bold mid" x="193" y="140">Inputs</text></g>
+  <path class="line-soft" d="M148 158 H238"/>
+  <text class="t-sm mid" x="193" y="184">Notice,</text>
+  <text class="t-sm mid" x="193" y="206">annexes</text>
+  <text class="t-sm mid" x="193" y="240">Item</text>
+  <text class="t-sm mid" x="193" y="262">master</text>
+  <text class="t-sm mid" x="193" y="296">Import</text>
+  <text class="t-sm mid" x="193" y="318">history</text>
+
+  <!-- Process -->
+  <rect class="box-accent" x="252" y="86" width="136" height="272" rx="8"/>
+  <g data-cloze="p"><text class="t-title mid" x="320" y="112">P</text><text class="t-sm t-bold mid" x="320" y="140">Process</text></g>
+  <path class="line-soft" d="M262 158 H378"/>
+  <text class="t-sm" x="261" y="190">1 Detect</text>
+  <text class="t-sm" x="261" y="214">2 Triage</text>
+  <text class="t-sm" x="261" y="238">3 Scope</text>
+  <text class="t-sm" x="261" y="262">4 Match items</text>
+  <text class="t-sm" x="261" y="286">5 Write brief</text>
+  <text class="t-sm" x="261" y="310">6 Check</text>
+  <text class="t-sm" x="261" y="334">7 Hand off</text>
+
+  <!-- Outputs -->
+  <rect class="box" x="392" y="86" width="110" height="272" rx="8"/>
+  <g data-cloze="o"><text class="t-title mid" x="447" y="112">O</text><text class="t-sm t-bold mid" x="447" y="140">Outputs</text></g>
+  <path class="line-soft" d="M402 158 H492"/>
+  <text class="t-sm mid" x="447" y="184">Impact</text>
+  <text class="t-sm mid" x="447" y="206">brief</text>
+  <text class="t-sm mid" x="447" y="240">In-scope</text>
+  <text class="t-sm mid" x="447" y="262">items</text>
+  <text class="t-sm mid" x="447" y="296">Jira</text>
+  <text class="t-sm mid" x="447" y="318">trail</text>
+
+  <!-- Customers -->
+  <rect class="box" x="506" y="86" width="110" height="272" rx="8"/>
+  <g data-cloze="c"><text class="t-title mid" x="561" y="112">C</text><text class="t-sm t-bold mid" x="561" y="140">Customers</text></g>
+  <path class="line-soft" d="M516 158 H606"/>
+  <text class="t-sm mid" x="561" y="184">Standard</text>
+  <text class="t-sm mid" x="561" y="206">Cost</text>
+  <text class="t-sm mid" x="561" y="240">Finance</text>
+  <text class="t-sm mid" x="561" y="274">Manager</text>
+
+  <g data-cloze="first"><text class="t-sm t-bold mid" x="320" y="388">Fill Process first: 5 to 7 high-level steps</text></g>
+  <text class="t-sm t-muted mid" x="320" y="428">It fixes where the process starts and ends</text>
+</svg>

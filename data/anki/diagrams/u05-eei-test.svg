@@ -1,0 +1,27 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
+  <rect class="bg" width="640" height="440"/>
+  <text class="t-title" x="24" y="40">EEI: test each Schedule B number</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional export to Country X, no license needed.</text>
+  <text class="t-sm t-muted" x="24" y="92">One USPPI, consignee and carrier; all US-made.</text>
+
+  <foreignObject x="24" y="110" width="592" height="118">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <tr><th>Schedule B</th><th>Lines on the shipment</th><th class="num">Total</th></tr>
+        <tr class="hl"><td>No. 1</td><td>PART-A $1,600 + PART-B $1,200</td><td class="num">$2,800</td></tr>
+        <tr><td>No. 2</td><td>KIT-100 $2,000</td><td class="num">$2,000</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <rect class="box-accent" x="24" y="248" width="284" height="80" rx="8"/>
+  <text class="t t-bold mid" x="166" y="276">No. 1: over $2,500</text>
+  <text class="t-sm mid" x="166" y="306">must be reported</text>
+  <rect class="box" x="332" y="248" width="284" height="80" rx="8"/>
+  <text class="t t-bold mid" x="474" y="276">No. 2: $2,500 or less</text>
+  <text class="t-sm mid" x="474" y="306">exempt, not reported</text>
+
+  <rect class="box-strong" x="24" y="348" width="592" height="72" rx="8"/>
+  <text class="t t-white t-bold mid" x="320" y="374">EEI is required: report No. 1 only</text>
+  <text class="t-sm t-white mid" x="320" y="402">even though no single line is over $2,500</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 468" width="640" height="468">
+  <rect class="bg" width="640" height="468"/>
+  <text class="t-title" x="24" y="40">One standard cost cycle</text>
+  <text class="t-sm t-muted" x="24" y="68">T = Oracle cost update date; timing in working days</text>
+
+  <!-- phase 1 -->
+  <rect class="badge" x="24" y="89" width="54" height="32" rx="16"/>
+  <text class="t-sm t-white t-bold mid" x="51" y="106">1</text>
+  <rect class="box" x="90" y="82" width="526" height="46" rx="8"/>
+  <text class="t" x="106" y="112">Plan with Finance</text>
+  <text class="t-sm t-muted end" x="600" y="111">T-30 to T-25</text>
+
+  <!-- phase 2 -->
+  <rect class="badge" x="24" y="143" width="54" height="32" rx="16"/>
+  <text class="t-sm t-white t-bold mid" x="51" y="160">2</text>
+  <rect class="box" x="90" y="136" width="526" height="46" rx="8"/>
+  <g data-cloze="freeze"><text class="t" x="106" y="166">Collect inputs, then freeze them</text></g>
+  <text class="t-sm t-muted end" x="600" y="165">T-25 to T-15</text>
+
+  <!-- phases 3-4 -->
+  <rect class="badge" x="24" y="197" width="54" height="32" rx="16"/>
+  <text class="t-sm t-white t-bold mid" x="51" y="214">3–4</text>
+  <rect class="box" x="90" y="190" width="526" height="46" rx="8"/>
+  <text class="t" x="106" y="220">Calculate and validate</text>
+  <text class="t-sm t-muted end" x="600" y="219">T-15 to T-10</text>
+
+  <!-- phase 5 -->
+  <rect class="badge-accent" x="24" y="251" width="54" height="32" rx="16"/>
+  <text class="t-sm t-white t-bold mid" x="51" y="268">5</text>
+  <rect class="box-accent" x="90" y="244" width="526" height="46" rx="8"/>
+  <g data-cloze="review"><text class="t t-bold" x="106" y="274">Checker review + Finance approval</text></g>
+  <text class="t-sm t-muted end" x="600" y="273">T-10 to T-5</text>
+
+  <!-- phase 6 -->
+  <rect class="badge" x="24" y="305" width="54" height="32" rx="16"/>
+  <text class="t-sm t-white t-bold mid" x="51" y="322">6</text>
+  <rect class="box" x="90" y="298" width="526" height="46" rx="8"/>
+  <text class="t" x="106" y="328">Load to Oracle, simulate, update</text>
+  <text class="t-sm t-muted end" x="600" y="327">T-3 to T</text>
+
+  <!-- phase 7 -->
+  <rect class="badge" x="24" y="359" width="54" height="32" rx="16"/>
+  <text class="t-sm t-white t-bold mid" x="51" y="376">7</text>
+  <rect class="box" x="90" y="352" width="526" height="46" rx="8"/>
+  <text class="t" x="106" y="382">Verify: 100% compare by query</text>
+  <text class="t-sm t-muted end" x="600" y="381">T to T+1</text>
+
+  <!-- phases 8-9 -->
+  <rect class="badge" x="24" y="413" width="54" height="32" rx="16"/>
+  <text class="t-sm t-white t-bold mid" x="51" y="430">8–9</text>
+  <rect class="box" x="90" y="406" width="526" height="46" rx="8"/>
+  <text class="t" x="106" y="436">Communicate and archive</text>
+  <text class="t-sm t-muted end" x="600" y="435">T+1 to T+5</text>
+</svg>

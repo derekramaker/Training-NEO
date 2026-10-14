@@ -1,0 +1,32 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
+  <rect class="bg" width="640" height="440"/>
+  <text class="t-title" x="24" y="40">USMCA claims: four time limits</text>
+  <text class="t-sm t-muted" x="24" y="68">Know what each one counts from</text>
+
+  <text class="t t-bold t-navy" x="24" y="106">The certification</text>
+  <text class="t t-bold t-navy" x="332" y="106">The import</text>
+
+  <!-- top left: blanket period -->
+  <rect class="box" x="24" y="120" width="284" height="140" rx="8"/>
+  <text class="t-sm t-muted" x="40" y="150">Blanket period</text>
+  <g data-cloze="blanket"><text class="t-title" x="40" y="194">up to 12 months</text></g>
+  <text class="t-sm" x="40" y="238">for repeat shipments</text>
+
+  <!-- top right: US post-importation claim -->
+  <rect class="box" x="332" y="120" width="284" height="140" rx="8"/>
+  <text class="t-sm t-muted" x="348" y="150">US claim after entry</text>
+  <g data-cloze="pic"><text class="t-title" x="348" y="194">1 year</text></g>
+  <text class="t-sm" x="348" y="238">from importation</text>
+
+  <!-- bottom left: acceptance period -->
+  <rect class="box" x="24" y="276" width="284" height="140" rx="8"/>
+  <text class="t-sm t-muted" x="40" y="306">Customs must accept it</text>
+  <g data-cloze="valid"><text class="t-title" x="40" y="350">4 years</text></g>
+  <text class="t-sm" x="40" y="394">after it was completed</text>
+
+  <!-- bottom right: records -->
+  <rect class="box-accent" x="332" y="276" width="284" height="140" rx="8"/>
+  <text class="t-sm t-muted" x="348" y="306">Keep the records</text>
+  <g data-cloze="records"><text class="t-title" x="348" y="350">5 years</text></g>
+  <text class="t-sm" x="348" y="394">after import; Canada 6</text>
+</svg>

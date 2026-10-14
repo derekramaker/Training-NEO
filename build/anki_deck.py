@@ -188,9 +188,9 @@ def validate_core(units, core_dir, diagrams_dir, ref_fronts):
                 if not (fi and bi and fi["mode"] == "hide" and bi["mode"] == "show"
                         and fi["svg"] == bi["svg"] and fi["key"] == bi["key"]):
                     problems.append(f"{where}: cloze cards need front_image NAME?hide=KEY and back_image NAME?show=KEY")
-            for img in (fi, bi):
-                if img:
-                    images[img["media"]] = img
+            # Cards that share an image variant share one record, so the rendered path reaches all of them.
+            fi = images.setdefault(fi["media"], fi) if fi else None
+            bi = images.setdefault(bi["media"], bi) if bi else None
             row["_unit"], row["_front_img"], row["_back_img"] = unit, fi, bi
             rows.append(row)
     if problems:

@@ -1,0 +1,51 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470">
+  <rect class="bg" width="640" height="470"/>
+  <text class="t-title" x="24" y="40">US landed cost of KIT-100, per unit</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional import from Country X; hypothetical 5% duty</text>
+
+  <!-- table panel and header -->
+  <rect class="lane" x="24" y="84" width="592" height="306" rx="8"/>
+  <rect class="box-strong" x="24" y="84" width="592" height="36" rx="8"/>
+  <text class="t-sm t-white t-bold" x="40" y="108">Component</text>
+  <text class="t-sm t-white t-bold" x="270" y="108">How it is built</text>
+  <text class="t-sm t-white t-bold end" x="600" y="108">US$</text>
+
+  <!-- rows -->
+  <text class="t" x="40" y="148">Product price (FOB)</text>
+  <text class="t-sm t-muted" x="270" y="148">= customs value</text>
+  <text class="t end t-mono" x="600" y="148">40.00</text>
+
+  <text class="t" x="40" y="180">Ocean freight</text>
+  <text class="t-sm t-muted" x="270" y="180">allocated by weight</text>
+  <text class="t end t-mono" x="600" y="180">3.00</text>
+
+  <text class="t" x="40" y="212">Cargo insurance</text>
+  <text class="t-sm t-muted" x="270" y="212">allocated by value</text>
+  <text class="t end t-mono" x="600" y="212">0.20</text>
+
+  <rect class="box-accent" x="30" y="222" width="580" height="30" rx="4"/>
+  <text class="t t-accent" x="40" y="244">Duty</text>
+  <text class="t-sm t-bold" x="270" y="244">5% × 40.00 customs value</text>
+  <text class="t end t-mono t-bold" x="600" y="244">2.00</text>
+
+  <text class="t" x="40" y="276">Customs fees</text>
+  <text class="t-sm t-muted" x="270" y="276">MPF and HMF, allocated</text>
+  <text class="t end t-mono" x="600" y="276">0.15</text>
+
+  <text class="t" x="40" y="308">Brokerage</text>
+  <text class="t-sm t-muted" x="270" y="308">125 per entry ÷ 500 units</text>
+  <text class="t end t-mono" x="600" y="308">0.25</text>
+
+  <text class="t" x="40" y="340">Inland freight</text>
+  <text class="t-sm t-muted" x="270" y="340">port to our warehouse</text>
+  <text class="t end t-mono" x="600" y="340">0.90</text>
+
+  <path class="line" d="M40 354 H600"/>
+  <text class="t t-bold" x="40" y="378">Landed cost</text>
+  <text class="t-sm t-muted" x="270" y="378">sum of all seven</text>
+  <text class="t end t-mono t-bold" x="600" y="378">46.50</text>
+
+  <!-- the lesson -->
+  <rect class="box-soft" x="24" y="404" width="592" height="50" rx="8"/>
+  <text class="t-sm mid" x="320" y="430">US duty base = customs value 40.00, not landed cost 46.50</text>
+</svg>
