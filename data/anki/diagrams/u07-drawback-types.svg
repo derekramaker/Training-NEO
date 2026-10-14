@@ -1,40 +1,43 @@
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470">
-  <rect class="bg" width="640" height="470"/>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <rect class="bg" width="640" height="480"/>
   <text class="t-title" x="24" y="40">US drawback types (19 U.S.C. 1313)</text>
-  <text class="t-sm t-muted" x="24" y="68">Pick the row (what happened), then the column</text>
 
   <!-- column headers -->
-  <text class="t-sm t-bold t-navy mid" x="169" y="98">Direct identification</text>
-  <text class="t-sm t-bold t-navy mid" x="471" y="98">Substitution</text>
+  <text class="t-sm t-bold t-navy mid" x="169" y="76">Direct identification</text>
+  <text class="t-sm t-bold t-navy mid" x="471" y="76">Substitution</text>
 
   <!-- row 1: manufacturing -->
-  <text class="t-sm" x="24" y="130"><tspan class="t-bold">Manufacturing:</tspan> used to make an exported article</text>
-  <rect class="box" x="24" y="140" width="290" height="62" rx="8"/>
-  <text class="t t-bold t-mono" x="40" y="166">1313(a)</text>
-  <text class="t-sm" x="40" y="190">the imported input itself</text>
-  <rect class="box" x="326" y="140" width="290" height="62" rx="8"/>
-  <text class="t t-bold t-mono" x="342" y="166">1313(b)</text>
-  <text class="t-sm" x="342" y="190">same 8-digit subheading</text>
+  <text class="t-sm" x="24" y="108"><tspan class="t-bold">Manufacturing:</tspan> used to make an exported article</text>
+  <rect class="box" x="24" y="118" width="290" height="96" rx="8"/>
+  <text class="t t-bold t-mono" x="40" y="143">1313(a)</text>
+  <text class="t-sm" x="40" y="178">the imported input itself</text>
+  <rect class="box" x="326" y="118" width="290" height="96" rx="8"/>
+  <text class="t t-bold t-mono" x="342" y="143">1313(b)</text>
+  <g data-cloze="b8">
+    <text class="t-sm" x="342" y="178">same 8-digit subheading</text>
+    <text class="t-sm t-bold t-navy" x="342" y="201">no 'Other' rule</text>
+  </g>
 
   <!-- row 2: unused (the 'Other' rule is the thing to notice) -->
-  <text class="t-sm" x="24" y="232"><tspan class="t-bold">Unused:</tspan> exported or destroyed, not used in the US</text>
-  <rect class="box" x="24" y="242" width="290" height="116" rx="8"/>
-  <text class="t t-bold t-mono" x="40" y="268">1313(j)(1)</text>
-  <text class="t-sm" x="40" y="292">the same imported goods</text>
-  <text class="t-sm t-muted" x="40" y="322">testing, repacking: not use</text>
-  <rect class="box-accent" x="326" y="242" width="290" height="116" rx="8"/>
-  <text class="t t-bold t-mono" x="342" y="268">1313(j)(2)</text>
-  <text class="t-sm" x="342" y="292">same 8-digit subheading</text>
+  <text class="t-sm" x="24" y="242"><tspan class="t-bold">Unused:</tspan> exported or destroyed, not used in the US</text>
+  <rect class="box" x="24" y="252" width="290" height="112" rx="8"/>
+  <text class="t t-bold t-mono" x="40" y="279">1313(j)(1)</text>
+  <text class="t-sm" x="40" y="304">the same imported goods</text>
+  <text class="t-sm t-muted" x="40" y="332">testing, repacking: not use</text>
+  <rect class="box-accent" x="326" y="252" width="290" height="112" rx="8"/>
+  <text class="t t-bold t-mono" x="342" y="279">1313(j)(2)</text>
+  <text class="t-sm" x="342" y="304">same 8-digit subheading</text>
   <g data-cloze="j2">
-    <text class="t-sm t-accent" x="342" y="322">'Other' line: match 10 digits</text>
-    <text class="t-sm t-accent" x="342" y="346">both 'Other': not available</text>
+    <text class="t-sm t-accent" x="342" y="332">'Other' line: match 10 digits</text>
+    <text class="t-sm t-accent" x="342" y="354">both 'Other': not available</text>
   </g>
 
   <!-- row 3: rejected -->
-  <text class="t-sm" x="24" y="388"><tspan class="t-bold">Rejected:</tspan> defective, not to spec, or sent without consent</text>
-  <rect class="box" x="24" y="398" width="290" height="58" rx="8"/>
-  <text class="t t-bold t-mono" x="40" y="422">1313(c)</text>
-  <text class="t-sm" x="40" y="446">the rejected goods themselves</text>
-  <rect class="box-ghost" x="326" y="398" width="290" height="58" rx="8"/>
-  <text class="t-sm t-muted mid" x="471" y="428">no substitution</text>
+  <text class="t-sm" x="24" y="392"><tspan class="t-bold">Rejected:</tspan> defective, not to spec, or sent without consent</text>
+  <rect class="box" x="24" y="402" width="290" height="64" rx="8"/>
+  <text class="t t-bold t-mono" x="40" y="428">1313(c)</text>
+  <text class="t-sm" x="40" y="453">the rejected goods themselves</text>
+  <rect class="box-ghost" x="326" y="402" width="290" height="64" rx="8"/>
+  <text class="t-sm t-muted" x="342" y="428">returned retail goods only:</text>
+  <text class="t-sm t-muted" x="342" y="453">same 8 digits + same SKU</text>
 </svg>

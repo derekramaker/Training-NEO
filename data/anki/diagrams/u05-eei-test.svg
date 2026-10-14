@@ -1,8 +1,8 @@
 <svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
   <rect class="bg" width="640" height="440"/>
   <text class="t-title" x="24" y="40">EEI: test each Schedule B number</text>
-  <text class="t-sm t-muted" x="24" y="68">Fictional export to Country X, no license needed.</text>
-  <text class="t-sm t-muted" x="24" y="92">One USPPI, consignee and carrier; all US-made.</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional export to Country X (not Canada), no license.</text>
+  <text class="t-sm t-muted" x="24" y="92">One USPPI, consignee and conveyance; all US-made.</text>
 
   <foreignObject x="24" y="110" width="592" height="118">
     <div xmlns="http://www.w3.org/1999/xhtml" class="wt">

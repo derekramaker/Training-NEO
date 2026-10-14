@@ -1,0 +1,36 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
+  <rect class="bg" width="640" height="440"/>
+  <text class="t-title" x="24" y="40">Power BI total ≠ SQL total?</text>
+  <text class="t-sm t-muted" x="24" y="68">Check in this order before you change the report</text>
+
+  <path class="line-soft" d="M38 118 V270"/>
+
+  <!-- 1 filters -->
+  <rect class="box" x="64" y="86" width="552" height="64" rx="8"/>
+  <circle class="badge" cx="38" cy="118" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="119">1</text>
+  <text class="t t-bold" x="80" y="112">Filters in force</text>
+  <text class="t-sm" x="80" y="138">slicers; visual, page and report filters</text>
+
+  <!-- 2 relationships -->
+  <rect class="box" x="64" y="162" width="552" height="64" rx="8"/>
+  <circle class="badge" cx="38" cy="194" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="195">2</text>
+  <text class="t t-bold" x="80" y="188">Relationships</text>
+  <text class="t-sm" x="80" y="214">direction; inactive or unmatched keys</text>
+
+  <!-- 3 measure -->
+  <rect class="box" x="64" y="238" width="552" height="64" rx="8"/>
+  <circle class="badge" cx="38" cy="270" r="14"/>
+  <text class="t-sm t-white mid t-bold" x="38" y="271">3</text>
+  <text class="t t-bold" x="80" y="264">Measure definition</text>
+  <text class="t-sm" x="80" y="290">sum vs average; exclusions</text>
+
+  <!-- the (Blank) callout -->
+  <rect class="box-accent" x="24" y="322" width="592" height="100" rx="8"/>
+  <text class="t t-accent" x="40" y="352">A slicer shows "(Blank)"?</text>
+  <g data-cloze="blank">
+    <text class="t-sm" x="40" y="380">fact rows whose key has no dimension row;</text>
+    <text class="t-sm" x="40" y="404">totals include them: fix the data, don't hide it</text>
+  </g>
+</svg>

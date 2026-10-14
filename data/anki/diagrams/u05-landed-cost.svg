@@ -6,6 +6,7 @@
   <!-- table panel and header -->
   <rect class="lane" x="24" y="84" width="592" height="306" rx="8"/>
   <rect class="box-strong" x="24" y="84" width="592" height="36" rx="8"/>
+  <rect class="box-strong" x="24" y="104" width="592" height="16"/>
   <text class="t-sm t-white t-bold" x="40" y="108">Component</text>
   <text class="t-sm t-white t-bold" x="270" y="108">How it is built</text>
   <text class="t-sm t-white t-bold end" x="600" y="108">US$</text>
@@ -29,8 +30,8 @@
   <text class="t end t-mono t-bold" x="600" y="244">2.00</text>
 
   <text class="t" x="40" y="276">Customs fees</text>
-  <text class="t-sm t-muted" x="270" y="276">MPF and HMF, allocated</text>
-  <text class="t end t-mono" x="600" y="276">0.15</text>
+  <text class="t-sm t-muted" x="270" y="276">MPF and HMF on 40.00</text>
+  <text class="t end t-mono" x="600" y="276">0.19</text>
 
   <text class="t" x="40" y="308">Brokerage</text>
   <text class="t-sm t-muted" x="270" y="308">125 per entry ÷ 500 units</text>
@@ -38,7 +39,7 @@
 
   <text class="t" x="40" y="340">Inland freight</text>
   <text class="t-sm t-muted" x="270" y="340">port to our warehouse</text>
-  <text class="t end t-mono" x="600" y="340">0.90</text>
+  <text class="t end t-mono" x="600" y="340">0.86</text>
 
   <path class="line" d="M40 354 H600"/>
   <text class="t t-bold" x="40" y="378">Landed cost</text>
