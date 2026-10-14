@@ -1,0 +1,39 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <rect class="bg" width="640" height="400"/>
+  <text class="t-title" x="24" y="40">Reading a US HTS number</text>
+  <text class="t-sm t-muted" x="24" y="68">Illustrative number, not a real classification</text>
+
+  <!-- digit groups -->
+  <rect class="box-strong" x="24"  y="92" width="104" height="64" rx="8"/>
+  <text class="t-lg t-white mid t-mono" x="76" y="125">84</text>
+  <rect class="box-strong" x="140" y="92" width="104" height="64" rx="8"/>
+  <text class="t-lg t-white mid t-mono" x="192" y="125">81</text>
+  <rect class="box-strong" x="256" y="92" width="104" height="64" rx="8"/>
+  <text class="t-lg t-white mid t-mono" x="308" y="125">.80</text>
+  <rect class="box-accent" x="372" y="92" width="112" height="64" rx="8"/>
+  <text class="t-lg mid t-mono" x="428" y="125">.10</text>
+  <rect class="box-soft" x="496" y="92" width="120" height="64" rx="8"/>
+  <text class="t-lg mid t-mono" x="556" y="125">30</text>
+
+  <!-- labels under each group -->
+  <g data-cloze="chapter"><text class="t-sm mid t-bold" x="76" y="180">Chapter</text></g>
+  <text class="t-sm mid t-muted" x="76" y="216">2 digits</text>
+  <g data-cloze="heading"><text class="t-sm mid t-bold" x="192" y="180">Heading</text></g>
+  <text class="t-sm mid t-muted" x="192" y="216">4 digits</text>
+  <g data-cloze="subheading"><text class="t-sm mid t-bold" x="308" y="180">Subheading</text></g>
+  <text class="t-sm mid t-muted" x="308" y="216">6 digits</text>
+  <g data-cloze="rate"><text class="t-sm mid t-bold t-accent" x="428" y="180">Rate line</text></g>
+  <text class="t-sm mid t-muted" x="428" y="216">8 digits</text>
+  <g data-cloze="stat"><text class="t-sm mid t-bold" x="556" y="180">Statistical</text></g>
+  <text class="t-sm mid t-muted" x="556" y="216">10 digits</text>
+
+  <!-- brackets -->
+  <path class="line" d="M24 240 V252 H360 V240"/>
+  <g data-cloze="hs6"><text class="t mid t-navy t-bold" x="192" y="282">HS-6: same in every country</text></g>
+  <path class="line" d="M372 240 V252 H616 V240"/>
+  <text class="t-sm mid" x="494" y="282">US national digits</text>
+
+  <rect class="box" x="24" y="316" width="592" height="64" rx="8"/>
+  <text class="t-sm" x="40" y="343">Duty rate is set at 8 digits. Canada: 8 + 2 statistical.</text>
+  <text class="t-sm" x="40" y="368">Mexico (TIGIE): 8-digit fracción + 2-digit NICO.</text>
+</svg>
