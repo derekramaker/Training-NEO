@@ -1,0 +1,21 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <rect class="bg" width="640" height="400"/>
+  <text class="t-title" x="24" y="40">Mexico: IVA is charged on IGI too</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional item KIT-100. Illustrative rates; DTA left out.</text>
+
+  <foreignObject x="24" y="86" width="592" height="196">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <tr><th>Step</th><th>Working</th><th class="num">US$</th></tr>
+        <tr><td>Valor en aduana</td><td>incl. freight, insurance</td><td class="num">20,000.00</td></tr>
+        <tr><td>IGI at 10%</td><td>20,000 × 10%</td><td class="num">2,000.00</td></tr>
+        <tr class="hl"><td>IVA base</td><td>20,000 + 2,000</td><td class="num">22,000.00</td></tr>
+        <tr class="total"><td>IVA at 16%</td><td>22,000 × 16%</td><td class="num">3,520.00</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <rect class="box" x="24" y="298" width="592" height="82" rx="8"/>
+  <text class="t-sm t-bold" x="40" y="326">IVA = (valor en aduana + IGI + other charges) × rate</text>
+  <text class="t-sm t-bad" x="40" y="358">Common mistake: 20,000 × 16% = 3,200 (320 short)</text>
+</svg>

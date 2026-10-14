@@ -1,0 +1,42 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <rect class="bg" width="640" height="480"/>
+  <text class="t-title" x="24" y="40">How our trade data flows today</text>
+  <text class="t-sm t-muted" x="24" y="68">Generic flow; the Manager shows our details in M2</text>
+
+  <!-- left column: our systems -->
+  <rect class="box" x="24" y="88" width="230" height="74" rx="8"/>
+  <text class="t mid t-bold" x="139" y="113">Oracle ERP</text>
+  <text class="t-sm mid t-muted" x="139" y="140">items, POs, standard cost</text>
+
+  <rect class="box" x="24" y="208" width="230" height="156" rx="8"/>
+  <text class="t mid t-bold" x="139" y="236">AS400 trade system</text>
+  <text class="t-sm mid t-muted" x="139" y="266">classification, origin</text>
+  <rect class="box-accent" x="38" y="278" width="202" height="78" rx="6"/>
+  <text class="t-sm mid" x="139" y="297">Jan 2027 project:</text>
+  <g data-cloze="e2open"><text class="t-sm t-accent" x="58" y="336">e2open</text></g>
+  <text class="t-sm" x="140" y="336">replaces it</text>
+
+  <!-- right column: outside parties -->
+  <rect class="box" x="386" y="88" width="230" height="74" rx="8"/>
+  <text class="t mid t-bold" x="501" y="113">Customs agencies</text>
+  <text class="t-sm mid t-muted" x="501" y="140">CBP · CBSA · ANAM</text>
+
+  <rect class="box" x="386" y="208" width="230" height="156" rx="8"/>
+  <text class="t mid t-bold" x="501" y="270">Licensed brokers</text>
+  <text class="t-sm mid t-muted" x="501" y="302">US · Canada · Mexico</text>
+
+  <!-- bottom: reporting -->
+  <rect class="box-soft" x="24" y="418" width="592" height="46" rx="8"/>
+  <text class="t mid" x="320" y="441"><tspan class="t-bold">Reporting:</tspan> SQL Server · warehouse · Power BI</text>
+
+  <!-- flows -->
+  <path class="arrow" d="M139 168 V202"/>
+  <text class="t-sm" x="152" y="191">items</text>
+  <path class="arrow" d="M260 286 H380"/>
+  <text class="t-sm mid" x="320" y="264">product file</text>
+  <path class="arrow" d="M501 202 V168"/>
+  <text class="t-sm end" x="488" y="191">declarations</text>
+  <path class="arrow-soft" d="M139 370 V412"/>
+  <path class="arrow-soft" d="M501 370 V412"/>
+  <g data-cloze="entry"><text class="t-sm end" x="488" y="391">entry data back</text></g>
+</svg>

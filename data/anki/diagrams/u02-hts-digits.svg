@@ -34,6 +34,6 @@
   <text class="t-sm mid" x="494" y="282">US national digits</text>
 
   <rect class="box" x="24" y="316" width="592" height="64" rx="8"/>
-  <text class="t-sm" x="40" y="343">Duty rate is set at 8 digits. Canada: 8 + 2 statistical.</text>
+  <text class="t-sm" x="40" y="343">Canada: 8-digit tariff item + 2-digit statistical suffix.</text>
   <text class="t-sm" x="40" y="368">Mexico (TIGIE): 8-digit fracción + 2-digit NICO.</text>
 </svg>

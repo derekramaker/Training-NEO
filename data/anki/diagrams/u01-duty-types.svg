@@ -1,0 +1,22 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <rect class="bg" width="640" height="400"/>
+  <text class="t-title" x="24" y="40">Three ways to charge duty</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional item, hypothetical rates: for the method only</text>
+
+  <rect class="box-soft" x="24" y="86" width="592" height="50" rx="8"/>
+  <text class="t mid" x="320" y="111"><tspan class="t-bold">PART-A:</tspan> 2,000 kg · entered value US$8,000</text>
+
+  <foreignObject x="24" y="152" width="592" height="182">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <tr><th>Type</th><th>Rate</th><th>Working</th><th class="num">Duty</th></tr>
+        <tr><td>Ad valorem</td><td>5% of value</td><td>5% × $8,000</td><td class="num">$400</td></tr>
+        <tr class="hl"><td>Specific</td><td>$0.30 per kg</td><td>$0.30 × 2,000 kg</td><td class="num">$600</td></tr>
+        <tr><td>Compound</td><td>2% + $0.10/kg</td><td>2% × $8,000 = $160<br/>+ $0.10 × 2,000 = $200</td><td class="num">$360</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <text class="t-sm" x="24" y="360">Specific and compound duty depend on quantity:</text>
+  <text class="t-sm" x="24" y="384">the unit of measure on the entry must be right.</text>
+</svg>

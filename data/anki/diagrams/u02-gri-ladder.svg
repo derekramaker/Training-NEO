@@ -1,0 +1,42 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 468" width="640" height="468">
+  <rect class="bg" width="640" height="468"/>
+  <text class="t-title" x="24" y="40">The six GRIs</text>
+  <text class="t-sm t-muted" x="24" y="68">Apply in order. Stop at the first rule that settles it.</text>
+
+  <!-- GRI 1 -->
+  <circle class="badge-accent" cx="44" cy="112" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="44" y="113">1</text>
+  <rect class="box-accent" x="72" y="88" width="544" height="48" rx="8"/>
+  <g data-cloze="gri1"><text class="t" x="88" y="119">Headings + section and chapter notes</text></g>
+  <text class="t-sm t-accent end" x="604" y="118">most stop here</text>
+
+  <!-- GRI 2 -->
+  <circle class="badge" cx="44" cy="170" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="44" y="171">2</text>
+  <rect class="box" x="72" y="146" width="544" height="48" rx="8"/>
+  <g data-cloze="gri2"><text class="t" x="88" y="177">Unfinished or unassembled; mixed materials</text></g>
+
+  <!-- GRI 3 -->
+  <circle class="badge" cx="44" cy="240" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="44" y="241">3</text>
+  <rect class="box" x="72" y="204" width="544" height="72" rx="8"/>
+  <g data-cloze="gri3"><text class="t" x="88" y="233">2+ headings fit: (a) most specific,</text><text class="t" x="88" y="259">(b) essential character, (c) last in numerical order</text></g>
+
+  <!-- GRI 4 -->
+  <circle class="badge" cx="44" cy="310" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="44" y="311">4</text>
+  <rect class="box" x="72" y="286" width="544" height="48" rx="8"/>
+  <text class="t" x="88" y="317">Most akin goods (rare)</text>
+
+  <!-- GRI 5 -->
+  <circle class="badge" cx="44" cy="368" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="44" y="369">5</text>
+  <rect class="box" x="72" y="344" width="544" height="48" rx="8"/>
+  <text class="t" x="88" y="375">Cases and packing go with the goods</text>
+
+  <!-- GRI 6 -->
+  <circle class="badge" cx="44" cy="426" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="44" y="427">6</text>
+  <rect class="box-soft" x="72" y="402" width="544" height="48" rx="8"/>
+  <g data-cloze="gri6"><text class="t" x="88" y="433">Subheadings: compare the same level only</text></g>
+</svg>

@@ -324,8 +324,9 @@ def build_deck(root, dist, preview=False, only_units=None):
     if preview:
         write_previews(root, units, core_rows)
     size_mb = out.stat().st_size / 1e6
+    shown = out.relative_to(root) if out.is_relative_to(root) else out.name
     return (f"anki: {len(core_rows)} core cards in {len(units)} units, {ref_count} reference cards (suspended), "
-            f"{len(images)} images ({rendered} re-rendered), {size_mb:.1f} MB -> {out.relative_to(root)}")
+            f"{len(images)} images ({rendered} re-rendered), {size_mb:.1f} MB -> {shown}")
 
 
 def write_previews(root, units, core_rows):

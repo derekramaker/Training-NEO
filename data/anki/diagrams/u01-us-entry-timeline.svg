@@ -1,0 +1,55 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <rect class="bg" width="640" height="480"/>
+  <text class="t-title" x="24" y="40">The life of a US entry</text>
+  <text class="t-sm t-muted" x="24" y="68">Not to scale. Timings as the customs primer gives them</text>
+
+  <!-- timeline -->
+  <path class="line" d="M40 244 H604"/>
+  <circle class="badge" cx="64" cy="244" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="64" y="245">1</text>
+  <circle class="badge" cx="186" cy="244" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="186" y="245">2</text>
+  <circle class="badge" cx="320" cy="244" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="320" y="245">3</text>
+  <circle class="badge-accent" cx="458" cy="244" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="458" y="245">4</text>
+  <circle class="badge" cx="576" cy="244" r="16"/>
+  <text class="t-sm t-white mid t-bold" x="576" y="245">5</text>
+
+  <!-- 1 above, left-aligned (baseline = centered y + 7) -->
+  <text class="t t-bold" x="24" y="125">Arrival</text>
+  <text class="t-sm t-muted" x="24" y="157">goods reach</text>
+  <text class="t-sm t-muted" x="24" y="181">a US port</text>
+  <path class="line-soft" d="M64 192 V222"/>
+
+  <!-- 2 below -->
+  <path class="line-soft" d="M186 266 V288"/>
+  <text class="t mid t-bold" x="186" y="310">Entry and release</text>
+  <text class="t-sm mid t-muted" x="186" y="342">entry generally within</text>
+  <text class="t-sm mid t-muted" x="186" y="366">15 days of arrival</text>
+
+  <!-- 3 above -->
+  <g data-cloze="summary"><text class="t mid t-bold" x="320" y="118">Entry summary</text></g>
+  <text class="t-sm mid t-muted" x="320" y="150">within 10 working days</text>
+  <text class="t-sm mid t-muted" x="320" y="174">of release; duty deposited</text>
+  <path class="line-soft" d="M320 192 V222"/>
+
+  <!-- 4 below (accent: the final computation) -->
+  <path class="line-soft" d="M458 266 V288"/>
+  <g data-cloze="liq"><text class="t mid t-accent" x="458" y="310">Liquidation</text></g>
+  <text class="t-sm mid t-muted" x="458" y="342">ACE: about 314 days</text>
+  <text class="t-sm mid t-muted" x="458" y="366">after entry (limit 1 year)</text>
+
+  <!-- 5 above, right-aligned -->
+  <g data-cloze="protest"><text class="t end t-bold" x="616" y="125">Protest</text></g>
+  <text class="t-sm end t-muted" x="616" y="157">within 180 days</text>
+  <text class="t-sm end t-muted" x="616" y="181">of liquidation</text>
+  <path class="line-soft" d="M576 192 V222"/>
+
+  <!-- correction window between 3 and 4 -->
+  <path class="line-dash" d="M342 230 H436"/>
+  <rect class="box-warn" x="24" y="392" width="592" height="74" rx="8"/>
+  <path class="line-dash" d="M40 411 H84"/>
+  <g data-cloze="psc"><text class="t-sm t-bold" x="96" y="418">Post Summary Correction (PSC)</text></g>
+  <text class="t-sm" x="40" y="452">fixes errors: within 300 days of entry, 15+ days before liquidation</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 432" width="640" height="432">
+  <rect class="bg" width="640" height="432"/>
+  <text class="t-title" x="24" y="40">How item trade data flows</text>
+  <text class="t-sm t-muted" x="24" y="68">Generic flow: confirm each step in the AS400 walkthrough</text>
+
+  <!-- note -->
+  <rect class="box-ghost" x="448" y="92" width="168" height="96" rx="8"/>
+  <text class="t-sm t-muted mid" x="532" y="116">Each arrow is a</text>
+  <text class="t-sm t-muted mid" x="532" y="140">file or a job:</text>
+  <text class="t-sm t-muted mid" x="532" y="164">check it ran</text>
+
+  <!-- data out: down the left -->
+  <rect class="box" x="24" y="92" width="280" height="64" rx="8"/>
+  <text class="t t-bold mid" x="164" y="114">Oracle</text>
+  <text class="t-sm t-muted mid" x="164" y="140">item master, POs</text>
+  <path class="arrow" d="M164 156 V198"/>
+  <text class="t-sm" x="182" y="180">new and changed items</text>
+
+  <rect class="box-accent" x="24" y="204" width="280" height="84" rx="8"/>
+  <text class="t t-bold mid" x="164" y="227">AS400 trade system</text>
+  <g data-cloze="codes"><text class="t-sm mid" x="164" y="263">codes, origin, USMCA flags</text></g>
+  <path class="arrow" d="M164 288 V324"/>
+  <g data-cloze="product"><text class="t-sm t-bold" x="182" y="308">product file</text></g>
+
+  <rect class="box" x="24" y="330" width="280" height="72" rx="8"/>
+  <text class="t t-bold mid" x="164" y="354">Brokers (US, CA, MX)</text>
+  <text class="t-sm t-muted mid" x="164" y="380">file with CBP, CBSA, ANAM</text>
+
+  <!-- data back: up the right -->
+  <path class="arrow" d="M304 382 H442"/>
+  <g data-cloze="entry"><text class="t-sm t-bold mid" x="374" y="356">entry data</text></g>
+
+  <rect class="box" x="448" y="330" width="168" height="72" rx="8"/>
+  <text class="t t-bold mid" x="532" y="354">Warehouse</text>
+  <text class="t-sm t-muted mid" x="532" y="380">SQL Server</text>
+  <path class="arrow" d="M532 330 V284"/>
+
+  <rect class="box" x="448" y="206" width="168" height="72" rx="8"/>
+  <text class="t t-bold mid" x="532" y="230">Power BI</text>
+  <text class="t-sm t-muted mid" x="532" y="256">reports, audits</text>
+</svg>
