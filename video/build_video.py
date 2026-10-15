@@ -28,10 +28,18 @@ ROOT = Path(__file__).resolve().parent.parent
 ENGINE = ROOT / "video/engine"
 DIAGRAMS = ROOT / "data/anki/diagrams"
 FPS = 30
+TARGET_LUFS = -16.0
 
 
 def run(cmd, **kw):
     subprocess.run(cmd, check=True, **kw)
+
+
+def loudness(path):
+    """Integrated loudness (LUFS) of an audio file, measured by ffmpeg's EBU R128 filter."""
+    err = subprocess.run(["ffmpeg", "-nostats", "-i", str(path), "-af", "ebur128", "-f", "null", "-"],
+                         capture_output=True, text=True).stderr
+    return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", err)[-1])
 
 
 def narrate(vdir, build):
@@ -99,8 +107,21 @@ def storyboard(build, page, timings):
     return build / "storyboard.png"
 
 
-def music(seconds, out, sr=44100):
-    """A quiet, slow pad (Cmaj7 - Am7 - Fmaj7 - G6) synthesized here, so there is no licensing question."""
+def duck(timings, n, sr, under=0.45, ramp=0.4):
+    """Gain for the music bed: full between sentences, `under` while the narrator speaks, with soft ramps."""
+    t = np.arange(n) / sr
+    gain = np.ones(n)
+    for sc in timings["scenes"]:
+        for s in sc["sentences"]:
+            a, b = s["start"] - ramp, s["end"] + ramp
+            down = np.clip(np.minimum((t - a) / ramp, (b - t) / ramp), 0, 1)
+            gain = np.minimum(gain, 1 - (1 - under) * down)
+    return gain
+
+
+def music(seconds, out, timings=None, sr=44100):
+    """A quiet, slow pad (Cmaj7 - Am7 - Fmaj7 - G6) synthesized here, so there is no licensing question.
+    With `timings`, it dips under the narration and comes back up in the pauses."""
     chords = [[261.63, 329.63, 392.00, 493.88], [220.00, 261.63, 329.63, 392.00],
               [174.61, 220.00, 261.63, 329.63], [196.00, 246.94, 293.66, 329.63]]
     bar = 4.0
@@ -123,6 +144,8 @@ def music(seconds, out, sr=44100):
     fade = np.clip(t / 2.5, 0, 1) * np.clip((seconds - t) / 3.0, 0, 1)
     audio = audio * fade
     audio = 0.25 * audio / (np.max(np.abs(audio)) or 1)
+    if timings:
+        audio = audio * duck(timings, n, sr)
     sf.write(out, np.stack([audio, audio], axis=1).astype(np.float32), sr)
 
 
@@ -140,15 +163,26 @@ def main():
         return
     total = timings["total"]
     silent = build / "video-silent.mp4"
-    run(["node", str(ENGINE / "render.cjs"), str(page), str(silent), str(total), str(FPS)])
-    music(total, build / "music.wav")
+    # Frames only change when the assembled page does, so a voice or music fix re-mixes without re-rendering.
+    page_sha = hashlib.sha256(page.read_bytes()).hexdigest()
+    stamp = build / "page.sha256"
+    if not (silent.exists() and stamp.exists() and stamp.read_text() == page_sha):
+        run(["node", str(ENGINE / "render.cjs"), str(page), str(silent), str(total), str(FPS)])
+        stamp.write_text(page_sha)
+    music(total, build / "music.wav", timings)
+    mix = build / "mix.wav"
+    run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(build / "narration.wav"), "-i", str(build / "music.wav"),
+         "-filter_complex",
+         "[0:a]aresample=44100,pan=stereo|c0=c0|c1=c0[v];[1:a]volume=0.2[m];[v][m]amix=inputs=2:duration=first:normalize=0[a]",
+         "-map", "[a]", "-c:a", "pcm_f32le", str(mix)])
+    # Bring the mix to about -16 LUFS (usual for web video) and hold peaks under -1.5 dBFS with a limiter.
+    gain = TARGET_LUFS - loudness(mix)
     dist = ROOT / "dist/videos"
     dist.mkdir(parents=True, exist_ok=True)
     out = dist / f"{vid}.mp4"
-    run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(silent), "-i", str(build / "narration.wav"),
-         "-i", str(build / "music.wav"), "-filter_complex",
-         "[1:a]aresample=44100,pan=stereo|c0=c0|c1=c0[v];[2:a]volume=0.16[m];[v][m]amix=inputs=2:duration=first:normalize=0[a]",
-         "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart",
+    run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(silent), "-i", str(mix),
+         "-af", f"volume={gain:.2f}dB,alimiter=limit=0.84:attack=5:release=60:level=0",
+         "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart",
          str(out)])
     shutil.copy(build / "captions.vtt", dist / f"{vid}.vtt")
     poster_t = timings["scenes"][0]["start"] + 0.7 * (timings["scenes"][0]["end"] - timings["scenes"][0]["start"])

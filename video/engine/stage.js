@@ -33,14 +33,38 @@
       return s.start - scene.start + offset;
     },
 
+    // A dot that runs once along a path, starting at `start` (seconds into the scene): shows data or goods moving.
+    // The dot is created next to the path on first use; `cls` styles it (see base.css .pulse).
+    pulse(path, t, start, dur = 1.0, cls = "pulse") {
+      if (!path || !path.getTotalLength) return;
+      let dot = path.__pulse;
+      if (!dot) {
+        dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        dot.setAttribute("r", path.dataset.pulseR || 9);
+        dot.setAttribute("class", cls);
+        path.parentNode.insertBefore(dot, path.nextSibling);
+        path.__pulse = dot;
+      }
+      const q = clamp((t - start) / dur);
+      const pt = path.getPointAtLength(path.getTotalLength() * ease(q));
+      dot.setAttribute("cx", pt.x.toFixed(1));
+      dot.setAttribute("cy", pt.y.toFixed(1));
+      dot.style.opacity = q > 0 && q < 1 ? Math.sin(Math.PI * q) * 1.2 : 0;
+    },
+
     // Reveal elements marked data-step="n" in order: step n appears at times[n].
+    // Paths with class "draw" draw on (their arrowhead appears as the line lands); add data-pulse to send one dot
+    // along the path once it has landed.
     steps(root, t, times, dur = 0.6) {
       root.querySelectorAll("[data-step]").forEach((el) => {
         const n = Number(el.getAttribute("data-step"));
         const start = times[n] !== undefined ? times[n] : Infinity;
         const tag = el.tagName.toLowerCase();
         if (el.classList.contains("draw") && (tag === "path" || tag === "line" || tag === "polyline")) {
-          Stage.draw(el, prog(t, start, dur));
+          const p = prog(t, start, dur);
+          Stage.draw(el, p);
+          el.style.markerEnd = p > 0.97 ? "" : "none";
+          if (el.hasAttribute("data-pulse")) Stage.pulse(el, t, start + dur, 1.0);
         } else {
           Stage.fadeIn(el, prog(t, start, dur), el.dataset.slide ? Number(el.dataset.slide) : 14);
         }

@@ -25,6 +25,7 @@
       const x1 = nodeX(i) + W + 14, x2 = nodeX(i + 1) - 16;
       html += `<path class="base-arrow" d="M${x1} ${H / 2} H${x2}"/>`;
       html += `<path class="flowline" data-flow="${i}" d="M${x1} ${H / 2} H${x2 - 4}"/>`;
+      for (let k = 0; k < 3; k++) html += `<circle class="pulse" data-pk="${i}" data-k="${k}" r="8" cx="${x1}" cy="${H / 2}"/>`;
     }
     html += "</svg>";
     labels.forEach(([t, s], i) => {
@@ -61,6 +62,14 @@
       const p = f ? S.prog(t, f[1], 0.9) : 0;
       S.draw(path, p);
       path.style.markerEnd = p > 0.97 ? "url(#arrow-flow)" : "none";
+      // Once the link has landed, three packets run along it: the data moving. Then the line stays still.
+      const len = path.getTotalLength();
+      c.querySelectorAll(`[data-pk="${i}"]`).forEach((dot) => {
+        const q = f ? S.clamp((t - (f[1] + 0.9 + 0.45 * Number(dot.dataset.k))) / 1.1) : 0;
+        const pt = path.getPointAtLength(len * q);
+        dot.setAttribute("cx", pt.x.toFixed(1));
+        dot.style.opacity = q > 0 && q < 1 ? Math.min(1, Math.sin(Math.PI * q) * 1.5) : 0;
+      });
     });
   }
 

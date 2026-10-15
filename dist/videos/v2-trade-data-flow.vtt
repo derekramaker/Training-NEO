@@ -1,0 +1,89 @@
+WEBVTT
+
+1
+00:00:00.800 --> 00:00:05.493
+Trade data makes a round trip: out to the brokers, and back to us as entries.
+
+2
+00:00:05.843 --> 00:00:08.702
+Here is that trip, and what e2open changes.
+
+3
+00:00:09.602 --> 00:00:14.999
+It starts in Oracle, our main business system for items, purchase orders and standard costs.
+
+4
+00:00:15.349 --> 00:00:18.357
+New and changed items flow on to the trade system.
+
+5
+00:00:19.257 --> 00:00:23.140
+The AS400 trade system adds what customs needs to know.
+
+6
+00:00:23.490 --> 00:00:30.210
+Each item gets a tariff code per country, its origin, and flags for the US-Mexico-Canada Agreement.
+
+7
+00:00:30.560 --> 00:00:36.171
+Codes and origin get maker-checker review: one person prepares, a second person checks.
+
+8
+00:00:37.071 --> 00:00:41.615
+A scheduled batch job, often nightly, builds a product file for each broker.
+
+9
+00:00:41.965 --> 00:00:44.823
+The brokers use it to declare our goods to customs.
+
+10
+00:00:45.173 --> 00:00:49.824
+The last row, the trailer, holds counts and totals that prove the file is complete.
+
+11
+00:00:50.174 --> 00:00:55.721
+But failures are usually silent: if it does not run, brokers file with yesterday's codes.
+
+12
+00:00:56.621 --> 00:01:00.546
+After filing, the brokers send back entry data, line by line.
+
+13
+00:01:00.896 --> 00:01:03.179
+Each line is matched to one of our items.
+
+14
+00:01:03.529 --> 00:01:08.393
+It then feeds broker audits, the actual duty paid, and Power BI reports.
+
+15
+00:01:09.293 --> 00:01:14.967
+In a project expected to start in January, e2open replaces the AS400.
+
+16
+00:01:15.317 --> 00:01:19.755
+The same data moves into e2open's Global Trade Management system.
+
+17
+00:01:20.105 --> 00:01:24.201
+For your own process, you write the as-is doc: how it really works today.
+
+18
+00:01:24.551 --> 00:01:27.815
+And the data map: where each field goes in e2open.
+
+19
+00:01:28.165 --> 00:01:31.941
+Then you help clean the data and test, so nothing is lost in the move.
+
+20
+00:01:32.841 --> 00:01:37.043
+Remember: every filing and every report is only as good as this chain.
+
+21
+00:01:37.393 --> 00:01:41.063
+Next, read sections three to five of the Trade systems primer.
+
+22
+00:01:41.413 --> 00:01:44.997
+In Anki: Units one and two now, and Unit seven from week ten.
