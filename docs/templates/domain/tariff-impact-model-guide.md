@@ -1,12 +1,14 @@
 # Tariff-Impact Model Guide
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** explains the shared Tariff-Impact Model (Tariff-Impact-Model-Template.xlsx in the onboarding folder, template v2.0) tab by tab and formula by formula, the workflow between Research and Standard Cost, how to check it, and what it cannot do. Read it before you put a number from the model in front of anyone.
 - **Who uses it:** Hire A (Research) fills the Action tab, the WHAT. Hire B (Standard Cost) fills the Items tab and owns the $ results. The Senior checks the Action tab; the Manager checks the $ and approves release.
 - **When:** for every tariff action that needs a cost or margin answer. Pre-read in W2 (Mon 10/26). Joint tariff drill in W7 and W8 (Hire A scopes, Hire B models, maker-checker demo). Evidence for B60-1, and for A90-1 and B90-1 when a live action arrives. Modules M5R and M5C. For a live action, the urgency rule in `docs/01-30-60-90-plan.md` ("Live tariff actions during training") decides who is maker.
 
 ## What the model is, in one paragraph
+
+Watch first: the 2-minute video *From a tariff action to a cost impact: the Research to Standard Cost handoff* — [COMPANY: Stream link].
 
 One workbook per tariff action and importing country. Research copies the checked Tariff-Impact Brief (`docs/templates/domain/tariff-impact-brief.md`) into the Action tab: rates, dates, the HTS scope list, exclusions, origins, item-level determinations and, when the action has more than one rate, the rate lines. Standard Cost pastes an item extract into the Items tab: HTS, origin, unit of measure, customs value, quantity, current duty rate, current standard cost, sell price and, for actions that tax only part of the value, each item's dutiable share. The Calc tab decides, row by row, whether each item is in scope, which rate applies, and works out the duty change, the new estimated standard cost and the margin change. The Summary tab totals it, lists the top 10 items, breaks it down by HTS chapter and origin, and says whether the model is ready for review. The Review tab is the maker-checker log. Every result is a live formula, so a change on Action or Items flows through at once.
 

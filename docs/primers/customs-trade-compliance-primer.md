@@ -495,6 +495,8 @@ The Canada and Mexico examples in Sections 5.3 and 6.3 continue from these numbe
 
 ## 10. Origin and USMCA
 
+Watch first: the 2-minute video *Does it qualify? USMCA origin with a bill of materials* — [COMPANY: Stream link]. It walks the PK-100 example from Section 10.8 step by step.
+
 ### 10.1 Preferential and non-preferential origin
 
 "Origin" means different things for different purposes, and the answers can differ for the same item.

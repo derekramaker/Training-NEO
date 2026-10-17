@@ -1,12 +1,14 @@
 # Tariff-Impact Brief Template
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** the Research handoff for one tariff or regulatory action. It states the WHAT: the action, its legal basis, timing, scope (HTS, origins, products, exclusions, stacking), rates, our interpretation with a confidence level, and which of our items it covers. Every claim cites a primary source. It contains no dollar figures: Standard Cost turns it into $ in the shared Tariff-Impact Model (`docs/templates/domain/tariff-impact-model-guide.md`).
 - **Who uses it:** Hire A (Research) as maker. The Senior (legal scope and interpretation) or the Manager as checker. Hire B (Standard Cost) as the receiver. The Manager approves any business communication built on it.
 - **When:** for every new or changed action that may touch our items in the US, Canada or Mexico. Outline by W4 (A30-6), full brief for a real recent action in W7 (A60-1), live as maker from W12 (A90-1). Module M5R. For time-sensitive actions, the urgency rule in `docs/01-30-60-90-plan.md` ("Live tariff actions during training") decides who is maker.
 
 ## How to fill this in
+
+Watch first: the 2-minute video *From a tariff action to a cost impact: the Research to Standard Cost handoff* — [COMPANY: Stream link]. It shows where this brief sits between the action and the model.
 
 Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-specific value.
 

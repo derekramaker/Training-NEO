@@ -7,8 +7,8 @@ a render function of time. Change a sentence or a box, rebuild, and the MP4, cap
 |---|---|
 | `v1-import-entry-lifecycle` | Weeks 1–2, customs (M1) |
 | `v2-trade-data-flow` | Weeks 1–2, trade systems and e2open (M2, M10) |
-| `v3-research-to-std-cost` | Week 3 on, the Research → Standard Cost handoff |
-| `v4-usmca-origin-bom` | Weeks 2–3, USMCA origin with a bill of materials |
+| `v3-research-to-std-cost` | Week 3 on, the Research → Standard Cost handoff (M5R, M5C, the boundary and control rules) |
+| `v4-usmca-origin-bom` | Weeks 2–3, USMCA origin with a bill of materials (M1, customs primer §10) |
 
 ## Build
 

@@ -43,7 +43,7 @@ systems team (US / Canada / Mexico imports). Start date: **Monday, October 19, 2
 | `anki/BSA-Onboarding-cards.csv` | The same cards as a CSV | For Quizlet, Excel self-quiz, or review |
 | `Tariff-Impact-Model-Template.xlsx` | Shared Research + Standard Cost tariff model (live formulas) | Copy per tariff action; see `docs/templates/domain/tariff-impact-model-guide.md` |
 | `Practice-Data.xlsx`, `practice-data/*.csv` | Synthetic import data for the analytics exercises | Use with the practice exercises page |
-| `videos/*.mp4` (+ `.vtt`, poster, script) | Short narrated explainers: how an import entry works (US, Canada, Mexico) and how trade data flows (with e2open) | Upload each MP4 to Microsoft Stream with its `.vtt` captions file and poster; put the links in the `[COMPANY: Stream link]` slots in the customs and trade systems primers |
+| `videos/*.mp4` (+ `.vtt`, poster, script) | Four short narrated explainers: how an import entry works (US, Canada, Mexico); how trade data flows (with e2open); the Research to Standard Cost handoff; USMCA origin with a bill of materials | Upload each MP4 to Microsoft Stream with its `.vtt` captions file and poster; put the links in the `[COMPANY: Stream link]` slots in the customs and trade systems primers, the Tariff-Impact Brief template and the model guide |
 | `trainer-only/answer-key.docx` | Answer key for the analytics exercises (1 to 11) | **Manager and Senior only.** Not in the onboarding folder or the hires' OneNote sections; the Manager may share it after day 30, without the Exercise 9 to 11 sections until after day 60 |
 
 ## Suggested OneNote notebook structure
