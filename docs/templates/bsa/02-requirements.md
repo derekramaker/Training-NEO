@@ -1,6 +1,6 @@
 # Requirements Template (BRD-lite)
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** define what a change or new capability must do, why, and how everyone will know it works, in 2 to 6 pages. Use it for custom tool enhancements, new reports, process changes, and the hires' parts of the e2open requirements.
 - **Who uses it:** the BSA (maker) writes it; the requester or business owner agrees to it and signs; the checker (Senior or Manager) reviews it; the developer or tool owner builds from it; UAT testers turn its acceptance criteria into test cases (`docs/templates/bsa/05-uat-test-plan.md`).
@@ -180,10 +180,15 @@ Effective-dated duty rates in [COMPANY: name of std-cost tool]. Maker: Hire B. C
 | FR-01 | The tool shall store an effective-from date and an optional effective-to date for each HTS number, country and rate type (base or additional). | Must | Hire B interview with [COMPANY: Finance cost accountant], date | Given a new rate row, when I save it without an effective-from date, then the save is blocked with a message naming the missing field. |
 | FR-02 | The tool shall apply, in a cost run, the rate whose date range contains the costing reference date. | Must | BR-02 | Given a base rate of 2.5% and an additional 25% from 2026-11-03 (hypothetical), when the reference date is 2026-11-02, then 2.5% is applied; when it is 2026-11-03, then 27.5% is applied (the brief says the additional duty stacks on the base rate). |
 | FR-03 | The tool shall reject overlapping date ranges for the same HTS number, country and rate type. | Must | Defect history | Given an open-ended row from 2026-11-03, when I add a row from 2026-12-01 without closing the first, then the save is blocked and the conflicting row is named. |
-| FR-04 | The tool shall log every rate change with user, timestamp, old value, new value and Jira key. | Must | Control rule; O3 | Given any rate edit, when it is saved, then one log row holds all five values. |
-| FR-05 | The tool shall keep a new or changed rate pending until a second user, not the maker, approves it, and shall record the approver and timestamp. | Must | Control rule; O3 | Given a rate saved by user A, when user A tries to approve it, then approval is refused; when user B approves it, then the rate becomes active and the log shows A, B and both timestamps. |
-| FR-06 | The tool shall show, on each rate row, the ID and version of the Tariff-Impact Brief the rate came from. | Should | BR-03 | Given a rate loaded from brief [brief ID] v1.0, when I open the rate row, then it shows "[brief ID] v1.0". Workaround until built: the Jira key in the FR-04 log links to the brief. |
-| FR-07 | The tool shall feed automatic tariff content updates. | Won't (this time) | Manager decision | Deferred to the e2open project. |
+| FR-04 | The tool shall keep a new or changed rate pending until a second user, not the maker, approves it, and shall record the approver and timestamp. | Must | Control rule; O3 | Given a rate saved by user A, when user A tries to approve it, then approval is refused; when user B approves it, then the rate becomes active and the NF-02 log shows A, B and both timestamps. |
+| FR-05 | The tool shall show, on each rate row, the ID and version of the Tariff-Impact Brief the rate came from. | Should | BR-03 | Given a rate loaded from brief [brief ID] v1.0, when I open the rate row, then it shows "[brief ID] v1.0". Workaround until built: the Jira key in the NF-02 audit log links to the brief. |
+| FR-06 | The tool shall feed automatic tariff content updates. | Won't (this time) | Manager decision | Deferred to the e2open project. |
+
+Audit logging is a quality the tool must have, so it sits with the non-functional requirements (Section 8), not in the functional table:
+
+| ID | Category | Requirement | Measure |
+|---|---|---|---|
+| NF-02 | Audit trail | The tool shall log every rate change with user, timestamp, old value, new value and Jira key (Must; source: control rule, O3). | Given any rate edit, when it is saved, then one log row holds all five values; the monthly audit-log review finds them on 100% of changes. |
 
 **Open question.** Q-01: Does Finance measure the period's standard on the first day of the period or with a weighted rate when an action starts mid-period? Asked to [COMPANY: Finance cost accountant]. Status: Blocks FR-02.
 

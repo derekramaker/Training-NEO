@@ -1,9 +1,9 @@
 # Weeks 1-2 Schedule
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** the hour-by-hour plan for the first two weeks, plus the Manager's to-do list for the week before the start date.
-- **Who uses it:** the Manager (prep, sessions, 1:1s), the Senior (four sessions, office hours including Hire A's USMCA test-out, one analytics review), and both hires (what to do in every block, and which file to open).
+- **Who uses it:** the Manager (prep, sessions, 1:1s), the Senior (four sessions, the data landscape tour, office hours including Hire A's USMCA test-out, one analytics review), and both hires (what to do in every block, and which file to open).
 - **When:** prep runs Mon 10/12 to Fri 10/16. Week 1 is Mon 10/19 to Fri 10/23 and Week 2 is Mon 10/26 to Fri 10/30. From Week 3, the roadmap (Section 3) and the standard week (Section 5) in `docs/01-30-60-90-plan.md` take over.
 
 ## Weeks 1–2 at a glance
@@ -14,25 +14,25 @@ One row per day; the day tables below have the times, files and outputs. "Hire A
 
 | Day | Morning | Afternoon | Trainer time |
 |---|---|---|---|
-| Day 1, Mon 10/19 | HR orientation, laptop and sign-ins (08:00-12:00) | Manager welcome and plan walkthrough; meet the Senior; access check; time management reading; Anki import; Day-1 wrap with the Manager | Manager 1.25 h; Senior 0.25 h |
-| Day 2, Tue 10/20 | Stand-up; US customs reading. Hire A: Purchasing or Logistics shadow. Hire B: business overview skim, then Oracle cost data | Manager: trade systems landscape (1.5 h); trade systems primer and landscape diagram v1; analytics setup | Manager 1.50 h |
-| Day 3, Wed 10/21 | Stand-up; Exercise 1; Manager: ways of working, Jira, Planner and time management (1 h); Planner tasks, Jira stories, first weekly plan | Senior S1, US customs I (1.5 h); entry flow v2 and 5 cards. Hire A: business reading. Hire B: cost checklist mapped to Oracle data | Manager 1.00 h; Senior 1.50 h |
-| Day 4, Thu 10/22 | Stand-up; Exercise 2. Hire A: primer pre-read. Hire B: Finance shadow on the cost calendar. Both: entry packet pre-read | Hire A: business orientation with the Manager (45 min). Hire B: standard cost extract. Senior: data landscape tour (30 min). Hire A: origin and kit notes. Hire B: primer pre-read. Senior office hours (30 min); cards | Manager 0.75 h; Senior 1.00 h |
-| Day 5, Fri 10/23 | Entry packet; Senior S2, US customs II (1.5 h); self-report and W2 plan sent by 11:30; 5 cards | 1:1s with the Manager (Hire A 13:00, Hire B 13:45). Hire A: e2open reading. Hire B: cost-element comparison. Exercises 1-2 retro; buffer; W2 plan in Planner | Manager 1.50 h; Senior 1.50 h |
+| Day 1, Mon 10/19 | HR orientation, laptop and sign-ins (08:00-12:00) | Manager welcome and plan walkthrough; meet the Senior; access check, including the Copilot Chat check; time management reading; Anki import; Day-1 wrap with the Manager | Manager 1.25 h; Senior 0.25 h |
+| Day 2, Tue 10/20 | Stand-up; US customs reading; data platform safe-use rules (before any SSMS or DBeaver use). Hire A: Purchasing or Logistics shadow. Hire B: business overview skim, then Oracle cost data | Manager: trade systems landscape (1.5 h); trade systems primer and landscape diagram v1; analytics setup | Manager 1.50 h |
+| Day 3, Wed 10/21 | Stand-up; Exercise 1; Manager: ways of working, Jira, Planner and time management (1 h); Planner tasks and Jira stories; Copilot guide Part 1 | Senior S1, US customs I (1.5 h); entry flow v2 and 5 cards. Hire A: business reading. Hire B: cost checklist mapped to Oracle data | Manager 1.00 h; Senior 1.50 h |
+| Day 4, Thu 10/22 | Stand-up; Exercise 2. Hire A: primer pre-read. Hire B: Finance shadow on the cost calendar. Both: entry packet pre-read; platform components skim | Hire A: business orientation with the Manager (45 min). Hire B: standard cost extract. Senior: data landscape tour, including the platform map and the safe-use rules (30 min). Hire A: origin and kit notes. Hire B: primer pre-read. Senior office hours (30 min); cards | Manager 0.75 h; Senior 1.00 h |
+| Day 5, Fri 10/23 | Entry packet; Senior S2, US customs II (1.5 h); self-report and W2 plan sent by 11:30; 5 cards | 1:1s with the Manager (Hire A 13:00, Hire B 13:45). Hire A: e2open reading. Hire B: cost-element comparison. Copilot guide Part 2, then the Manager's Copilot Chat setup and rules session (30 min); Exercises 1-2 retro; buffer; W2 plan in Planner | Manager 2.00 h; Senior 1.50 h |
 
-Week 1 total: Manager 6.00 h, Senior 4.25 h.
+Week 1 total: Manager 6.50 h, Senior 4.25 h.
 
 ### Week 2: Mon 10/26 - Fri 10/30
 
 | Day | Morning | Afternoon | Trainer time |
 |---|---|---|---|
-| Day 6, Mon 10/26 | Monday confirm with the Manager (15 min); Canada primer reading; Exercise 3 | Mexico primer reading. Hire A: business orientation II with the Manager (30 min). Hire B: one-item PO-to-cost trace. Track pre-reads for Wednesday's shadows | Manager 0.75 h |
-| Day 7, Tue 10/27 | CAD and pedimento pre-read; Senior S3, Canada and Mexico customs (1.5 h); US/CA/MX comparison table and 5 cards | Manager: AS400 trade data-flow walkthrough (1.5 h); data-flow v1 and 5-row mini data map; finish and post Exercise 3 | Manager 1.50 h; Senior 1.50 h |
-| Day 8, Wed 10/28 | Stand-up; classification basics on 5 practice items. Hire A: shadow a real Research item. Hire B: shadow a real standard cost or variance item | Manager: BSA craft intro, intake and Jira stories (45 min); shadow write-up. Hire A: USMCA oral test-out with the Senior (15 min) while Hire B starts Exercise 4. Senior office hours (15 min); Exercise 4 | Manager 0.75 h; Senior 0.50 h |
-| Day 9, Thu 10/29 | Finish and post Exercise 4; Manager: custom tools kickoff (1 h); start the Tool Inventory | Senior S4, USMCA origin and classification (1.5 h); Senior analytics review of Exercises 1-3 (30 min); teach-back prep. Hire A: kit item (GRI 3(b)). Hire B: Exercise 3 stretch on the cost extract | Manager 1.00 h; Senior 2.00 h |
-| Day 10, Fri 10/30 | Tool Inventory; teach-back rehearsal; first Friday teach-back with the Manager (30 min); self-report and W3 plan sent by 11:30; fix teach-back errors | 1:1s with the Manager (Hire A 13:00, Hire B 13:45). Hire A: tool inventory, then research monitoring set-up. Hire B: e2open reading, then the PPV example. Buffer; W3 plan in Planner | Manager 2.00 h |
+| Day 6, Mon 10/26 | Monday confirm with the Manager (15 min); Canada primer reading; Copilot guide Part 3 and the use log; Exercise 3 | Mexico primer reading; data platform primer Parts 2-3. Hire A: business orientation II with the Manager (30 min). Hire B: one-item PO-to-cost trace. Track pre-reads for Wednesday's shadows | Manager 0.75 h |
+| Day 7, Tue 10/27 | CAD and pedimento pre-read; Senior S3, Canada and Mexico customs (1.5 h); US/CA/MX comparison table and 5 cards; BSA primer Parts 1-2 | Manager: AS400 trade data-flow walkthrough (1.5 h); data-flow v1 and 5-row mini data map; finish and post Exercise 3 | Manager 1.50 h; Senior 1.50 h |
+| Day 8, Wed 10/28 | Stand-up; classification basics on 5 practice items. Hire A: shadow a real Research item. Hire B: shadow a real standard cost or variance item | Manager: BSA craft intro, intake and Jira stories (45 min); shadow write-up; BSA primer Part 3 and a stakeholder list. Hire A: USMCA oral test-out with the Senior (15 min) while Hire B starts Exercise 4. Senior office hours (15 min); Exercise 4 | Manager 0.75 h; Senior 0.50 h |
+| Day 9, Thu 10/29 | Finish and post Exercise 4; Manager: custom tools kickoff (1 h), then the data platform walkthrough (45 min); start the Tool Inventory | Senior S4, USMCA origin and classification (1.5 h); Senior analytics review of Exercises 1-3 (30 min); teach-back prep; Copilot guide Part 5. Hire A: kit item (GRI 3(b)). Hire B: Exercise 3 stretch on the cost extract | Manager 1.75 h; Senior 2.00 h |
+| Day 10, Fri 10/30 | Tool Inventory; data-path sketch; teach-back rehearsal; first Friday teach-back with the Manager (30 min); self-report and W3 plan sent by 11:30; fix teach-back errors | 1:1s with the Manager (Hire A 13:00, Hire B 13:45). Hire A: tool inventory, then research monitoring set-up. Hire B: e2open reading, then the PPV example. Buffer; W3 plan in Planner | Manager 2.00 h |
 
-Week 2 total: Manager 6.00 h, Senior 4.00 h.
+Week 2 total: Manager 6.75 h, Senior 4.00 h.
 
 ## How to read this schedule
 
@@ -44,10 +44,11 @@ Week 2 total: Manager 6.00 h, Senior 4.00 h.
 - Every self-study block names a file. If that file says something different from this schedule, follow the file and add a note to the question log.
 - Daily routine for the hires: 15 min of Anki first thing, and a 15-min wrap at 16:45 (question log, notes, tomorrow's top-3). Method: `docs/05-time-management.md`.
 - If system access is late, use the fallback plan in `docs/04-access-request-checklist.md`. Do not drop the block.
+- Two new tools have rules first: read Part 1 of `docs/primers/data-platform-primer.md` (Tue 10/20, 10:00) before you open SSMS or DBeaver, and use Copilot Chat for work only after the setup and rules session (Fri 10/23, 15:00).
 
 ## Before day 1: Manager checklist (week of Mon 10/12)
 
-Today is Thu 10/08. Access requests are the long pole, so send them before the weekend if you can.
+This list was first written Thu 10/08; the items added on 10/17 are marked. Access requests are the long pole, so send any still open today.
 
 ### By Mon 10/12
 
@@ -68,8 +69,8 @@ Today is Thu 10/08. Access requests are the long pole, so send them before the w
 - [ ] Run `python3 build/build.py` (or take the files from `dist/`) so the Word versions in `dist/docs/` are current.
 - [ ] Set up the OneNote team notebook with the sections from `README.md`: 00 Start Here, 01 Check-ins, 02 Primers, 03 Templates, 04 Tool Docs, 05 Process SOPs, 06 Question Log, 07 Analytics.
 - [ ] Add one section group per hire ("Hire A notes", "Hire B notes") with four pages: Daily notes, Weekly plans and self-reports, Teach-backs, and Access tracker (left empty; the hire copies the tracking table from the access checklist into it on Day 1). In section 06 Question Log, add one page per hire ("Hire A questions", "Hire B questions"): that page is the hire's question log.
-- [ ] Paste these pages first (Word: Ctrl+A, Ctrl+C, then paste into OneNote): program at a glance, 30/60/90 plan, this schedule, access checklist and time management (00 Start Here); check-ins and scorecards (01 Check-ins); the customs primer and the trade systems primer; practice exercises; and the templates folder.
-- [ ] The answer key is built to `dist/trainer-only/answer-key.docx`. Keep it in [COMPANY: trainer-only location], never in the notebook or the onboarding folder, and never give the hires it or `data/analytics/generate_practice_data.py` before the day-30 review. The Senior uses it on Thu 10/29.
+- [ ] Paste these pages first (Word: Ctrl+A, Ctrl+C, then paste into OneNote): program at a glance, 30/60/90 plan, this schedule, access checklist and time management (00 Start Here); check-ins and scorecards (01 Check-ins); the customs primer, the trade systems primer, the data platform primer, the Copilot Chat guide and the BSA primer (all read in W1-W2); practice exercises; and the templates folder.
+- [ ] The answer key is built to `dist/trainer-only/answer-key.docx`. Keep it in [COMPANY: trainer-only location], never in the notebook or the onboarding folder. Never give the hires the key before the day-30 review, or its Exercise 9-11 sections and `data/analytics/generate_practice_data.py` before the day-60 review. The Senior uses it on Thu 10/29.
 - [ ] Copy to the onboarding folder ([COMPANY: team onboarding folder on SharePoint/Teams]): `dist/BSA-Onboarding.apkg`, `dist/anki/BSA-Onboarding-cards.csv`, `dist/Practice-Data.xlsx`, the `dist/practice-data/` folder, `dist/Tariff-Impact-Model-Template.xlsx`, `dist/BSA-Onboarding-Handbook.docx`, `dist/docs/`, and `dist/BSA-Onboarding-Trackers.xlsx` (the only file both hires can edit). Never copy `dist/trainer-only/`. Link the folder and the workbook from 00 Start Here (AR-14, live Day 1).
 - [ ] In its Tool Inventory tab, overwrite the placeholder rows (T-01 to T-15) with every custom tool you know of: tool name, stack, and where it lives. This list is the input to the Thu 10/29 split. Leave the other columns for the hires.
 - [ ] Jira: add both hires to [COMPANY: Jira project] and create an empty epic for each, "Onboarding - Hire A" and "Onboarding - Hire B". They add their own stories on Wed 10/21.
@@ -80,14 +81,14 @@ Today is Thu 10/08. Access requests are the long pole, so send them before the w
 ### By Thu 10/15
 
 - [ ] Block the Senior's calendar for the slots in the table below, plus about 1 h this week for the Senior to prepare S1-S4 (15 minutes each, using the session template in `docs/03-check-ins-and-scorecards.md` Section 4). Check the slots against the Senior's drawback, exports and reporting deadlines; move a session within the same week if there is a clash.
-- [ ] Block your own calendar for every Manager row in the day tables, plus 2 h (W1) and 2 h (W2) of async review time. Friday 15:00-16:00 works well for reviewing the self-reports and planning the next week.
+- [ ] Block your own calendar for every Manager row in the day tables, plus 1.5 h (W1) and 1.25 h (W2) of async review time. Friday afternoon after the 1:1s works well for reviewing the self-reports and planning the next week (in W1, after the 15:00 Copilot session).
 - [ ] Gather the sanitized sample documents (table below). Save them to the onboarding folder and link them from OneNote 03 Templates.
 
 | Senior slot | Week | Session | Hours |
 |---|---|---|---|
 | Mon 10/19 14:00-14:15 | W1 | Meet the Senior | 0.25 |
 | Wed 10/21 13:00-14:30 | W1 | S1: US customs fundamentals I | 1.50 |
-| Thu 10/22 13:45-14:15 | W1 | Data landscape tour | 0.50 |
+| Thu 10/22 13:45-14:15 | W1 | Data landscape tour, including the platform map and the safe-use rules | 0.50 |
 | Thu 10/22 15:30-16:00 | W1 | Office hours | 0.50 |
 | Fri 10/23 09:00-10:30 | W1 | S2: US customs fundamentals II (entry packet) | 1.50 |
 | Tue 10/27 09:00-10:30 | W2 | S3: Canada and Mexico customs | 1.50 |
@@ -105,8 +106,8 @@ Mask anything that identifies the company or its partners before a sample goes i
 | Canada: one Commercial Accounting Declaration (CAD) and its invoice [COMPANY] | Tue 10/27 S3 | Tariff classification, value for duty, origin and tariff treatment fields |
 | Mexico: one pedimento and its invoice [COMPANY] | Tue 10/27 S3 | Fracción and NICO, customs value, origin, and an IMMEX example if the company uses IMMEX |
 | One completed Tariff-Impact example (a brief, a model, or both) from a recent tariff action [COMPANY] | Mon 10/26 pre-reads; Wed 10/28 shadows | Source, affected HTS, rates, effective date, item-level $ impact, and who reviewed it |
-| Standard cost extract: 10-20 items with cost elements (material, freight, duty, other) for one cost period [COMPANY: Oracle EBS or Fusion] | Hire B from Tue 10/20 | Duty and freight visible as separate elements or rates |
-| PO and receipt extract: the same items, one PO line and its receipt each [COMPANY: Oracle EBS or Fusion] | Hire B Tue 10/20, Mon 10/26 | PO price, currency, Incoterm, receipt date and quantity next to the standard cost |
+| Standard cost extract: 10-20 items with cost elements (material, freight, duty, other) for one cost period, from Oracle EBS | Hire B from Tue 10/20 | Duty and freight visible as separate elements or rates |
+| PO and receipt extract: the same items, one PO line and its receipt each, from Oracle EBS | Hire B Tue 10/20, Mon 10/26 | PO price, currency, Incoterm, receipt date and quantity next to the standard cost |
 | Broker entry-line extract: one month of US entry lines for the same items [COMPANY] | Hire B W3 profiling; Hire B B30-6 | Entry, line, HTS, origin, value, duty |
 | PPV example: one month, a few items [COMPANY: PPV report] | Hire B Fri 10/30 | Standard vs actual, with at least one duty- or freight-driven variance |
 | AS400 trade item extract: item, description, HTS per country, country of origin, USMCA indicator [COMPANY] | Tue 10/27 data-flow session | Same items as the cost extract if possible, so the hires can join them |
@@ -120,9 +121,18 @@ Mask anything that identifies the company or its partners before a sample goes i
 - [ ] Print a backup pack in case laptops or logins are late: the Week 1 pages of this schedule, the US sections of the customs primer, and `docs/05-time-management.md`.
 - [ ] Read the 1:1 agenda in `docs/03-check-ins-and-scorecards.md` and prepare the Day-1 welcome talk, which walks through `docs/01-30-60-90-plan.md`.
 
+### Added 10/17 for the new topics: by Mon 10/19
+
+- [ ] Decide the service-account model before any further access requests go out ([COMPANY: confirm the service-account model before access requests go out]; the recommended model is in Part 3 of `docs/primers/data-platform-primer.md`). The hires get no access to the service account (`docs/04-access-request-checklist.md`).
+- [ ] Submit the new and changed requests in `docs/04-access-request-checklist.md`: the sandbox grant inside AR-07, AR-22 Copilot Chat, AR-23 DBeaver with a read-only Oracle EBS database account, and AR-24 Remote Desktop to the team server (needed by W6).
+- [ ] Confirm with [COMPANY: ERP security] that each hire's DBeaver EBS database account is read-only, before that hire's first EBS query (AR-23).
+- [ ] Confirm what [COMPANY: AI acceptable-use policy] allows and that Copilot Chat is enabled for both hires' work accounts (AR-22). Collect the tenant answers for the Fri 10/23 session (`docs/primers/copilot-chat-guide.md` 1.6).
+- [ ] With the Senior, fill in the first draft of the data platform map (`docs/templates/knowledge/data-platform-map.md`, at least Sections 1, 3 and 6) in [COMPANY: location of the filled data platform map], before the Thu 10/22 data landscape tour. Real names go only there, never in this repository.
+- [ ] Tell the Senior that the Thu 10/22 data landscape tour now also covers the platform map and the safe-use rules (data platform primer Parts 1 and 2). It stays 30 minutes.
+
 ## Week 1 (Mon 10/19 - Fri 10/23)
 
-Week focus: M0 orientation and ways of working, M1 US customs fundamentals, M2 trade systems landscape, M3 analytics Exercises 1-2. Anki starts on Day 1.
+Week focus: M0 orientation and ways of working, M1 US customs fundamentals, M2 trade systems landscape, M3 analytics Exercises 1-2, M11 Copilot Chat setup and rules, M12 data platform safe-use rules and the data landscape tour. Anki starts on Day 1.
 
 ### Day 1 - Mon 10/19
 
@@ -138,7 +148,7 @@ PM
 |---|---|---|---|---|
 | 13:00-14:00 | Welcome: team purpose and stakeholders; walk through `docs/01-30-60-90-plan.md`; how 5-8 guided hours a week plus structured self-study works; the boundary rule (Research owns the WHAT, Standard Cost owns the $) and the maker-checker rule | Manager | M0 | Each hire writes their own day-30/60/90 goals in their OneNote section |
 | 14:00-14:15 | Meet the Senior: what the Senior owns (reporting, exports, US duty drawback), office-hour slots, how to bring questions (question log), and why questions for a broker or trade counsel go through the Senior | Senior | M0 | Office-hour slots in calendar |
-| 14:15-15:00 | Access check: copy the tracking table from `docs/04-access-request-checklist.md` into the Access tracker page in your own section; try each system due by Day 1 (AR-01, AR-02, AR-10, AR-14 onboarding folder, AR-21), mark the others "not due yet", and record each status there; send the gaps to the Manager by 15:00 | Self-study | M0 | Access tracker page filled in; gaps sent |
+| 14:15-15:00 | Access check: copy the tracking table from `docs/04-access-request-checklist.md` into the Access tracker page in your own section; try each system due by Day 1 (AR-01, AR-02, AR-10, AR-14 onboarding folder, AR-21, AR-22), mark the others "not due yet", and record each status there; send the gaps to the Manager by 15:00. AR-22 Copilot Chat: open m365copilot.com signed in with your work account, check that the enterprise data protection shield shows and note the label under your name; do not use it for work before Friday's rules session | Self-study | M0 | Access tracker page filled in; gaps sent |
 | 15:00-15:45 | Read `docs/05-time-management.md` (weekly ritual, daily top-3, intake rules, question log); set up your daily-plan page and your question-log page in section 06 Question Log, using the templates in `docs/05-time-management.md` | Self-study | M0 | Daily plan and question log pages in OneNote |
 | 15:45-16:00 | Anki: import BSA-Onboarding.apkg from the onboarding folder (link in 00 Start Here); first review session | Self-study | M1 | Deck imported; first reviews done |
 | 16:00-16:45 | Read OneNote 00 Start Here: Program at a Glance, then start Sections 1 and 3 of the 30/60/90 plan (finish them by Fri 10/23); skim the rest of this week's schedule; log anything unclear | Self-study | M0 | Week 1 questions in the question log |
@@ -152,9 +162,10 @@ AM
 |---|---|---|---|---|
 | 08:00-08:15 | Anki daily review | Self-study | M1 | Reviews done |
 | 08:15-08:30 | Stand-up (hires only): top-3, blockers, access status; post blockers and access gaps to the Manager in Teams | Hires | M0 | Blockers posted |
-| 08:30-10:30 | Read the US sections of `docs/primers/customs-trade-compliance-primer.md`: importer of record, broker and CBP roles, the entry process, duties and fees. List new terms as you go | Self-study | M1 | 10+ terms noted; 3+ questions in the question log |
+| 08:30-10:00 | Read the US sections of `docs/primers/customs-trade-compliance-primer.md`: importer of record, broker and CBP roles, the entry process, duties and fees. List new terms as you go | Self-study | M1 | 10+ terms noted; 3+ questions in the question log |
+| 10:00-10:30 | Read Part 1 (safe-use rules) of `docs/primers/data-platform-primer.md`, before you open SSMS or DBeaver for the first time and before the 16:00 analytics setup. Write "Part 1 read" and today's date on your Access tracker page | Self-study | M12 | "Part 1 read" and the date recorded; questions in the question log |
 | 10:30-12:00 | Hire A: shadow [COMPANY: Purchasing or Logistics contact] on how a purchase order becomes an import (supplier, booking, broker, receipt) | Shadow | M0 | One-page "PO to receipt" note |
-| 10:30-12:00 | Hire B: the business overview is a refresher: skim [COMPANY: business overview materials] for 30 minutes (no quiz; note anything new for Friday's 1:1). Then Oracle cost data: in [COMPANY: Oracle EBS or Fusion] inquiry, find one item's standard cost and its cost elements, one PO and its receipt. If Oracle is not live, use the sanitized standard cost and PO-receipt extracts | Self-study | M5C | Overview notes; note: each cost element and where it appears |
+| 10:30-12:00 | Hire B: the business overview is a refresher: skim [COMPANY: business overview materials] for 30 minutes (no quiz; note anything new for Friday's 1:1). Then Oracle cost data: in Oracle EBS inquiry, find one item's standard cost and its cost elements, one PO and its receipt. If Oracle is not live, use the sanitized standard cost and PO-receipt extracts | Self-study | M5C | Overview notes; note: each cost element and where it appears |
 
 PM
 
@@ -175,7 +186,8 @@ AM
 | 08:15-08:30 | Stand-up (hires only); blockers to the Manager in Teams | Hires | M0 | Blockers posted |
 | 08:30-10:00 | Analytics Exercise 1 (`docs/analytics/practice-exercises.md`) | Self-study | M3 | Exercise 1 file in OneNote 07 Analytics, plus 3 lines on what you learned |
 | 10:00-11:00 | Ways of working: the Jira project (issue types, workflow, how a request gets logged), Planner for learning tasks, email and Teams rules, and the rituals in `docs/05-time-management.md` | Manager | M0 | Each hire logs one practice request in Jira using the fields in `docs/templates/bsa/01-intake-request.md` |
-| 11:00-12:00 | Add your W1-W2 learning tasks to Planner and your onboarding stories to your Jira epic (`docs/templates/bsa/07-jira-epic-story.md`); draft your first weekly plan from the template in `docs/05-time-management.md` | Self-study | M0 | Planner tasks; Jira stories; draft weekly plan |
+| 11:00-11:30 | Add your W1-W2 learning tasks to Planner and your onboarding stories to your Jira epic (`docs/templates/bsa/07-jira-epic-story.md`). Your first weekly plan (template in `docs/05-time-management.md`) is drafted on Friday at 10:30 | Self-study | M0 | Planner tasks; Jira stories |
+| 11:30-12:00 | Read Part 1 of `docs/primers/copilot-chat-guide.md` (which Copilot we use, what it can and cannot see, enterprise data protection, what the free tier does not include) and do the first three items of its setup checklist (1.6) | Self-study | M11 | Label and Copilot panes noted for Friday's session |
 
 PM
 
@@ -198,7 +210,8 @@ AM
 | 08:30-10:00 | Analytics Exercise 2 | Self-study | M3 | Exercise 2 file plus 3 lines on what you learned |
 | 10:00-11:00 | Hire A: read the classification, valuation and origin sections of `docs/primers/customs-trade-compliance-primer.md` (pre-read for Friday) | Self-study | M1 | Questions for S2 |
 | 10:00-11:00 | Hire B: shadow [COMPANY: Finance cost accountant] on the standard cost calendar and how duty and freight rates get into standard cost | Shadow | M5C | Note: cost calendar dates and who does each step |
-| 11:00-12:00 | Pre-read for S2: on the sanitized US entry packet [COMPANY], find the importer, HTS numbers, entered value, country of origin and duty lines on the 7501. Mark which fields come from our data | Self-study | M1 | Marked-up packet with 10 fields |
+| 11:00-11:30 | Pre-read for S2: on the sanitized US entry packet [COMPANY], find the importer, HTS numbers, entered value, country of origin and duty lines on the 7501. Mark which fields come from our data (finish on Friday at 08:15) | Self-study | M1 | Packet mark-up started |
+| 11:30-12:00 | Before the Senior's data landscape tour: skim 2.1 (the components) of `docs/primers/data-platform-primer.md`, check the 1.4 checklist against your Access tracker page, and write 2 questions for the tour | Self-study | M12 | 2 questions for the tour |
 
 PM
 
@@ -206,7 +219,7 @@ PM
 |---|---|---|---|---|
 | 13:00-13:45 | Hire A: business orientation with the Manager. Customers, suppliers, product lines, US/CA/MX entities, where margin comes from, and who the main internal stakeholders are | Manager | M0 | One-page business map |
 | 13:00-13:45 | Hire B: in the sanitized standard cost extract, find duty and freight in each item's cost; list 3 questions for your next Finance touchpoint | Self-study | M5C | Annotated extract |
-| 13:45-14:15 | Data landscape tour: SQL Server, the data warehouse, Power BI workspaces; what data lives where, read-only rules, where trade data shows up | Senior | M3 | Data boxes added to the landscape diagram |
+| 13:45-14:15 | Data landscape tour: SQL Server (the team database and its sandbox), the data warehouse, the Power BI workspace, DBeaver on Oracle EBS (read-only); the platform map (data platform primer Part 2, from the filled map) and the safe-use rules (Part 1); what data lives where, and where trade data shows up | Senior | M3, M12 | Data boxes added to the landscape diagram; tour questions answered |
 | 14:15-15:30 | Hire A: second pass on the origin and marking sections of the customs primer. Note where kits and bills of material make origin harder (bring this to S4 next week) | Self-study | M1 | Kit/BOM origin notes |
 | 14:15-15:30 | Hire B: read the classification, valuation and origin sections of the customs primer (pre-read for Friday) | Self-study | M1 | Questions for S2 |
 | 15:30-16:00 | Senior office hours: batched questions from both question logs | Senior | M1 | Answers recorded in the question log |
@@ -233,13 +246,15 @@ PM
 | 13:00-13:45 | Hire B: compare two items' cost elements in the extract; draft one question on how the duty rate in standard cost is set and maintained | Self-study | M5C | Comparison note; question logged |
 | 13:45-14:30 | Hire B: weekly 1:1 | Manager | M0 | W2 plan agreed; actions noted |
 | 13:45-14:30 | Hire A: re-read the e2open section of the trade systems primer; write 3 Anki cards | Self-study | M2 | 3 cards |
-| 14:30-16:00 | Analytics: write "what I would do differently" for Exercises 1-2, then read Exercise 3 and list its data questions. Hire B: if this is done early, start Exercise 3 | Self-study | M3 | Retro note; Exercise 3 questions |
+| 14:30-15:00 | Read Part 2 of the Copilot guide (rules first: the policy, what you may paste, output is a draft, the sandbox rule) | Self-study | M11 | Questions for the session |
+| 15:00-15:30 | Copilot Chat setup and rules: [COMPANY: AI acceptable-use policy]; Parts 1 and 2 of `docs/primers/copilot-chat-guide.md`; the tenant answers (web search, Pages, memory, agents, retention); one prompt checked live against its source; the starter entries in the team prompt library; finish the setup checklist (1.6) | Manager | M11 | Setup checklist ticked; tenant answers at the top of your Copilot use log page |
+| 15:30-16:00 | Analytics: write "what I would do differently" for Exercises 1-2, then read Exercise 3 and list its data questions | Self-study | M3 | Retro note; Exercise 3 questions |
 | 16:00-16:45 | Catch-up buffer: finish anything left from your W1 plan | Self-study | M0 | W1 plan items closed or carried |
 | 16:45-17:00 | Put the final W2 plan in Planner | Self-study | M0 | W2 plan in Planner |
 
 ## Week 2 (Mon 10/26 - Fri 10/30)
 
-Week focus: M1 Canada, Mexico, USMCA and classification basics; M2 AS400 trade data flow; M3 analytics Exercises 3-4; M4 intake; M5R and M5C first real-item shadow; M6 tool inventory; the first teach-back.
+Week focus: M1 Canada, Mexico, USMCA and classification basics; M2 AS400 trade data flow; M3 analytics Exercises 3-4; M4 BSA fundamentals (BSA primer Parts 1-3) and intake; M5R and M5C first real-item shadow; M6 tool inventory; M11 the Copilot use log; M12 the data platform walkthrough; the first teach-back.
 
 ### Day 6 - Mon 10/26
 
@@ -249,14 +264,16 @@ AM
 |---|---|---|---|---|
 | 08:00-08:15 | Anki daily review | Self-study | M1 | Reviews done |
 | 08:15-08:30 | Monday confirm: walk the Manager through your W2 plan and agree the week's top-3 | Manager | M0 | Confirmed W2 plan |
-| 08:30-10:00 | Read the Canada sections of `docs/primers/customs-trade-compliance-primer.md`: CBSA, CARM, the CAD, the Customs Tariff, the broker's role (pre-read for S3) | Self-study | M1 | Canada questions in the question log |
+| 08:30-09:30 | Read the Canada sections of `docs/primers/customs-trade-compliance-primer.md`: CBSA, CARM, the CAD, the Customs Tariff, the broker's role (pre-read for S3) | Self-study | M1 | Canada questions in the question log |
+| 09:30-10:00 | Read Part 3 of the Copilot guide (prompting that works) and Part 6 (the use log and the team prompt library). If you use Copilot in Exercise 3, use it only on the practice data and log the use | Self-study | M11 | Use log started |
 | 10:00-12:00 | Analytics Exercise 3 | Self-study | M3 | Exercise 3 file in progress |
 
 PM
 
 | Time | Activity | Lead | Module | Output |
 |---|---|---|---|---|
-| 13:00-14:30 | Read the Mexico sections of the customs primer: ANAM, the agente aduanal, the pedimento, TIGIE, IMMEX, Anexo 24 and Anexo 30 (formerly Anexo 31) concepts | Self-study | M1 | Mexico questions in the question log |
+| 13:00-14:00 | Read the Mexico sections of the customs primer: ANAM, the agente aduanal, the pedimento, TIGIE, IMMEX, Anexo 24 and Anexo 30 (formerly Anexo 31) concepts | Self-study | M1 | Mexico questions in the question log |
+| 14:00-14:30 | Read Parts 2 and 3 of the data platform primer (the map, the data path, personal and service accounts) before Thursday's walkthrough; start your one-page sketch of the data path (2.2) | Self-study | M12 | Sketch started; [COMPANY] gaps listed as questions |
 | 14:30-15:00 | Hire A: business orientation II with the Manager. Open questions from your business map; who sends Research requests and why | Manager | M0 | Updated business map; stakeholder list |
 | 14:30-15:00 | Hire B: trace one item from PO price to standard cost to receipt in the sanitized extracts | Self-study | M5C | One-item trace note |
 | 15:00-16:45 | Hire A: track pre-read. `docs/templates/domain/tariff-impact-brief.md`, `docs/primers/current-tariff-landscape.md`, and the sanitized Tariff-Impact example | Self-study | M5R | 5 questions for Wednesday's shadow |
@@ -272,7 +289,8 @@ AM
 | 08:00-08:15 | Anki daily review | Self-study | M1 | Reviews done |
 | 08:15-09:00 | Pre-read for S3: on the sanitized CAD and pedimento [COMPANY], find the same 10 fields you found on the 7501 | Self-study | M1 | Field comparison started |
 | 09:00-10:30 | S3, Canada and Mexico customs: CBSA, CARM and the CAD, release vs accounting, the Customs Tariff. Mexico: ANAM, the agente aduanal, the pedimento, TIGIE (8-digit fracción plus 2-digit NICO), IMMEX and Anexo 24 and 30 (formerly 31) concepts. How our brokers in each country get our data | Senior | M1 | Comparison table started |
-| 10:30-12:00 | Finish a US/CA/MX comparison table (authority, filer, declaration, tariff schedule and digits, portal, main programs); write 5 Anki cards | Self-study | M1 | Comparison table; 5 cards |
+| 10:30-11:15 | Finish a US/CA/MX comparison table (authority, filer, declaration, tariff schedule and digits, portal, main programs); write 5 Anki cards | Self-study | M1 | Comparison table; 5 cards |
+| 11:15-12:00 | Read Parts 1 and 2 of `docs/primers/business-systems-analysis-primer.md` (what a BSA does on this team; the BABOK knowledge areas and core concepts) before Wednesday's M4 session | Self-study | M4 | 3 Anki cards; one paragraph: "what does a BSA do on this team?" |
 
 PM
 
@@ -299,8 +317,9 @@ PM
 
 | Time | Activity | Lead | Module | Output |
 |---|---|---|---|---|
-| 13:00-13:45 | BSA craft intro: logging intake (`docs/templates/bsa/01-intake-request.md`), writing a Jira story with acceptance criteria (`docs/templates/bsa/07-jira-epic-story.md`), when a change request is needed (`docs/templates/bsa/06-change-request.md`) | Manager | M4 | Each hire drafts the intake record for their shadowed item |
-| 13:45-15:00 | Write up your shadow: the intake record, a Jira story, and the as-is steps, kept as raw material for your future SOP (`docs/templates/knowledge/process-sop.md`) | Self-study | M4 | Intake, story and as-is steps posted |
+| 13:00-13:45 | BSA craft intro, built on BSA primer Parts 1-2: logging intake (`docs/templates/bsa/01-intake-request.md`), writing a Jira story with acceptance criteria (`docs/templates/bsa/07-jira-epic-story.md`), when a change request is needed (`docs/templates/bsa/06-change-request.md`) | Manager | M4 | Each hire drafts the intake record for their shadowed item |
+| 13:45-14:30 | Write up your shadow: the intake record, a Jira story, and the as-is steps, kept as raw material for your future SOP (`docs/templates/knowledge/process-sop.md`) | Self-study | M4 | Intake, story and as-is steps posted |
+| 14:30-15:00 | Read Part 3 of the BSA primer (stakeholders) and write the stakeholder list (3.5) for the item you shadowed | Self-study | M4 | Stakeholder list added to the write-up |
 | 15:00-15:15 | Hire A: USMCA oral test-out with the Senior, without notes: self-check questions 14-18 in Section 16 of `docs/primers/customs-trade-compliance-primer.md`. 4 of 5 correct is a pass: skim primer 10.2-10.5 in W3 and spend the saved time on 10.6, 10.9 and the tariff-landscape sources | Senior | M1 | Result in the question log and the W3 plan |
 | 15:00-15:15 | Hire B: start Analytics Exercise 4 | Self-study | M3 | Exercise 4 started |
 | 15:15-15:30 | Senior office hours: batched questions | Senior | M1 | Answers recorded in the question log |
@@ -318,7 +337,8 @@ AM
 | 08:00-08:15 | Anki daily review | Self-study | M1 | Reviews done |
 | 08:15-10:00 | Finish Analytics Exercise 4 and post it to OneNote 07 Analytics | Self-study | M3 | Exercise 4 posted |
 | 10:00-11:00 | Custom tools kickoff: what we know about the 10+ tools. Split them: Hire A takes the tools nearest Research, classification and origin/USMCA; Hire B takes the tools nearest cost, landed cost, cost extracts and reports. Walk through the Tool Inventory tab in the trackers workbook and `docs/templates/knowledge/tool-doc.md` | Manager | M6 | Every tool row has an assigned learner |
-| 11:00-12:00 | Start the inventory: for each of your tools, fill in purpose, business users, stack, where it lives, run frequency and knowledge holder. Do not run any tool that writes data | Self-study | M6 | First rows filled in |
+| 11:00-11:45 | Data platform walkthrough: the filled platform map ([COMPANY: location of the filled data platform map]), the service-account model (data platform primer 3.3), the gateway, the Power BI premium workspace, Power Automate and Power Apps connections, the remote server and its etiquette, and where the tools you just split run | Manager | M12 | Data-path sketch corrected; open [COMPANY] gaps in the question log |
+| 11:45-12:00 | Start the inventory: for each of your tools, fill in purpose, business users, stack, where it lives, run frequency and knowledge holder. Do not run any tool that writes data | Self-study | M6 | First rows filled in |
 
 PM
 
@@ -326,7 +346,8 @@ PM
 |---|---|---|---|---|
 | 13:00-14:30 | S4, USMCA origin and classification basics: origin criteria (wholly obtained, tariff shift, regional value content), the certification of origin and its minimum data elements, importer, exporter and producer obligations, recordkeeping and verification. Then work the General Rules of Interpretation on 2 of the 5 worksheet items | Senior | M1 | Corrected worksheet; USMCA one-pager |
 | 14:30-15:00 | Analytics review: the Senior reviews Exercises 1-3 against the answer key, which stays with the trainers (approach, Power Query or SQL hygiene, how the result was checked). Exercise 4 is reviewed in W3 | Senior | M3 | Fix list per hire |
-| 15:00-16:00 | Teach-back prep (`docs/templates/knowledge/teach-back.md`): 10 minutes outside your own track. Hire A: "Our trade data flow: AS400, brokers, Oracle". Hire B: "US vs Canada vs Mexico: who files what". The Manager may swap topics | Self-study | M0 | Teach-back outline |
+| 15:00-15:45 | Teach-back prep (`docs/templates/knowledge/teach-back.md`): 10 minutes outside your own track. Hire A: "Our trade data flow: AS400, brokers, Oracle". Hire B: "US vs Canada vs Mexico: who files what". The Manager may swap topics | Self-study | M0 | Teach-back outline |
+| 15:45-16:00 | Read Part 5 of the Copilot guide (what it gets wrong in trade work) | Self-study | M11 | Two checks noted for your next Copilot use |
 | 16:00-16:45 | Hire A: classification stretch. Add a kit or set item to the worksheet (GRI 3(b)) and write down its USMCA origin question | Self-study | M1 | Kit item added |
 | 16:00-16:45 | Hire B: analytics stretch. Do the Hire B stretch of Exercise 3 in `docs/analytics/practice-exercises.md` on the sanitized standard cost extract: implied duty rate per item against the HTS general rate (read-only; no system writes) | Self-study | M3 | One-page finding |
 | 16:45-17:00 | Daily wrap | Self-study | M0 | Top-3 for Fri |
@@ -338,7 +359,8 @@ AM
 | Time | Activity | Lead | Module | Output |
 |---|---|---|---|---|
 | 08:00-08:15 | Anki daily review | Self-study | M1 | Reviews done |
-| 08:15-09:30 | Continue the tool inventory | Self-study | M6 | More rows filled in |
+| 08:15-09:00 | Continue the tool inventory | Self-study | M6 | More rows filled in |
+| 09:00-09:30 | Finish your one-page sketch of the data path (data platform primer 2.2) with what Thursday's walkthrough added; list every [COMPANY] gap as a question | Self-study | M12 | Data-path sketch posted |
 | 09:30-10:00 | Rehearse your teach-back once, out loud and timed | Self-study | M0 | Fits in 10 minutes |
 | 10:00-10:30 | First Friday teach-back: 10 minutes each plus 5 minutes of feedback each | Manager | M0 | Feedback and corrections noted in OneNote |
 | 10:30-11:30 | Friday self-report and W3 weekly plan; send to the Manager by 11:30 | Self-study | M0 | Self-report and W3 plan sent |
@@ -363,7 +385,7 @@ PM
 |---|---|---|
 | Business orientation | Full: Purchasing/Logistics shadow (Tue 10/20), deck self-study (Wed 10/21), two Manager sessions (Thu 10/22, Mon 10/26); stakeholder intro meetings follow in W3-W4 | Refresher only: a 30-minute skim (Tue 10/20); the other slots go to Oracle cost data |
 | USMCA | Oral test-out Wed 10/28 (prior exposure) | No test-out; target is proficiency 1 at day 30 |
-| Oracle cost data | Not in W1-W2 beyond the landscape and data-flow sessions | Every spare slot: cost elements, standard cost checklist, one-item trace, PPV |
+| Oracle cost data | Not in W1-W2 beyond the landscape and data-flow sessions | Every spare slot: cost elements, standard cost checklist, one-item trace, PPV. If the DBeaver EBS connection (AR-23) arrives in W2, read Part 5 of the data platform primer in a cost-data slot before the first query |
 | Finance contact | None in W1-W2 | Shadow with Finance (Thu 10/22) |
 | Track pre-read and shadow | Tariff-Impact Brief, tariff landscape, real Research item | Tariff-Impact Model guide, cost checklist, real cost or variance item |
 | Stretch work | Kit/BOM origin and GRI 3(b), building on prior USMCA and BOM exposure | Analytics on the real cost extract, since data comes quickly |
@@ -377,7 +399,9 @@ Review in the Friday 1:1s. Anything unchecked goes in the W3 plan with a date.
 - [ ] US/CA/MX comparison table and the 5-item classification worksheet are posted and corrected.
 - [ ] Systems landscape v1 and AS400 trade data-flow v1 are posted.
 - [ ] Analytics Exercises 1-4 are posted, and Exercises 1-3 have had the Senior's feedback.
-- [ ] Shadow write-up done: intake record, Jira story and as-is steps.
+- [ ] Shadow write-up done: intake record, Jira story, as-is steps and the stakeholder list (BSA primer 3.5).
+- [ ] Data platform primer Part 1 read (date on the Access tracker page) and the data-path sketch posted.
+- [ ] Copilot Chat setup checklist ticked, and the use log started (any Copilot use so far is logged).
 - [ ] Every row in the Tool Inventory tab has a learner, and each hire has filled in at least the basic fields for their tools.
 - [ ] First teach-back done and feedback recorded.
 - [ ] Anki reviewed on 9 of 10 days; at least 15 of their own cards drafted.
@@ -404,7 +428,8 @@ Counting rule: a session that both hires attend counts once. A row with a "Hire 
 | Fri 10/23 | S2: US customs fundamentals II | 0.00 | 1.50 |
 | Fri 10/23 | Hire A 1:1 | 0.75 | 0.00 |
 | Fri 10/23 | Hire B 1:1 | 0.75 | 0.00 |
-| W1 total | | 6.00 | 4.25 |
+| Fri 10/23 | Copilot Chat setup and rules (M11, both hires) | 0.50 | 0.00 |
+| W1 total | | 6.50 | 4.25 |
 
 ### Week 2 line items
 
@@ -417,27 +442,44 @@ Counting rule: a session that both hires attend counts once. A row with a "Hire 
 | Wed 10/28 | BSA craft intro: intake and Jira stories | 0.75 | 0.00 |
 | Wed 10/28 | Hire A USMCA test-out and Senior office hours | 0.00 | 0.50 |
 | Thu 10/29 | Custom tools kickoff | 1.00 | 0.00 |
+| Thu 10/29 | Data platform walkthrough (M12, both hires) | 0.75 | 0.00 |
 | Thu 10/29 | S4: USMCA origin and classification basics | 0.00 | 1.50 |
 | Thu 10/29 | Analytics review | 0.00 | 0.50 |
 | Fri 10/30 | First teach-back | 0.50 | 0.00 |
 | Fri 10/30 | Hire A 1:1 | 0.75 | 0.00 |
 | Fri 10/30 | Hire B 1:1 | 0.75 | 0.00 |
-| W2 total | | 6.00 | 4.00 |
+| W2 total | | 6.75 | 4.00 |
 
 ### Totals vs capacity
 
 | Week | Manager scheduled h | Manager cap h | Manager review and buffer h | Senior scheduled h | Senior cap h |
 |---|---|---|---|---|---|
-| W1 (10/19-10/23) | 6.00 | 8.00 | 2.00 | 4.25 | 4.50 |
-| W2 (10/26-10/30) | 6.00 | 8.00 | 2.00 | 4.00 | 4.50 |
+| W1 (10/19-10/23) | 6.50 | 8.00 | 1.50 | 4.25 | 4.50 |
+| W2 (10/26-10/30) | 6.75 | 8.00 | 1.25 | 4.00 | 4.50 |
 
-Both weeks fit. The Senior has 0.25 h (W1) and 0.50 h (W2) of headroom under the 4.5 h planning cap, so do not fill it. The Senior's prep for S1-S4 (about 1 h) is done in the week of Mon 10/12, before the hires start, so it is not in these totals.
+Both weeks fit. The Senior has 0.25 h (W1) and 0.50 h (W2) of headroom under the 4.5 h planning cap, so do not fill it. The Senior's prep for S1-S4 (about 1 h) is done in the week of Mon 10/12, before the hires start, so it is not in these totals. The first draft of the data platform map is pre-start prep for the Manager and the Senior, outside these totals (`docs/01-30-60-90-plan.md` Section 5).
+
+### Hire hours: where the new self-study came from
+
+The new W1-W2 self-study (data platform primer, Copilot Chat guide, BSA primer) and the two new sessions replace existing self-study time; no day gets longer and the shadows, sessions and primer slots named in the other study plans keep their times.
+
+| Week | New self-study and sessions | Hours | Taken from |
+|---|---|---|---|
+| W1 | Data platform primer Part 1 (Tue 10:00) and 2.1 with the 1.4 checklist (Thu 11:30) | 1.0 | US customs reading cut to its 1.5 h focused time (Tue); entry packet pre-read shortened (Thu), finished Fri 08:15 as before |
+| W1 | Copilot guide Part 1 and the start of the setup checklist (Wed 11:30); Part 2 (Fri 14:30) | 1.0 | Wednesday Planner and Jira block (the weekly plan draft moves to Friday 10:30); Friday analytics retro |
+| W1 | Copilot Chat setup and rules session (Fri 15:00) | 0.5 | Friday analytics retro (1.5 h cut to 0.5 h) |
+| W2 | Copilot guide Parts 3 and 6 (Mon 09:30) and Part 5 (Thu 15:45) | 0.75 | Canada reading (Mon); teach-back prep (Thu) |
+| W2 | Data platform primer Parts 2-3 (Mon 14:00) and the data-path sketch (Fri 09:00) | 1.0 | Mexico reading (Mon); Friday tool inventory |
+| W2 | BSA primer Parts 1-2 (Tue 11:15) and Part 3 (Wed 14:30) | 1.25 | US/CA/MX comparison table (Tue); shadow write-up (Wed) |
+| W2 | Data platform walkthrough (Thu 11:00) | 0.75 | Thursday tool inventory start |
+
+The Canada and Mexico readings keep at least the customs primer's focused time (0.75 h each). The tool inventory continues in W3-W4 (complete in W4).
 
 ### If you or the Senior host a shadow
 
 The table above assumes the Wed 10/28 shadows are hosted by someone other than the Manager or the Senior.
 
-- **If the Manager runs Research and Standard Cost today:** cut each shadow to 60 minutes and run them back to back (Hire A 10:00-11:00, Hire B 11:00-12:00). During that hour, the hire who is not shadowing starts Analytics Exercise 4 (pulled forward from 15:30). Move Hire A's business orientation II (Mon 10/26) to self-study. W2 Manager total becomes 6.00 - 0.50 + 2.00 = 7.50 h, which is still under 8.
+- **If the Manager runs Research and Standard Cost today:** cut each shadow to 60 minutes and run them back to back (Hire A 10:00-11:00, Hire B 11:00-12:00). During that hour, the hire who is not shadowing starts Analytics Exercise 4 (pulled forward from 15:30). Move Hire A's business orientation II (Mon 10/26) to self-study, and hold the Thu 10/29 data platform walkthrough to 30 minutes (the platform map and the service-account model; the hires take the rest from the primer). W2 Manager total becomes 6.75 - 0.50 - 0.25 + 2.00 = 8.00 h, exactly at the cap.
 - **If the Senior hosts the Research shadow:** cap it at 45 minutes and cut the Wed 15:00 slot to the 15-minute test-out (questions go to S4). W2 Senior total becomes 4.00 + 0.75 - 0.25 = 4.50 h, exactly at the cap.
 
 ## Other people's time (not in the trainer budget)

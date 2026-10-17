@@ -1,6 +1,6 @@
 # Standard Cost Update Checklist
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** run one periodic standard cost update for duty and landed-cost inputs, end to end, with the same steps and evidence every time: plan with Finance, collect inputs, calculate, validate, maker-checker review and Finance approval, load to Oracle, verify, communicate, archive. It is also the control record: a cycle without this completed checklist did not happen properly.
 - **Who uses it:** Hire B (Standard Cost) as maker. The Manager as checker (the Senior checks duty-rate and classification questions). [COMPANY: Finance cost accounting contact] plans the calendar and approves before any Oracle load. Hire A (Research) supplies tariff actions through checked Tariff-Impact Briefs.
@@ -19,7 +19,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | Setting | Value |
 |---|---|
 | Cycle frequency and next cycle dates | [COMPANY: for example annual full update plus interim duty updates] |
-| Oracle product | [COMPANY: Oracle EBS or Fusion] |
+| Oracle product | Oracle EBS |
 | Where pending costs are held before the update | [COMPANY: EBS pending cost type name, or Fusion cost scenario naming rule] |
 | Cost elements and sub-elements for landed cost | [COMPANY: for example material plus material overhead sub-elements for freight, duty, brokerage] |
 | Basis of each landed-cost sub-element | [COMPANY: per unit amount, or % of material value (EBS basis type Item, Lot or Total Value; Fusion equivalent)]. If duty is held as a % of material value, record how the rate is converted from the customs value: Oracle applies it to the material cost, not to the duty base |
@@ -147,7 +147,7 @@ Phases 1 to 4 fall in W10 and W11, the reduced weeks. Phase 5 runs to Wed 1/6, i
 
 ## Phase 6: Load to Oracle and run the update (T-3 to T)
 
-Method: [COMPANY: load method]. Product: [COMPANY: Oracle EBS or Fusion]. Steps differ by product and release, so follow [COMPANY: Oracle cost update work instruction] where it differs.
+Method: [COMPANY: load method]. Product: Oracle EBS. Steps differ by product and release, so follow [COMPANY: Oracle cost update work instruction] where it differs.
 
 - [ ] The pending cost type (EBS) or cost scenario (Fusion) holds the complete new cost for every item in scope: every cost element and sub-element, not only the changed duty or landed-cost sub-elements. In EBS the update replaces the item's whole Frozen cost with its pending cost, so a duty-only file would wipe the other elements: copy the current Frozen costs into the pending cost type first ([COMPANY: copy method]), then apply the changes. Confirm with Finance how items with no pending cost are treated (the cost type's default cost type).
 - [ ] Load the approved file into [COMPANY: pending cost type (EBS) or cost scenario (Fusion)], never straight into the live standard.

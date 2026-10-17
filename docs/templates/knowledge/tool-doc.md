@@ -1,10 +1,10 @@
 # Tool Documentation Template
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** one page per custom tool (Python, Excel VBA, Access, Power Apps, Power Automate) so that someone other than its builder can run it, fix the common failures, change it safely and plan its future under e2open. Most of the team's 10+ tools have little or no documentation; these pages become the team's first tool library.
 - **Who uses it:** the assigned learner writes it (Hire A or Hire B, per the Tool Inventory tab of BSA-Onboarding-Trackers.xlsx in the onboarding folder). The current knowledge holder checks it for accuracy. The Manager reviews and approves it (the Senior does not know these tools well, so the Manager is the checker). Anyone who runs or supports the tool reads it.
-- **When:** Tool Inventory row in W2; candidate tool walkthrough in W4; doc for your owned tool started in W6 and complete by day 60 (A60-7, B60-7); second tool doc by day 90 (A90-7, B90-7). Update it with every change request (`docs/templates/bsa/06-change-request.md`) and re-verify it at least every [COMPANY: review interval]. Module M6.
+- **When:** Tool Inventory row in W2; candidate tool walkthrough in W4; doc for your owned tool started in W6 (its platform path after the W6 server lab) and complete by day 60 (A60-4, A60-7, B60-4, B60-7); second tool doc by day 90 (A90-7, B90-7). Update it with every change request (`docs/templates/bsa/06-change-request.md`) and re-verify it at least every [COMPANY: review interval]. Module M6.
 
 ## How to fill this in
 
@@ -18,6 +18,7 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 6. **Review:** the owner checks facts, then the Manager reviews. Status moves Draft, then Reviewed, then Published. Only Reviewed and Published pages go to the shared OneNote section "04 Tool Docs".
 7. **Peer test:** the other hire follows your page on a test copy (test inputs, output to a test folder), or reads only your page while you and the knowledge holder run the real job. Before day 60 the peer never runs a step that writes data or sends output to a broker, Finance, Oracle or another system (`docs/04-access-request-checklist.md`, rule 2). Every place they get stuck is a gap to fix.
 8. **Never paste secrets.** No passwords, keys, connection strings with credentials, or personal data. Say where credentials are managed ([COMPANY: credential store or service account owner]).
+9. **Trace the platform path** (Section 5): the database objects the tool reads and writes, its connections, the account it runs as, its schedule and its server location. Start from the tool's row in the filled data platform map ([COMPANY: location of the filled data platform map]; template `docs/templates/knowledge/data-platform-map.md`) and check it in the W5 Power Platform lab or the W6 server lab (`docs/primers/data-platform-primer.md` Part 2 and Part 10). It is part of the day-60 owned-tool evidence (`docs/01-30-60-90-plan.md`, "owns one tool").
 
 ## Template
 
@@ -44,7 +45,7 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 | Trigger | [Manual, scheduled (Windows Task Scheduler, Power Automate recurrence), event (file arrives, email received), on request] |
 | Schedule | [Day and time; time zone; what happens on holidays] |
 | Run time | [Typical duration; longest seen] |
-| Who starts it | [Role; service account if scheduled] |
+| Who starts it, and the account it runs as | [Role; for a scheduled run, the account it runs as (the service account, a gMSA or a person), never the password] |
 | Business deadline | [When the output must be ready, and why] |
 
 ### 3. Inputs
@@ -59,11 +60,21 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 |---|---|---|---|---|
 | [Broker file] | [SFTP folder, email, SharePoint, Oracle interface] | [CSV with fixed columns] | [Broker, Finance, team] | [Row count, rejects, spot check of 5 rows] |
 
-### 5. Data sources and connections
+### 5. Data sources, connections and platform path
 
 | Source | Type | Object (table, file, list) | Access needed | Credentials managed by |
 |---|---|---|---|---|
 | [Data warehouse] | [SQL Server, AS400 via ODBC, Oracle extract, SharePoint list, Excel, Access] | [Object name] | [Read, write] | [COMPANY: service account or personal account] |
+
+**Platform path.** The tool's route through the data platform, copied from its row in the filled platform map and checked in your lab (`docs/primers/data-platform-primer.md` Part 2; `docs/templates/knowledge/data-platform-map.md`). Day-60 evidence for the owned tool.
+
+| Item | Entry | Example of a good entry |
+|---|---|---|
+| Database objects it reads and writes | [schema.object, read or write, for each] | Reads `rpt.v_item_trade` (example name); writes nothing |
+| Connections | [Gateway connection, flow connection, ODBC data source or file share, for each] | Gateway data source [COMPANY: name] to the team database |
+| Account it runs as | [For each connection and scheduled run: service account, service principal, gMSA or a person; never the password] | Service account, under the recommended model [COMPANY: confirm] |
+| Schedule | [Trigger and timing; the same as Section 2] | Task Scheduler, Mondays 06:00 |
+| Server location | [Server, folder or Power Platform environment where it runs; the same as Section 8] | [COMPANY: server name], [COMPANY: job folder] |
 
 ### 6. How to run it
 
@@ -85,7 +96,7 @@ Write steps a new BSA can follow without help. One action per step. Include wher
 - Systems and data: [AS400 extract job, warehouse refresh time, Oracle interface]
 - Other tools: [Tool IDs this one feeds or is fed by]
 - Software and libraries: [Python packages and versions, Access runtime, Office version, VBA references, Power Platform connectors and licences]
-- Infrastructure: [mapped drives, file paths, scheduled tasks, service accounts, the server or PC it runs on]
+- Infrastructure: [mapped drives, file paths, scheduled tasks, service accounts, the server or PC it runs on, and the test copy's location]
 - People: [anyone whose manual step the tool relies on]
 
 ### 9. Controls
@@ -161,6 +172,7 @@ Code and change
 Access and security
 
 - Does it run under your personal account or a service account? What happens if your password changes or you leave?
+- Which database objects does it read or write, and on which server and schedule does it run?
 - Who has access to the code and the output folders? Should they?
 - Does any output contain personal data, supplier prices or other sensitive data?
 
@@ -176,6 +188,7 @@ Future
 - [ ] The other hire ran the tool from this page alone on a test copy, and I fixed what they got stuck on.
 - [ ] "How it breaks" is based on real failures, each with a date or Jira key.
 - [ ] Every hard-coded value I found is listed.
+- [ ] The platform path (Section 5) names the database objects, the connections, the account it runs as, the schedule and the server location, and matches the tool's row in the filled platform map.
 - [ ] e2open impact is stated with a reason, and the business rules hidden in the code are listed.
 - [ ] No passwords, keys or personal data on the page.
 - [ ] The Tool Inventory row (documentation status, e2open impact, knowledge holder, backup, tool doc link) is updated.

@@ -1,12 +1,14 @@
 # Trade Systems, GTM and e2open Primer
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** the self-study backbone for M2 (trade systems and GTM) and the preparation for M10 (the e2open project). It explains what a Global Trade Management (GTM) system does, the data objects behind it, how trade data flows between Oracle, the trade system, brokers, customs and reporting, how legacy AS400 (IBM i) trade systems are usually built and how to explore ours safely, what e2open publicly offers, and the migration concepts you will use from January 2027. It is not screen-by-screen AS400 training: the AS400 is being replaced.
 - **Who uses it:** Hire A and Hire B for self-study (about 7 hours including the exercise). The Manager, who teaches M2 and is the only trainer for the AS400 and the custom tools, uses Sections 4, 7 and 8 for the Tue 10/20 landscape session and the Tue 10/27 data-flow walkthrough. The Senior uses Sections 2 and 6 for the W9 GTM data domains session.
 - **When:** follow the study plan below. Re-read Section 6 before the e2open kickoff (expected W12) and Section 2 before drafting your data map (W10 to W13).
 
 ## How to use this primer
+
+Watch first: the 2-minute video *How trade data flows, and what changes with e2open* — [COMPANY: Stream link]. It walks the chain in Sections 3 to 5 (Oracle, the AS400 trade system, brokers, entry data back, and e2open) before you read them.
 
 | Session | When (see `docs/02-weeks-1-2-schedule.md`) | Sections | Focused time | Output |
 |---|---|---|---|---|
@@ -170,7 +172,7 @@ The flow below is generic. In Exercise 1 you replace each [COMPANY] with how it 
 
 ### 3.3 Oracle touchpoints
 
-Oracle is the ERP; whether it is E-Business Suite or Fusion matters for table and screen names [COMPANY: Oracle EBS or Fusion]. Keep the concepts below and fill in the names in M2.
+Oracle is the ERP: Oracle E-Business Suite (Oracle EBS), which sets the table and screen names. Keep the concepts below and fill in the names in M2.
 
 | Oracle area | Trade-relevant data | Direction | Notes |
 |---|---|---|---|
@@ -178,7 +180,7 @@ Oracle is the ERP; whether it is E-Business Suite or Fusion matters for table an
 | Supplier master | Supplier names, sites, addresses; related-party indicator | Oracle to trade system | Addresses feed certifications and MIDs |
 | Purchasing | PO price, currency, terms (Incoterm), ship-from and ship-to | Oracle to brokers (via documents) and models | The price is the start of transaction value |
 | Receiving | Receipt quantity and date | Within Oracle | Receipt at standard cost creates PPV |
-| Costing | Standard cost by cost element; where duty, freight and fees sit | Standard Cost process to Oracle | [COMPANY: Oracle EBS or Fusion cost elements and sub-elements] |
+| Costing | Standard cost by cost element; where duty, freight and fees sit | Standard Cost process to Oracle | [COMPANY: Oracle EBS cost elements and sub-elements] |
 | Payables | Broker and carrier invoices: duty, fees, freight | Brokers to Oracle | Actual duty for PPV |
 | BOMs (if used) | Kit and assembly structures | Oracle to trade system (if integrated) | [COMPANY: where kit structures live] |
 
@@ -330,7 +332,7 @@ Do not assume any of these. Each is a [COMPANY: confirm] until the project answe
 - Whether Mexico IMMEX and Anexo 24 inventory control are in scope, and in which system they will live.
 - Whether landed cost and duty calculation are in scope, and whether results feed Oracle standard cost.
 - How broker data exchange will work for each broker and country: who builds the interfaces, in what formats.
-- How e2open will integrate with Oracle (items, suppliers, POs, costs) [COMPANY: Oracle EBS or Fusion].
+- How e2open will integrate with Oracle EBS (items, suppliers, POs, costs).
 - How much history will be migrated (classification versions, qualification results, entries).
 - How the vendor's content is updated for a new tariff action, and how we override or supplement it.
 - Whether e2open supports our maker-checker controls (approval workflow, audit trail) for classification and qualification.

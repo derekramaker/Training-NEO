@@ -1,6 +1,6 @@
 # Data Mapping Specification Template
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** a field-by-field specification of how data moves from a source to a target: transformation rules, data quality rules, cleansing decisions, reconciliation and data-owner sign-off. Built for the AS400 trade system to e2open migration, and for Oracle and broker interfaces.
 - **Who uses it:** both hires as makers (day-90 criteria A90-3 for Research data and B90-3 for Standard Cost data); the Senior as checker (data quality, SQL, compliance meaning of fields); the data owner, who signs; the e2open project data or integration lead, who builds loads from it; UAT testers, who reuse the reconciliation.
@@ -100,7 +100,7 @@ Fill this part for any recurring interface, not for a one-time load.
 
 Points to confirm for each interface:
 
-- **Oracle item and cost data.** Which system is the master for item number, description and unit of measure ([COMPANY: confirm Oracle is the item master]). Which cost elements receive duty, freight and fees ([COMPANY: Oracle EBS or Fusion cost elements and sub-elements]). Finance owns the cost load; the BSA prepares and checks the input.
+- **Oracle item and cost data.** Which system is the master for item number, description and unit of measure ([COMPANY: confirm Oracle is the item master]). Which cost elements receive duty, freight and fees ([COMPANY: Oracle EBS cost elements and sub-elements]). Finance owns the cost load; the BSA prepares and checks the input.
 - **Broker classification or parts files (data out).** Per country and per broker: item, description, HTS number, country of origin, preference claim data, unit of measure ([COMPANY: broker file layout for each broker]).
 - **Broker entry data (data back).** Entry number and line, HTS number, entered value, duty, fees, preference claimed, origin. Used to audit broker filings and as actual duty for PPV.
 

@@ -28,7 +28,7 @@ Last updated: 2026-10-17 · Owner: BSA Manager
 
 ## Trainers and weekly capacity
 
-- **BSA Manager: 8 h a week for both hires** (about 5 h in W6, 4 h in W10 and W11). The only trainer for AS400 and the custom tools; also orientation, Oracle touchpoints, BSA fundamentals and craft, Copilot Chat rules, the data platform walkthrough, track coaching, 1:1s, reviews.
+- **BSA Manager: 8 h a week for both hires** (about 5 h in W6, 4 h in W10 and W11). The only trainer for AS400 and the custom tools; also orientation, Oracle touchpoints, BSA fundamentals and craft, Copilot Chat rules, the data platform walkthrough, SDLC coaching on the owned tool, track coaching, 1:1s, reviews.
 - **Senior BSA: 4–5 h a week, planned at no more than 4.5 h** (about 3 h in W6, 2.5 h in W10 and W11). Customs and trade compliance, data and analytics, exports, reporting, drawback; not AS400 or the custom tools.
 - **Each hire:** about 40 h a week, about 5–8 h guided (about 9–10 h in W1–W2, about 5 h in W10–W13); the rest is structured self-study, shadowing, real low-risk work and documentation.
 

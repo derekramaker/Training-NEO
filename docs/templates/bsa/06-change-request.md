@@ -1,10 +1,10 @@
 # Change Request Template: Custom Tools and Configuration
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** control every change to a custom tool (Python, Excel VBA, Access, Power Apps, Power Automate), a report, or a system configuration. Each change is described, assessed, tested, reviewed by a second person, reversible and communicated.
 - **Who uses it:** the maker (the BSA making the change; from day 60, the hire who owns the tool); the checker (the Manager for tool changes; the Senior for data and report items in their area); the approver (the Manager, plus the system owner for configuration of a system the team does not own); the users, who are told before and after.
-- **When:** before any change to a tool, a configuration or production data, whatever its size. First real use in W8 (first tool change, M6). Before day 60 the hires prepare and test changes in a test copy but do not deploy to production (`docs/04-access-request-checklist.md`, rule 2). From the day-60 review, if the Manager grants production change rights, write access covers only the tool the hire owns, and only through this template (rule 3).
+- **When:** before any change to a tool, a configuration or production data, whatever its size. First real use in W8 (first tool change, M6): for day 60 (A60-4, B60-4) that change request names the environments, the test evidence and the rollback (`docs/primers/sdlc-primer.md` Part 7). Before day 60 the hires prepare and test changes in a test copy but do not deploy to production (`docs/04-access-request-checklist.md`, rule 2). From the day-60 review, if the Manager grants production change rights, write access covers only the tool the hire owns, and only through this template (rule 3).
 
 ## How to fill this in
 
@@ -14,11 +14,11 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 2. Describe the change as before and after, precisely enough that the checker could spot a difference you didn't intend.
 3. Work through every row of the impact assessment. A "No" needs a reason too.
 4. Rate the risk (section 5). The rating sets the controls you must complete.
-5. Make the change on a copy (development or test), never on the production file. Follow the checklist for the technology (section 7).
+5. Name the environments in the header: where you build, where you test and where it is released (test copy and production, or dev, test and prod). Make the change on a copy (development or test), never on the production file. Follow the checklist for the technology (section 7).
 6. Test, and attach the evidence. Always include a regression test: run the old and new versions on the same input and confirm the only differences are the ones you intended.
 7. Write the rollback plan and confirm the backup exists before you implement.
 8. The checker reviews the change, the tests and the rollback plan; the approver approves. Then implement in the agreed window.
-9. Tell users before and after (section 10).
+9. Tell users before and after (section 11).
 10. Do the post-implementation check after the first production run, update the documentation, and close the CR.
 
 ### Change types
@@ -39,6 +39,7 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 | Title | [Tool: what changes] |
 | Tool or system | [COMPANY: tool name] (Tool Inventory row [n]) |
 | Technology | [Python, Excel VBA, Access, Power Apps, Power Automate, configuration] |
+| Environments | [Build in: test copy or dev; test in: test copy or test; release to: production. Name or path of each, and the account each connection uses in each (`docs/primers/sdlc-primer.md` 4.7)] |
 | Change type | [Standard, Normal, Emergency] |
 | Requested by | [Name, team] |
 | Maker / Checker / Approver | [Name] / [Name] / [Name] |
@@ -96,7 +97,7 @@ Text in [square brackets] is a prompt: replace it. [COMPANY: ...] is a company-s
 | T2 | Regression: old vs new on the same input | [Same input] | Only the intended differences | [ ] | [ ] |
 | T3 | [Error or boundary case] | [ ] | [ ] | [ ] | [ ] |
 
-Attach output files, diffs and screenshots to the Jira issue.
+Name the environment each test ran in (for example the test copy). Attach output files, diffs and screenshots to the Jira issue.
 
 ### 7. Technology checklist: making the change safely
 
@@ -204,6 +205,7 @@ This example is set after Hire A's day-60 review, when the Manager granted produ
 | CR ID and Jira key | [COMPANY: project key]-171-CR |
 | Title | [COMPANY: tool closest to Research]: keep HTS numbers as 10-digit text in the broker export |
 | Technology | Python |
+| Environments | Build and test: a branch in [COMPANY: code repository] run on a test copy (last production input, output to a test folder), plus a broker test file (T4). Release: production, by deploying release tag v1.5 |
 | Change type | Normal, expedited (P1). Not Emergency: the Manager had already sent the broker a corrected list (the workaround), which stopped further wrong data, so there was time to test fully before the next scheduled run |
 | Maker / Checker / Approver | Hire A (tool owner) / Manager / Manager; data owner approval: [COMPANY: trade compliance lead] |
 
@@ -237,6 +239,7 @@ Risk: Likelihood 2 x Impact 3 = 6, **High**. Required: regression on the full la
 - [ ] Every impact row is answered, and each "No" has a reason.
 - [ ] Compliance and financial impacts are assessed explicitly, including data already sent to brokers or Finance.
 - [ ] The risk rating is calculated and every control the rating requires is done.
+- [ ] The header names the environments (test copy and production, or dev, test and prod), and every test says where it ran.
 - [ ] The change was made and tested on a copy, never in production.
 - [ ] Test evidence includes a regression comparison of old vs new output on the same input.
 - [ ] No hard-coded credentials, paths, rates or dates were added.

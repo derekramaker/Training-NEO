@@ -162,6 +162,26 @@ def _set_width(el, tag, twips, kind="dxa"):
     w.set(qn("w:type"), kind)
 
 
+CHAR_TWIPS, CELL_PAD_TWIPS = 115, 230  # a bold Calibri character at table size, and the cell's side margins
+
+
+def _fit_widths(widths, floors, total):
+    """Scale column widths to the line width without pushing any column below its floor (when the floors fit)."""
+    widths = [max(w, f) for w, f in zip(widths, floors)]
+    for _ in range(6):
+        excess = sum(widths) - total
+        if abs(excess) < 1:
+            break
+        flex = [i for i, (w, f) in enumerate(zip(widths, floors)) if w > f + 1] if excess > 0 else list(range(len(widths)))
+        if not flex:
+            break
+        share = sum(widths[i] for i in flex)
+        for i in flex:
+            widths[i] -= excess * widths[i] / share
+        widths = [max(w, f) for w, f in zip(widths, floors)]
+    return [int(w * total / sum(widths)) for w in widths]
+
+
 def size_table_columns(path, page_breaks=False):
     """Give each table column a width proportional to its content.
 
@@ -170,22 +190,24 @@ def size_table_columns(path, page_breaks=False):
     """
     d = docx.Document(str(path))
     total = _text_width_twips(d)
-    min_col, max_share = 900, 0.6  # twips (about 0.6 in); no column wider than 60% of the line
+    min_col, max_share, max_floor = 900, 0.6, 2200  # twips (900 = about 0.6 in); no column wider than 60% of the line
     for table in d.tables:
         rows = [[c.text for c in r.cells] for r in table.rows]
         ncols = max((len(r) for r in rows), default=0)
         if ncols < 2:
             continue
-        weights = []
+        weights, floors = [], []
         for c in range(ncols):
             cells = [r[c] for r in rows if c < len(r)]
             longest_word = max((len(w) for t in cells for w in t.split()), default=1)
             lengths = [len(t) for t in cells] or [1]
             mean_len = sum(lengths) / len(lengths)
             weights.append(max(longest_word, (mean_len * min(max(lengths), 90)) ** 0.5, 3))
-        widths = [w / sum(weights) * total for w in weights]
-        widths = [min(max(w, min_col), total * max_share) for w in widths]
-        widths = [int(w * total / sum(widths)) for w in widths]
+            # Room for the longest word (bold header text included) so no word splits mid-letter;
+            # capped so a long path or URL cannot take over the table.
+            floors.append(min(max(min_col, longest_word * CHAR_TWIPS + CELL_PAD_TWIPS), max_floor))
+        widths = [min(w / sum(weights) * total, total * max_share) for w in weights]
+        widths = _fit_widths(widths, floors, total)
         tbl = table._tbl
         tbl_pr = tbl.tblPr
         _set_width(tbl_pr, "w:tblW", total)

@@ -1,12 +1,14 @@
 # Customs and Trade Compliance Primer: US, Canada and Mexico
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** the self-study backbone for M1 (customs and trade compliance fundamentals). It explains how imports into the United States, Canada and Mexico are declared, classified, valued, qualified for USMCA, corrected and audited, and where our team's data drives each step. It is training material, not legal advice.
 - **Who uses it:** Hire A and Hire B for self-study in W1 to W5 (about 8 hours of focused reading and exercises). The Senior uses it as the source for the M1 sessions and the day-30 knowledge check. The Manager uses Section 16 for the oral part of the day-30 review.
 - **When:** follow the study plan below. Re-read Section 12 before taking exports backlog items (W6), Section 11 before the drawback shadow (W12), and Section 14 before drafting your e2open data map (W10 to W13).
 
 ## How to use this primer
+
+Watch first: the 2-minute video *How an import entry works (US, Canada, Mexico)* — [COMPANY: Stream link]. It gives you the shape of Sections 2 to 7 before you read them; its captions file is in the onboarding folder.
 
 | Session | When (see `docs/02-weeks-1-2-schedule.md`) | Sections | Focused time | Output |
 |---|---|---|---|---|

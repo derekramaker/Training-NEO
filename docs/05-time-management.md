@@ -1,6 +1,6 @@
 # Time Management for New BSAs
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** a working method for planning a week, handling intake and interruptions, protecting learning time, and saying "not by then" without damaging trust. Includes copy-paste templates and three practice scenarios.
 - **Who uses it:** both hires every day, and the Manager in the Monday confirm and Friday 1:1. Part of module M0.
@@ -8,7 +8,7 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 
 ## Why this matters here
 
-About 5-8 of your 40 hours a week are guided by the Manager or the Senior (about 9 in W1-W2, about 5 in W10-W13). The other 32-35 are yours to plan: self-study, shadowing, documentation and, later, real work. Both trainers have small, fixed budgets (Manager 8 h a week across both of you, Senior about 4.5 h), so a badly timed question or a missed review slot costs more than it would on a bigger team.
+About 5-8 of your 40 hours a week are guided by the Manager or the Senior (about 9-10 in W1-W2, about 5 in W10-W13). The other 32-35 are yours to plan: self-study, shadowing, documentation and, later, real work. Both trainers have small, fixed budgets (Manager 8 h a week across both of you, Senior about 4.5 h), so a badly timed question or a missed review slot costs more than it would on a bigger team.
 
 The work also has hard dates you don't control: tariff effective dates, the Finance cost cycle, broker cut-offs, the e2open kickoff (expected W12). The habits below are about seeing those dates early and saying clearly what will and will not be done.
 
@@ -38,6 +38,8 @@ Holiday Fridays: when Friday is not a working day (W6 Fri 11/27, assumed off; W1
 5. Capacity check: add up the planned hours. Leave **15% unplanned** (about 6 hours of a 40-hour week) for interruptions, reviews that come back with changes, and things you didn't know about.
 6. Book every review you need now. If an item needs maker-checker review on Thursday, put the 30-minute review request on the reviewer's calendar on Friday, not on Thursday afternoon.
 7. Write down the learning/doing split you planned (see the phase table below).
+
+Copilot Chat may turn your notes into a first draft of the plan or rank your question batch (`docs/primers/copilot-chat-guide.md` 4.10). You still choose the three outcomes, the hours and the reviews, and you do the capacity check yourself.
 
 ### Monday confirm (15 minutes with the Manager)
 
@@ -196,6 +198,8 @@ Notes:
 ## Friday self-report
 
 Use the 5 prompts in Section 5 of `docs/03-check-ins-and-scorecards.md`; there is no other format. Post it on your OneNote page "Weekly plans and self-reports" by 11:30 on Friday (on a holiday Friday, the last working day of the week) and send the link to the Manager, copy to the Senior. It drives the 1:1, so keep it short and honest. Prompt 1 is where your learning/doing hours go.
+
+Copilot Chat may draft it from your own notes (the prompt in `docs/primers/copilot-chat-guide.md` 4.10), but you own the self-report: every line is true, the hours and the 0-4 ratings are yours (Copilot never rates your skills), the links work, and it says honestly what slipped. Copilot only drafts. Log the use in your Copilot use log.
 
 ## Templates (copy and paste)
 

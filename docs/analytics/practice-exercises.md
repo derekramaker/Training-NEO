@@ -4,7 +4,7 @@ Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** eleven hands-on exercises on synthetic import data. Exercises 1 to 8 (M3 core) build the data skills both tracks need: profiling, joins without fan-out, effective-dated lookups, broker audit, USMCA claim checks, PPV, tariff scenario modeling, Power BI measures and a findings memo. Exercises 9 to 11 (M3 analytics depth) add KPI design, a star-schema Power BI model with a prior-period measure, and variance statistics (price, quantity and mix; outlier rules). Each exercise has SQL Server steps and Excel/Power Query or Power BI steps.
 - **Who uses it:** Hire A (Research) and Hire B (Standard Cost) do every exercise. The Senior reviews Exercises 1 to 7 and 9 to 11 against the answer key. The key is trainer-only: it stays in [COMPANY: trainer-only location], never in the hires' OneNote sections or the onboarding folder. The Manager reads the Exercise 8 memo.
-- **When:** Exercises 1-2 in W1, 3-4 in W2, 5-6 in W3, 7-8 in W4; then 9 in W7, 10 in W8 and 11 in W9, about 1.5 h of self-study a week. Exercises 1 to 6 are day-30 evidence (A30-5 and B30-5 in `docs/01-30-60-90-plan.md`). Exercises 9 to 11, done and reviewed, are a day-60 Should criterion for both hires (Section 4 of the plan). Day-by-day slots for W1-W2 are in `docs/02-weeks-1-2-schedule.md`.
+- **When:** Exercises 1-2 in W1, 3-4 in W2, 5-6 in W3, 7-8 in W4; then 9 in W7, 10 in W8 and 11 in W9, about 1.5 h of self-study a week. Exercises 1 to 6 are day-30 evidence (A30-5 and B30-5 in `docs/01-30-60-90-plan.md`). Exercises 9 and 10 reviewed and Exercise 11 submitted are a day-60 Should criterion for both hires (A60-9 and B60-9 in Section 4 of the plan). Day-by-day slots for W1-W2 are in `docs/02-weeks-1-2-schedule.md`.
 
 ## How the pack works
 
@@ -18,13 +18,13 @@ Last updated: 2026-10-17 · Owner: BSA Manager
 | 6 Tariff scenario impact | W3 | Shared | 3 h | Senior, W3 |
 | 7 Power BI page with DAX measures | W4 | Both (Hire B goes deeper) | 3 h | Senior, W4; Power BI depth in W7 |
 | 8 One-page findings memo | W4 | Both, written individually | 1.5 h | Manager, W4 work review |
-| 9 KPI design | W7 (11/30–12/4) | Both, each for their own process | 1.25 h | Senior, W8 office hours (Wed 12/9) |
-| 10 Star-schema model in Power BI | W8 (12/7–12/11) | Both (Hire B goes deeper) | 1.5 h | Senior, in writing by Wed 12/16 (W9) |
-| 11 Variance statistics | W9, by Tue 12/15 | Both | 1.25 h | Senior, in writing by Thu 12/17 (W9) |
+| 9 KPI design | W7 (11/30–12/4), post by 12:00 Wed 12/2 | Both, each for their own process | 1.25 h | Senior, W7 office hours (Wed 12/2) |
+| 10 Star-schema model in Power BI | W8 (12/7–12/11), post by Tue 12/8 | Both (Hire B goes deeper) | 1.5 h | Senior, W8 office hours (Wed 12/9) |
+| 11 Variance statistics | W9, submit by Thu 12/17 | Both | 1.25 h | Senior, in writing in W10 |
 
 "Leaning" means both hires do the core exercise, and the leaning hire also does the stretch and presents the result at the review. Exercise 6 is shared on purpose: Hire A owns the scope logic (the WHAT), Hire B owns the dollars (the $), as in the boundary rule.
 
-Exercises 9 to 11 build on the W7 Senior session on Power BI and warehouse depth and reuse your saved views and queries from Exercises 1, 2, 3, 5 and 7. Post Exercise 9 by the end of Tue 12/8, so the Senior can read it first and use the W8 office hours (Wed 12/9) for the differences. There are no Senior office hours in W9 (`docs/01-30-60-90-plan.md` Section 5), so the Senior reviews Exercises 10 and 11 in writing before the day-60 review: post Exercise 10 by the end of Fri 12/11 and Exercise 11 by the end of Tue 12/15. Take questions on the written review to the recap block of the next Senior session or to your 1:1.
+Exercises 9 to 11 build on the W7 Senior session on Power BI and warehouse depth (Tue 12/1) and reuse your saved views and queries from Exercises 1, 2, 3, 5 and 7. Exercise 9 is the homework of that session: post it by 12:00 on Wed 12/2, so the Senior can read it first and use that afternoon's office hours for the differences. Post Exercise 10 by the end of Tue 12/8 for the W8 office hours (Wed 12/9). There are no Senior office hours in W9 (`docs/01-30-60-90-plan.md` Section 5), so submit Exercise 11 by the end of Thu 12/17; the Senior reviews it in writing in W10. Take questions on the written review to the recap block of the next Senior session or to your 1:1.
 
 Rules for every exercise:
 
@@ -35,7 +35,7 @@ Rules for every exercise:
 - The answer key and the script that generated the data are trainer-only. You do not get the key before the day-30 review (its Exercise 9 to 11 sections not before the day-60 review), and you do not get the script before the day-60 review: the key holds the answers, and the script's comments list every planted problem and its cause. Use each exercise's "Check yourself" to test your own work.
 - When the Senior reviews a posted exercise, they tell you which results differ from the key, not what the right number is. Find the cause of each difference and write it down. A difference you can explain is worth more than a lucky match.
 - Stuck for 15 minutes on the same step? Log the question with what you tried (the stuck rule in `docs/05-time-management.md`), move to the next step, and bring it to the Senior's office hours.
-- Run the SQL in your practice scratch database (Setup, Option B), never in the team database. Creating a view or table in the team database is a schema change, and schema changes go through the Senior (`docs/primers/data-platform-primer.md`).
+- Run the SQL in your practice scratch database (Setup, Option B), never in the team database. Outside your own sandbox tables, creating a view or table in the team database is a schema change, and schema changes go through the Senior (`docs/primers/data-platform-primer.md` 1.1, rules 4 and 5).
 - Copilot Chat may help you draft a query, a DAX measure or a KPI definition (`docs/primers/copilot-chat-guide.md`). Treat its output as a draft: check every number against your own query, and log the use in your Copilot use log. Before you paste anything that is not this synthetic data (for example the sanitized extract in Exercise 3), check [COMPANY: AI acceptable-use policy].
 
 ## The practice data
@@ -114,7 +114,7 @@ If you use the CSVs in the practice-data folder of the onboarding folder instead
 
 ### Option B: SQL Server scratch database
 
-You need a database where you may create tables and views. The read-only access in AR-07 (`docs/04-access-request-checklist.md`) is not enough. In order of preference:
+You need a database where you may create tables and views. The access in AR-07 (`docs/04-access-request-checklist.md`: read, plus rights on your own tables in the sandbox schema) is not enough, because the load script creates its own schema. In order of preference:
 
 1. [COMPANY: sandbox or development database where analysts may create tables]. Ask the Senior.
 2. SQL Server Developer or Express edition on your laptop, only if IT approves the install.
@@ -468,7 +468,7 @@ Rules: one page (about 400 words). Round for reading ($31.4K), but every number 
 
 ## Exercise 9: KPI design
 
-W7 · Both, each for their own process · 1.25 h · Reviewed by the Senior in W8 office hours (Wed 12/9)
+W7 · Both, each for their own process · 1.25 h · Post by 12:00 Wed 12/2; reviewed by the Senior in the W7 office hours that afternoon
 
 **Goal.** Write 3 or 4 KPIs for your primary process with the KPI definition checklist below. Then compute two of them on the practice data and say what each one tells the process owner.
 
@@ -552,7 +552,7 @@ GROUP BY process;
 
 ## Exercise 10: Star-schema model in Power BI
 
-W8 · Both (Hire B goes deeper) · 1.5 h · Post by Fri 12/11; reviewed by the Senior in writing by Wed 12/16 (no office hours in W9)
+W8 · Both (Hire B goes deeper) · 1.5 h · Post by Tue 12/8; reviewed by the Senior in the W8 office hours (Wed 12/9)
 
 **Goal.** Rebuild the entry-line data as a star schema you could hand to the reporting team: the grain declared in writing; one fact table and three dimension tables (item, date, broker); a marked date table; one-to-many, single-direction relationships; and five measures, including a prior-month comparison. Explain why each one is a measure and not a calculated column.
 
@@ -626,7 +626,7 @@ If Power BI Desktop is not available, build the same model in Excel Power Pivot 
 
 ## Exercise 11: Variance statistics
 
-W9, by Tue 12/15 · Both · 1.25 h · Reviewed by the Senior in writing by Thu 12/17, before the day-60 review (no office hours in W9)
+W9 · Both · 1.25 h · Submit by Thu 12/17; reviewed by the Senior in writing in W10 (no office hours in W9)
 
 **Goal.** Part A: split the change in US duty paid between Q1 and Q3 2026 into a rate (price) effect and a value (quantity) effect, then split the value effect into mix and volume. Part B: find the unusual receipt lines with the 1.5 x IQR rule and with a z-score, compare both with Exercise 5's business rule, and decide which lines need investigation. Deleting any of them is not an option; say why.
 

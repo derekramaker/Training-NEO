@@ -244,7 +244,7 @@ Day-30 oral question bank (ask 3; for A30-1 and B30-1):
 These match `docs/01-30-60-90-plan.md` Section 8.
 
 - **On track:** every Must criterion rated 3 or 4. Should and Stretch ratings are recorded but do not change the outcome.
-- **Should criteria:** expected. A Should rated 1 or 2 gets a catch-up action (owner and due date) in the next 1:1, but does not change the milestone outcome. Only Must criteria decide it; Stretch never blocks "on track".
+- **Should** criteria are expected: a Should rated 1 or 2 gets a catch-up action in the next 1:1, but does not change the milestone outcome. Only Must criteria decide it; Stretch never blocks "on track".
 - **Adjust:** no Must criterion rated 1, but one or two Must criteria rated 2. Write up to 3 recovery actions with an owner and a due date within 2 weeks.
 - **Extend:** any Must criterion rated 1, or three or more Must criteria rated 2. Re-check only the unmet Must criteria on the re-check date and apply "What gives first".
 
@@ -353,7 +353,7 @@ Decision:
 | B60-5 (Must) Exports: 1 or more backlog items completed with Senior review; exports process at proficiency 1 | Jira | | |
 | B60-6 (Must) Proficiency: Standard Cost core skills at 2 or more, "build item landed cost" at 3, M1 skills at 2 or more (Manager-verified) | Trackers workbook | | |
 | B60-7 (Must) Learn-by-documenting: 50 or more cards, 6 or more teach-backs, 2 SOP drafts (primary-process v0.1 and exports), 1 tool doc complete | Trackers workbook, OneNote, Anki | | |
-| B60-8 (Stretch) Data depth: one reusable SQL view or Power BI page for duty, landed cost or PPV, reviewed by the Senior | Asset; review note | | |
+| B60-8 (Stretch) Data depth: one reusable SQL view or Power BI page for duty, landed cost or PPV, reviewed by the Senior (a view is built in the sandbox; only the Senior creates it in the team database) | Asset; review note | | |
 | B60-9 (Should) Analytics depth: same standard as A60-9 (Exercises 9 and 10 reviewed in office hours; Exercise 11 submitted by Thu 12/17) | Posts in OneNote section 07 Analytics; Senior's notes | | |
 
 Decision:

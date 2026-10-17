@@ -3,14 +3,14 @@
 Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** the self-study backbone for M12 (the team's data platform). It teaches you to use the platform safely and to see how its pieces connect: the team database (SQL Server, in SSMS), Oracle EBS production (read-only, in DBeaver), the Power BI premium workspace and its gateway, Power Automate and Power Apps on our databases, and the remote server where scheduled jobs run. By day 60 you own a tool that depends on some of these pieces, so you must be able to trace its path end to end and troubleshoot it read-only when something breaks. Scope until day 90 is **use only**: you query and load data; you do not change the platform.
-- **Who uses it:** Hire A and Hire B for self-study (about 5.5 hours in W1–W6, taken from the existing self-study budget) and three labs (Part 10). The Senior uses Parts 1 and 2 in the W1 data landscape tour and reviews the SSMS lab in the W4 SQL review. The Manager uses Parts 2, 3, 6, 7 and 8 in the W2 data platform walkthrough, owns the service-account decision (3.3) and keeps the filled platform map (`docs/templates/knowledge/data-platform-map.md`).
+- **Who uses it:** Hire A and Hire B for self-study (about 5.75 hours in W1–W6, taken from the existing self-study budget) and three labs (Part 10). The Senior uses Parts 1 and 2 in the W1 data landscape tour and reviews the SSMS lab in the W4 SQL review. The Manager uses Parts 2, 3, 6, 7 and 8 in the W2 data platform walkthrough, owns the service-account decision (3.3) and keeps the filled platform map (`docs/templates/knowledge/data-platform-map.md`).
 - **When:** Part 1 in W1, before your first SSMS or DBeaver session. Then follow the study plan below. Re-read Part 1 before each milestone review and whenever your access changes.
 
 ## How to use this primer
 
 | Session | When | Parts | Focused time | Output |
 |---|---|---|---|---|
-| 1 | W1, before your first SSMS or DBeaver session. The Senior's data landscape tour (Thu 10/22, 13:45) covers the map and these rules | 1, then skim 2.1 | 0.75 h | "Part 1 read" and the date in your Access tracker page; questions in your question log |
+| 1 | W1, before your first SSMS or DBeaver session: Part 1 on Tue 10/20 (10:00), 2.1 on Thu 10/22 (11:30). The Senior's data landscape tour (Thu 10/22, 13:45) covers the map and these rules | 1, then skim 2.1 | 1.0 h | "Part 1 read" and the date in your Access tracker page; questions in your question log |
 | 2 | W2, before and after the Manager's data platform walkthrough (45 min, both hires; day and time in `docs/02-weeks-1-2-schedule.md`) | 2 and 3 | 1.0 h | Your one-page sketch of the data path (2.2), with every [COMPANY] gap listed as a question |
 | 3 | W3, when your SQL Server access arrives (AR-07, needed by Mon 11/2) | 4 and 5; SSMS lab steps 1–4 (10.1) | 1.0 h | Lab steps 1–4 saved |
 | 4 | W4, by the end of Wed 11/11 | SSMS lab steps 5–8 | 1.0 h | Lab posted for the Senior's SQL review (Thu 11/12, 13:00) |
@@ -67,7 +67,7 @@ From the day-60 review the Manager may grant production change rights for your o
 ### 1.4 Checklist before your first session
 
 - [ ] Part 1 read; date noted in your Access tracker page (`docs/04-access-request-checklist.md` rule 8).
-- [ ] SSMS installed from [COMPANY: software portal or IT ticket] with your SQL Server access (AR-07). DBeaver and your personal EBS database account come through [COMPANY: access request for DBeaver and a read-only EBS database account]; AR-05 covers EBS screens (inquiry), not database access. The Senior has told you what your SQL Server login can do: read on [COMPANY: team database]; create, load and drop only in [COMPANY: sandbox or staging schema in the team database] ([COMPANY: DBA confirms the sandbox grant]).
+- [ ] SSMS installed from [COMPANY: software portal or IT ticket] with your SQL Server access (AR-07). DBeaver and your personal EBS database account come through AR-23 ([COMPANY: access request for DBeaver and a read-only EBS database account]); AR-05 covers EBS screens (inquiry), not database access. The Senior has told you what your SQL Server login can do: read on [COMPANY: team database]; create, load and drop only in [COMPANY: sandbox or staging schema in the team database] ([COMPANY: DBA confirms the sandbox grant]).
 - [ ] **The Manager has confirmed with [COMPANY: ERP security] that your DBeaver EBS account is read-only** at the database. That account is the real control; the DBeaver settings in 5.1 are a safety net.
 - [ ] Your DBeaver EBS connection uses the Production connection type and the Read-only connection setting, checked on your screen by the Manager (5.1).
 - [ ] You know who to call for each system (the "Who to call" table in the platform map).
@@ -467,7 +467,7 @@ Output: two trace notes with screenshots, and proposed rows for the platform map
 
 ### 10.3 Server lab (W6, read-only tour)
 
-A 30-minute tour with the Manager or your owned tool's knowledge holder present [COMPANY: confirm who escorts the tour], during the W6 supervised run if your tool runs on the server (Wed 11/25), otherwise booked with the knowledge holder. Needs [COMPANY: Remote Desktop access to the server, requested with docs/04].
+A 30-minute tour with the Manager or your owned tool's knowledge holder present [COMPANY: confirm who escorts the tour], during the W6 supervised run if your tool runs on the server (Wed 11/25), otherwise booked with the knowledge holder. Needs Remote Desktop access to the server (AR-24 in `docs/04-access-request-checklist.md`).
 
 - [ ] Connect with Remote Desktop as yourself. Note the server's name as the map records it.
 - [ ] In Task Scheduler, for each team task: name, trigger, next run, last run time and result, the account it runs as, and the program and script it starts (8.3, 8.4).
@@ -500,7 +500,7 @@ Output: a tour note, proposed rows for the map's Scheduled jobs table, and your 
 
 ## 12. Sources and further reading
 
-Repo documents: `docs/04-access-request-checklist.md` (rules 2, 3, 6 and 7; AR-05, AR-07 to AR-09, AR-13, AR-15); `docs/templates/knowledge/data-platform-map.md`; `docs/templates/knowledge/tool-doc.md` (Sections 2, 5 and 8 hold your tool's platform path); `docs/templates/bsa/06-change-request.md`; `docs/primers/sdlc-primer.md` (Parts 4, 7 and 8); `docs/primers/copilot-chat-guide.md` 2.4; `docs/analytics/practice-exercises.md` (SQL habits, practice data).
+Repo documents: `docs/04-access-request-checklist.md` (rules 2, 3, 6 and 7; AR-05, AR-07 to AR-09, AR-13, AR-15, AR-22 to AR-24); `docs/templates/knowledge/data-platform-map.md`; `docs/templates/knowledge/tool-doc.md` (Sections 2, 5 and 8 hold your tool's platform path); `docs/templates/bsa/06-change-request.md`; `docs/primers/sdlc-primer.md` (Parts 4, 7 and 8); `docs/primers/copilot-chat-guide.md` 2.4; `docs/analytics/practice-exercises.md` (SQL habits, practice data).
 
 External (product facts as of Oct 2026; check before relying on them):
 
