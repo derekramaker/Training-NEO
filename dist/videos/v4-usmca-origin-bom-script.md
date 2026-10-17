@@ -1,6 +1,6 @@
 # Does it qualify? USMCA origin with a bill of materials
 
-Narration script (110 s). Edit video/v4-usmca-origin-bom/script.yaml and rebuild.
+Narration script (109 s). Edit video/v4-usmca-origin-bom/script.yaml and rebuild.
 
 ## title
 
@@ -8,7 +8,7 @@ Narration script (110 s). Edit video/v4-usmca-origin-bom/script.yaml and rebuild
 
 ## why
 
-- A valid claim under the US-Mexico-Canada Agreement earns the preferential duty rate.
+- A valid claim under the US-Mexico-Canada Agreement removes the duty.
 - A wrong one means a duty bill later: be ready to prove it.
 - We test criterion B: it meets its product-specific rule.
 
