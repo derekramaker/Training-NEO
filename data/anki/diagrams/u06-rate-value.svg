@@ -1,0 +1,32 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 476" width="640" height="476">
+  <rect class="bg" width="640" height="476"/>
+  <text class="t-title" x="24" y="40">Duty change: rate vs value effect</text>
+  <text class="t-sm t-muted" x="24" y="68">Fictional PART-A imports into the US. Values in US$.</text>
+
+  <foreignObject x="24" y="84" width="592" height="156">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <colgroup><col width="172"/><col width="140"/><col width="120"/><col width="160"/></colgroup>
+        <tr><th>Quarter</th><th class="num">Value</th><th class="num">Rate</th><th class="num">Duty</th></tr>
+        <tr><td>Q1 (base)</td><td class="num">200,000</td><td class="num">4.0%</td><td class="num">8,000</td></tr>
+        <tr><td>Q3 (current)</td><td class="num">250,000</td><td class="num">6.0%</td><td class="num">15,000</td></tr>
+        <tr class="total"><td>Change</td><td class="num">+50,000</td><td class="num">+2.0 pts</td><td class="num">+7,000</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <foreignObject x="24" y="250" width="592" height="156">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <colgroup><col width="150"/><col width="342"/><col width="100"/></colgroup>
+        <tr><th>Effect</th><th>Working</th><th class="num">Duty</th></tr>
+        <tr class="hl"><td>Rate effect</td><td>(6.0% − 4.0%) × 250,000</td><td class="num">+5,000</td></tr>
+        <tr><td>Value effect</td><td>(250,000 − 200,000) × 4.0%</td><td class="num">+2,000</td></tr>
+        <tr class="total"><td>Total change</td><td>15,000 − 8,000</td><td class="num">+7,000</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <rect class="box-soft" x="24" y="416" width="592" height="46" rx="8"/>
+  <text class="t-sm mid" x="320" y="440">Rate change × Q3 value + value change × Q1 rate</text>
+</svg>
