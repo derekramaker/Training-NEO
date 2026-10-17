@@ -16,7 +16,7 @@ scenes:
     hold: 0.1
   - id: why
     say:
-      - "A valid claim under the US-Mexico-Canada Agreement earns the preferential duty rate."
+      - "A valid claim under the US-Mexico-Canada Agreement removes the duty."
       - "A wrong one means a duty bill later: be ready to prove it."
       - "We test criterion B: it meets its product-specific rule."
   - id: rule-bom
