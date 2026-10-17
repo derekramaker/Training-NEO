@@ -1,6 +1,6 @@
 # Check-ins and Scorecards
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
 **Purpose:** The standard formats for every recurring touchpoint in the 90-day program: the weekly Manager 1:1, the Senior's structured sessions and shadowing, the hires' Friday self-report, and the day-30, day-60 and day-90 review scorecards. Also covers how to give feedback, spot early red flags and adjust the plan.
 
@@ -24,6 +24,8 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | Milestone review | Manager and one hire; Senior gives written input | W5 Wed 11/18, W9 Fri 12/18, W13 Fri 1/15 | 60 min per hire | Scorecard and decision (Section 6) |
 
 **Holiday Fridays:** when Friday is not a working day (W6 Fri 11/27, assumed off; W10 Fri 12/25; W11 Fri 1/1), the self-report, the 1:1s and the teach-back (W10 only) move to the last working day of that week ([COMPANY: confirm holiday calendar]). In W6 that is Wed 11/25, with the 1:1s at 15:00 and 15:30 (30 minutes each). This is the rule in the standard week, `docs/01-30-60-90-plan.md` Section 5.
+
+**One-off check-in, W4:** the M11 Copilot use-log review, Manager and both hires, 15 minutes on Wed 11/11 in the Manager shared-session slot, after the M4 session (`docs/primers/copilot-chat-guide.md` 6.3). Each hire brings the 5 log entries they want reviewed; the Manager marks the entries that show a real check as reviewed (initials and date) and asks two self-check questions from Part 7 of the guide. It is the main source of reviewed uses for A30-12 and B30-12.
 
 ## 2. Question log
 
@@ -74,6 +76,7 @@ W1–W5 (core topics):
 - "Explain this week's main concept to me as if I were a buyer." Example concepts: why a USMCA claim lowers landed cost; what liquidation means for us.
 - "Which part of the AS400 trade data flow can't you draw yet?"
 - "Which access is still missing, and what did you do instead?"
+- "Show me one Copilot use from your log. What did you verify, against which source?"
 - Hire A: "Who in the business would care first about a new tariff on goods from [COMPANY: a top origin country], and why?"
 - Hire B: "Take one item and walk me through its landed cost line by line. Where does each number come from?"
 
@@ -81,6 +84,7 @@ W6–W9 (track depth, owned tool, exports):
 
 - "What did the checker change in your last brief or model? What will you check yourself next time?"
 - "If your tool fails tomorrow at 8 am, what do you do first? Is that in the tool doc?"
+- "For your W8 change: which environments does it pass through, what is your test evidence, and how would you roll it back?"
 - "On your exports item, which decisions are outside your authority? Who makes them?"
 - "Which day-60 Must criterion worries you most? What's the plan for it?"
 - Hire A: "For the action you're working on, what is the effective date, and which primary source confirms it?"
@@ -211,7 +215,7 @@ A "material error" is defined in `docs/01-30-60-90-plan.md` Section 4. It means 
 ### Preparation
 
 - **Two working days before (Mon 11/16, Wed 12/16, Wed 1/13):** the hire fills in the Evidence column with links and writes a self-rating in Notes, e.g. "Self: 3".
-- **Senior input:** the Senior sends ratings and one line of notes for the criteria they checked (M1, M3, M7, M8, Research briefs).
+- **Senior input:** the Senior sends ratings and one line of notes for the criteria they checked (M1, M3, M7, M8, the SSMS lab, Research briefs).
 - **Manager prep (30 min per hire at day 30 and day 60, 45 min at day 90):** open every link, spot-check 10 Anki cards, verify 3 Skills-tab ratings against work products, and pre-fill ratings. At day 30 and day 60 the Senior's input and the Manager's own checker reviews already cover most criteria. At day 30, another 30 min in total marks the two knowledge checks.
 - **Day-30 written knowledge check:** taken Mon 11/16, 45 minutes. 20 questions from the customs primer and Anki decks, assembled by the Manager in W4.
 
@@ -239,7 +243,8 @@ Day-30 oral question bank (ask 3; for A30-1 and B30-1):
 
 These match `docs/01-30-60-90-plan.md` Section 8.
 
-- **On track:** every Must criterion rated 3 or 4. Stretch ratings are recorded but do not change the outcome.
+- **On track:** every Must criterion rated 3 or 4. Should and Stretch ratings are recorded but do not change the outcome.
+- **Should criteria:** expected. A Should rated 1 or 2 gets a catch-up action (owner and due date) in the next 1:1, but does not change the milestone outcome. Only Must criteria decide it; Stretch never blocks "on track".
 - **Adjust:** no Must criterion rated 1, but one or two Must criteria rated 2. Write up to 3 recovery actions with an owner and a due date within 2 weeks.
 - **Extend:** any Must criterion rated 1, or three or more Must criteria rated 2. Re-check only the unmet Must criteria on the re-check date and apply "What gives first".
 
@@ -259,6 +264,9 @@ Re-check dates if extended: day 30 on Wed 2026-12-02, day 60 in the W12 1:1 (Fri
 | A30-8 (Must) Ways of working: Jira current (updated at least twice a week), weekly self-reports, question log in use, access complete or blockers escalated | Jira, self-reports, question log | | |
 | A30-9 (Must) Business orientation: met all stakeholder groups in [COMPANY: stakeholder list]; 1-page stakeholder map | Stakeholder map | | |
 | A30-10 (Stretch) Candidate tool run with the Manager; first tool-doc sections drafted | Draft tool doc | | |
+| A30-11 (Must) Data platform safe use: follows the safe-use rules (data platform primer Part 1: personal login for all interactive work, never the service account; Oracle EBS read-only; loads only into [COMPANY: sandbox or staging schema in the team database]; no schema changes); SSMS lab (primer 10.1) finished and reviewed in the Senior's SQL review, Thu 11/12 | "Part 1 read" date on the Access tracker page; SSMS lab note and scripts; Senior's review note | | |
+| A30-12 (Should) Copilot use: 5 or more reviewed uses in the Copilot use log (prompt, output use, what was verified and how, outcome); reviewed in the W4 use-log review or by the checker of the work the use fed | Use log page | | |
+| A30-13 (Should) BSA fundamentals applied: the intake record for the small real analysis (scoped Wed 11/4) is on its Jira issue by Fri 11/6 with a stakeholder list and an elicitation plan (BSA primer 3.5 and 4.6) | Intake record on the Jira issue | | |
 
 Decision:
 
@@ -266,6 +274,7 @@ Decision:
 - [ ] Adjust
 - [ ] Extend (re-check Wed 2026-12-02)
 - Recovery actions (owner, due date):
+- Catch-up actions for Should criteria rated 1 or 2 (owner, due date; checked in the next 1:1):
 - Tool to own by day 60 confirmed: [COMPANY: tool closest to Research]; test copy requested (AR-12, AR-13 or AR-15)
 - Exports item for W6, A60-1 action and A60-3 investigation confirmed:
 - Senior input received (date):
@@ -286,6 +295,9 @@ Decision:
 | B30-8 (Must) Ways of working: same standard as A30-8 | Jira, self-reports, question log | | |
 | B30-9 (Must) Oracle cost data: queries item standard cost and cost elements without help; explains the cost-update calendar | Saved queries; explained in the review | | |
 | B30-10 (Stretch) Candidate tool run with the Manager; first tool-doc sections drafted | Draft tool doc | | |
+| B30-11 (Must) Data platform safe use: same standard as A30-11 (safe-use rules followed; SSMS lab finished and reviewed Thu 11/12) | "Part 1 read" date on the Access tracker page; SSMS lab note and scripts; Senior's review note | | |
+| B30-12 (Should) Copilot use: same standard as A30-12 (5 or more reviewed uses in the use log) | Use log page | | |
+| B30-13 (Should) BSA fundamentals applied: same standard as A30-13, for Hire B's small real analysis | Intake record on the Jira issue | | |
 
 Decision:
 
@@ -293,6 +305,7 @@ Decision:
 - [ ] Adjust
 - [ ] Extend (re-check Wed 2026-12-02)
 - Recovery actions (owner, due date):
+- Catch-up actions for Should criteria rated 1 or 2 (owner, due date; checked in the next 1:1):
 - Tool to own by day 60 confirmed: [COMPANY: name of std-cost tool]; test copy requested (AR-12, AR-13 or AR-15)
 - Exports item for W6 confirmed:
 - Data-depth stretch (B60-8) realistic? Yes / No
@@ -308,11 +321,12 @@ Decision:
 | A60-1 (Must) Tariff-Impact Brief for a real recent action: scope, HTS codes and countries, rates, effective dates, stacking and exclusions, a primary source for every claim; no material errors at checker review | Brief; checker comments on Jira | | |
 | A60-2 (Must) Model handoff: Research (WHAT) inputs in the shared model handed to Hire B with no more than 1 clarification round; no $ conclusions in the brief | Model version; Jira handoff | | |
 | A60-3 (Must) One ad-hoc investigation end to end (question, sources and data, finding, recommendation); no material errors | Jira ticket; write-up | | |
-| A60-4 (Must) Owns one tool: every point of the "owns one tool" definition met for [COMPANY: tool closest to Research], including one end-to-end run, either supervised in production or on a test copy | Tool doc, run log, change request, demo | | |
+| A60-4 (Must) Owns one tool: every point of the "owns one tool" definition met for [COMPANY: tool closest to Research], including one end-to-end run, either supervised in production or on a test copy; the W8 change request names the environments, the test evidence and the rollback; the tool doc names the tool's platform path (database objects, connections, the account it runs as, schedule, server location) | Tool doc, run log, change request, demo | | |
 | A60-5 (Must) Exports: 1 or more backlog items completed with Senior review; exports process at proficiency 1 | Jira | | |
 | A60-6 (Must) Proficiency: Research core skills at 2 or more, "find and read primary sources" at 3, M1 skills at 2 or more (Manager-verified) | Trackers workbook | | |
 | A60-7 (Must) Learn-by-documenting: 50 or more cards, 6 or more teach-backs, 2 SOP drafts (primary-process v0.1 and exports), 1 tool doc complete | Trackers workbook, OneNote, Anki | | |
 | A60-8 (Stretch) e2open prep: primer read; Research data elements listed for mapping | Draft list | | |
+| A60-9 (Should) Analytics depth: Exercises 9 and 10 posted and reviewed in the Senior's office hours (Wed 12/2, Wed 12/9); Exercise 11 submitted by Thu 12/17 for the Senior's written review in W10 | Posts in OneNote section 07 Analytics; Senior's notes | | |
 
 Decision:
 
@@ -320,6 +334,7 @@ Decision:
 - [ ] Adjust
 - [ ] Extend (re-check in the W12 1:1, Fri 2027-01-08)
 - Recovery actions (owner, due date):
+- Catch-up actions for Should criteria rated 1 or 2 (owner, due date; checked in the next 1:1):
 - Day-90 evidence: which live tariff action, or the rule for picking the next one, and the fallback if none lands (plan Section 7):
 - Production change rights for the owned tool granted? Yes / No
 - Reporting items start in W10, or slip?
@@ -334,11 +349,12 @@ Decision:
 | B60-1 (Must) Tariff $ impact: landed-cost and margin impact modeled from a Tariff-Impact Brief (item set, duty base, rate and stacking per the brief, volume basis); no material errors at checker review | Model; checker log | | |
 | B60-2 (Must) Cost cycle: walks through the full cycle with the checklist; prepares the duty and landed-cost input file for a cycle or dry run; no material errors | Input file; checklist; checker log | | |
 | B60-3 (Must) PPV analysis for one closed period: top 10 variances by driver; total ties to [COMPANY: Finance PPV report or GL account] within tolerance; reviewed by the Manager and Finance | PPV workbook; reviewer notes | | |
-| B60-4 (Must) Owns one tool: every point of the "owns one tool" definition met for [COMPANY: name of std-cost tool], including one end-to-end run, either supervised in production or on a test copy | Tool doc, run log, change request, demo | | |
+| B60-4 (Must) Owns one tool: every point of the "owns one tool" definition met for [COMPANY: name of std-cost tool], including one end-to-end run, either supervised in production or on a test copy; the W8 change request names the environments, the test evidence and the rollback; the tool doc names the tool's platform path (database objects, connections, the account it runs as, schedule, server location) | Tool doc, run log, change request, demo | | |
 | B60-5 (Must) Exports: 1 or more backlog items completed with Senior review; exports process at proficiency 1 | Jira | | |
 | B60-6 (Must) Proficiency: Standard Cost core skills at 2 or more, "build item landed cost" at 3, M1 skills at 2 or more (Manager-verified) | Trackers workbook | | |
 | B60-7 (Must) Learn-by-documenting: 50 or more cards, 6 or more teach-backs, 2 SOP drafts (primary-process v0.1 and exports), 1 tool doc complete | Trackers workbook, OneNote, Anki | | |
 | B60-8 (Stretch) Data depth: one reusable SQL view or Power BI page for duty, landed cost or PPV, reviewed by the Senior | Asset; review note | | |
+| B60-9 (Should) Analytics depth: same standard as A60-9 (Exercises 9 and 10 reviewed in office hours; Exercise 11 submitted by Thu 12/17) | Posts in OneNote section 07 Analytics; Senior's notes | | |
 
 Decision:
 
@@ -346,6 +362,7 @@ Decision:
 - [ ] Adjust
 - [ ] Extend (re-check in the W12 1:1, Fri 2027-01-08)
 - Recovery actions (owner, due date):
+- Catch-up actions for Should criteria rated 1 or 2 (owner, due date; checked in the next 1:1):
 - Day-90 cycle option: live cycle (date) / parallel run / tariff-driven interim update
 - Production change rights for the owned tool granted? Yes / No
 - Reporting items start in W10, or slip?
@@ -366,6 +383,7 @@ Decision:
 | A90-7 (Must) Learn-by-documenting: 80 or more cards, 9 or more teach-backs, 3 SOPs (1 published), 2 tool docs | Trackers workbook, OneNote, Anki | | |
 | A90-8 (Stretch) Reporting: 1 or more backlog items started (may slip past day 90) | Jira | | |
 | A90-9 (Stretch) Drawback exposure: 1-page note on what data drawback needs from our records | Note in OneNote | | |
+| A90-10 (Should) Copilot prompt library: 3 or more of the hire's own entries in the team prompt library (the starter set does not count), each with a Verify step and reviewed by the Manager | Library entries with status Reviewed | | |
 
 Decision:
 
@@ -373,6 +391,7 @@ Decision:
 - [ ] Adjust: ownership starts with a named co-maker for 30 days
 - [ ] Extend: trainer stays maker for production work, hire co-makes, re-check Fri 2027-02-12
 - Checker for Research from day 91:
+- Catch-up actions for Should criteria rated 1 or 2 (owner, due date; checked in the next 1:1):
 - Days 91–180 goals (reporting, e2open cleansing and UAT, remaining tools, drawback depth):
 - Senior input received (date):
 - Manager signature and date:
@@ -391,6 +410,7 @@ Decision:
 | B90-7 (Must) Learn-by-documenting: 80 or more cards, 9 or more teach-backs, 3 SOPs (1 published), 2 tool docs | Trackers workbook, OneNote, Anki | | |
 | B90-8 (Stretch) Reporting: 1 or more backlog items started (may slip past day 90) | Jira | | |
 | B90-9 (Stretch) Drawback exposure: 1-page note on what data drawback needs from our records | Note in OneNote | | |
+| B90-10 (Should) Copilot prompt library: same standard as A90-10 | Library entries with status Reviewed | | |
 
 Decision:
 
@@ -398,6 +418,7 @@ Decision:
 - [ ] Adjust: ownership starts with a named co-maker for 30 days
 - [ ] Extend: trainer stays maker for production cycles, hire co-makes, re-check Fri 2027-02-12
 - Checker for Standard Cost from day 91:
+- Catch-up actions for Should criteria rated 1 or 2 (owner, due date; checked in the next 1:1):
 - Days 91–180 goals (reporting, e2open cleansing and UAT, remaining tools, drawback depth):
 - Senior input received (date):
 - Manager signature and date:
@@ -474,4 +495,5 @@ Rules for any change:
 - `docs/templates/domain/tariff-impact-brief.md`, `docs/templates/domain/standard-cost-update-checklist.md`, `docs/templates/domain/tariff-impact-model-guide.md`
 - `docs/templates/bsa/03-process-map-as-is-to-be.md`, `docs/templates/bsa/04-data-mapping-spec.md`, `docs/templates/bsa/06-change-request.md`
 - `docs/primers/customs-trade-compliance-primer.md`, `docs/primers/trade-systems-gtm-e2open-primer.md`, `docs/primers/current-tariff-landscape.md`
-- `docs/analytics/practice-exercises.md`; the answer key is trainer-only ([COMPANY: trainer-only location], never in the hires' OneNote sections or the onboarding folder; not given to the hires before the day-30 review, and after it only if the Manager decides to share it)
+- `docs/primers/business-systems-analysis-primer.md`, `docs/primers/copilot-chat-guide.md`, `docs/primers/data-platform-primer.md`, `docs/primers/sdlc-primer.md`; `docs/templates/knowledge/copilot-prompt-library.md`, `docs/templates/knowledge/data-platform-map.md`
+- `docs/analytics/practice-exercises.md`; the answer key is trainer-only ([COMPANY: trainer-only location], never in the hires' OneNote sections or the onboarding folder; not given to the hires before the day-30 review, and after it only if the Manager decides to share it, without its Exercise 9–11 sections, which stay trainer-only until the day-60 review)
