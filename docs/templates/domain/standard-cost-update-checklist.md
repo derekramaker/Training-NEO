@@ -20,9 +20,9 @@ Last updated: 2026-10-17 · Owner: BSA Manager
 |---|---|
 | Cycle frequency and next cycle dates | [COMPANY: for example annual full update plus interim duty updates] |
 | Oracle product | Oracle EBS |
-| Where pending costs are held before the update | [COMPANY: EBS pending cost type name, or Fusion cost scenario naming rule] |
+| Where pending costs are held before the update | [COMPANY: EBS pending cost type name] |
 | Cost elements and sub-elements for landed cost | [COMPANY: for example material plus material overhead sub-elements for freight, duty, brokerage] |
-| Basis of each landed-cost sub-element | [COMPANY: per unit amount, or % of material value (EBS basis type Item, Lot or Total Value; Fusion equivalent)]. If duty is held as a % of material value, record how the rate is converted from the customs value: Oracle applies it to the material cost, not to the duty base |
+| Basis of each landed-cost sub-element | [COMPANY: per unit amount, or % of material value (EBS basis type Item, Lot or Total Value)]. If duty is held as a % of material value, record how the rate is converted from the customs value: Oracle applies it to the material cost, not to the duty base |
 | How duty reaches item cost and variance | [COMPANY: on the receipt through Oracle Landed Cost Management estimated charges, so duty differences show in PPV; or absorbed as a material overhead sub-element at standard, with actual duty from broker invoices posted to [COMPANY: duty account], so differences show as absorption versus actual] |
 | Load method | [COMPANY: cost interface, file-based import, Web ADI, custom tool] |
 | Who loads, who runs the update | [COMPANY: roles; segregation of duties confirmed with Finance] |
@@ -94,7 +94,7 @@ Phases 1 to 4 fall in W10 and W11, the reduced weeks. Phase 5 runs to Wed 1/6, i
 - [ ] With Hire A, list every Tariff-Impact Brief released or expected before T. Apply [COMPANY: tariff action policy] to decide which ones go in.
 - [ ] Confirm the variance thresholds and the materiality threshold for this cycle.
 - [ ] Confirm who loads the file and who runs the update, and that the maker of the cost file cannot approve it ([COMPANY: Oracle roles and segregation of duties]).
-- [ ] Book time: checker review (Manager, about 1.5 h between T-10 and T-7), Finance approval (T-6 to T-5), load window. In EBS, Oracle recommends running the update at the start of the accounting period, before transactions start for the new period. In Fusion, the cost scenario's effective date controls when new costs apply.
+- [ ] Book time: checker review (Manager, about 1.5 h between T-10 and T-7), Finance approval (T-6 to T-5), load window. Oracle recommends running the update at the start of the accounting period, before transactions start for the new period.
 - [ ] Check holidays and absences for T-10 to T+2 and name a backup for each role.
 - [ ] Create the cycle folder and Jira epic; copy this checklist.
 
@@ -149,14 +149,14 @@ Phases 1 to 4 fall in W10 and W11, the reduced weeks. Phase 5 runs to Wed 1/6, i
 
 Method: [COMPANY: load method]. Product: Oracle EBS. Steps differ by product and release, so follow [COMPANY: Oracle cost update work instruction] where it differs.
 
-- [ ] The pending cost type (EBS) or cost scenario (Fusion) holds the complete new cost for every item in scope: every cost element and sub-element, not only the changed duty or landed-cost sub-elements. In EBS the update replaces the item's whole Frozen cost with its pending cost, so a duty-only file would wipe the other elements: copy the current Frozen costs into the pending cost type first ([COMPANY: copy method]), then apply the changes. Confirm with Finance how items with no pending cost are treated (the cost type's default cost type).
-- [ ] Load the approved file into [COMPANY: pending cost type (EBS) or cost scenario (Fusion)], never straight into the live standard.
+- [ ] The pending cost type holds the complete new cost for every item in scope: every cost element and sub-element, not only the changed duty or landed-cost sub-elements. The update replaces the item's whole Frozen cost with its pending cost, so a duty-only file would wipe the other elements: copy the current Frozen costs into the pending cost type first ([COMPANY: copy method]), then apply the changes. Confirm with Finance how items with no pending cost are treated (the cost type's default cost type).
+- [ ] Load the approved file into [COMPANY: pending cost type], never straight into the live standard.
 - [ ] Check the load log: rows loaded = rows in the approved file; rejects are zero or fixed and re-checked.
-- [ ] Simulate before updating. EBS: run Report Pending Adjustments, which produces the inventory, intransit and WIP standard cost adjustment reports without posting. Fusion: compare the scenario's standard costs with the current published costs (and the inventory impact view, where your release has it).
+- [ ] Simulate before updating: run Report Pending Adjustments, which produces the inventory, intransit and WIP standard cost adjustment reports without posting.
 - [ ] Compare the simulated revaluation with the Phase 4 estimate. Explain any difference; Finance confirms.
-- [ ] Run the update at the agreed time. EBS: Update Standard Costs from the pending cost type to Frozen. Fusion: run the update or publish step for the cost scenario with the agreed effective date. Done by [COMPANY: who runs the update], with Finance informed.
+- [ ] Run the update at the agreed time: Update Standard Costs from the pending cost type to Frozen. Done by [COMPANY: who runs the update], with Finance informed.
 - [ ] Save the update output and adjustment reports to the cycle folder.
-- [ ] Know the correction path before you start: in Fusion a published scenario cannot be unpublished once its costs are used in transactions (an Undo Cost Update task exists for unintended updates); in EBS a correction normally means another cost update. Agree the path with Finance in advance.
+- [ ] Know the correction path before you start: a correction normally means another cost update. Agree the path with Finance in advance.
 
 ## Phase 7: Post-load verification (T to T+1)
 
