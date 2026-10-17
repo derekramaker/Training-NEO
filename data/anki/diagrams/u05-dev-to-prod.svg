@@ -1,0 +1,64 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 472" width="640" height="472">
+  <rect class="bg" width="640" height="472"/>
+  <text class="t-title" x="24" y="40">From dev to production</text>
+  <text class="t-sm t-muted" x="24" y="68">Before day 60, the Manager does every production step</text>
+
+  <!-- environment brackets (left gutter) -->
+  <text class="t-sm t-bold t-navy" x="24" y="110">Dev</text>
+  <path class="line-soft" d="M98 86 H90 V122 H98"/>
+  <text class="t-sm t-bold t-navy" x="24" y="212">Test</text>
+  <path class="line-soft" d="M98 140 H90 V272 H98"/>
+  <text class="t-sm t-bold t-navy" x="24" y="374">Prod</text>
+  <path class="line-soft" d="M98 290 H90 V446 H98"/>
+
+  <!-- the spine through the numbered gates -->
+  <path class="line-soft" d="M118 104 V356"/>
+
+  <!-- 1 change request (dev) -->
+  <rect class="box" x="142" y="84" width="474" height="40" rx="8"/>
+  <circle class="badge" cx="118" cy="104" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="118" y="105">1</text>
+  <text class="t-sm t-bold" x="158" y="110">Change request</text>
+  <text class="t-sm" x="350" y="110">then build in a copy</text>
+
+  <!-- 2 to 4: test -->
+  <rect class="box" x="142" y="138" width="474" height="40" rx="8"/>
+  <circle class="badge" cx="118" cy="158" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="118" y="159">2</text>
+  <text class="t-sm t-bold" x="158" y="164">Tests and evidence</text>
+  <text class="t-sm" x="350" y="164">expected values first</text>
+
+  <rect class="box" x="142" y="186" width="474" height="40" rx="8"/>
+  <circle class="badge" cx="118" cy="206" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="118" y="207">3</text>
+  <text class="t-sm t-bold" x="158" y="212">Checker review</text>
+  <text class="t-sm" x="350" y="212">diff, evidence, rollback</text>
+
+  <rect class="box" x="142" y="234" width="474" height="40" rx="8"/>
+  <circle class="badge" cx="118" cy="254" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="118" y="255">4</text>
+  <text class="t-sm t-bold" x="158" y="260">Approval</text>
+  <text class="t-sm" x="350" y="260">Manager, on the Jira issue</text>
+
+  <!-- 5 and 6: production -->
+  <rect class="box-soft" x="142" y="288" width="474" height="40" rx="8"/>
+  <circle class="badge" cx="118" cy="308" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="118" y="309">5</text>
+  <text class="t-sm t-bold" x="158" y="314">Release</text>
+  <g data-cloze="tested"><text class="t-sm" x="350" y="314">exactly the tested version</text></g>
+
+  <rect class="box-soft" x="142" y="336" width="474" height="40" rx="8"/>
+  <circle class="badge" cx="118" cy="356" r="13"/>
+  <text class="t-sm t-white mid t-bold" x="118" y="357">6</text>
+  <g data-cloze="postcheck"><text class="t-sm t-bold" x="158" y="362">Post-release check</text></g>
+  <text class="t-sm" x="350" y="362">output, counts, account</text>
+
+  <!-- the way back -->
+  <path class="arrow" d="M250 376 V402"/>
+  <text class="t-sm t-muted" x="264" y="397">if the check fails</text>
+  <rect class="box-accent" x="142" y="408" width="474" height="40" rx="8"/>
+  <g data-cloze="rollback">
+    <text class="t-sm t-accent" x="158" y="434">Roll back first</text>
+    <text class="t-sm" x="350" y="434">restore the previous version</text>
+  </g>
+</svg>

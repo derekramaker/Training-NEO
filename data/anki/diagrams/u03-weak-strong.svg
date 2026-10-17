@@ -1,0 +1,19 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 444" width="640" height="444">
+  <rect class="bg" width="640" height="444"/>
+  <text class="t-title" x="24" y="40">Weak and strong requirements</text>
+  <text class="t-sm t-muted" x="24" y="68">Three of the nine quality checks (BABOK task 7.2)</text>
+
+  <foreignObject x="24" y="84" width="592" height="272">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <tr><th>Check</th><th>Weak</th><th>Strong</th></tr>
+        <tr class="hl"><td>Testable</td><td>"The report should be fast."</td><td>"The report refreshes in under 5 minutes for 12 months of entries."</td></tr>
+        <tr><td>Unambiguous</td><td>"Recent entries"</td><td>"Entries dated 2026-07-01 to 2026-09-30"</td></tr>
+        <tr><td>Atomic</td><td>"The tool shall store rates and email the broker."</td><td>Two requirements, one behavior each</td></tr>
+      </table>
+    </div>
+  </foreignObject>
+
+  <rect class="box-ok" x="24" y="368" width="592" height="56" rx="8"/>
+  <text class="t-sm" x="40" y="402"><tspan class="t-ok">Strong:</tspan> a value, a range, one behavior. Check all nine.</text>
+</svg>

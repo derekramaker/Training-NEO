@@ -1,0 +1,40 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <rect class="bg" width="640" height="480"/>
+  <text class="t-title" x="24" y="40">Four requirement types (BABOK v3)</text>
+  <text class="t-sm t-muted" x="24" y="68">Why, then who needs what, then what the solution does</text>
+
+  <!-- the lasting chain: business -> stakeholder -> solution (x 24..416, centre 220) -->
+  <rect class="box" x="24" y="84" width="392" height="76" rx="8"/>
+  <g data-cloze="business"><text class="t t-bold mid" x="220" y="106">Business</text></g>
+  <text class="t-sm t-muted mid" x="220" y="140">why the change is made</text>
+
+  <path class="arrow" d="M220 160 V182"/>
+
+  <rect class="box" x="24" y="188" width="392" height="76" rx="8"/>
+  <g data-cloze="stakeholder"><text class="t t-bold mid" x="220" y="210">Stakeholder</text></g>
+  <text class="t-sm t-muted mid" x="220" y="244">what each group needs to get there</text>
+
+  <path class="arrow" d="M220 264 V286"/>
+
+  <rect class="box-soft" x="24" y="292" width="392" height="168" rx="8"/>
+  <text class="t t-bold t-navy mid" x="220" y="314">Solution</text>
+
+  <rect class="box" x="38" y="336" width="174" height="112" rx="8"/>
+  <g data-cloze="functional"><text class="t t-bold mid" x="125" y="360">Functional</text></g>
+  <text class="t-sm t-muted mid" x="125" y="396">what it does</text>
+  <text class="t-sm t-muted mid" x="125" y="420">(behaviour, data)</text>
+
+  <rect class="box" x="228" y="336" width="174" height="112" rx="8"/>
+  <g data-cloze="nfr"><text class="t t-bold mid" x="315" y="360">Non-functional</text></g>
+  <text class="t-sm t-muted mid" x="315" y="396">how well</text>
+  <text class="t-sm t-muted mid" x="315" y="420">(measurable)</text>
+
+  <!-- alongside: transition (dashed = temporary) -->
+  <rect class="box-ghost" x="440" y="84" width="176" height="376" rx="8"/>
+  <g data-cloze="transition"><text class="t t-bold mid" x="528" y="198">Transition</text></g>
+  <text class="t-sm mid" x="528" y="238">what the move</text>
+  <text class="t-sm mid" x="528" y="262">from today to</text>
+  <text class="t-sm mid" x="528" y="286">the future state</text>
+  <text class="t-sm mid" x="528" y="310">needs</text>
+  <text class="t-sm t-accent mid" x="528" y="358">Temporary</text>
+</svg>

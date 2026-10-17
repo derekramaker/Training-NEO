@@ -1,0 +1,33 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 416" width="640" height="416">
+  <rect class="bg" width="640" height="416"/>
+  <text class="t-title" x="24" y="40">Boundary test: an end date</text>
+  <text class="t-sm t-muted" x="24" y="68">PART-A from Country X (fictional rates)</text>
+
+  <!-- the rate rows the lookup reads -->
+  <foreignObject x="24" y="84" width="592" height="184">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wt">
+      <table>
+        <tr><th>Rate row</th><th class="num">Rate</th><th>From</th><th>To</th></tr>
+        <tr><td>Base</td><td class="num">2.5%</td><td>2020-01-01</td><td>no end</td></tr>
+        <tr class="hl"><td>Action X-0</td><td class="num">10%</td><td>2025-04-01</td><td>2026-12-31</td></tr>
+        <tr><td>Action X-1</td><td class="num">25%</td><td>2027-03-01</td><td>no end</td></tr>
+      </table>
+      <div class="note">To = the last day the rate applies</div>
+    </div>
+  </foreignObject>
+
+  <!-- the two test inputs, one each side of the end date -->
+  <rect class="box" x="24" y="284" width="288" height="112" rx="8"/>
+  <text class="t-sm t-bold mid" x="168" y="310">As of 2026-12-31</text>
+  <g data-cloze="result">
+    <text class="t t-bold mid" x="168" y="346">2 rows</text>
+    <text class="t-sm mid" x="168" y="374">Base and Action X-0</text>
+  </g>
+
+  <rect class="box" x="328" y="284" width="288" height="112" rx="8"/>
+  <text class="t-sm t-bold mid" x="472" y="310">As of 2027-01-01</text>
+  <g data-cloze="result">
+    <text class="t t-bold mid" x="472" y="346">1 row</text>
+    <text class="t-sm mid" x="472" y="374">Base only</text>
+  </g>
+</svg>

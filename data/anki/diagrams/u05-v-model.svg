@@ -1,0 +1,37 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
+  <rect class="bg" width="640" height="440"/>
+  <text class="t-title" x="24" y="40">The V-model</text>
+  <text class="t-sm t-muted" x="24" y="68">Each development phase is paired with a test level</text>
+
+  <!-- the two arms of the V: define and design going down, test going up -->
+  <path class="arrow-soft" d="M34 96 L122 324"/>
+  <path class="arrow-soft" d="M512 324 L606 96"/>
+
+  <!-- pair 1 -->
+  <text class="t-sm t-bold" x="62" y="118">Business requirements</text>
+  <path class="line-dash" d="M278 112 H398"/>
+  <g data-cloze="accept"><text class="t-sm end" x="577" y="118">Acceptance testing</text></g>
+
+  <!-- pair 2 -->
+  <text class="t-sm t-bold" x="82" y="170">System requirements</text>
+  <path class="line-dash" d="M284 164 H416"/>
+  <g data-cloze="system"><text class="t-sm end" x="556" y="170">System testing</text></g>
+
+  <!-- pair 3 -->
+  <text class="t-sm t-bold" x="102" y="222">Architecture design</text>
+  <path class="line-dash" d="M290 216 H366"/>
+  <g data-cloze="integration"><text class="t-sm end" x="534" y="222">Integration testing</text></g>
+
+  <!-- pair 4 -->
+  <text class="t-sm t-bold" x="122" y="274">Detailed design</text>
+  <path class="line-dash" d="M272 268 H337"/>
+  <g data-cloze="component"><text class="t-sm end" x="513" y="274">Component testing</text></g>
+
+  <!-- the bottom of the V -->
+  <rect class="box-strong" x="128" y="300" width="384" height="48" rx="8"/>
+  <text class="t t-white t-bold mid" x="320" y="325">Build</text>
+
+  <!-- the habit -->
+  <rect class="box-accent" x="24" y="368" width="592" height="48" rx="8"/>
+  <text class="t-sm t-bold mid" x="320" y="393">Write each test with its requirement or design, not after the build</text>
+</svg>

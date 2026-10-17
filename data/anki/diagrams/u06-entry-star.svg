@@ -1,0 +1,48 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="640" height="460">
+  <rect class="bg" width="640" height="460"/>
+  <text class="t-title" x="24" y="40">A star model, grain first</text>
+  <text class="t-sm t-muted" x="24" y="68">1 to * = one-to-many; filters flow one way, to the fact</text>
+
+  <!-- step 1: the grain, written before anything is built -->
+  <rect class="box-accent" x="24" y="84" width="592" height="46" rx="8"/>
+  <g data-cloze="grain"><text class="t t-accent mid" x="320" y="108">Grain: 1 row = 1 entry line, as filed</text></g>
+
+  <!-- fact table -->
+  <rect class="box" x="240" y="150" width="160" height="166" rx="8"/>
+  <text class="t t-bold mid" x="320" y="180">FactEntryLine</text>
+  <path class="line-soft" d="M256 198 H384"/>
+  <text class="t-sm mid" x="320" y="230">qty, value, duty</text>
+  <text class="t-sm t-muted mid" x="320" y="262">entry_no, line_no</text>
+  <text class="t-sm t-muted mid" x="320" y="290">keys to 3 dims</text>
+
+  <!-- dimensions -->
+  <rect class="box-soft" x="24" y="150" width="172" height="166" rx="8"/>
+  <text class="t t-bold mid" x="110" y="180">DimItem</text>
+  <text class="t-sm t-muted mid" x="110" y="210">chapter, origin,</text>
+  <text class="t-sm t-muted mid" x="110" y="234">supplier country</text>
+  <g data-cloze="unknown"><text class="t-sm t-bold mid" x="110" y="268">+ 'Not in item</text><text class="t-sm t-bold mid" x="110" y="292">master' rows</text></g>
+
+  <rect class="box-soft" x="444" y="150" width="172" height="166" rx="8"/>
+  <text class="t t-bold mid" x="530" y="180">DimDate</text>
+  <text class="t-sm t-muted mid" x="530" y="210">1 row per date,</text>
+  <text class="t-sm t-muted mid" x="530" y="234">all of 2026</text>
+  <g data-cloze="datetable"><text class="t-sm t-bold mid" x="530" y="268">Marked as</text><text class="t-sm t-bold mid" x="530" y="292">date table</text></g>
+
+  <rect class="box-soft" x="234" y="362" width="172" height="84" rx="8"/>
+  <text class="t t-bold mid" x="320" y="390">DimBroker</text>
+  <text class="t-sm t-muted mid" x="320" y="420">import country</text>
+
+  <!-- one-to-many links, dimension filters fact -->
+  <path class="arrow" d="M196 233 H234"/>
+  <text class="t-sm t-bold" x="201" y="224">1</text><text class="t-sm t-bold" x="221" y="228">*</text>
+  <path class="arrow" d="M444 233 H406"/>
+  <text class="t-sm t-bold end" x="439" y="224">1</text><text class="t-sm t-bold end" x="419" y="228">*</text>
+  <path class="arrow" d="M320 362 V322"/>
+  <text class="t-sm t-bold" x="330" y="358">1</text><text class="t-sm t-bold" x="330" y="338">*</text>
+
+  <!-- side notes -->
+  <text class="t-sm t-muted" x="24" y="390">No dimension joins</text>
+  <text class="t-sm t-muted" x="24" y="414">another dimension</text>
+  <text class="t-sm t-muted" x="430" y="390">Auto date/time</text>
+  <text class="t-sm t-muted" x="430" y="414">turned off</text>
+</svg>
