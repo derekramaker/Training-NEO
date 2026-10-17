@@ -12,8 +12,9 @@ Writes:
     dist/Practice-Data.xlsx                      one sheet (and one Excel table) per table, plus a README sheet
 
 Used by docs/analytics/practice-exercises.md. The answers are in docs/analytics/answer-key.md.
-TRAINER-ONLY until the day-30 review, like the answer key: the hires never get this file before then.
-The comments below give away the data-quality findings and the answers to Exercises 1 to 6.
+TRAINER-ONLY, like the answer key: the hires never get this file before the day-60 review (before version
+1.2 the limit was the day-30 review). The comments below give away the data-quality findings and the answers
+to Exercises 1 to 6 and, in the version 1.2 section, to Exercise 9, which is reviewed in W8.
 
 Deterministic: one fixed seed, no use of today's date, no iteration over sets. Every output file is
 byte-identical on every run (the xlsx save time and zip entry times are pinned; see normalize_xlsx).
@@ -66,6 +67,29 @@ PLANTED DATA-QUALITY ISSUES AND TRAPS (exact counts; generate() asserts every on
                                     per each), 3 at 0.1x standard (decimal shift). Rule: actual/std > 3 or < 1/3.
     overlapping scenario prefixes . SCN-01 lists 7318 (15%) and 731815 (25%) for CN; 20 clean lines match
                                     both. Rule: the longest matching prefix wins.
+
+VERSION 1.2 (2026-10-17): ONE NEW TABLE, work_items, for Exercise 9 (KPI design). Exercises 10 and 11 use
+the eight original tables. work_items is built last, from its own seed (WORK_SEED), so the eight 1.1 tables
+and every 1.1 answer in the key are unchanged: same CSV bytes, same xlsx cell values. The README sheet and
+README.txt keep every 1.1 line and add the 1.2 lines below them. Do not share this file with the hires before
+the day-60 review: the list below gives away the Exercise 9 answers.
+    work_items .................... 38 fictional Jira items, Jan to Sep 2026, status as of 2026-09-30:
+                                    17 Research (12 Tariff-Impact Briefs ACT-01..12, 5 ad-hoc investigations),
+                                    21 Standard Cost (11 tariff $ models, 8 monthly PPV explanations, 2 cost updates).
+                                    A $ model is received the day its brief is released; brief due = action
+                                    effective date - 5 business days, model due = effective date - 1 business day.
+    open items .................... 4. Past due: 1, the interim standard cost update for the 2026-06-01 change
+                                    on CN ch. 73/76 (due 2026-06-30; it explains why std_cost still carries the
+                                    old rate, Exercise 5). Not yet due: 3 (ACT-11 model, ACT-12 brief, 2027 cycle).
+                                    An on-time KPI that drops open items misses the one that matters.
+    late releases ................. 4: the 34-day investigation, the ACT-09 brief (16 days, waited on an
+                                    interpretation), the ACT-09 model (late because its brief was late; its own
+                                    turnaround is normal) and the June PPV explanation (the PPV step).
+    skewed turnaround ............. the 34- and 16-day items pull the Research mean well above the median.
+    checker control ............... 2 released with no checker sign-off (the ACT-03 model, which then had an
+                                    error after release, and one investigation); 1 signed off after release
+                                    (the Mar 2026 PPV explanation).
+    errors after release .......... 2 items (the ACT-03 model and the Jun 2026 PPV explanation).
 """
 
 import csv
@@ -84,7 +108,10 @@ from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
-GENERATOR_VERSION = "1.1 (2026-10-08)"  # 1.1: same data rows as 1.0; reproducible xlsx
+GENERATOR_VERSION = "1.2 (2026-10-17)"  # 1.2: adds the work_items table; the eight 1.1 tables are unchanged
+BASE_VERSION = "1.1 (2026-10-08)"       # 1.1: same data rows as 1.0; reproducible xlsx. The README lines below
+                                        # still name 1.1 so every 1.1 README cell stays identical; README_V12_LINES
+                                        # (written after them) says what 1.2 added.
 SEED = 20261019
 DATA_FROM = date(2026, 1, 2)   # first entry date in the data
 DATA_TO = date(2026, 9, 30)    # data cut-off: 9 months of history (annualize x 12/9)
@@ -226,6 +253,10 @@ EXPECTED = {
     "invalid_usmca_non_usmca_origin": 38, "invalid_usmca_no_certification": 7, "missed_usmca_lines": 12,
     "supplier_country_ne_origin_items": 24, "receipts": 1500, "outlier_receipts": 12,
     "scn01_overlap_lines": 20, "reference_rows": 228, "tariff_scenario_rows": 11,
+    # version 1.2, work_items (Exercise 9)
+    "work_items": 38, "work_items_research": 17, "work_items_standard_cost": 21, "work_open": 4,
+    "work_open_past_due": 1, "work_released_late": 4, "work_released_no_signoff": 2, "work_signoff_after_release": 1,
+    "work_items_with_errors": 2,
 }
 
 
@@ -529,9 +560,107 @@ def generate():
                                    [s[0], s[1], s[2], s[3], s[4], Decimal(s[5]), s[6], s[7]])) for s in SCENARIOS])
     tables = {"items": t_items, "suppliers": t_suppliers, "brokers": t_brokers, "entries": t_entries, "entry_lines": t_lines,
               "duty_rates_reference": t_ref, "receipts": t_receipts, "tariff_scenario": t_scn}
+    # Version 1.2: one new table, built last and from its own seed, so the eight tables above are unchanged.
+    tables["work_items"] = generate_work_items()
 
     check_counts(tables)
     return tables
+
+
+# ------------------------------------------------------- work items (version 1.2) ----
+# A fictional Jira export of the team's Research and Standard Cost work items, for the process KPIs in
+# Exercise 9 (on time, turnaround, checker sign-off). It uses its own random generator with its own
+# fixed seed and runs after the eight original tables are built, so it cannot change them.
+
+WORK_SEED = 20261130   # W7 start; separate from SEED on purpose
+WORK_COLUMNS = ["work_item_id", "process", "item_type", "title", "action_ref", "received_date", "due_date",
+                "released_date", "checker_signoff_date", "errors_after_release"]
+
+# Fictional tariff actions: (action_ref, title, published, effective). NOT real actions. ACT-06 is the
+# fictional US rate change on CN-origin chapters 73 and 76 that is in the entry and receipt data (RATE_CHANGE).
+# ACT-11 and ACT-12 are scenarios SCN-02 and SCN-01 of tariff_scenario.
+WORK_ACTIONS = [
+    ("ACT-01", "Fictional US duty increase on CN hand tools", date(2026, 1, 12), date(2026, 2, 16)),
+    ("ACT-02", "Fictional Canadian surtax on US steel shelving", date(2026, 1, 26), date(2026, 3, 2)),
+    ("ACT-03", "Fictional Mexican tariff change on Asian electrical goods", date(2026, 2, 9), date(2026, 3, 23)),
+    ("ACT-04", "Fictional US exclusion extension for CN brass valves", date(2026, 2, 23), date(2026, 3, 13)),
+    ("ACT-05", "Fictional US additional duty on VN fasteners", date(2026, 3, 16), date(2026, 4, 20)),
+    ("ACT-06", "Fictional US duty increase on CN chapters 73 and 76", date(2026, 4, 20), RATE_CHANGE),
+    ("ACT-07", "Fictional Canadian remission order for US aluminum goods", date(2026, 5, 11), date(2026, 6, 15)),
+    ("ACT-08", "Fictional Mexican decree on steel products from non-FTA countries", date(2026, 6, 8), date(2026, 7, 13)),
+    ("ACT-09", "Fictional US stacking clarification for CN machinery parts", date(2026, 7, 6), date(2026, 7, 30)),
+    ("ACT-10", "Fictional US duty change on KR battery packs", date(2026, 8, 3), date(2026, 9, 8)),
+    ("ACT-11", SCENARIOS[5][1] + " (SCN-02)", date(2026, 9, 14), SCENARIOS[5][6]),
+    ("ACT-12", SCENARIOS[0][1] + " (SCN-01)", date(2026, 9, 21), SCENARIOS[0][6]),
+]
+WORK_INVESTIGATIONS = [  # (title, received, business days to release); the 34 is the planted long one
+    ("Ad-hoc investigation: duty on an entry differs from expected", date(2026, 1, 20), 6),
+    ("Ad-hoc investigation: HTS differs across US, CA and MX for one item", date(2026, 3, 3), 34),
+    ("Ad-hoc investigation: country of origin question from Purchasing", date(2026, 4, 14), 7),
+    ("Ad-hoc investigation: exclusion eligibility for a valve family", date(2026, 6, 22), 4),
+    ("Ad-hoc investigation: broker query on a valuation adjustment", date(2026, 8, 18), 9),
+]
+
+
+def add_bdays(d, n):
+    """The date n business days (Monday to Friday, no holiday calendar) after d; a negative n goes back."""
+    step = 1 if n >= 0 else -1
+    while n:
+        d += timedelta(days=step)
+        if d.weekday() < 5:
+            n -= step
+    return d
+
+
+def generate_work_items():
+    wrng = random.Random(WORK_SEED)
+    rows = []
+
+    def add(process, item_type, title, ref, received, due, turnaround, open_=False):
+        released = None if open_ else add_bdays(received, turnaround)
+        if released is not None and released > DATA_TO:
+            sys.exit(f"work item released after the cut-off: {title}")
+        rows.append({"process": process, "item_type": item_type, "title": title, "action_ref": ref,
+                     "received_date": received, "due_date": due, "released_date": released,
+                     "checker_signoff_date": released, "errors_after_release": None if open_ else 0})
+        return released
+
+    for ref, title, published, effective in WORK_ACTIONS:
+        tb = 16 if ref == "ACT-09" else wrng.choice([2, 3, 3, 4, 4, 5, 6, 8])   # ACT-09: waited on an interpretation
+        tm = wrng.choice([1, 2, 2, 3, 3, 4, 5])
+        brief_open = ref == "ACT-12"
+        handoff = add("Research", "Tariff-Impact Brief", "Brief: " + title, ref, published, add_bdays(effective, -5), tb, brief_open)
+        if handoff is not None:   # the $ model item is created when the brief is handed off
+            add("Standard Cost", "Tariff $ model", "Model: " + title, ref, handoff, add_bdays(effective, -1), tm, ref == "ACT-11")
+    for title, received, days in WORK_INVESTIGATIONS:
+        add("Research", "Ad-hoc investigation", title, None, received, add_bdays(received, 10), days)
+    for month in range(1, 9):   # monthly PPV explanation for Finance, Jan to Aug 2026
+        month_end = date(2026, month + 1, 1) - timedelta(days=1)
+        received = add_bdays(month_end, 3)
+        days = 7 if month == 6 else wrng.choice([2, 3, 3, 4, 4, 5])   # June: the PPV step after the rate change
+        add("Standard Cost", "PPV explanation", f"PPV explanation for Finance, {month_end:%b %Y}", None, received, add_bdays(received, 5), days)
+    act06_model = next(r for r in rows if r["action_ref"] == "ACT-06" and r["item_type"] == "Tariff $ model")
+    add("Standard Cost", "Standard cost update", "Interim standard cost update: " + WORK_ACTIONS[5][1], "ACT-06",
+        add_bdays(act06_model["released_date"], 1), date(2026, 6, 30), 0, open_=True)   # planted: open and past due
+    add("Standard Cost", "Standard cost update", "Annual standard cost update: 2027 standards", None,
+        date(2026, 9, 14), date(2026, 11, 30), 0, open_=True)
+
+    def find(ref, item_type=None, title=None):
+        return next(r for r in rows if (ref is None or r["action_ref"] == ref)
+                    and (item_type is None or r["item_type"] == item_type) and (title is None or r["title"] == title))
+    # Planted control and quality problems.
+    no_signoff = [find("ACT-03", "Tariff $ model"), find(None, title=WORK_INVESTIGATIONS[3][0])]
+    for r in no_signoff:
+        r["checker_signoff_date"] = None
+    no_signoff[0]["errors_after_release"] = 1            # released without a checker, then an error was found
+    late_signoff = find(None, title="PPV explanation for Finance, Mar 2026")
+    late_signoff["checker_signoff_date"] = add_bdays(late_signoff["released_date"], 2)
+    find(None, title="PPV explanation for Finance, Jun 2026")["errors_after_release"] = 1
+
+    rows.sort(key=lambda r: (r["received_date"], r["process"], r["item_type"], r["title"]))
+    for k, r in enumerate(rows, 1):
+        r["work_item_id"] = f"WI-26-{k:03d}"
+    return pd.DataFrame([[r[c] for c in WORK_COLUMNS] for r in rows], columns=WORK_COLUMNS, dtype=object)
 
 
 # ------------------------------------------------------------------- self-checks ----
@@ -583,6 +712,21 @@ def check_counts(tables):
     s = j[(j["import_country"] == "US") & (j["country_of_origin"] == "CN") & j["hts10"].notna()]
     got["scn01_overlap_lines"] = int(s["hts10"].str.startswith("731815").sum())
     got["reference_rows"] = len(ref)
+    w = tables["work_items"]
+    rel, due, sig = w["released_date"], w["due_date"], w["checker_signoff_date"]
+    is_open = rel.isna()
+    got.update({
+        "work_items": len(w), "work_items_research": int((w["process"] == "Research").sum()),
+        "work_items_standard_cost": int((w["process"] == "Standard Cost").sum()), "work_open": int(is_open.sum()),
+        "work_open_past_due": int((is_open & (due <= DATA_TO)).sum()),
+        "work_released_late": int(sum(r > d for r, d in zip(rel, due) if r is not None)),
+        "work_released_no_signoff": int((~is_open & sig.isna()).sum()),
+        "work_signoff_after_release": int(sum(g > r for g, r in zip(sig, rel) if g is not None and r is not None)),
+        "work_items_with_errors": int(sum(1 for e in w["errors_after_release"] if e)),
+    })
+    for d in list(w["received_date"]) + [v for v in rel if v is not None] + list(due):
+        if d.weekday() > 4:
+            sys.exit(f"work_items date on a weekend: {d}")
 
     bad = {k: (EXPECTED[k], got.get(k)) for k in EXPECTED if EXPECTED[k] != got.get(k)}
     if bad:
@@ -637,12 +781,16 @@ SQL_TYPES = {
     "tariff_scenario": [("scenario_id", "VARCHAR(10) NOT NULL"), ("scenario_name", "VARCHAR(100) NOT NULL"), ("import_country", "CHAR(2) NOT NULL"),
                         ("hts_prefix", "VARCHAR(10) NOT NULL"), ("country_of_origin", "CHAR(2) NOT NULL"), ("additional_rate", "DECIMAL(9,4) NOT NULL"),
                         ("effective_date", "DATE NOT NULL"), ("usmca_exempt", "CHAR(1) NOT NULL")],
+    "work_items": [("work_item_id", "VARCHAR(10) NOT NULL"), ("process", "VARCHAR(20) NOT NULL"), ("item_type", "VARCHAR(30) NOT NULL"),
+                   ("title", "VARCHAR(100) NOT NULL"), ("action_ref", "VARCHAR(10) NULL"), ("received_date", "DATE NOT NULL"),
+                   ("due_date", "DATE NOT NULL"), ("released_date", "DATE NULL"), ("checker_signoff_date", "DATE NULL"),
+                   ("errors_after_release", "INT NULL")],
 }
 # Keys are declared on every table except entry_lines: the raw entry lines contain duplicates, so a
 # primary key would make the load fail. Exercise 1 is where you find out why.
 SQL_KEYS = {"items": "item_id", "suppliers": "supplier_id", "brokers": "broker_id", "entries": "entry_no",
             "duty_rates_reference": "import_country, hts10, country_of_origin, effective_from", "receipts": "receipt_id",
-            "tariff_scenario": "scenario_id, hts_prefix, country_of_origin"}
+            "tariff_scenario": "scenario_id, hts_prefix, country_of_origin", "work_items": "work_item_id"}
 NUMERIC_SQL = ("INT", "DECIMAL")
 
 
@@ -657,7 +805,7 @@ def sql_literal(v, sqltype):
 
 def write_sql(tables):
     out = ["-- SYNTHETIC practice data for docs/analytics/practice-exercises.md. Do not use for classification.",
-           f"-- Generated by the team's practice-data script (trainer-only), version {GENERATOR_VERSION}, seed {SEED}.",
+           f"-- Generated by the team's practice-data script (trainer-only), version {GENERATOR_VERSION}, seed {SEED} (work_items: seed {WORK_SEED}).",
            "-- Run in a scratch or sandbox database where you may create tables (never in a production database).",
            "-- It drops and recreates the schema `practice`, so you can rerun it to reset the data.",
            "SET NOCOUNT ON;", "GO"]
@@ -686,7 +834,7 @@ README_LINES = [
     "PRACTICE DATA: SYNTHETIC. Invented for training. Not real items, suppliers, brokers, entries, values, costs or rates.",
     "HTS codes look real (first 6 digits are real HS subheadings, last 4 are random). Synthetic: do not use for classification.",
     "Duty rates and tariff scenarios are invented. They are not the real rates or actions for these codes.",
-    f"Generator: the team's practice-data script (trainer-only), version {GENERATOR_VERSION}, seed {SEED}. Same output on every run.",
+    f"Generator: the team's practice-data script (trainer-only), version {BASE_VERSION}, seed {SEED}. Same output on every run.",
     f"Entry and receipt dates: {DATA_FROM:%Y-%m-%d} to {DATA_TO:%Y-%m-%d} (9 months). All money is USD.",
     "Exercises: docs/analytics/practice-exercises.md (Analytics Practice Pack in OneNote). The answer key is trainer-only: the Senior reviews your results against it.",
     "",
@@ -705,6 +853,14 @@ README_LINES = [
     "Keep hts10, item_id and other codes as TEXT. If Excel turns hts10 into a number, re-import and set the column type to Text.",
     "The data contains deliberate data-quality problems, like real data. Finding them is part of the exercises.",
 ]
+# Written after everything that version 1.1 wrote, so no 1.1 line moves (README.txt and the README sheet).
+README_V12_LINES = [
+    f"ADDED IN VERSION {GENERATOR_VERSION}: the work_items table. The eight tables above are unchanged from version {BASE_VERSION}.",
+    "work_items: one work item (a fictional Jira issue) for the team's Research or Standard Cost work, Jan to Sep 2026; work_item_id. "
+    "Status as of 2026-09-30. released_date blank = still open. checker_signoff_date blank = no documented checker sign-off. "
+    "errors_after_release = material errors found after release (blank while the item is open). action_ref links a brief and its $ model. "
+    "All dates are business days (Monday to Friday). Used in Exercise 9.",
+]
 
 
 HEADER_FILL = PatternFill("solid", fgColor="1F3864")
@@ -712,7 +868,8 @@ HEADER_FONT = Font(name="Calibri", bold=True, color="FFFFFF")
 MONEY2 = {"entered_value", "duty_amount", "list_price"}
 MONEY4 = {"std_cost", "actual_landed_unit_cost"}
 RATES = {"duty_rate_applied", "base_rate", "additional_rate", "expected_rate"}
-DATES = {"entry_date", "effective_from", "effective_to", "receipt_date", "effective_date"}
+DATES = {"entry_date", "effective_from", "effective_to", "receipt_date", "effective_date",
+         "received_date", "due_date", "released_date", "checker_signoff_date"}
 
 
 def to_cell(v):
@@ -738,6 +895,10 @@ def write_xlsx(tables):
     for name, df in tables.items():
         row += 1
         ws.cell(row=row, column=1, value=f"{name}: {len(df):,} rows; columns: {', '.join(df.columns)}").alignment = Alignment(wrap_text=True)
+    row += 2   # version 1.2 notes go below everything version 1.1 wrote, so no 1.1 cell moves
+    for line in README_V12_LINES:
+        ws.cell(row=row, column=1, value=line).alignment = Alignment(wrap_text=True, vertical="top")
+        row += 1
     ws.column_dimensions["A"].width = 150
 
     for name, df in tables.items():
@@ -798,7 +959,7 @@ def main():
     tables = generate()
     write_csvs(tables)
     write_sql(tables)
-    (OUT_DIR / "README.txt").write_text("\n".join(README_LINES) + "\n", encoding="utf-8")
+    (OUT_DIR / "README.txt").write_text("\n".join(README_LINES + [""] + README_V12_LINES) + "\n", encoding="utf-8")
     write_xlsx(tables)
     total = sum(len(df) for df in tables.values())
     print(f"practice data: {len(tables)} tables, {total:,} rows -> {OUT_DIR.relative_to(ROOT)}/ and {XLSX.relative_to(ROOT)}")

@@ -1,0 +1,39 @@
+work_item_id,process,item_type,title,action_ref,received_date,due_date,released_date,checker_signoff_date,errors_after_release
+WI-26-001,Research,Tariff-Impact Brief,Brief: Fictional US duty increase on CN hand tools,ACT-01,2026-01-12,2026-02-09,2026-01-15,2026-01-15,0
+WI-26-002,Standard Cost,Tariff $ model,Model: Fictional US duty increase on CN hand tools,ACT-01,2026-01-15,2026-02-13,2026-01-20,2026-01-20,0
+WI-26-003,Research,Ad-hoc investigation,Ad-hoc investigation: duty on an entry differs from expected,,2026-01-20,2026-02-03,2026-01-28,2026-01-28,0
+WI-26-004,Research,Tariff-Impact Brief,Brief: Fictional Canadian surtax on US steel shelving,ACT-02,2026-01-26,2026-02-23,2026-01-28,2026-01-28,0
+WI-26-005,Standard Cost,Tariff $ model,Model: Fictional Canadian surtax on US steel shelving,ACT-02,2026-01-28,2026-02-27,2026-01-30,2026-01-30,0
+WI-26-006,Standard Cost,PPV explanation,"PPV explanation for Finance, Jan 2026",,2026-02-04,2026-02-11,2026-02-09,2026-02-09,0
+WI-26-007,Research,Tariff-Impact Brief,Brief: Fictional Mexican tariff change on Asian electrical goods,ACT-03,2026-02-09,2026-03-16,2026-02-16,2026-02-16,0
+WI-26-008,Standard Cost,Tariff $ model,Model: Fictional Mexican tariff change on Asian electrical goods,ACT-03,2026-02-16,2026-03-20,2026-02-18,,1
+WI-26-009,Research,Tariff-Impact Brief,Brief: Fictional US exclusion extension for CN brass valves,ACT-04,2026-02-23,2026-03-06,2026-02-26,2026-02-26,0
+WI-26-010,Standard Cost,Tariff $ model,Model: Fictional US exclusion extension for CN brass valves,ACT-04,2026-02-26,2026-03-12,2026-03-04,2026-03-04,0
+WI-26-011,Research,Ad-hoc investigation,"Ad-hoc investigation: HTS differs across US, CA and MX for one item",,2026-03-03,2026-03-17,2026-04-20,2026-04-20,0
+WI-26-012,Standard Cost,PPV explanation,"PPV explanation for Finance, Feb 2026",,2026-03-04,2026-03-11,2026-03-10,2026-03-10,0
+WI-26-013,Research,Tariff-Impact Brief,Brief: Fictional US additional duty on VN fasteners,ACT-05,2026-03-16,2026-04-13,2026-03-19,2026-03-19,0
+WI-26-014,Standard Cost,Tariff $ model,Model: Fictional US additional duty on VN fasteners,ACT-05,2026-03-19,2026-04-17,2026-03-23,2026-03-23,0
+WI-26-015,Standard Cost,PPV explanation,"PPV explanation for Finance, Mar 2026",,2026-04-03,2026-04-10,2026-04-08,2026-04-10,0
+WI-26-016,Research,Ad-hoc investigation,Ad-hoc investigation: country of origin question from Purchasing,,2026-04-14,2026-04-28,2026-04-23,2026-04-23,0
+WI-26-017,Research,Tariff-Impact Brief,Brief: Fictional US duty increase on CN chapters 73 and 76,ACT-06,2026-04-20,2026-05-25,2026-04-22,2026-04-22,0
+WI-26-018,Standard Cost,Tariff $ model,Model: Fictional US duty increase on CN chapters 73 and 76,ACT-06,2026-04-22,2026-05-29,2026-04-28,2026-04-28,0
+WI-26-019,Standard Cost,Standard cost update,Interim standard cost update: Fictional US duty increase on CN chapters 73 and 76,ACT-06,2026-04-29,2026-06-30,,,
+WI-26-020,Standard Cost,PPV explanation,"PPV explanation for Finance, Apr 2026",,2026-05-05,2026-05-12,2026-05-08,2026-05-08,0
+WI-26-021,Research,Tariff-Impact Brief,Brief: Fictional Canadian remission order for US aluminum goods,ACT-07,2026-05-11,2026-06-08,2026-05-15,2026-05-15,0
+WI-26-022,Standard Cost,Tariff $ model,Model: Fictional Canadian remission order for US aluminum goods,ACT-07,2026-05-15,2026-06-12,2026-05-18,2026-05-18,0
+WI-26-023,Standard Cost,PPV explanation,"PPV explanation for Finance, May 2026",,2026-06-03,2026-06-10,2026-06-08,2026-06-08,0
+WI-26-024,Research,Tariff-Impact Brief,Brief: Fictional Mexican decree on steel products from non-FTA countries,ACT-08,2026-06-08,2026-07-06,2026-06-12,2026-06-12,0
+WI-26-025,Standard Cost,Tariff $ model,Model: Fictional Mexican decree on steel products from non-FTA countries,ACT-08,2026-06-12,2026-07-10,2026-06-16,2026-06-16,0
+WI-26-026,Research,Ad-hoc investigation,Ad-hoc investigation: exclusion eligibility for a valve family,,2026-06-22,2026-07-06,2026-06-26,,0
+WI-26-027,Standard Cost,PPV explanation,"PPV explanation for Finance, Jun 2026",,2026-07-03,2026-07-10,2026-07-14,2026-07-14,1
+WI-26-028,Research,Tariff-Impact Brief,Brief: Fictional US stacking clarification for CN machinery parts,ACT-09,2026-07-06,2026-07-23,2026-07-28,2026-07-28,0
+WI-26-029,Standard Cost,Tariff $ model,Model: Fictional US stacking clarification for CN machinery parts,ACT-09,2026-07-28,2026-07-29,2026-08-03,2026-08-03,0
+WI-26-030,Research,Tariff-Impact Brief,Brief: Fictional US duty change on KR battery packs,ACT-10,2026-08-03,2026-09-01,2026-08-11,2026-08-11,0
+WI-26-031,Standard Cost,PPV explanation,"PPV explanation for Finance, Jul 2026",,2026-08-05,2026-08-12,2026-08-07,2026-08-07,0
+WI-26-032,Standard Cost,Tariff $ model,Model: Fictional US duty change on KR battery packs,ACT-10,2026-08-11,2026-09-07,2026-08-13,2026-08-13,0
+WI-26-033,Research,Ad-hoc investigation,Ad-hoc investigation: broker query on a valuation adjustment,,2026-08-18,2026-09-01,2026-08-31,2026-08-31,0
+WI-26-034,Standard Cost,PPV explanation,"PPV explanation for Finance, Aug 2026",,2026-09-03,2026-09-10,2026-09-08,2026-09-08,0
+WI-26-035,Research,Tariff-Impact Brief,Brief: Fictional Canadian surtax on selected US goods (SCN-02),ACT-11,2026-09-14,2026-11-09,2026-09-17,2026-09-17,0
+WI-26-036,Standard Cost,Standard cost update,Annual standard cost update: 2027 standards,,2026-09-14,2026-11-30,,,
+WI-26-037,Standard Cost,Tariff $ model,Model: Fictional Canadian surtax on selected US goods (SCN-02),ACT-11,2026-09-17,2026-11-13,,,
+WI-26-038,Research,Tariff-Impact Brief,Brief: Fictional US additional duty on fasteners and valves (SCN-01),ACT-12,2026-09-21,2026-11-24,,,

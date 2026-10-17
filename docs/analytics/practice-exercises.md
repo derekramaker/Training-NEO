@@ -1,10 +1,10 @@
 # Analytics Practice Pack: Exercises
 
-Last updated: 2026-10-08 · Owner: BSA Manager
+Last updated: 2026-10-17 · Owner: BSA Manager
 
-- **Purpose:** eight hands-on exercises on synthetic import data that build the M3 data skills both tracks need: profiling, joins without fan-out, effective-dated lookups, broker audit, USMCA claim checks, PPV, tariff scenario modeling, Power BI measures and a findings memo. Each exercise has SQL Server steps and Excel/Power Query steps.
-- **Who uses it:** Hire A (Research) and Hire B (Standard Cost) do every exercise. The Senior reviews Exercises 1 to 7 against the answer key. The key is trainer-only: it stays in [COMPANY: trainer-only location], never in the hires' OneNote sections or the onboarding folder. The Manager reads the Exercise 8 memo.
-- **When:** Exercises 1-2 in W1, 3-4 in W2, 5-6 in W3, 7-8 in W4. Exercises 1 to 6 are day-30 evidence (A30-5 and B30-5 in `docs/01-30-60-90-plan.md`). Day-by-day slots for W1-W2 are in `docs/02-weeks-1-2-schedule.md`.
+- **Purpose:** eleven hands-on exercises on synthetic import data. Exercises 1 to 8 (M3 core) build the data skills both tracks need: profiling, joins without fan-out, effective-dated lookups, broker audit, USMCA claim checks, PPV, tariff scenario modeling, Power BI measures and a findings memo. Exercises 9 to 11 (M3 analytics depth) add KPI design, a star-schema Power BI model with a prior-period measure, and variance statistics (price, quantity and mix; outlier rules). Each exercise has SQL Server steps and Excel/Power Query or Power BI steps.
+- **Who uses it:** Hire A (Research) and Hire B (Standard Cost) do every exercise. The Senior reviews Exercises 1 to 7 and 9 to 11 against the answer key. The key is trainer-only: it stays in [COMPANY: trainer-only location], never in the hires' OneNote sections or the onboarding folder. The Manager reads the Exercise 8 memo.
+- **When:** Exercises 1-2 in W1, 3-4 in W2, 5-6 in W3, 7-8 in W4; then 9 in W7, 10 in W8 and 11 in W9, about 1.5 h of self-study a week. Exercises 1 to 6 are day-30 evidence (A30-5 and B30-5 in `docs/01-30-60-90-plan.md`). Exercises 9 to 11, done and reviewed, are a day-60 Should criterion for both hires (Section 4 of the plan). Day-by-day slots for W1-W2 are in `docs/02-weeks-1-2-schedule.md`.
 
 ## How the pack works
 
@@ -18,8 +18,13 @@ Last updated: 2026-10-08 · Owner: BSA Manager
 | 6 Tariff scenario impact | W3 | Shared | 3 h | Senior, W3 |
 | 7 Power BI page with DAX measures | W4 | Both (Hire B goes deeper) | 3 h | Senior, W4; Power BI depth in W7 |
 | 8 One-page findings memo | W4 | Both, written individually | 1.5 h | Manager, W4 work review |
+| 9 KPI design | W7 (11/30–12/4) | Both, each for their own process | 1.25 h | Senior, W8 office hours (Wed 12/9) |
+| 10 Star-schema model in Power BI | W8 (12/7–12/11) | Both (Hire B goes deeper) | 1.5 h | Senior, in writing by Wed 12/16 (W9) |
+| 11 Variance statistics | W9, by Tue 12/15 | Both | 1.25 h | Senior, in writing by Thu 12/17 (W9) |
 
 "Leaning" means both hires do the core exercise, and the leaning hire also does the stretch and presents the result at the review. Exercise 6 is shared on purpose: Hire A owns the scope logic (the WHAT), Hire B owns the dollars (the $), as in the boundary rule.
+
+Exercises 9 to 11 build on the W7 Senior session on Power BI and warehouse depth and reuse your saved views and queries from Exercises 1, 2, 3, 5 and 7. Post Exercise 9 by the end of Tue 12/8, so the Senior can read it first and use the W8 office hours (Wed 12/9) for the differences. There are no Senior office hours in W9 (`docs/01-30-60-90-plan.md` Section 5), so the Senior reviews Exercises 10 and 11 in writing before the day-60 review: post Exercise 10 by the end of Fri 12/11 and Exercise 11 by the end of Tue 12/15. Take questions on the written review to the recap block of the next Senior session or to your 1:1.
 
 Rules for every exercise:
 
@@ -27,17 +32,20 @@ Rules for every exercise:
 - Save every SQL query with a header comment (purpose, source tables, author, date, exercise). Name every Power Query step so a reviewer can follow it.
 - Write down the row count before and after every join or filter. A row count that changes when it should not is the most common error in this pack.
 - Post each exercise to OneNote section 07 Analytics: the query or workbook, the result tables, three lines on what you learned, and open questions.
-- The answer key and the script that generated the data are trainer-only. You do not get either before the day-30 review: the key holds the answers, and the script's comments list every planted problem and its cause. Use each exercise's "Check yourself" to test your own work.
+- The answer key and the script that generated the data are trainer-only. You do not get the key before the day-30 review (its Exercise 9 to 11 sections not before the day-60 review), and you do not get the script before the day-60 review: the key holds the answers, and the script's comments list every planted problem and its cause. Use each exercise's "Check yourself" to test your own work.
 - When the Senior reviews a posted exercise, they tell you which results differ from the key, not what the right number is. Find the cause of each difference and write it down. A difference you can explain is worth more than a lucky match.
 - Stuck for 15 minutes on the same step? Log the question with what you tried (the stuck rule in `docs/05-time-management.md`), move to the next step, and bring it to the Senior's office hours.
+- Run the SQL in your practice scratch database (Setup, Option B), never in the team database. Creating a view or table in the team database is a schema change, and schema changes go through the Senior (`docs/primers/data-platform-primer.md`).
+- Copilot Chat may help you draft a query, a DAX measure or a KPI definition (`docs/primers/copilot-chat-guide.md`). Treat its output as a draft: check every number against your own query, and log the use in your Copilot use log. Before you paste anything that is not this synthetic data (for example the sanitized extract in Exercise 3), check [COMPANY: AI acceptable-use policy].
 
 ## The practice data
 
-The data is **synthetic**: a fictional importer of hardware, electrical and household goods into the US, Canada and Mexico. Items, suppliers, brokers, entries, values, costs and rates are invented. HTS codes have a real-looking format (the first 6 digits are real HS subheadings, the last 4 are random). **Synthetic: do not use for classification.** The duty rates and tariff scenarios are not the real rates or actions for these codes. For real rates and actions use `docs/primers/current-tariff-landscape.md`.
+The data is **synthetic**: a fictional importer of hardware, electrical and household goods into the US, Canada and Mexico. Items, suppliers, brokers, entries, values, costs and rates are invented. So is work_items, a fictional Jira export of the team's own Research and Standard Cost work, added for Exercise 9. HTS codes have a real-looking format (the first 6 digits are real HS subheadings, the last 4 are random). **Synthetic: do not use for classification.** The duty rates and tariff scenarios are not the real rates or actions for these codes. For real rates and actions use `docs/primers/current-tariff-landscape.md`.
 
 Facts about the data:
 
 - Entries and receipts fall between 2026-01-02 and 2026-09-30: nine months. To annualize, multiply by 12 / 9.
+- work_items shows each item's status on 2026-09-30, the data cut-off. All its dates fall on weekdays.
 - All money is in USD. Rates are decimals: 0.0340 means 3.4%.
 - Like real extracts, the data has deliberate data-quality problems. Finding them is part of the work.
 
@@ -53,6 +61,7 @@ Facts about the data:
 | duty_rates_reference | The expected rate for an import country, HTS and origin over a date range | import_country + hts10 + country_of_origin + effective_from | 228 |
 | receipts | A PO receipt line into the US warehouse | receipt_id | 1,500 |
 | tariff_scenario | A fictional proposed tariff action: one row per HTS prefix and origin | scenario_id + hts_prefix + country_of_origin | 11 |
+| work_items | A Research or Standard Cost work item (a fictional Jira issue), status on 2026-09-30 | work_item_id | 38 |
 
 ### How the tables join
 
@@ -61,6 +70,7 @@ Facts about the data:
 - items to suppliers on supplier_id; entries to brokers on broker_id; receipts to items on item_id.
 - duty_rates_reference joins on import_country (from entries), hts10 and country_of_origin (from items), **and** entry_date between effective_from and effective_to (both inclusive).
 - tariff_scenario joins on import_country and country_of_origin, where hts10 starts with hts_prefix.
+- work_items joins to no other table. Its action_ref links a Tariff-Impact Brief to the Tariff $ model for the same fictional action.
 
 ### Columns that need care
 
@@ -74,6 +84,9 @@ Facts about the data:
 | entry_lines.duty_amount | entered_value x duty_rate_applied, rounded to the cent | This is the duty actually paid |
 | duty_rates_reference.expected_rate | base_rate + additional_rate. The non-preferential rate | A valid USMCA claim means 0% in this data |
 | receipts.actual_landed_unit_cost | Actual cost per unit including freight and duty | Same unit as std_cost |
+| work_items.released_date | The date the checked output was released | Blank (NULL) = still open on 2026-09-30 |
+| work_items.checker_signoff_date | The date the checker signed off | Blank = no documented sign-off. A date after released_date is a sign-off after release |
+| work_items.errors_after_release | Material errors found after release | Blank while the item is open. Blank is not zero |
 
 ### Rules of this practice world
 
@@ -92,10 +105,10 @@ These simplify reality so the exercises have one right answer. Say them in your 
 
 1. Copy Practice-Data.xlsx from the onboarding folder to your working folder [COMPANY: OneDrive or SharePoint folder]. Read its README sheet.
 2. Create a new blank workbook for your work, for example `M3-practice-HireA.xlsx`.
-3. Data > Get Data > From File > From Excel Workbook, and pick your copy. In the Navigator tick "Select multiple items", select the eight `tbl_` tables (not the sheets), then click Transform Data.
-4. In Power Query, check the type icon on every column header. Codes (item_id, hts10, entry_no, receipt_id, po_no, supplier_id, broker_id, country codes, flags, hts_prefix) must be Text. Dates must be Date. qty and line_no are Whole Number. Money and rates are Decimal Number. If the hts10 icon shows "123" (a number), change the type to Text and choose Replace current.
+3. Data > Get Data > From File > From Excel Workbook, and pick your copy. In the Navigator tick "Select multiple items", select the nine `tbl_` tables (not the sheets), then click Transform Data. (tbl_work_items is used only in Exercise 9.)
+4. In Power Query, check the type icon on every column header. Codes (item_id, hts10, entry_no, receipt_id, po_no, supplier_id, broker_id, country codes, flags, hts_prefix) must be Text. Dates must be Date. qty, line_no and errors_after_release are Whole Number. Money and rates are Decimal Number. If the hts10 icon shows "123" (a number), change the type to Text and choose Replace current.
 5. View tab: tick Column quality, Column distribution and Column profile. In the status bar at the bottom, change "Column profiling based on top 1000 rows" to "based on entire data set". Otherwise the profile only looks at 1,000 rows.
-6. Home > Close & Load To > Only Create Connection, for the eight source queries. Load to a sheet only the result queries you build.
+6. Home > Close & Load To > Only Create Connection, for the nine source queries. Load to a sheet only the result queries you build.
 
 If you use the CSVs in the practice-data folder of the onboarding folder instead, import them with Data > From Text/CSV and set the types in Power Query. Never double-click a CSV to open it: Excel converts hts10 to a number and may reinterpret dates.
 
@@ -107,7 +120,7 @@ You need a database where you may create tables and views. The read-only access 
 2. SQL Server Developer or Express edition on your laptop, only if IT approves the install.
 3. Until one of these exists, use Option A. Exercises 1 and 2 do not need SQL.
 
-To load: open load_practice_data.sql (in the practice-data folder of the onboarding folder) in SQL Server Management Studio (or VS Code with the MSSQL extension), connect to the scratch database, and run the whole script (F5). It creates schema `practice`, the eight tables and all rows in a few seconds, and ends with a row count per table that must match the Tables section above. Rerun it any time to reset the data. Never run it against a production database.
+To load: open load_practice_data.sql (in the practice-data folder of the onboarding folder) in SQL Server Management Studio (or VS Code with the MSSQL extension), connect to the scratch database, and run the whole script (F5). It creates schema `practice`, the nine tables and all rows in a few seconds, and ends with a row count per table that must match the Tables section above. Rerun it any time to reset the data. Never run it against a production database.
 
 If you cannot run the script, the SSMS Import Flat File wizard (right-click the database > Tasks > Import Flat File) loads one CSV at a time. Name each table exactly as its CSV file. On the Modify Columns page set every code column to a text type (nvarchar), dates to date, money and rates to decimal, and allow nulls. If the tables land in schema dbo, run `CREATE SCHEMA practice;` once and then `ALTER SCHEMA practice TRANSFER dbo.items;` for each table. Afterwards check that blanks became NULL: `SELECT COUNT(*) FROM practice.items WHERE hts10 = '';` must return 0; if not, run `UPDATE practice.items SET hts10 = NULL WHERE hts10 = '';` and do the same for entry_lines.program_claimed.
 
@@ -453,6 +466,215 @@ Rules: one page (about 400 words). Round for reading ($31.4K), but every number 
 
 **Stretch.** Write the five-line version you would post as a Jira comment, and give the two-minute verbal version at the Friday teach-back.
 
+## Exercise 9: KPI design
+
+W7 · Both, each for their own process · 1.25 h · Reviewed by the Senior in W8 office hours (Wed 12/9)
+
+**Goal.** Write 3 or 4 KPIs for your primary process with the KPI definition checklist below. Then compute two of them on the practice data and say what each one tells the process owner.
+
+**Business context.** Your SOP needs KPIs with a definition, a target and a source (`docs/templates/knowledge/process-sop.md` Section 10), and your SOP v1.0 is day-90 evidence. A metric is any number you track. A KPI is a metric tied to an objective, with a target, an owner and a time frame, and someone acts when it moves. Power BI builds a KPI visual the same way: a value, a target and a status. Most arguments about a KPI are about its definition, not its arithmetic: which items count, which dates, what happens to open items. So write the definition first and compute second.
+
+**Data needed.** work_items (a fictional Jira export of the team's Research and Standard Cost work, status on 2026-09-30). Hire A: practice.v_rate_audit (Exercise 3). Hire B: practice.v_ppv (Exercise 5).
+
+**The KPI definition checklist.** Fill in every field for every KPI.
+
+| Field | What to write | Example: Research on time |
+|---|---|---|
+| Name and ID | Short and unambiguous | R-KPI-1 Research items released on time |
+| Decision it supports | Who acts, and what they do when it moves | The Manager rebalances Research work if it is below target two months running |
+| Formula | Numerator and denominator in words. A ratio of sums, never an average of ratios | Items released on or before their due date, divided by items due in the period |
+| Grain and filters | What one row is; what is in and what is out | One Jira item; process = Research; due date in the period. An open item past its due date counts as late; an item not yet due is left out |
+| Data source and refresh | Table or view, and when it refreshes | Practice: work_items. Real: [COMPANY: Jira project and filter] |
+| Owner | One role, accountable | Research process owner (Hire A from day 90) |
+| Target and thresholds | Target; what is green, amber, red; whether higher is better | [COMPANY: target]. For practice: green 90% or more, amber 80–90%, red below 80%; higher is better |
+| Frequency and time frame | How often it is computed, over what window, and where it is reviewed | Monthly, rolling 3 months, in the Manager 1:1 |
+| Leading or lagging | Does it warn early, or report a result? | Lagging |
+
+Two tests for each KPI:
+
+- **SMART.** Doran (1981) wrote it as Specific, Measurable, Assignable, Realistic, Time-related; later versions say Achievable, Relevant and Time-bound. Assignable is the letter teams forget: a KPI without an owner is just a metric.
+- **Leading or lagging.** A lagging KPI reports a result that has already happened (on time, PPV %). A leading KPI warns before the result moves (for example, the share of in-scope items with a confirmed HTS before an action takes effect). A good set has both.
+
+**Part A: define your KPIs (about 35 minutes).** Write 3 or 4 KPIs for your process (Hire A: Research; Hire B: Standard Cost). Include at least one timeliness KPI, one quality or control KPI and one leading KPI. Use these candidates or write your own:
+
+| Process | Candidate KPI | Leading or lagging | Practice data |
+|---|---|---|---|
+| Research | Research items released on time | Lagging | work_items |
+| Research | Median turnaround, received to released, in business days | Lagging | work_items |
+| Research | Broker filing accuracy: audited lines where the broker applied the expected rate | Lagging | v_rate_audit |
+| Research | Share of clean entry lines whose item has an HTS in the master | Leading | v_entry_lines_clean, items |
+| Standard Cost | Standard Cost items released on time (models, PPV explanations, cost updates) | Lagging | work_items |
+| Standard Cost | Standard cost accuracy: share of standard value received at a landed cost within 5% of standard | Leading | v_ppv |
+| Standard Cost | PPV % excluding outliers | Lagging | v_ppv |
+| Both | Releases with a checker sign-off on or before the release date | Lagging (control) | work_items |
+
+**Part B: compute two (about 40 minutes).**
+
+- **KPI 1, both hires:** on time for your own process (Hire A: process = Research; Hire B: process = Standard Cost), in total and by item_type, for items due from 2026-01-01 to 2026-09-30.
+- **KPI 2, Hire A:** broker filing accuracy = Match lines divided by Match + Over + Under lines in v_rate_audit, in total, by broker and by month.
+- **KPI 2, Hire B:** standard cost accuracy = standard value of the receipts whose actual_landed_unit_cost is within 5% of std_cost, divided by all standard value received, without the 12 outlier receipts (as in Exercise 5), in total and by month.
+
+**Rules for the work_items KPIs.**
+
+- Status is as of 2026-09-30. A blank released_date means the item is still open. A comparison with a blank (NULL) date is never true, so an open item fails `released_date <= due_date`. That is right for an open item past its due date. Decide, and write down, what you do with open items that are not yet due.
+- Business days are Monday to Friday with no holiday calendar (every date in work_items is a weekday). Turnaround = business days after received_date up to and including released_date. A real KPI uses [COMPANY: holiday calendar].
+
+**Steps: SQL Server.**
+
+1. Profile work_items: rows by process and item_type, open items and their due dates. Write the counts down.
+2. On time, by process. Then add item_type to the GROUP BY.
+
+```sql
+SELECT process,
+       COUNT(*) AS items_due,
+       SUM(CASE WHEN released_date <= due_date THEN 1 ELSE 0 END) AS on_time
+FROM practice.work_items
+WHERE due_date BETWEEN '2026-01-01' AND '2026-09-30'
+GROUP BY process;
+```
+
+3. List the late items and say why each is late: released late, or open and past due. Use action_ref: when a brief is late, what happens to its $ model?
+4. Turnaround: `DATEDIFF(day, received_date, released_date) - 2 * DATEDIFF(week, received_date, released_date)` gives the business days when both dates are weekdays (DATEDIFF with week counts the week boundaries crossed, and here each one is a weekend). Get the median with `PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY ...) OVER (PARTITION BY process)` and SELECT DISTINCT, and compare it with AVG.
+5. KPI 2. Hire A: from v_rate_audit, `WHERE audit_status IN ('Match', 'Over', 'Under')`, divide the Match lines by all these lines, in total, by broker and by month. Hire B: from v_ppv, `WHERE is_outlier = 0`, sum std_value_usd where `ABS(actual_landed_unit_cost - std_cost) <= 0.05 * std_cost` and divide by all std_value_usd, by month. Multiply, don't divide, in the test.
+
+**Steps: Excel and Power Query.**
+
+1. Load tbl_work_items to a sheet. Add columns: due_in_period `=AND([@due_date]>=DATE(2026,1,1), [@due_date]<=DATE(2026,9,30))`, on_time `=AND([@released_date]<>"", [@released_date]<=[@due_date])` and turnaround_bd `=IF([@released_date]="", "", NETWORKDAYS([@received_date], [@released_date]) - 1)`. NETWORKDAYS counts both end dates, hence the - 1.
+2. On time = `COUNTIFS([process], "Research", [due_in_period], TRUE, [on_time], TRUE) / COUNTIFS([process], "Research", [due_in_period], TRUE)`, with the table name in front of each column.
+3. Median turnaround: `=MEDIAN(IF((tbl[process]="Research") * (tbl[released_date]<>""), tbl[turnaround_bd]))`. Excel 365 calculates it as written; older Excel needs Ctrl+Shift+Enter. Use AVERAGEIFS for the mean.
+4. KPI 2. Hire A: pivot your Exercise 3 audit query, audit_status by broker_id and by month. Hire B: in your Exercise 5 query add a custom column `within_5pct = Number.Abs([actual_landed_unit_cost] - [std_cost]) <= 0.05 * [std_cost]`, then pivot std_value by month and within_5pct, with is_outlier = FALSE as a filter.
+
+**Deliverable.** A KPI definition sheet with one checklist table per KPI (3 or 4 KPIs); the two computed KPIs, in total and by type, broker or month; and three lines for each: what it says, what the owner should do now, and one thing the definition hides.
+
+**Check yourself.** On-time items + released late + open past due = items due in the period. Research and Standard Cost rows add up to all of work_items. Change one definition choice (drop open items, or count by release date instead of due date) and say how much the KPI moves. Hire A: Match + Over + Under = the audited lines in Exercise 3. Hire B: receipts inside and outside the 5% band add up to the Exercise 5 receipts excluding outliers.
+
+**Stretch.** (a) Both: compute the control KPI (sign-off on or before release). Name the items that fail and explain why "has a sign-off" is a different KPI. (b) Both: compute the median and the mean turnaround for your process and explain the gap. Which one goes in the SOP, and why? (c) Hire B: tariff-model turnaround end to end, in business days from the brief's received_date to its $ model's released_date, per action_ref. Who owns that KPI, and which part of it can Standard Cost control? (d) Copy your KPIs into Section 10 of your SOP draft.
+
+## Exercise 10: Star-schema model in Power BI
+
+W8 · Both (Hire B goes deeper) · 1.5 h · Post by Fri 12/11; reviewed by the Senior in writing by Wed 12/16 (no office hours in W9)
+
+**Goal.** Rebuild the entry-line data as a star schema you could hand to the reporting team: the grain declared in writing; one fact table and three dimension tables (item, date, broker); a marked date table; one-to-many, single-direction relationships; and five measures, including a prior-month comparison. Explain why each one is a measure and not a calculated column.
+
+**Business context.** Exercise 7 got the numbers right with shortcuts: chapter and origin were copied onto the fact table so that the UNK rows would show, and the import country came from the fact. That works for one page. It breaks when a second fact table or a second report arrives. Reporting backlog items (M8, from W10) and Hire B's reusable asset (B60-8) need models built the standard way, in Kimball's four steps and in this order: choose the business process, declare the grain, identify the dimensions, identify the facts. Not declaring the grain first is, in Kimball's words, the most frequent design error.
+
+**What is new compared with Exercise 7.**
+
+| Topic | Exercise 7 | Exercise 10 |
+|---|---|---|
+| Grain | Implied | Written down before anything is built |
+| Chapter and origin | Columns copied onto EntryLines | Attributes of the Item dimension, where they belong: they come from the item master |
+| Lines whose item is not in items | A (Blank) member in the Items slicers | "Not in item master" rows added to the Item dimension, so every fact row finds its item |
+| Supplier country | Not in the model | Flattened into the Item dimension, with no separate Supplier table |
+| Import country | A column on EntryLines | An attribute of the Broker dimension |
+| Date table | Date and Month | Year, Quarter, Month, Month number and Month name; marked; auto date/time off |
+| Measures | Totals and ratios | Adds a prior-month comparison (CALCULATE with DATEADD) and a month-on-month change (DIVIDE) |
+
+**Data needed.** v_entry_lines_clean, entries, items, suppliers, brokers. Or your Power Query lines_clean and the same tables.
+
+**Model.**
+
+- **Grain.** Write it in your notes before you build: one row per customs entry line as filed by the broker (entry_no + line_no), after the duplicate copies are removed. Every column on the fact table must be true at that grain.
+- **FactEntryLine:** entry_no, line_no, item_id, entry_date, broker_id, qty, entered_value, duty_amount, duty_rate_applied, program_claimed. entry_no and line_no stay on the fact as a degenerate dimension (identifiers with no table of their own). duty_rate_applied is a rate: keep it for drill-down, but never sum it.
+- **DimItem:** item_id (the key: one row per value), description, hts10, hts_chapter (UNK when hts10 is missing), country_of_origin, usmca_eligible_flag, supplier_country, std_cost, item_status. Add one row for each item_id that appears in the clean lines but not in items, with item_status and description "Not in item master" and UNK for chapter, origin and supplier country. Kimball's rule: give a missing dimension value its own "unknown" row instead of leaving the key unmatched.
+- **DimBroker:** broker_id, broker_name, import_country. In this data each broker files in one country, so import country can be a broker attribute. If a broker filed in two countries, import country would need its own dimension.
+- **DimDate:** built in DAX for 2026, with Year, Quarter, Month (first day of the month), Month number and Month name; marked as the date table.
+- **Relationships:** DimItem[item_id], DimBroker[broker_id] and DimDate[Date] each one-to-many to FactEntryLine, single direction.
+- **Bus matrix:** two rows (customs entry lines; PO receipts from Exercise 5) and three columns (Date, Item, Broker). Mark which dimensions each process uses. The shared ones are the conformed dimensions.
+
+**Measures to write.** Write them yourself; the Senior checks them against the reference DAX.
+
+| Measure | Definition |
+|---|---|
+| Total Entered Value | Sum of entered_value |
+| Total Duty | Sum of duty_amount |
+| Effective Duty Rate | Total Duty / Total Entered Value, with DIVIDE |
+| Duty Prior Month | Total Duty in the month before, with CALCULATE and DATEADD on DimDate[Date] |
+| Duty MoM % | (Total Duty - Duty Prior Month) / Duty Prior Month, with DIVIDE |
+
+Hint: `DATEADD(DimDate[Date], -1, MONTH)` returns the dates of the current filter context shifted back one month. Use it as the filter argument of CALCULATE.
+
+**Layout (one page).** A matrix with DimDate Month on rows and the five measures as values; slicers on DimBroker import_country, DimItem country_of_origin and DimItem hts_chapter; a card for Total Duty; and the text box "Synthetic practice data, Jan to Sep 2026. Not for business use."
+
+**Steps: SQL Server (shape the star).**
+
+1. Write the grain statement and the bus matrix first.
+2. Create `practice.v_dim_item`: items joined to suppliers (for supplier_country), with `COALESCE(LEFT(hts10, 2), 'UNK') AS hts_chapter` and item_status 'In item master'. Then UNION ALL one row per item_id in v_entry_lines_clean that is not in items (NOT EXISTS), with the "Not in item master" values.
+3. Create `practice.v_dim_broker` from brokers and `practice.v_fact_entry_line` from v_entry_lines_clean joined to entries (for entry_date and broker_id).
+4. Integrity checks, and write the results down: the dimension key is unique (`COUNT(*)` = `COUNT(DISTINCT item_id)`); every fact row finds its item and its broker (a NOT EXISTS count of 0); the fact has as many rows as v_entry_lines_clean.
+5. Tie-out query for the prior month: monthly duty, with `LAG(duty) OVER (ORDER BY month_start)` as the prior month. LAG takes the previous row, which is the previous month only because every month has data. DATEADD on a date table does not depend on that.
+
+**Steps: Power BI Desktop.**
+
+1. Get data > SQL Server (Import mode), the three views. No SQL: build DimItem in Power Query (items merged with suppliers; then Merge Queries, lines_clean to items, Left Anti, keep item_id, Remove Duplicates, add the "Not in item master" columns, and Append it to the items query). Name the queries FactEntryLine, DimItem and DimBroker.
+2. Turn off auto date/time for this file (File > Options and settings > Options > Current file > Data load). Otherwise Power BI adds a hidden date table for every date column.
+3. Modeling > New table: DimDate, from `CALENDAR(DATE(2026, 1, 1), DATE(2026, 12, 31))` with ADDCOLUMNS for the other columns. Sort Month name by Month number (Column tools > Sort by column). Mark it as the date table (Table tools > Mark as date table) on the Date column.
+4. Model view: create the three relationships. Check that each is one-to-many with a single cross-filter direction.
+5. Home > New measure, five times. Format the rate and the MoM % as percentages.
+6. Build the page and tie out: with no slicers, Total Duty and Effective Duty Rate equal your Exercise 2 grand total; each month's Total Duty and Duty Prior Month equal your LAG query.
+7. Save the .pbix to [COMPANY: your OneDrive working folder]. Do not publish it to a shared workspace.
+
+Menu names are as of Oct 2026; if one has moved, check https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-date-tables and https://learn.microsoft.com/en-us/power-bi/guidance/auto-date-time.
+
+If Power BI Desktop is not available, build the same model in Excel Power Pivot as in Exercise 7: make the date table with Design > Date Table > New, and write the same measures (DATEADD works there too).
+
+**Deliverable.** The .pbix, the grain statement, the bus matrix, a screenshot of the model view, the measure list, and a tie-out table (month, Total Duty, Duty Prior Month, Duty MoM %, SQL value, difference). Add five lines on why Effective Duty Rate and Duty Prior Month are measures and not calculated columns: what each would show as a column, and why.
+
+**Check yourself.** With no slicers, the card equals your Exercise 2 grand total. The UNK chapter row has the same lines and duty as in Exercise 2, and there is no (Blank) row anywhere. DimItem rows = items rows + the orphan item IDs you found in Exercise 1. The nine monthly Total Duty values add up to the card. January's Duty Prior Month is blank and you can say why; February's equals January's Total Duty.
+
+**Stretch.** (a) Hire B: add Receipts (from v_ppv) as a second fact, related to DimItem and DimDate, and write PPV % with DIVIDE. Show that a DimItem country_of_origin slicer filters both facts while a DimBroker slicer filters only the entry lines, and say why. (b) Hire A: write Duty Prior Quarter (DATEADD by QUARTER) and find the chapter and origin that explain most of the Q3 vs Q2 change. Why does this view not show the June rate change? (c) Both: what would `CALCULATE([Total Duty], SAMEPERIODLASTYEAR(DimDate[Date]))` show on this data, and why? (d) Both: what does Duty Prior Month show in the matrix total row, where no single month is selected? Explain it, and write a version that stays blank there.
+
+## Exercise 11: Variance statistics
+
+W9, by Tue 12/15 · Both · 1.25 h · Reviewed by the Senior in writing by Thu 12/17, before the day-60 review (no office hours in W9)
+
+**Goal.** Part A: split the change in US duty paid between Q1 and Q3 2026 into a rate (price) effect and a value (quantity) effect, then split the value effect into mix and volume. Part B: find the unusual receipt lines with the 1.5 x IQR rule and with a z-score, compare both with Exercise 5's business rule, and decide which lines need investigation. Deleting any of them is not an option; say why.
+
+**Business context.** "US duty is up this quarter. Why?" is a question Finance asks, and "rates went up" is half an answer. A decomposition says how much came from rates, how much from importing more, and how much from importing a different mix. Research owns the rate part (the WHAT); Standard Cost turns it into cost and PPV (the $). The statistics part matters as much. An outlier rule finds lines that are unusual; the business decides which are wrong. NIST's guidance is to investigate outliers, and to correct or remove a value only when it is shown to be in error. In cost data, many unusual lines are real price changes: exactly the ones a standard cost update needs.
+
+**Data needed.** Part A: v_entry_lines_clean, entries, items. Part B: v_ppv (Exercise 5).
+
+**Rules, Part A.**
+
+- Scope: clean lines with import_country = US. Base period Q1 (2026-01-01 to 2026-03-31); current period Q3 (2026-07-01 to 2026-09-30). Groups: HTS chapter and origin, as in Exercise 2, UNK included.
+- For each group and period: entered value V, duty D and effective rate r = D / V.
+- Rate effect = sum over groups of (r in Q3 - r in Q1) x V in Q3. Value effect = sum of (V in Q3 - V in Q1) x r in Q1. Rate effect + value effect = Q3 duty - Q1 duty.
+- Mix and volume. The data allows a mix split because value is in dollars for every group. Base mix share m = the group's Q1 value / total Q1 value. Volume effect = sum of (total Q3 value x m - V in Q1) x r in Q1. Mix effect = sum of (V in Q3 - total Q3 value x m) x r in Q1. Mix + volume = value effect.
+- Positive = more duty (unfavorable). This is one standard convention, adapted from ACCA's materials mix and yield method: rate valued at current value, value valued at base rate. Other conventions split the same total differently, so name yours. The split also depends on the grouping: name that too.
+
+**Rules, Part B.**
+
+- ratio = actual_landed_unit_cost / std_cost on all 1,500 receipts. Keep the 12 Exercise 5 outliers in: you are testing the rules.
+- 1.5 x IQR rule (Tukey fences): take the first and third quartiles Q1 and Q3 of the ratio (here Q1 and Q3 are quartiles, not the quarters of Part A) with linear interpolation (QUARTILE.INC in Excel, PERCENTILE_CONT in SQL Server, PERCENTILE.INC in DAX). IQR = Q3 - Q1. Flag a ratio below Q1 - 1.5 x IQR or above Q3 + 1.5 x IQR. Beyond 3 x IQR is an extreme outlier. Tools differ slightly in how they compute quartiles, so say which tool you used.
+- z-score: z = (ratio - mean) / sample standard deviation (STDEV.S in Excel, STDEV in T-SQL). Flag |z| > 3.
+- Never delete or overwrite a receipt. Flag it, investigate it, report it separately.
+
+**Steps: SQL Server, Part A.**
+
+1. One query with conditional aggregation: per chapter and origin, the Q1 and Q3 sums of entered_value and duty_amount (`SUM(CASE WHEN e.entry_date BETWEEN '2026-01-01' AND '2026-03-31' THEN el.entered_value ELSE 0 END)` and so on). Check that the groups add up to the US quarter totals.
+2. Add the rates and the base mix with window totals (`SUM(v_q1) OVER ()`). Convert to float before dividing, for example `CAST(d_q1 AS float) / NULLIF(v_q1, 0)`. With two DECIMAL sums SQL Server keeps only 6 decimal places of the quotient, and multiplying that rounded rate by a large value moves the effects.
+3. Compute the four effects per group, sum them, and check both identities.
+4. List the top 5 groups by absolute rate effect and by absolute mix effect. For the biggest rate effect, compare with the 2026-06-01 change in duty_rates_reference. For any other large one, drill down to item: is it a real rate change, or a change in which items (and which claims) make up the group?
+
+**Steps: SQL Server, Part B.**
+
+1. From v_ppv: `CAST(actual_landed_unit_cost AS float) / NULLIF(std_cost, 0) AS ratio`, with receipt_id, item_id, receipt_date, country_of_origin, hts_chapter, is_outlier and ppv_usd.
+2. One row of statistics: `SELECT DISTINCT PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY ratio) OVER () AS q1`, the same with 0.75, `AVG(ratio) OVER ()` and `STDEV(ratio) OVER ()`.
+3. CROSS JOIN the statistics to the receipts and add tukey_flag and z_flag. Count the receipts by is_outlier, tukey_flag and z_flag.
+4. Group the flagged receipts that are not business-rule outliers: CN chapters 73 and 76 on or after 2026-06-01, then the rest by item with the first and last flagged date. A run of flags on one item from a date onward is a price change, not a bad line.
+5. Recompute the mean, SD and z without the 12 business-rule outliers. What changes?
+
+**Steps: Excel.**
+
+1. Part A: from your US clean lines, insert a PivotTable (rows hts_chapter and country_of_origin in tabular form, columns quarter, values Sum of entered_value and Sum of duty_amount; filter the quarters to 1 and 3). In Power Query, Add Column > Date > Quarter > Quarter of Year gives the quarter. Copy the pivot and Paste Values to a calculation sheet. Add formula columns for both rates, the base mix share and the four effects, and total them.
+2. Part B: add a ratio column to your Exercise 5 table. In cells: `=QUARTILE.INC(tbl[ratio], 1)`, `=QUARTILE.INC(tbl[ratio], 3)`, `=AVERAGE(...)`, `=MEDIAN(...)`, `=STDEV.S(...)`. Add flag columns and count them with COUNTIFS. Pivot the flags by is_outlier, and the flagged receipts by item and month.
+
+**Deliverable.** Part A: a bridge from Q1 duty to Q3 duty (rate effect, mix effect, volume effect, with the check), the top groups, and three sentences on what drove the change. Part B: a counts table (business rule, IQR rule, z-score, and their overlap), the flagged receipts grouped by likely cause with an action for each (who checks what, and by when), and four sentences: why the z-score found fewer, which lines need investigation, which are explained, and why deleting them would be wrong.
+
+**Check yourself.** Rate + value effect = Q3 duty - Q1 duty, to the cent. Mix + volume = value effect. Volume effect = (total Q3 value - total Q1 value) x the total Q1 rate, whatever grouping you use. Flagged + not flagged = 1,500 for each rule. Compare the three flag sets receipt by receipt: you can say which receipts each rule catches that the others miss, and why.
+
+**Stretch.** (a) Hire A: redo Part A grouped by origin only, then by item. Explain why the rate effect changes, and why the item-level version needs a rule for items imported in only one of the two quarters. (b) Hire B: for the CN chapter 73 and 76 items, split the change in landed spend on receipts (actual_landed_unit_cost x qty, outliers excluded) between Q1 and Q3 into price and quantity, item by item. Why is there no mix split here? Compare the price effect with the change in spend and explain the difference. (c) Both: compute NIST's modified z-score, M = 0.6745 x (ratio - median) / MAD, where MAD is the median absolute deviation from the median, and flag |M| > 3.5. How many does it flag, and why is it not fooled the way the z-score is?
+
 ## Review guide for the Senior
 
 | Criterion | What good looks like |
@@ -463,11 +685,14 @@ Rules: one page (about 400 words). Round for reading ($31.4K), but every number 
 | Careful with NULLs and grain | Missing HTS, orphans and duplicates are counted and reported, not silently dropped |
 | Business sense | Each result has a "so what" for Research or Standard Cost and a sensible next step |
 | Boundaries | No broker contact, no system writes, corrections escalated to the Senior |
+| Definitions first (Exercises 9 to 11) | Every KPI fully defined before it is computed; the grain written before the model is built; the decomposition convention and grouping named |
+| Statistics in context | Flags are investigated and explained, never deleted; robust measures (median) used where the data is skewed |
 
 ## Related files
 
-- In the onboarding folder: Practice-Data.xlsx, the practice-data folder (CSVs and load_practice_data.sql), Tariff-Impact-Model-Template.xlsx, and BSA-Onboarding.apkg (Unit 04 › Data, SQL and Power BI; more SQL and Power BI cards in Reference › BSA craft and data)
-- Trainer-only until the day-30 review: the answer key and the data generator script ([COMPANY: trainer-only location])
+- In the onboarding folder: Practice-Data.xlsx, the practice-data folder (CSVs and load_practice_data.sql), Tariff-Impact-Model-Template.xlsx, and BSA-Onboarding.apkg (Unit 04 › Data, SQL and Power BI; Unit 06 › Analytics depth: models, measures, KPIs; more SQL and Power BI cards in Reference › BSA craft and data)
+- Trainer-only ([COMPANY: trainer-only location]): the answer key, not shared before the day-30 review (its Exercise 9 to 11 sections not before the day-60 review), and the data generator script, not shared before the day-60 review
 - `docs/primers/customs-trade-compliance-primer.md`, `docs/primers/trade-systems-gtm-e2open-primer.md`
 - `docs/templates/domain/tariff-impact-model-guide.md`, `docs/templates/domain/standard-cost-update-checklist.md`
 - `docs/05-time-management.md` (stuck rule, question log, office hours)
+- `docs/templates/knowledge/process-sop.md` (Section 10, KPIs), `docs/primers/data-platform-primer.md` (where you may run SQL), `docs/primers/copilot-chat-guide.md` (AI output is a draft)

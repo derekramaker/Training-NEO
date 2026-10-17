@@ -19,3 +19,6 @@ RATES are decimals: 0.0340 means 3.4%.
 LOADING: Excel/Power Query: use Practice-Data.xlsx (one Excel table per sheet). SQL Server: run load_practice_data.sql in a scratch database, or import the CSVs (see the exercises, Setup).
 Keep hts10, item_id and other codes as TEXT. If Excel turns hts10 into a number, re-import and set the column type to Text.
 The data contains deliberate data-quality problems, like real data. Finding them is part of the exercises.
+
+ADDED IN VERSION 1.2 (2026-10-17): the work_items table. The eight tables above are unchanged from version 1.1 (2026-10-08).
+work_items: one work item (a fictional Jira issue) for the team's Research or Standard Cost work, Jan to Sep 2026; work_item_id. Status as of 2026-09-30. released_date blank = still open. checker_signoff_date blank = no documented checker sign-off. errors_after_release = material errors found after release (blank while the item is open). action_ref links a brief and its $ model. All dates are business days (Monday to Friday). Used in Exercise 9.
