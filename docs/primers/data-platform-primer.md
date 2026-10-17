@@ -3,7 +3,7 @@
 Last updated: 2026-10-17 · Owner: BSA Manager
 
 - **Purpose:** the self-study backbone for M12 (the team's data platform). It teaches you to use the platform safely and to see how its pieces connect: the team database (SQL Server, in SSMS), Oracle EBS production (read-only, in DBeaver), the Power BI premium workspace and its gateway, Power Automate and Power Apps on our databases, and the remote server where scheduled jobs run. By day 60 you own a tool that depends on some of these pieces, so you must be able to trace its path end to end and troubleshoot it read-only when something breaks. Scope until day 90 is **use only**: you query and load data; you do not change the platform.
-- **Who uses it:** Hire A and Hire B for self-study (about 5.5 hours in W1–W6, taken from the existing self-study budget) and three labs (Part 10). The Senior uses Parts 1 and 2 in the W1 data landscape tour and reviews the SSMS lab in the W4 SQL review. The Manager uses Parts 2, 3, 7 and 8 in the W2 data platform walkthrough, owns the service-account decision (3.3) and keeps the filled platform map (`docs/templates/knowledge/data-platform-map.md`).
+- **Who uses it:** Hire A and Hire B for self-study (about 5.5 hours in W1–W6, taken from the existing self-study budget) and three labs (Part 10). The Senior uses Parts 1 and 2 in the W1 data landscape tour and reviews the SSMS lab in the W4 SQL review. The Manager uses Parts 2, 3, 6, 7 and 8 in the W2 data platform walkthrough, owns the service-account decision (3.3) and keeps the filled platform map (`docs/templates/knowledge/data-platform-map.md`).
 - **When:** Part 1 in W1, before your first SSMS or DBeaver session. Then follow the study plan below. Re-read Part 1 before each milestone review and whenever your access changes.
 
 ## How to use this primer
@@ -21,7 +21,7 @@ Evidence: following the safe-use rules (Part 1) and finishing the SSMS lab are a
 
 Tailoring:
 
-- **Hire A (Research):** your data is mostly trade data: HTS codes, origin, rates and entry lines, which reach the team database from the AS400 trade system and broker files [COMPANY: confirm]. You can script, so Parts 1 (rule 7), 8.4 and 8.5 matter most: a Python script never holds a password and never runs against production from your laptop. If your owned tool is a Python job on the server, do the server lab with special care.
+- **Hire A (Research):** your data is mostly trade data: HTS codes, origin, rates and entry lines, which reach the team database from the AS400 trade system and broker files [COMPANY: confirm]. You can script, so Parts 1 (rules 7 and 11), 8.4 and 8.5 matter most: a Python script never holds a password, and nothing you script writes to production or runs on a schedule until your checker has reviewed it. If your owned tool is a Python job on the server, do the server lab with special care.
 - **Hire B (Standard Cost):** your data is cost data from Oracle EBS. If your DBeaver connection to EBS arrives before W3, read Part 5 before you use it, in W2 time. Use the team database's copy of EBS data first and go to EBS only for what the copy lacks (2.2). Cost and supplier price data is sensitive: rule 8 applies to every extract.
 
 Conventions: [COMPANY: ...] marks a company fact the Manager or Senior confirms. KIT-100, PART-A and object names such as `rpt.v_item_trade` are fictional and marked "(example name)". Product facts (licensing, limits, names) carry "as of Oct 2026" and a link: check the link before you rely on one, and trust what you see in our tenant over this page. Terms are in the Glossary tab of the trackers workbook.
@@ -34,15 +34,15 @@ Read this page before you open SSMS or DBeaver for the first time. The rules app
 
 1. **Your personal login for all interactive work.** SSMS, DBeaver, Power BI, Power Automate, Power Apps and Remote Desktop: you sign in as yourself, every time, so every action can be traced to you (3.2).
 2. **Never the service account.** Never sign in with it, never ask for or accept its password, never type it into anything. It lives only in saved, unattended connections that the Manager or IT sets up (3.2, 3.3).
-3. **Oracle EBS production is read-only.** Your DBeaver account on EBS can only read, and you write only SELECT queries: filtered by organization, row-limited, short. Heavy queries run only in [COMPANY: off-peak window for EBS queries] and only after the Manager agrees. You never run INSERT, UPDATE, DELETE, MERGE or any statement that changes structure (DML or DDL). If DBeaver asks you to confirm a statement on EBS, the answer is No: it asks because the statement would change data (5.1).
+3. **Oracle EBS production is read-only.** Your DBeaver account on EBS can only read, and you write only SELECT queries: filtered by organization, row-limited, short. Heavy queries run only in [COMPANY: off-peak window for EBS queries] and only after the Manager agrees. You never run DML (INSERT, UPDATE, DELETE, MERGE: statements that change data) or DDL (CREATE, ALTER, DROP: statements that change structure). If DBeaver asks you to confirm a statement on EBS, the answer is No: it asks because the statement would change data (5.1).
 4. **Loads go only into [COMPANY: sandbox or staging schema in the team database]:** only your own tables, named by the convention in 4.5, dropped when you are done. Nothing that a report, flow, app or tool relies on may ever read from a sandbox table.
 5. **Use, don't change, the team database.** Outside the sandbox you never create, alter or drop tables, views, procedures or jobs. Those change through the Senior. If your owned tool needs a change to team-database objects, it goes through a change request with the Senior as checker (4.6).
-6. **No production write before the day-60 review (Fri 12/18)** except what `docs/04-access-request-checklist.md` rules 2 and 3 allow: from W6, the test copy of your own tool. No INSERT, UPDATE or DELETE outside the sandbox, and never "Edit Top 200 Rows" on a shared table (4.2).
+6. **No production write before the day-60 review (Fri 12/18)** except what `docs/04-access-request-checklist.md` rule 2 allows: from W6, the test copy of your own tool. Your own sandbox tables (rule 4) are not production. No INSERT, UPDATE or DELETE outside the sandbox, and never "Edit Top 200 Rows" on a shared table (4.2).
 7. **No credentials in scripts, flows or files.** No passwords, keys or connection strings with passwords in code, config files, Excel cells, OneNote, Jira, email, Teams, screenshots or Copilot prompts. If you find one, do not copy or use it; tell the Manager the same day (8.5).
 8. **Export only what you need, and keep it in [COMPANY: approved location for data extracts].** Only the rows and columns the task needs. Never on personal devices, personal email or personal cloud drives (`docs/04-access-request-checklist.md` rule 7). Delete it when the task closes ([COMPANY: retention rule for extracts]).
 9. **Hands off the server's setup.** On the remote server you never restart or shut it down, install or update software (Python packages included), or create, change, run or disable scheduled tasks or services. Sign out when you finish (8.2).
 10. **Hands off production connections.** Never edit, re-sign, share or delete a gateway connection, a flow connection, a production flow or app, or a semantic model's settings. Never share a report or add people to a workspace.
-11. **Code that Copilot writes is a draft.** It never runs on EBS or on production objects. You read and explain every line and test it in the sandbox first (`docs/primers/copilot-chat-guide.md` 2.4).
+11. **Unreviewed code never runs on production, and Copilot's code is a draft.** Read and explain every line of any script or query you did not write yourself, and test it in the sandbox or on the practice data first. A SELECT you understand may then run on the views your login can read. Anything that writes, sends output or runs on a schedule is reviewed by your checker and reaches production only through its owner (rule 6). Copilot-written code never goes straight from the chat to EBS or to production objects, and never into an EBS session (`docs/primers/copilot-chat-guide.md` 2.4).
 12. **When unsure, stop and ask.** Ask before you run it. If something has already happened, do not try to fix it yourself: follow 1.3.
 
 ### 1.2 What "use only" means
@@ -56,18 +56,18 @@ Read this page before you open SSMS or DBeaver for the first time. The rules app
 | Power Automate and Power Apps | Use apps; read run history with the owner; from W6, a test copy of your owned tool in [COMPANY: dev or sandbox environment] (AR-13) | Edit production flows or apps; change, re-sign or delete connections |
 | Remote server | Sign in as yourself; read Task Scheduler, logs and folders on the tour | Restart, install, change tasks or services; leave sessions running |
 
-From the day-60 review the Manager may grant production change rights for your owned tool only, through change control (`docs/04-access-request-checklist.md` rule 3). The rest of this table stays as it is until day 90.
+From the day-60 review the Manager may grant production change rights for your owned tool only, through change control (`docs/04-access-request-checklist.md` rule 3). The rest of this table stays as it is until day 90. Team-database objects (tables, views, procedures, jobs) still change only through the Senior, even when your owned tool uses them (4.6).
 
 ### 1.3 If something goes wrong
 
-- [ ] Stop. Run nothing else on that system and do not try to undo it, except a ROLLBACK of your own open transaction in the sandbox (4.4).
+- [ ] Stop. Run nothing else on that system and do not try to undo it. The only exception is a ROLLBACK of your own open transaction: in the sandbox (4.4), or a pending transaction DBeaver shows on EBS (5.1).
 - [ ] Write down the time, the system, the exact text you ran, the message you saw, and take a screenshot.
 - [ ] Tell the Senior (team database, Power BI) or the Manager (EBS, flows, apps, the server, anything else) within the hour, by Teams call or in person, not only in chat. Log a Jira bug if the Manager asks (`docs/primers/sdlc-primer.md` 8.3). Saying "I think I changed something" early turns a small problem into a quick fix; waiting turns it into an incident.
 
 ### 1.4 Checklist before your first session
 
 - [ ] Part 1 read; date noted in your Access tracker page (`docs/04-access-request-checklist.md` rule 8).
-- [ ] SSMS and DBeaver installed from [COMPANY: software portal or IT ticket] (AR-07). The Senior has told you what your SQL Server login can do: read on [COMPANY: team database]; create, load and drop only in [COMPANY: sandbox or staging schema in the team database] ([COMPANY: DBA confirms the sandbox grant]).
+- [ ] SSMS installed from [COMPANY: software portal or IT ticket] with your SQL Server access (AR-07). DBeaver and your personal EBS database account come through [COMPANY: access request for DBeaver and a read-only EBS database account]; AR-05 covers EBS screens (inquiry), not database access. The Senior has told you what your SQL Server login can do: read on [COMPANY: team database]; create, load and drop only in [COMPANY: sandbox or staging schema in the team database] ([COMPANY: DBA confirms the sandbox grant]).
 - [ ] **The Manager has confirmed with [COMPANY: ERP security] that your DBeaver EBS account is read-only** at the database. That account is the real control; the DBeaver settings in 5.1 are a safety net.
 - [ ] Your DBeaver EBS connection uses the Production connection type and the Read-only connection setting, checked on your screen by the Manager (5.1).
 - [ ] You know who to call for each system (the "Who to call" table in the platform map).
@@ -95,7 +95,7 @@ The platform is a chain. Data starts in Oracle EBS (and in the AS400 trade syste
 ### 2.2 The data path, step by step
 
 1. **Oracle EBS records the business:** items, item costs, POs and receipts are created there by Purchasing, Receiving and Finance. EBS is always the most current, and the most expensive place to query.
-2. **Data reaches the team database** by [COMPANY: how EBS data gets to the team database: scheduled extract job, ETL tool, linked server, file drop or the warehouse feed], on [COMPANY: schedule], running as [COMPANY: account]. AS400 trade data and broker entry files arrive the same way [COMPANY: how and when]. The team database is a copy: it is as fresh as its last successful load.
+2. **Data reaches the team database** by [COMPANY: how EBS data gets to the team database: scheduled extract job, ETL (extract, transform, load) tool, linked server, file drop or the warehouse feed], on [COMPANY: schedule], running as [COMPANY: account]. AS400 trade data and broker entry files arrive the same way [COMPANY: how and when]. The team database is a copy: it is as fresh as its last successful load.
 3. **Views in the team database shape the data** for reports and tools: they join, filter and rename so that every report uses the same logic [COMPANY: which schemas hold reporting views]. A change to a view changes every report and tool that reads it, which is why views change only through the Senior.
 4. **The Power BI semantic model refreshes from those views through the gateway** on a schedule. The gateway connection holds one stored credential, the service account under the recommended model, and every refresh runs as that account (6.5).
 5. **Reports show the semantic model's data as of its last successful refresh.** A report can look normal while showing data that is days old (6.4).
@@ -109,14 +109,14 @@ Three things follow from the path:
 - **Every connection runs as an account.** Whoever's credentials sit in a gateway connection, a flow connection, an app connection or a scheduled task is who the data source sees. That is why the account model matters (Part 3).
 - **Every hop has an owner.** When a link breaks, the owner of that link fixes it. Your job is to find which link broke and tell the right person (Part 9).
 
-**How this applies to our work:** Research follows the path from the AS400 and broker files to the views behind trade reports. Standard Cost follows it from EBS cost and receipt data to the PPV and landed-cost views and models. For your owned tool, the day-60 platform path is this chain drawn for one tool. On e2open, the filled map is the start of the interface inventory: which feeds the new system replaces, and which new feeds the team database will need [COMPANY: confirm with the e2open project].
+**How this applies to our work:** Research follows the path from the AS400 and broker files to the views behind trade reports. Standard Cost follows it from EBS cost and receipt data to the PPV (purchase price variance) and landed-cost views and models. For your owned tool, the day-60 platform path is this chain drawn for one tool. On e2open, the filled map is the start of the interface inventory: which feeds the new system replaces, and which new feeds the team database will need [COMPANY: confirm with the e2open project].
 
 ## 3. Accounts: personal and service
 
 ### 3.1 Two kinds of account
 
 - **Your personal account** is you: your Windows and Microsoft Entra ID (work) account, plus your personal read-only EBS database account. You use it for everything you do yourself.
-- **A service account** is not a person. It is used by a service, a job or a saved connection. The team has one with the same access as the team [COMPANY: confirm its name in the platform map's Accounts table]. Because it can do whatever the team can do, anyone who uses it can do all of that without leaving their own name behind.
+- **A service account** is not a person. It is used by a service, a job or a saved connection. The team has one with the same access as the team [COMPANY: its label in the platform map's Accounts table]. Because it can do whatever the team can do, anyone who uses it can do all of that without leaving their own name behind.
 
 ### 3.2 The recommended model, and why attribution matters
 
@@ -141,7 +141,7 @@ Why it matters: maker-checker only works if the record shows who made what. When
 | Querying the team database in SSMS; loading into the sandbox | Your personal login | Attributable; your grant is your limit |
 | Querying EBS in DBeaver | Your personal read-only EBS account | The read-only grant is the real control (5.1) |
 | Power BI, Power Automate, Power Apps and Remote Desktop, when you use them | Your personal account | Roles and licenses are per person; attributable |
-| Saved, unattended connections: gateway refresh credentials, flow connections, scheduled tasks on the server | The service account under the recommended model (or a managed identity, 3.3) | Runs when nobody is signed in; must not stop when a person leaves |
+| Saved, unattended connections: gateway refresh credentials, flow connections, scheduled tasks on the server | The service account under the recommended model (or a service principal or gMSA, if the Manager decides so in 3.3) | Runs when nobody is signed in; must not stop when a person leaves |
 
 ### 3.5 If anyone offers you a shared login
 
@@ -194,7 +194,7 @@ INFORMATION_SCHEMA.COLUMNS returns "one row for each column that can be accessed
 ### 4.4 Query habits
 
 - **Header comment** on every saved query: purpose, source objects, author, date, row-count checks (the format in `docs/analytics/practice-exercises.md`, "SQL habits for this pack").
-- **Explicit columns, never `SELECT *`.** Microsoft's own code-analysis rule says the columns returned "might change if the underlying table or view changes".
+- **Explicit columns, never `SELECT *`.** Microsoft's own code-analysis rule says the columns returned "might change if the underlying table or view changes" (check https://learn.microsoft.com/en-us/sql/tools/sql-database-projects/concepts/sql-code-analysis/t-sql-design-issues).
 - **`WHERE` first, and `TOP` always with `ORDER BY`.** Filter by date, status or item set before you look at results. For TOP, ORDER BY "is the only way to predictably indicate which rows are affected" (check https://learn.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql).
 - **No `WITH (NOLOCK)`.** It allows dirty reads: "data that was never committed", or "records twice (or not at all)" (check https://learn.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table).
 - **Save every script** to [COMPANY: script location for team queries], named so others can find it (for example `M12-lab-HireA-step4.sql`, example name). A query that matters is never only in an unsaved tab.
@@ -235,7 +235,7 @@ A new or changed table, view, procedure or job in the team database is a schema 
 - [ ] Write the need as a Jira story with the business reason, agree it with the Senior, then open a change request (`docs/templates/bsa/06-change-request.md`; Technology: "configuration (team database object)"). Before: the current definition, saved with `OBJECT_DEFINITION` (4.3); it is also your rollback script. After: the new definition.
 - [ ] Impact: every report, semantic model, flow, app and tool that reads the object, from the platform map and the tool docs. A renamed column breaks every one of them (6.6).
 - [ ] Test in the sandbox: build your version there under your own name (for example `sbx.hirea_v_item_trade_test`, example name) and compare old and new results on the same data.
-- [ ] Checker: the Senior. Approver: the Manager. The Senior or [COMPANY: DBA] makes the production change; before the day-60 review you never do (rule 6). Afterwards, check the next refresh and run of everything on the impact list.
+- [ ] Checker: the Senior. Approver: the Manager. The Senior makes the production change (`docs/primers/sdlc-primer.md` 4.2); through day 90 you never do, even for your owned tool (rule 5). Afterwards, check the next refresh and run of everything on the impact list.
 
 ### 4.7 Backups and restores
 
@@ -262,9 +262,9 @@ How to tell you are read-only: in the data editor, editing buttons are disabled 
 ### 5.2 Query habits on EBS
 
 - **Ask first whether the team database already has the data** (2.2). EBS is the last resort, not the first stop.
-- **Limit rows:** end every exploratory query with `FETCH FIRST n ROWS ONLY` (Oracle's row-limiting clause, available from Oracle Database 12c; our EBS database version is [COMPANY: confirm with the ERP or DBA team]). Use `ORDER BY` with it when you need predictable rows.
+- **Limit rows:** end every exploratory query with a row limit. The examples here use `FETCH FIRST n ROWS ONLY` (Oracle's row-limiting clause), which older Oracle versions do not support: [COMPANY: confirm the EBS database version and the row-limit syntax with the ERP or DBA team] in your first EBS session, before you rely on it. Use `ORDER BY` with it when you need predictable rows.
 - **Filter by organization** every time, and by date or item set ([COMPANY: our operating units and inventory organizations, and their codes]; 5.3).
-- **No `SELECT *` on large tables.** EBS tables are wide; list the columns you need.
+- **No `SELECT *` on large tables.** List only the columns you need: less work for the production database, and a saved query that does not break when columns change.
 - **The grid is not the result.** DBeaver fetches 200 rows at a time by default and loads more as you scroll; "select and show all rows" removes that limit and is exactly the costly pattern to avoid (check https://github.com/dbeaver/dbeaver/wiki/Data-Editor-preferences).
 - **Heavy queries off-peak** in [COMPANY: off-peak window for EBS queries], with the Manager's agreement, or ask [COMPANY: ERP team] for a report instead. A long query on a busy database can also fail with "ORA-01555: Snapshot too old" (as described by Microsoft for Oracle sources; check https://learn.microsoft.com/en-us/sql/relational-databases/replication/non-sql/troubleshooting-oracle-publishers).
 - **Cancel a runaway query** from the Background Tasks view with Cancel Operation (check https://github.com/dbeaver/dbeaver/wiki/Background-Tasks), then tell the Manager what you ran.
@@ -283,7 +283,7 @@ FETCH FIRST 50 ROWS ONLY;
 
 ### 5.3 EBS data basics: confirm before you query
 
-EBS has thousands of tables, and the right one depends on how our company set it up. None of the names or structures below has been checked against Oracle documentation for this primer, so **use no EBS table or view name until [COMPANY: ERP team] gives it to you.** Ask these questions in your first EBS session with the Manager and record the answers in the platform map.
+The right table or view depends on how our company set EBS up. None of the names or structures below has been checked against Oracle documentation for this primer, so **use no EBS table or view name until [COMPANY: ERP team] gives it to you.** Ask these questions in your first EBS session with the Manager and record the answers in the platform map.
 
 | Data area | What you need it for | Table or view to use | One row is | Always filter by |
 |---|---|---|---|---|
@@ -296,7 +296,7 @@ Terms you will hear, which the ERP team should explain for our setup: "the APPS 
 
 ### 5.4 Exporting results safely
 
-- Export **from your filtered query result** (right-click the grid > Export data), not by right-clicking a table in the connection tree: exporting from the tree "always" reads the data directly from the database, which on EBS means the whole table. From a result grid you can choose **Use fetched rows** or **Selected rows only** (check https://github.com/dbeaver/dbeaver/wiki/Data-export).
+- Export **from your filtered query result** (right-click the grid > Export data), not by right-clicking a table in the connection tree: exporting from the tree "always" reads the data directly from the database, which on EBS means the whole table. From a result grid you can choose **Use fetched rows** or **Selected rows only** (check https://github.com/dbeaver/dbeaver/wiki/Data-export). Use fetched rows exports only the rows already loaded in the grid (200 by default, 5.2), so compare the file's row count with what you expected; Query the database re-runs your filtered query instead.
 - Choose only the columns you need. CSV for data, XLSX only when someone will read it in Excel; keep codes as text.
 - Save to [COMPANY: approved location for data extracts], name the file with the date and the query's purpose, and delete it when the task closes (rule 8).
 
@@ -306,11 +306,11 @@ Terms you will hear, which the ERP team should explain for our setup: "the APPS 
 
 ### 6.1 What "premium" means for you
 
-Microsoft is retiring Power BI Premium per-capacity (P) SKUs: new purchases stopped in 2024, and Microsoft directs customers to Microsoft Fabric capacity (F SKUs; F64 is the P1 equivalent). Premium Per User (PPU) is a per-user license, not a capacity, and is not being retired. So "our premium workspace" is most likely a workspace on a Fabric F capacity or a PPU workspace (as of Oct 2026; check https://learn.microsoft.com/en-us/fabric/enterprise/licenses). [COMPANY: confirm the workspace type (Fabric F SKU, PPU, or P on an Enterprise Agreement) and the capacity size]. What changes for you:
+Microsoft is retiring Power BI Premium per-capacity (P) SKUs (a SKU is a product size Microsoft sells, such as P1): new customers could not buy them after 1 July 2024, and Microsoft directs customers to Microsoft Fabric capacity (F SKUs; F64 is the P1 equivalent). Premium Per User (PPU) is a per-user license, not a capacity, and is not being retired. So "our premium workspace" is most likely a workspace on a Fabric F capacity or a PPU workspace (as of Oct 2026; check https://learn.microsoft.com/en-us/fabric/enterprise/licenses). [COMPANY: confirm the workspace type (Fabric F SKU, PPU, or P on an Enterprise Agreement) and the capacity size]. What changes for you:
 
 - **Refreshes:** up to 48 scheduled refreshes a day in Premium, PPU or Fabric capacity, against 8 in shared (Pro) capacity.
 - **Viewing:** on F64 or larger (or P), people with a free license and the Viewer role can view content; on smaller F SKUs every viewer needs Pro or PPU, and a PPU workspace is open only to PPU users. Your own license is [COMPANY: confirm] (AR-09).
-- **Deployment pipelines** need a capacity-backed workspace (`docs/primers/sdlc-primer.md` 4.4).
+- **Deployment pipelines** work in PPU, Premium and Fabric workspaces, not in Pro workspaces (`docs/primers/sdlc-primer.md` 4.4).
 
 ### 6.2 Workspace roles
 
@@ -333,13 +333,13 @@ The **semantic model** (formerly "dataset") holds the data, the relationships an
 
 - The schedule is set on the semantic model by its owner [COMPANY: who owns each model]. The report shows data as of the last **successful** refresh.
 - **Refresh history** on the semantic model lists scheduled and on-demand refreshes with start and end times and the error text. Read the error text: it usually names the cause.
-- Power BI turns a schedule off after repeated failures (Microsoft says four in a row) or when credentials are invalid, and pauses refresh for models nobody has opened for two months; long refreshes also time out (Microsoft lists 2 hours in shared capacity and 5 hours in Premium) (as of Oct 2026; check https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-scheduled-refresh and https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data). [COMPANY: who receives refresh-failure emails].
+- Power BI turns a schedule off after repeated failures (Microsoft says four in a row) or when credentials are invalid, and pauses it when nobody has opened a report on the model for two months; long refreshes also time out (Microsoft lists 2 hours in shared capacity and 5 hours in Premium) (as of Oct 2026; check https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-scheduled-refresh and https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data). [COMPANY: who receives refresh-failure emails].
 
 ### 6.5 The gateway and its connections
 
 - The **on-premises data gateway** (standard mode) lets Power BI, Power Automate and Power Apps reach on-premises sources such as the team database; the **personal mode** gateway serves one user and Power BI only (check https://learn.microsoft.com/en-us/power-automate/gateway-reference). Team solutions should use the standard gateway [COMPANY: where ours runs, and who its admins are].
 - A **gateway connection** stores one set of credentials, and every refresh through it uses them, not the viewer's (unless single sign-on is set up). Under the recommended model that is the service account (3.3).
-- **Gateway admins** manage the gateway and its connections; **connection users** can use a connection but cannot see or change its credentials (check https://learn.microsoft.com/en-us/power-platform/admin/onpremises-data-gateway-management). Microsoft recommends more than one gateway admin. Hires hold no gateway role before day 60 [COMPANY: confirm].
+- **Gateway admins** manage the gateway and its connections (check https://learn.microsoft.com/en-us/power-platform/admin/onpremises-data-gateway-management); **connection users** can use a connection but cannot see or change its credentials (as of Oct 2026; check https://learn.microsoft.com/en-us/power-bi/connect-data/service-gateway-data-sources). Microsoft recommends more than one gateway admin. Hires hold no gateway role before day 60 [COMPANY: confirm].
 - Removing a data source breaks "any items that depend on it" (check https://learn.microsoft.com/en-us/fabric/data-factory/data-source-management).
 
 ### 6.6 Common refresh failures and who fixes each
@@ -359,12 +359,12 @@ The **semantic model** (formerly "dataset") holds the data, the relationships an
 ### 7.1 Connections and who owns them
 
 - A **connection** is a stored credential for a connector. A flow acts with the credentials of the connections inside it, and owners of a flow "can't modify the credentials for a connection that another owner created" (check https://learn.microsoft.com/en-us/power-automate/create-team-flows).
-- **SQL Server is a premium connector,** and reaching our on-premises SQL Server needs the gateway, which is also a premium feature. A scheduled or automated flow uses its owner's license; an app's users each need a premium license (as of Oct 2026; check https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/faqs). [COMPANY: confirm which Power Automate and Power Apps licenses we hold].
+- **SQL Server is a premium connector,** and reaching our on-premises SQL Server needs the gateway, which is also a premium feature. A scheduled or automated flow uses its owner's license; an app's users each need a premium entitlement (as of Oct 2026; check https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/faqs). [COMPANY: confirm which Power Automate and Power Apps licenses we hold].
 - Each connection's owner and account go in the platform map's Connections table.
 
 ### 7.2 Run history
 
-Each flow keeps a run history: every run and its status; open a run to see which action failed and its error. It is kept for about 28 to 30 days (as of Oct 2026; check https://learn.microsoft.com/en-us/power-automate/limits-and-config), so save screenshots or exports of anything you need as evidence. A 401 error usually means the connection's token expired or its password changed (check https://learn.microsoft.com/en-us/power-automate/fix-connection-failures). A flow that fails continuously for 14 days is turned off.
+Each flow keeps a run history: every run and its status; open a run to see which action failed and its error. It is kept for about 28 to 30 days (as of Oct 2026; check https://learn.microsoft.com/en-us/power-automate/limits-and-config), so save screenshots or exports of anything you need as evidence. A 401 error usually means the connection's token expired or its password changed (check https://learn.microsoft.com/en-us/power-automate/fix-connection-failures). A flow that fails continuously for 14 days is turned off (same limits page).
 
 ### 7.3 Environments and solutions
 
@@ -380,7 +380,7 @@ Each flow keeps a run history: every run and its status; open a run to see which
 ### 7.5 Power Apps on SQL Server
 
 - **Delegation:** when a formula cannot be delegated to SQL Server, Power Apps "gets the first 500 records" (up to 2,000 if the Data row limit is raised) and works only on those. Results can be silently incomplete; Power Apps marks such formulas with a delegation warning (blue underline) (as of Oct 2026; check https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/delegation-overview). An app that "loses" records on a large table is often this.
-- **Identity:** with Microsoft Entra integrated authentication each user acts as themselves; with SQL Server Authentication every user acts as the login the maker used, so the app's real permissions are that login's permissions (check https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/connections/sql-server-security). Record which one each app uses.
+- **Identity:** with Microsoft Entra integrated authentication each user acts as themselves. With SQL Server Authentication, or with Windows Authentication on a shared connection, every user acts as the account the maker connected with, so the app's real permissions are that account's permissions (check https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/connections/sql-server-security). Record which one each app uses.
 - **Sharing an app does not share its data:** the data sources, flows and gateway connections need their own permissions (check https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/share-app).
 
 ### 7.6 What you may change
@@ -398,7 +398,7 @@ Before the day-60 review: nothing in production. From W6, for your owned tool on
 ### 8.2 Remote Desktop etiquette
 
 - Sign in with your **personal account**, never the service account.
-- **Sign out when you finish**; closing the window is not signing out. Signing out ends your programs and deletes your session. **Disconnecting** (closing the window) leaves everything you started running "with no loss of data", held in memory (check https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tsdiscon and https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/logoff). A forgotten session uses memory and can keep files open. [COMPANY: the server's disconnected-session time limit].
+- **Sign out when you finish.** Signing out ends your programs and deletes your session. **Disconnecting** (closing the window) leaves everything you started running "with no loss of data", held in memory (check https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tsdiscon and https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/logoff). A forgotten session uses memory and can keep files open. [COMPANY: the server's disconnected-session time limit].
 - Disconnect only if the Manager or the tool owner asks you to keep something running; anything that must run on its own belongs in a scheduled task. Close any tool file you opened (workbook, Access file) first: a file left open in your session can block a scheduled run that needs it.
 - Never restart, shut down, install, or change tasks, services or settings (rule 9). Save nothing on the server's desktop.
 
@@ -442,7 +442,7 @@ Each lab is read-only outside the sandbox. Post your output in your OneNote sect
 
 ### 10.1 SSMS lab (W3–W4)
 
-Reviewed in the Senior's small-analysis SQL review (Thu 11/12, 13:00–14:00). Post it by the end of Wed 11/11. Needs AR-07 and the sandbox grant; if either is late, do steps 1–5 on the Senior's screen and steps 6–8 in the practice scratch database (`docs/analytics/practice-exercises.md`, Setup, Option B), and tell the Manager.
+Reviewed in the Senior's small-analysis SQL review (Thu 11/12, 13:00–14:00). Post it by the end of Wed 11/11. Needs AR-07 and the sandbox grant; if either is late, do steps 1–5 on the Senior's screen and steps 6–8 in the practice scratch database if you have one (`docs/analytics/practice-exercises.md`, Setup, Option B), and tell the Manager.
 
 1. Connect to [COMPANY: team database] with Windows Authentication and run the check in 4.1. Screenshot the result.
 2. In Object Explorer, list the schemas and, with the Senior's help, one line on what each holds. Mark the sandbox schema.
