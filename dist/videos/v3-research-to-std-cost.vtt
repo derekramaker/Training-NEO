@@ -1,0 +1,93 @@
+WEBVTT
+
+1
+00:00:00.800 --> 00:00:04.341
+A tariff action lands, and the business asks what it costs us.
+
+2
+00:00:04.691 --> 00:00:08.937
+The answer is a handoff: Research says what, Standard Cost says how much.
+
+3
+00:00:09.837 --> 00:00:12.653
+It starts with a notice, sometimes with little warning.
+
+4
+00:00:13.003 --> 00:00:17.547
+An authority, HTS tariff headings, countries, a rate, an effective date.
+
+5
+00:00:18.447 --> 00:00:19.855
+Research owns the WHAT.
+
+6
+00:00:20.205 --> 00:00:25.901
+First a 60-minute pass: legal text, timing clause, HTS list, candidate count.
+
+7
+00:00:26.251 --> 00:00:34.293
+Then the Tariff-Impact Brief: sources, timing, scope and exclusions, rates and how they stack, affected items, open questions.
+
+8
+00:00:34.643 --> 00:00:37.033
+What is in scope and why, with no dollars.
+
+9
+00:00:37.933 --> 00:00:39.661
+The handoff is Part 11.
+
+10
+00:00:40.011 --> 00:00:46.048
+Brief version 1.0, the Action tab filled and checked, the item list, in or out and why.
+
+11
+00:00:46.398 --> 00:00:50.857
+The dates, the open questions that could change the dollars, a needed-by date.
+
+12
+00:00:51.207 --> 00:00:53.873
+Then a fifteen-minute call, confirmed on Jira.
+
+13
+00:00:54.773 --> 00:00:56.608
+Standard Cost owns the dollars.
+
+14
+00:00:56.958 --> 00:01:01.417
+The Items tab: value, quantity, current duty, standard cost, sell price.
+
+15
+00:01:01.767 --> 00:01:06.289
+Calc works out the duty change, the landed-cost change, the margin impact.
+
+16
+00:01:06.639 --> 00:01:11.354
+Then the Oracle cost update, with Finance, and later the variance explanation.
+
+17
+00:01:11.704 --> 00:01:15.651
+It never changes the scope: a doubtful item goes back to Research.
+
+18
+00:01:16.551 --> 00:01:22.396
+Maker-checker: a second person reviews and signs off before release, even after day 90.
+
+19
+00:01:22.746 --> 00:01:27.482
+The urgency rule: under five business days a trainer is maker and you shadow.
+
+20
+00:01:27.832 --> 00:01:33.037
+Five to fifteen, you are maker with a same-day check; over fifteen, the normal cycle.
+
+21
+00:01:33.937 --> 00:01:39.100
+Remember: Research says what, Standard Cost says how much. One model, two signatures.
+
+22
+00:01:39.450 --> 00:01:41.946
+Next: the Brief template and the model guide.
+
+23
+00:01:42.296 --> 00:01:47.224
+Then Anki Unit one, group five, and from week seven, Unit six, groups one to three.
