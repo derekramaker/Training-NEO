@@ -1,0 +1,48 @@
+# Narration for v3-research-to-std-cost. One sentence per list item; each becomes one caption.
+# "HTS", "EBS" and "Jira" read correctly as written; "version 1.0" is said "version one point zero".
+# Facts: docs/01-30-60-90-plan.md §1 (boundary rule, control rule incl. Finance sign-off on the Oracle load) and §7
+# (live tariff actions, urgency rule); docs/templates/domain/tariff-impact-brief.md (60-minute first pass, Parts 3-11);
+# the Tariff-Impact Model guide ("What the model is", "Workflow", Action/Items/Calc tabs); Anki U01-G5-01..05,
+# U06-G1-07, U06-G2-05, U06-G3-01 (Unit 06 is studied from W7: data/anki/core/units.yaml); glossary (Boundary rule,
+# Tariff-Impact Brief, Tariff-Impact Model, Maker-checker). Action X-1 is FICTIONAL; "8 business days" sits in the
+# 5-15 urgency band on purpose.
+title: "From a tariff action to a cost impact: the Research to Standard Cost handoff"
+scenes:
+  - id: title
+    say:
+      - "A tariff action lands, and the business asks what it costs us."
+      - "The answer is a handoff: Research says what, Standard Cost says how much."
+  - id: action
+    say:
+      - "It starts with a notice, sometimes with little warning."
+      - "An authority, HTS tariff headings, countries, a rate, an effective date."
+  - id: research
+    say:
+      - "Research owns the WHAT."
+      - "First a 60-minute pass: legal text, timing clause, HTS list, candidate count."
+      - "Then the Tariff-Impact Brief: sources, timing, scope and exclusions, rates and how they stack, affected items, open questions."
+      - "What is in scope and why, with no dollars."
+  - id: handoff
+    say:
+      - "The handoff is Part 11."
+      - "Brief version 1.0, the Action tab filled and checked, the item list, in or out and why."
+      - "The dates, the open questions that could change the dollars, a needed-by date."
+      - "Then a fifteen-minute call, confirmed on Jira."
+  - id: stdcost
+    say:
+      - "Standard Cost owns the dollars."
+      - "The Items tab: value, quantity, current duty, standard cost, sell price."
+      - "Calc works out the duty change, the landed-cost change, the margin impact."
+      - "Then the Oracle cost update, with Finance, and later the variance explanation."
+      - "It never changes the scope: a doubtful item goes back to Research."
+  - id: controls
+    say:
+      - "Maker-checker: a second person reviews and signs off before release, even after day 90."
+      - "The urgency rule: under five business days a trainer is maker and you shadow."
+      - "Five to fifteen, you are maker with a same-day check; over fifteen, the normal cycle."
+  - id: remember
+    say:
+      - "Remember: Research says what, Standard Cost says how much. One model, two signatures."
+      - "Next: the Brief template and the model guide."
+      - "Then Anki Unit one, group five, and from week seven, Unit six, groups one to three."
+    hold: 1.0

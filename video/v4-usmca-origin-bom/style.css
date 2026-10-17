@@ -1,0 +1,134 @@
+/* v4-usmca-origin-bom: the five-step strip on top (y 150 to 270), the PK-100 bill of materials on the left
+   (x 96 to 1096) and the current test on the right (x 1136 to 1824). Content stays between y = 140 and y = 880. */
+
+/* Minimum 30px text in this video: lift the base header and card labels */
+.header .series, .header .vtitle { font-size: 30px; }
+.card .label { font-size: 30px; }
+.card.bad { background: #F8D7DA; border-color: #A31515; }
+
+/* ---------- Title card ---------- */
+.title-card .big { font-size: 100px; }
+.trip { display: flex; align-items: center; gap: 22px; margin-top: 72px; }
+.tchip { display: inline-block; font-size: 38px; font-weight: 700; color: #FFFFFF; border: 3px solid #9DC3E6; border-radius: 16px; padding: 14px 30px; }
+.tarr { display: inline-block; font-size: 44px; color: #9DC3E6; font-weight: 700; }
+
+/* ---------- Shared pieces ---------- */
+.cap { position: absolute; font-size: 30px; font-weight: 700; color: #2E75B6; text-transform: uppercase; letter-spacing: .04em; }
+.banner { position: absolute; display: flex; align-items: center; justify-content: center; background: #DCE6F2;
+  border: 3px solid #1F3864; border-radius: 18px; font-size: 40px; font-weight: 750; color: #1F3864; box-sizing: border-box; }
+.detail-svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+.v-arrow { stroke: #1F3864; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+.v-arrow-accent { stroke: #C55A11; stroke-width: 5; fill: none; marker-end: url(#arrow-accent); }
+/* .card.accent inherits the base .accent text rule (orange, bold): keep card text dark */
+.card.accent { font-weight: 400; }
+.card.accent .text { color: #262626; font-weight: 650; }
+
+/* ---------- Why: the four origin criteria ---------- */
+.crit { position: absolute; left: 96px; width: 1728px; display: flex; gap: 24px; }
+.crit .chip { position: relative; width: 414px; height: 200px; background: #FFFFFF; border: 3px solid #8497B0; border-radius: 18px;
+  padding: 18px 22px; box-sizing: border-box; }
+.crit .chip .letter { font-size: 48px; font-weight: 800; color: #1F3864; line-height: 1; }
+.crit .chip .ct { font-size: 30px; color: #404040; line-height: 1.25; margin-top: 12px; }
+.crit .chip .on { position: absolute; inset: -3px; border-radius: 18px; background: #FBE5D6; border: 3px solid #C55A11; opacity: 0; }
+.crit .chip .on .letter { color: #C55A11; }
+.crit .chip .on .ct { color: #262626; font-weight: 650; }
+.crit .chip .on .in { position: absolute; left: 25px; top: 21px; right: 25px; }
+
+/* ---------- The five-step strip ---------- */
+.steps { position: absolute; left: 96px; top: 150px; width: 1728px; height: 120px; }
+.steps svg { position: absolute; left: 0; top: 0; overflow: visible; }
+.steps .s-arrow { stroke: #8497B0; stroke-width: 5; fill: none; marker-end: url(#arrow-soft); }
+.step { position: absolute; top: 0; width: 300px; height: 120px; }
+.step .s-off, .step .s-on { position: absolute; inset: 0; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; }
+.step .s-off { background: #FFFFFF; border: 3px solid #1F3864; }
+.step .s-on { background: #1F3864; border: 3px solid #1F3864; opacity: 0; }
+.step .sv { font-size: 34px; font-weight: 800; color: #1F3864; line-height: 1.1; }
+.step .so { font-size: 30px; color: #595959; margin-top: 4px; line-height: 1.15; }
+.step .s-on .sv { color: #FFFFFF; }
+.step .s-on .so { color: #DCE6F2; }
+.step .num { position: absolute; left: -14px; top: -16px; width: 46px; height: 46px; border-radius: 50%; background: #2E75B6; color: #FFFFFF;
+  font-size: 30px; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 3px solid #F7F9FC; box-sizing: border-box; }
+
+/* ---------- The bill of materials ---------- */
+.bom { position: absolute; left: 96px; top: 300px; width: 1000px; background: #FFFFFF; border: 3px solid #1F3864; border-radius: 22px;
+  box-sizing: border-box; overflow: hidden; }
+.bom .bhead { height: 56px; background: #DCE6F2; border-bottom: 3px solid #1F3864; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; }
+.bom .bhead .bt { font-size: 36px; font-weight: 800; color: #1F3864; }
+.bom .bhead .bs { font-size: 30px; color: #404040; }
+.brow { position: relative; isolation: isolate; display: grid; grid-template-columns: 368px 130px 150px 166px 84px; column-gap: 12px; align-items: center;
+  height: 48px; padding: 0 24px; font-size: 32px; color: #262626; border-bottom: 2px solid #D9DEE7; box-sizing: border-box; }
+.brow.th { height: 42px; font-size: 30px; font-weight: 700; color: #595959; }
+.brow .c { font-weight: 700; color: #1F3864; white-space: nowrap; }
+.brow .c.long { font-size: 30px; }
+.brow .num { text-align: right; font-variant-numeric: tabular-nums; }
+.brow .yes { color: #3B6E22; font-weight: 700; }
+.brow.tot { font-weight: 700; border-top: 3px solid #1F3864; border-bottom: none; }
+.brow.vnm { border-top: none; border-bottom: none; background: #F7F9FC; }
+.brow .sum { grid-column: 2 / 5; text-align: right; font-weight: 400; font-size: 30px; color: #404040; font-variant-numeric: tabular-nums; }
+.brow .bg { position: absolute; inset: 0; background: #FBE5D6; opacity: 0; z-index: -1; }
+.brow .bg.flag { border-left: 10px solid #C55A11; }
+.brow .swap { position: relative; display: block; }
+.brow .swap .vb { position: absolute; right: 0; top: 0; opacity: 0; }
+.bom .bnote { height: 40px; display: flex; align-items: center; padding: 0 28px; font-size: 30px; color: #595959; background: #F7F9FC; }
+
+/* ---------- Rule card ---------- */
+.rule .opt { font-size: 30px; line-height: 1.25; color: #262626; margin-top: 10px; }
+.rule .opt b { color: #1F3864; }
+.rule .or { font-size: 30px; font-weight: 700; color: #2E75B6; text-transform: uppercase; letter-spacing: .04em; margin-top: 10px; }
+.rule .opt.thr { margin-top: 4px; }
+.card.rule { padding: 20px 34px; }
+.card.good { padding: 16px 34px; }
+
+/* ---------- Tariff shift: three sources, one target heading ---------- */
+.src { position: absolute; left: 1136px; width: 304px; height: 96px; background: #FFFFFF; border: 3px solid #1F3864; border-radius: 16px;
+  box-sizing: border-box; padding: 10px 20px; isolation: isolate; }
+/* the housing's "fails" tint: an overlay that fades in when the narration says it fails */
+.src .fbg { position: absolute; inset: -3px; border-radius: 16px; background: #FBE5D6; border: 3px solid #C55A11; box-sizing: border-box;
+  z-index: -1; opacity: 0; }
+.src .sn { font-size: 32px; font-weight: 700; color: #1F3864; line-height: 1.1; }
+.src .sh { font-size: 30px; color: #595959; margin-top: 4px; }
+.src .mark { position: absolute; right: 18px; top: 22px; font-size: 40px; font-weight: 800; }
+.src .mark.ok { color: #3B6E22; }
+.src .mark.bad { color: #C55A11; }
+.target { position: absolute; left: 1570px; width: 254px; height: 340px; background: #1F3864; border-radius: 16px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; }
+.target .th { font-size: 52px; font-weight: 800; color: #FFFFFF; }
+.target .ts { font-size: 30px; color: #DCE6F2; margin-top: 10px; line-height: 1.2; }
+
+/* ---------- De minimis: the fraction and the meter ---------- */
+.frac { position: absolute; left: 1136px; width: 688px; display: flex; align-items: baseline; gap: 18px; font-size: 68px; font-weight: 800; color: #1F3864; }
+.frac .op { color: #8497B0; font-weight: 400; }
+.frac .res { color: #3B6E22; }
+.meter { position: absolute; left: 1136px; width: 688px; height: 44px; background: #FFFFFF; border: 3px solid #1F3864; border-radius: 10px; box-sizing: border-box; }
+.meter .mfill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #3B6E22; border-radius: 6px 0 0 6px; }
+.meter .mlimit { position: absolute; left: 50%; top: -14px; bottom: -14px; width: 6px; margin-left: -3px; background: #C55A11; }
+.meter .mlab { position: absolute; top: 56px; font-size: 30px; color: #595959; }
+.meter .l0 { left: 0; }
+.meter .l10 { left: 50%; transform: translateX(-50%); color: #C55A11; font-weight: 700; }
+.meter .l20 { right: 0; }
+
+/* ---------- What-if: three tests ---------- */
+.test { position: absolute; left: 1136px; width: 688px; height: 92px; border-radius: 16px; box-sizing: border-box; padding: 10px 22px; border: 3px solid; }
+.test.bad { background: #F8D7DA; border-color: #A31515; }
+.test.ok { background: #E2F0D9; border-color: #3B6E22; }
+.test .tt { font-size: 32px; font-weight: 700; color: #1F3864; line-height: 1.1; }
+.test .tf { font-size: 32px; color: #262626; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.test .tr { position: absolute; right: 22px; top: 10px; font-size: 32px; font-weight: 800; }
+.test.bad .tr { color: #A31515; }
+.test.ok .tr { color: #3B6E22; }
+
+/* ---------- Document: the qualification file ---------- */
+.file { position: absolute; background: #FFFFFF; border: 3px solid #1F3864; border-radius: 22px; box-sizing: border-box; overflow: hidden; }
+.file .fhead { position: absolute; left: 0; right: 0; top: 0; height: 60px; background: #DCE6F2; border-bottom: 3px solid #1F3864;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 30px; box-sizing: border-box; }
+.file .fhead .ft { font-size: 38px; font-weight: 800; color: #1F3864; }
+.file .fhead .fs { font-size: 30px; color: #404040; }
+.fitem { position: absolute; left: 30px; right: 30px; height: 76px; border-bottom: 2px solid #D9DEE7; padding: 4px 0 0 36px; box-sizing: border-box; }
+.fitem::before { content: "✓"; position: absolute; left: 0; top: 6px; font-size: 32px; font-weight: 800; color: #3B6E22; }
+.fitem .fk { font-size: 32px; font-weight: 700; color: #1F3864; line-height: 1.1; margin-top: 4px; }
+.fitem .fd { font-size: 30px; color: #595959; line-height: 1.1; margin-top: 2px; }
+
+/* ---------- Remember ---------- */
+.statement { position: absolute; left: 96px; top: 330px; width: 1728px; font-size: 64px; font-weight: 800; color: #1F3864; line-height: 1.25; }

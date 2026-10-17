@@ -1,0 +1,52 @@
+# Narration for v4-usmca-origin-bom. One sentence per list item; each becomes one caption.
+# USMCA is voiced as letters through video/engine/lexicon.yaml and said in full once ("the US-Mexico-Canada
+# Agreement"). The fictional heading 84.AA is written "eighty-four AA" so the voice reads the letters; the screen
+# shows 84.AA. Sentences stay under about 90 characters so no caption wraps to a third line (a three-line
+# caption reaches y = 846, into the content area). Every number is the fictional PK-100 example of customs
+# primer section 10.8 (TV 200, VNM 78, de minimis 14/200 = 7.0%; what-if housing 25: TV 211, VNM 89, 11.8%,
+# RVC 57.8% by transaction value / 51.9% by net cost).
+# Facts: customs primer sections 10.2, 10.3, 10.4, 10.5, 10.7, 10.8 and 10.10; Anki U02-G4-02, U03-G2-01 to
+# U03-G2-04, U03-G3-01, U03-G3-05; glossary (USMCA, originating good, PSR, tariff shift, RVC, de minimis,
+# certification of origin, bill of materials for origin).
+title: "Does it qualify? USMCA origin with a bill of materials"
+scenes:
+  - id: title
+    say:
+      - "Does this pump qualify for USMCA? Check its bill of materials."
+    hold: 0.1
+  - id: why
+    say:
+      - "A valid claim under the US-Mexico-Canada Agreement earns the preferential duty rate."
+      - "A wrong one means a duty bill later: be ready to prove it."
+      - "We test criterion B: it meets its product-specific rule."
+  - id: rule-bom
+    say:
+      - "Fictional pump PK-100 is made in Mexico from this bill of materials."
+      - "Its rule: a change of heading into eighty-four AA, or regional value content, RVC."
+      - "Sixty percent by transaction value, or fifty by net cost."
+  - id: steps12
+    say:
+      - "Step one, list the non-originating: motor, housing, fasteners, seventy-eight dollars."
+      - "Step two, the tariff shift: each needs a different heading from the pump's."
+      - "Motor and fasteners pass; the housing shares heading eighty-four AA and fails."
+  - id: deminimis
+    say:
+      - "Step three, de minimis: failing parts are allowed up to ten percent of the value."
+      - "Fourteen over two hundred is seven percent: the pump qualifies, criterion B."
+  - id: whatif
+    say:
+      - "Now the housing costs twenty-five: de minimis is eleven point eight percent, fails."
+      - "Step four, RVC by transaction value: fifty-seven point eight percent, fails."
+      - "By net cost: fifty-one point nine percent, qualifies."
+      - "Net cost is the producer's data, so the producer or exporter normally certifies."
+  - id: document
+    say:
+      - "Step five, document: the bill of materials, certifications and the calculation."
+      - "Add the rule text, who checked, and the date."
+      - "Then issue or accept the certification and set the flag in our system."
+      - "When customs verifies, this file is what you produce."
+  - id: remember
+    say:
+      - "The rule is tested on the bill of materials; the file proves the claim."
+      - "Next: customs primer section ten and Anki Units two and three."
+    hold: 0.4

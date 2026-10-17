@@ -1,0 +1,182 @@
+<!-- v4-usmca-origin-bom. Scenes rule-bom to remember carry the same five-step strip (built in scenes.js from
+     <div class="steps">): list non-originating, tariff shift, de minimis, RVC, document. Scenes rule-bom to whatif
+     also carry the PK-100 bill of materials on the left (built from <div class="bom">); the test being explained
+     sits on the right (x 1136 to 1824, y 300 to 850). All numbers: customs primer section 10.8 (fictional). -->
+
+<section class="scene" id="title">
+  <div class="title-card">
+    <div class="kicker" data-step="0">BSA onboarding · Customs</div>
+    <div class="big" data-step="0">Does it qualify?</div>
+    <div class="sub" data-step="1">USMCA origin with a bill of materials</div>
+    <div class="trip">
+      <span class="tchip" data-step="2">PK-100</span>
+      <span class="tarr" data-step="3">→</span>
+      <span class="tchip" data-step="3">Bill of materials</span>
+      <span class="tarr" data-step="4">→</span>
+      <span class="tchip" data-step="4">Rule for its heading</span>
+      <span class="tarr" data-step="5">→</span>
+      <span class="tchip" data-step="5">Qualifies?</span>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="why">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">Does it qualify? USMCA origin with a bill of materials</span></div>
+
+  <div class="card ok" data-step="0" style="left:96px; top:160px; width:844px; height:250px">
+    <div class="label" style="color:#3B6E22">Valid claim ✓</div>
+    <div class="text">The preferential duty rate</div>
+    <div class="small">Claimed by the importer, with a certification of origin on file</div>
+  </div>
+  <div class="card bad" data-step="1" style="left:980px; top:160px; width:844px; height:250px">
+    <div class="label" style="color:#A31515">Wrong claim ✗</div>
+    <div class="text">A duty bill later</div>
+    <div class="small">The duties owed, with interest and possibly penalties</div>
+  </div>
+
+  <div class="banner" data-step="2" style="left:96px; top:440px; width:1728px; height:100px">Preferential origin is a claim you must be able to prove</div>
+
+  <div class="cap" data-step="3" style="left:96px; top:580px">Four origin criteria · USMCA Article 4.2</div>
+  <div class="crit" style="top:630px">
+    <div class="chip" data-step="4"><div class="letter">A</div><div class="ct">Wholly obtained or produced in the region</div></div>
+    <div class="chip" data-step="5" id="crit-b"><div class="letter">B</div><div class="ct">Meets its product-specific rule</div></div>
+    <div class="chip" data-step="6"><div class="letter">C</div><div class="ct">Made only from originating materials</div></div>
+    <div class="chip" data-step="7"><div class="letter">D</div><div class="ct">Narrow cases decided by a value-content test</div></div>
+  </div>
+</section>
+
+<section class="scene" id="rule-bom">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">Does it qualify? USMCA origin with a bill of materials</span></div>
+  <div class="steps"></div>
+  <div class="bom"></div>
+
+  <div class="card soft good" data-step="0" style="left:1136px; top:300px; width:688px; height:168px">
+    <div class="label">The good · fictional</div>
+    <div class="text">PK-100 pump · heading 84.AA</div>
+    <div class="small">Made in Mexico, imported into the US</div>
+  </div>
+  <div class="card rule" data-step="1" style="left:1136px; top:488px; width:688px; height:362px">
+    <div class="label">Its product-specific rule</div>
+    <div class="opt" data-step="2"><b>Change of heading:</b> into 84.AA from any other heading</div>
+    <div class="or" data-step="3">or</div>
+    <div class="opt" data-step="3"><b>Regional value content (RVC)</b></div>
+    <div class="opt thr" data-step="4">at least 60% by transaction value, or 50% by net cost</div>
+  </div>
+</section>
+
+<section class="scene" id="steps12">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">Does it qualify? USMCA origin with a bill of materials</span></div>
+  <div class="steps"></div>
+  <div class="bom"></div>
+
+  <div class="cap" data-step="0" style="left:1136px; top:300px">Step 2 · tariff shift: a different heading</div>
+  <div class="src" data-step="1" style="top:360px"><div class="sn">Motor</div><div class="sh">85.BB</div><div class="mark ok" data-step="5">✓</div></div>
+  <div class="src" data-step="1" style="top:482px"><div class="sn">Fasteners</div><div class="sh">73.CC</div><div class="mark ok" data-step="5">✓</div></div>
+  <div class="src" data-step="1" style="top:604px"><div class="fbg" data-step="6" data-slide="0"></div><div class="sn">Pump housing</div><div class="sh">84.AA</div><div class="mark bad" data-step="7">✗</div></div>
+  <div class="target" data-step="2" style="top:360px"><div class="th">84.AA</div><div class="ts">the pump's<br>own heading</div></div>
+  <div class="cap" data-step="7" style="left:1136px; top:730px; color:#C55A11">Same heading: no shift</div>
+
+  <svg class="detail-svg" viewBox="0 0 1920 1080">
+    <path class="v-arrow draw" data-step="3" data-pulse d="M1450 408 H1560"/>
+    <path class="v-arrow draw" data-step="4" data-pulse d="M1450 530 H1560"/>
+    <path class="v-arrow-accent draw" data-step="6" data-pulse d="M1450 652 H1560"/>
+  </svg>
+</section>
+
+<section class="scene" id="deminimis">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">Does it qualify? USMCA origin with a bill of materials</span></div>
+  <div class="steps"></div>
+  <div class="bom"></div>
+
+  <div class="cap" data-step="0" style="left:1136px; top:300px">Step 3 · de minimis: failing materials ÷ TV</div>
+  <div class="frac" style="top:350px">
+    <span data-step="3">14</span><span class="op" data-step="4">/</span><span data-step="4">200</span><span class="op" data-step="5">=</span><span class="res" data-step="5">7.0%</span>
+  </div>
+  <div class="meter" data-step="1" style="top:460px">
+    <div class="mfill" id="dm-fill"></div>
+    <div class="mlimit" data-step="2" data-slide="0"></div>
+    <div class="mlab l0">0</div>
+    <div class="mlab l10" data-step="2">10% limit</div>
+    <div class="mlab l20">20%</div>
+  </div>
+  <div class="card ok" data-step="6" style="left:1136px; top:600px; width:688px; height:250px">
+    <div class="label" style="color:#3B6E22">Within the limit ✓</div>
+    <div class="text">Meets the tariff-shift rule</div>
+    <div class="small" data-step="7"><b>Qualifies · origin criterion B</b></div>
+  </div>
+</section>
+
+<section class="scene" id="whatif">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">Does it qualify? USMCA origin with a bill of materials</span></div>
+  <div class="steps"></div>
+  <div class="bom"></div>
+
+  <div class="test bad" data-step="0" style="top:300px">
+    <div class="tt">De minimis</div><div class="tf">25 / 211 = 11.8% &gt; 10%</div><div class="tr" data-step="1">fails</div>
+  </div>
+  <div class="test bad" data-step="2" style="top:402px">
+    <div class="tt">Step 4 · RVC, transaction value</div><div class="tf">(211 − 89) / 211 = 57.8% &lt; 60%</div><div class="tr" data-step="3">fails</div>
+  </div>
+  <div class="test ok" data-step="4" style="top:504px">
+    <div class="tt">RVC, net cost · NC 185</div><div class="tf">(185 − 89) / 185 = 51.9% ≥ 50%</div><div class="tr" data-step="5">qualifies</div>
+  </div>
+  <div class="card soft" data-step="6" style="left:1136px; top:620px; width:688px; height:230px">
+    <div class="label">Who certifies</div>
+    <div class="text">Net cost needs the producer's own cost data</div>
+    <div class="small">Producer or exporter normally certifies</div>
+  </div>
+</section>
+
+<section class="scene" id="document">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">Does it qualify? USMCA origin with a bill of materials</span></div>
+  <div class="steps"></div>
+
+  <div class="file" data-step="0" style="left:96px; top:300px; width:760px; height:540px">
+    <div class="fhead"><span class="ft">Qualification file</span><span class="fs">PK-100</span></div>
+    <div class="fitem" data-step="1" style="top:72px"><div class="fk">Bill of materials</div><div class="fd">classification, origin, value, source</div></div>
+    <div class="fitem" data-step="2" style="top:148px"><div class="fk">Supplier certifications</div><div class="fd">for the originating components</div></div>
+    <div class="fitem" data-step="3" style="top:224px"><div class="fk">The calculation</div><div class="fd">steps one to four and the result</div></div>
+    <div class="fitem" data-step="4" style="top:300px"><div class="fk">The rule text</div><div class="fd">and its source</div></div>
+    <div class="fitem" data-step="5" style="top:376px"><div class="fk">Who prepared, who checked</div><div class="fd">maker and checker</div></div>
+    <div class="fitem" data-step="6" style="top:452px"><div class="fk">The date</div><div class="fd">of the qualification</div></div>
+  </div>
+
+  <div class="card" data-step="8" style="left:976px; top:300px; width:848px; height:136px; padding:22px 34px">
+    <div class="label">Certification of origin</div>
+    <div class="text">Issued, or accepted from the producer</div>
+  </div>
+  <div class="card soft" data-step="10" style="left:976px; top:510px; width:848px; height:136px; padding:22px 34px">
+    <div class="label">Our system</div>
+    <div class="text">Qualification flag set for PK-100</div>
+  </div>
+  <div class="card accent" data-step="11" style="left:976px; top:704px; width:848px; height:136px; padding:22px 34px">
+    <div class="label" style="color:#C55A11">When customs verifies</div>
+    <div class="text">This file is what you produce</div>
+  </div>
+
+  <svg class="detail-svg" viewBox="0 0 1920 1080">
+    <path class="v-arrow draw" data-step="7" data-pulse d="M866 368 H968"/>
+    <path class="v-arrow draw" data-step="9" data-pulse d="M1400 438 V502"/>
+  </svg>
+</section>
+
+<section class="scene" id="remember">
+  <div class="header"><span class="series">BSA onboarding</span><span class="vtitle">Remember</span></div>
+  <div class="steps"></div>
+
+  <div class="statement">
+    <div data-step="0">The rule is tested on the bill of materials;</div>
+    <div data-step="1"><span class="accent">the file proves the claim</span>.</div>
+  </div>
+
+  <div class="card soft" data-step="2" style="left:96px; top:620px; width:844px; height:230px">
+    <div class="label">Read next</div>
+    <div class="text">Customs primer, sections 10.3 to 10.8</div>
+    <div class="small">Then do Exercise 2 (section 10.8): rebuild PK-100 in Excel</div>
+  </div>
+  <div class="card soft" data-step="3" style="left:980px; top:620px; width:844px; height:230px">
+    <div class="label">Study now</div>
+    <div class="text">Anki Unit 02 G4 · Unit 03 G2 and G3</div>
+    <div class="small">USMCA basics · origin rules and RVC · certification and records</div>
+  </div>
+</section>

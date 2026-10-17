@@ -1,0 +1,117 @@
+/* v3-research-to-std-cost: the four-step chain (tariff action -> Research -> Standard Cost -> the business) with the
+   shared model bar under the two tracks, on top of every scene after the title; the detail underneath.
+   Content stays between y = 140 and y = 880. */
+
+/* Minimum 30px text in this video: lift the base header and card labels */
+.header .series, .header .vtitle { font-size: 30px; }
+.card .label { font-size: 30px; }
+
+/* ---------- Title card ---------- */
+.title-card .big { font-size: 88px; }
+.title-card .sub { font-size: 38px; }
+.trip { display: flex; align-items: center; gap: 22px; margin-top: 64px; }
+.tchip { display: inline-block; font-size: 38px; font-weight: 700; color: #FFFFFF; border: 3px solid #9DC3E6;
+  border-radius: 16px; padding: 14px 30px; }
+.tchip .tsub { font-weight: 400; color: #DCE6F2; }
+.tarr { display: inline-block; font-size: 44px; color: #9DC3E6; font-weight: 700; }
+
+/* ---------- The chain strip ---------- */
+.chain { position: absolute; left: 96px; top: 150px; width: 1728px; height: 190px; }
+.chain svg.chain-lines { position: absolute; left: 0; top: 0; overflow: visible; }
+.node { position: absolute; top: 0; width: 342px; height: 112px; }
+.node .n-off, .node .n-on { position: absolute; inset: 0; border-radius: 20px; box-sizing: border-box; overflow: hidden; }
+.node .n-off { background: #FFFFFF; border: 3px solid #1F3864; }
+.node .n-on { background: #1F3864; border: 3px solid #1F3864; opacity: 0; }
+.node .lab { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
+  align-items: center; text-align: center; }
+.node .nt { font-size: 38px; font-weight: 800; color: #1F3864; line-height: 1.1; }
+.node .ns { font-size: 30px; color: #595959; margin-top: 4px; line-height: 1.15; }
+.node .n-on .nt { color: #FFFFFF; }
+.node .n-on .ns { color: #DCE6F2; }
+.flowline { stroke: #2E75B6; stroke-width: 7; fill: none; stroke-linecap: round; }
+.backline { stroke: #C55A11; stroke-width: 6; fill: none; stroke-linecap: round; }
+.chain .base-arrow { stroke: #8497B0; stroke-width: 5; fill: none; marker-end: url(#arrow-soft); }
+/* The shared workbook, under Research and Standard Cost only */
+.model { position: absolute; left: 462px; top: 134px; width: 804px; height: 56px; border-radius: 16px; box-sizing: border-box;
+  background: #DCE6F2; border: 3px solid #1F3864; display: flex; align-items: center; justify-content: center;
+  font-size: 32px; font-weight: 750; color: #1F3864; }
+.model .m-on { position: absolute; inset: -3px; border-radius: 16px; background: #1F3864; display: flex; align-items: center;
+  justify-content: center; color: #FFFFFF; opacity: 0; }
+.chain .tick { stroke: #1F3864; stroke-width: 3; fill: none; }
+
+/* ---------- Shared detail pieces ---------- */
+.cap { position: absolute; font-size: 30px; font-weight: 700; color: #2E75B6; text-transform: uppercase; letter-spacing: .04em; }
+.detail-svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+.v-arrow { stroke: #1F3864; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+.v-arrow-accent { stroke: #C55A11; stroke-width: 5; fill: none; marker-end: url(#arrow-accent); }
+
+/* A document: header strip plus rows (the notice, the brief, the Part 11 table, the Items tab) */
+.doc { position: absolute; background: #FFFFFF; border: 3px solid #1F3864; border-radius: 22px; box-sizing: border-box; overflow: hidden; }
+.doc .dhead { position: absolute; left: 0; right: 0; top: 0; height: 78px; background: #DCE6F2; border-bottom: 3px solid #1F3864;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 30px; box-sizing: border-box; }
+.doc .dhead .dt { font-size: 38px; font-weight: 800; color: #1F3864; }
+.doc .dhead .ds { font-size: 30px; color: #404040; }
+.doc .dhead .tag { font-size: 30px; font-weight: 700; color: #C55A11; background: #FBE5D6; border: 2px solid #C55A11;
+  border-radius: 10px; padding: 4px 16px; }
+.doc .drow { position: absolute; left: 24px; right: 24px; height: 64px; display: flex; align-items: center; gap: 20px;
+  border-bottom: 2px solid #D9DEE7; font-size: 32px; color: #262626; padding: 0 10px; box-sizing: border-box; }
+.doc .drow .k { font-weight: 700; color: #1F3864; flex: none; }
+.doc .drow .v { color: #262626; }
+.doc .drow .v .muted { color: #595959; }
+.doc .drow .ok { color: #3B6E22; font-weight: 700; }
+.doc .drow.last { border-bottom: none; }
+
+/* Action notice: the five fields that matter */
+.notice .drow { height: 76px; font-size: 34px; }
+.notice .drow .k { width: 300px; }
+
+/* Research: the first pass (strong card with a list) and the brief's parts (chips) */
+.list .line { font-size: 36px; font-weight: 650; color: #FFFFFF; margin-top: 16px; display: flex; align-items: center; gap: 16px; line-height: 1.2; }
+.list .line::before { content: ""; width: 14px; height: 14px; border-radius: 50%; background: #9DC3E6; flex: none; }
+.parts { position: absolute; left: 24px; right: 24px; top: 100px; display: flex; flex-wrap: wrap; gap: 16px 14px; }
+.pchip { display: inline-block; font-size: 31px; font-weight: 650; color: #1F3864; background: #DCE6F2; border: 2px solid #1F3864;
+  border-radius: 12px; padding: 10px 20px; white-space: nowrap; }
+.pchip b { color: #2E75B6; font-weight: 800; margin-right: 6px; }
+.banner { position: absolute; display: flex; align-items: center; justify-content: center; gap: 18px; border-radius: 18px;
+  font-size: 38px; font-weight: 750; box-sizing: border-box; }
+.banner.ok { background: #E2F0D9; border: 3px solid #3B6E22; color: #3B6E22; }
+.banner.accent { background: #FBE5D6; border: 3px solid #C55A11; color: #1F3864; }
+.banner .nodollar { display: inline-block; position: relative; font-size: 44px; font-weight: 800; color: #C55A11; padding: 0 10px; }
+.banner .nodollar::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 5px; background: #C55A11; transform: rotate(-18deg); }
+
+/* Handoff: Part 11 as a two-column table */
+.part11 .drow { height: 56px; font-size: 32px; }
+.part11 .drow .k { width: 290px; }
+
+/* Standard Cost: Items tab rows, Calc results, what follows */
+.items .drow { height: 60px; font-size: 32px; }
+.calc .step { position: absolute; left: 24px; right: 24px; height: 76px; border-radius: 14px; background: #F7F9FC; border: 2px solid #8497B0;
+  display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 700; color: #1F3864; box-sizing: border-box; }
+.calc .step.result { background: #1F3864; border-color: #1F3864; color: #FFFFFF; }
+.then .fline { font-size: 36px; font-weight: 650; color: #1F3864; margin-top: 18px; display: flex; align-items: center; gap: 16px; line-height: 1.2; }
+.then .fline::before { content: ""; width: 14px; height: 14px; border-radius: 50%; background: #2E75B6; flex: none; }
+.then .fsub { font-size: 30px; color: #595959; margin: 6px 0 0 30px; line-height: 1.3; }
+
+/* Controls: maker-checker column and the urgency bands */
+.mc { position: absolute; left: 96px; width: 740px; }
+.band { position: absolute; top: 420px; width: 290px; height: 260px; border-radius: 20px; box-sizing: border-box; padding: 22px 20px;
+  background: #FFFFFF; border: 3px solid #1F3864; text-align: center; }
+.band.hot { background: #FBE5D6; border-color: #C55A11; }
+.band.soft { background: #DCE6F2; }
+.band .days { font-size: 46px; font-weight: 800; color: #1F3864; line-height: 1.1; }
+.band.hot .days { color: #C55A11; }
+.band .who { font-size: 34px; font-weight: 750; color: #1F3864; margin-top: 18px; line-height: 1.2; }
+.band .how { font-size: 30px; color: #404040; margin-top: 10px; line-height: 1.25; }
+.band .rule { width: 100%; height: 2px; background: #8497B0; margin: 14px 0 0; }
+.pill { position: absolute; display: inline-block; font-size: 30px; font-weight: 700; color: #1F3864; background: #FBE5D6;
+  border: 3px solid #C55A11; border-radius: 40px; padding: 8px 22px; white-space: nowrap; }
+
+/* Remember */
+.statement { position: absolute; left: 96px; width: 1728px; font-size: 58px; font-weight: 800; color: #1F3864; line-height: 1.2; }
+.stamp { position: absolute; height: 84px; border-radius: 16px; background: #E2F0D9; border: 3px solid #3B6E22; display: flex;
+  align-items: center; justify-content: center; gap: 14px; font-size: 34px; font-weight: 750; color: #3B6E22; box-sizing: border-box; }
+.stamp .plain { color: #262626; font-weight: 500; }
+
+/* .card.accent inherits the base .accent text rule (orange, bold): keep card text dark and the small line regular */
+.card.accent { font-weight: 400; }
+.card.accent .text { color: #262626; font-weight: 650; }
