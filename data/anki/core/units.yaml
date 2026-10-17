@@ -5,9 +5,9 @@
 
 units:
   - number: 1
-    title: "Week 1 · Roles, US entry basics, trade systems"
+    title: "Week 1 · Roles, US entry basics, trade systems, safe-use rules"
     weeks: "W1"
-    description: "Study from Week 1. Who does what at the border, how a US entry moves, what duties and fees are, and how our trade systems fit together. Also the program's ground rules."
+    description: "Study from Week 1. Who does what at the border, how a US entry moves, what duties and fees are, and how our trade systems fit together. Also the program's ground rules, and the safe-use rules for our data platform and Copilot."
     groups:
       - key: G1
         name: "Roles and parties"
@@ -19,11 +19,13 @@ units:
         name: "Trade systems landscape"
       - key: G5
         name: "Ground rules: maker-checker, boundary, brokers"
+      - key: G6
+        name: "Safe use: data platform and Copilot"
 
   - number: 2
-    title: "Week 2 · Canada, Mexico, classification, USMCA basics"
+    title: "Week 2 · Canada, Mexico, classification, USMCA, data platform"
     weeks: "W2"
-    description: "Study from Week 2. Canada and Mexico import basics, how tariff classification works, what USMCA is, and how trade data moves through the AS400 trade system."
+    description: "Study from Week 2. Canada and Mexico import basics, how tariff classification works, what USMCA is, how trade data moves through the AS400 trade system, and how our data platform's pieces connect."
     groups:
       - key: G1
         name: "Canada"
@@ -35,11 +37,13 @@ units:
         name: "USMCA basics"
       - key: G5
         name: "Trade data flow"
+      - key: G6
+        name: "Our data platform: how the pieces connect"
 
   - number: 3
-    title: "Week 3 · Valuation, USMCA origin, records, reading a tariff action"
+    title: "Week 3 · Valuation, USMCA origin, records, tariff actions, BSA fundamentals"
     weeks: "W3"
-    description: "Study from Week 3. Customs value, how goods qualify under USMCA (with a worked RVC example), certification and recordkeeping, how to read a tariff action, and BSA intake."
+    description: "Study from Week 3. Customs value, how goods qualify under USMCA (with a worked RVC example), certification and recordkeeping, how to read a tariff action, BSA intake, and the fundamentals of business systems analysis."
     groups:
       - key: G1
         name: "Valuation"
@@ -51,6 +55,8 @@ units:
         name: "Reading a tariff action"
       - key: G5
         name: "BSA intake and requirements"
+      - key: G6
+        name: "Business systems analysis fundamentals"
 
   - number: 4
     title: "Week 4 · IMMEX, broker audits, process mapping, data"
@@ -67,9 +73,9 @@ units:
         name: "Data, SQL and Power BI"
 
   - number: 5
-    title: "Weeks 5–6 · Exports, standard and landed cost, owning a tool"
+    title: "Weeks 5–6 · Exports, standard and landed cost, owning a tool, SDLC"
     weeks: "W5–W6"
-    description: "Study from Week 5. Export compliance basics, how standard cost and landed cost work (with a worked build-up), and how to change a tool safely."
+    description: "Study from Week 5. Export compliance basics, how standard cost and landed cost work (with a worked build-up), how to change a tool safely, and how software changes move from build to test to production (SDLC)."
     groups:
       - key: G1
         name: "Export compliance"
@@ -77,11 +83,13 @@ units:
         name: "Standard and landed cost"
       - key: G3
         name: "Owning a tool"
+      - key: G4
+        name: "SDLC and change delivery"
 
   - number: 6
-    title: "Weeks 7–9 · Track deep dives, tariff mechanics, data mapping"
+    title: "Weeks 7–9 · Track deep dives, tariff mechanics, data mapping, analytics depth"
     weeks: "W7–W9"
-    description: "Study from Week 7. The Research and Standard Cost track groups go deep on your own process (do yours first, then skim the other). Tariff mechanics and data mapping/UAT are for both."
+    description: "Study from Week 7. The Research and Standard Cost track groups go deep on your own process (do yours first, then skim the other). Tariff mechanics, data mapping/UAT and analytics depth are for both."
     groups:
       - key: G1
         name: "Research track"
@@ -91,6 +99,8 @@ units:
         name: "Tariff mechanics"
       - key: G4
         name: "Data mapping and UAT"
+      - key: G5
+        name: "Analytics depth: models, measures, KPIs"
 
   - number: 7
     title: "Weeks 10–13 · Drawback, e2open migration, reporting"
