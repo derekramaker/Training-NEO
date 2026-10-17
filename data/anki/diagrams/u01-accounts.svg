@@ -1,0 +1,41 @@
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <rect class="bg" width="640" height="480"/>
+  <text class="t-title" x="24" y="40">Two kinds of account</text>
+  <text class="t-sm t-muted" x="24" y="68">Recommended model: the Manager makes the final decision</text>
+
+  <!-- left: the person -->
+  <rect class="box" x="24" y="88" width="284" height="324" rx="8"/>
+  <text class="t mid t-bold" x="166" y="114">Your personal account</text>
+  <path class="line-soft" d="M40 134 H292"/>
+  <text class="t-sm mid t-muted" x="166" y="156">Who signs in</text>
+  <text class="t-sm mid" x="166" y="186">You, as yourself</text>
+  <text class="t-sm mid t-muted" x="166" y="220">Used for</text>
+  <text class="t-sm mid" x="166" y="250">All interactive work:</text>
+  <text class="t-sm mid" x="166" y="274">SSMS, DBeaver,</text>
+  <text class="t-sm mid" x="166" y="298">Power BI, Remote Desktop</text>
+  <text class="t-sm mid t-muted" x="166" y="332">Why</text>
+  <g data-cloze="trace">
+    <text class="t mid t-accent" x="166" y="364">Every action is</text>
+    <text class="t mid t-accent" x="166" y="388">traced to you</text>
+  </g>
+
+  <!-- right: no person -->
+  <rect class="box-soft" x="332" y="88" width="284" height="324" rx="8"/>
+  <text class="t mid t-bold" x="474" y="114">The service account</text>
+  <path class="line-soft" d="M348 134 H600"/>
+  <text class="t-sm mid t-muted" x="474" y="156">Who signs in</text>
+  <text class="t-sm mid" x="474" y="186">Nobody, ever</text>
+  <text class="t-sm mid t-muted" x="474" y="220">Used by</text>
+  <g data-cloze="svc">
+    <text class="t-sm mid" x="474" y="250">Only saved, unattended</text>
+    <text class="t-sm mid" x="474" y="274">connections: gateway,</text>
+    <text class="t-sm mid" x="474" y="298">flows, scheduled jobs</text>
+  </g>
+  <text class="t-sm mid t-muted" x="474" y="332">Password</text>
+  <text class="t-sm mid" x="474" y="364">In the vault, held by</text>
+  <text class="t-sm mid" x="474" y="388">the Manager (or IT)</text>
+
+  <!-- the rule that follows -->
+  <rect class="box" x="24" y="424" width="592" height="44" rx="8"/>
+  <text class="t-sm mid t-bold t-navy" x="320" y="446">Never share a login or the service account password</text>
+</svg>
